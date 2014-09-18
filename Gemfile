@@ -40,3 +40,5 @@ gem 'spring',        group: :development
 
 #Add gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'bootstrap-sass', '~> 3.2.0.2'
+
+gem 'rails_12factor', group: :production
