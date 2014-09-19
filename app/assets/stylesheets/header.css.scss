@@ -1,0 +1,19 @@
+body {
+	background: white;
+}
+
+.full_content {
+	background: red;
+	min-height: 150px;
+}
+
+.half_content {
+	background: green;
+	margin-top: 30px;
+	min-height: 150px;
+}
+
+.sidebar_content {
+	background: blue;
+	min-height: 500px;
+}
