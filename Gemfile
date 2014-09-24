@@ -32,6 +32,9 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 # gem 'unicorn'
 
+# Add User auth + role
+ gem 'cancan'
+ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
