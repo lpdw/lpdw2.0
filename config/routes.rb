@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users, :path => '', :path_names => {sign_in: 'login', sign_out:  'logout', sign_up: 'create'}
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
 root 'index#index'
-
+  get 'admin/create_user' => 'admin#create_user'
+  post 'admin/create_user' => 'admin#new'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
