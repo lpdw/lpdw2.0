@@ -11,6 +11,7 @@
 
 <div class="container">
 	<p class="alert"><%= alert %></p>
+	<p class="flash"><%= flash[:error] %></p>
 	<%= render :partial => "partials/header" %>
 	<%= render :partial => "partials/content" %>
 	<%= yield %>
