@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 	#Before any action just authetificate user
-	before_action :is_admin
+	before_action :authenticate_user!, :is_admin
 
 		def create_user
 		@user = User.new
