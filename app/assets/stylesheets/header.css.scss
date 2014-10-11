@@ -1,19 +1,21 @@
-body {
-	background: white;
-}
-
-.full_content {
-	background: red;
-	min-height: 150px;
-}
-
-.half_content {
-	background: green;
-	margin-top: 30px;
-	min-height: 150px;
-}
-
-.sidebar_content {
-	background: blue;
-	min-height: 500px;
+.navbar-lpdw {
+    height: 80px;
+    background: white;
+    text-transform: uppercase;
+    & .navbar-brand {
+        height:auto;
+        color:black;
+        padding-top: 0;
+        padding-bottom: 0;
+        border: 1px solid black;
+        margin-top: 28px;
+    }
+    & .navbar-nav {
+        margin-left: 50px;
+        & > li > a {
+            color: $color-1;
+            padding: 10px 20px 10px 20px;
+            line-height: 60px;
+        }
+    }
 }

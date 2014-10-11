@@ -1,0 +1,89 @@
+.headband-top {
+    position: absolute;
+    height: 200px;
+    top: 80px;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+    color: white;
+    background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
+    background-position-y: 30%;
+    background-size: cover;
+    margin-bottom: 50px;
+    &:before {
+        content: "";
+        background-color: $color-1;
+        opacity: 0.7;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    p {
+        white-space: pre;
+        font-size: 2em;
+        position: relative;
+        z-index: 2;
+        small {
+            font-size: 0.5em;
+        }
+    }
+}
+
+.home-news {
+    position: relative;
+    margin-top: 280px;
+    box-sizing: border-box;
+    article {
+        height: 230px;
+        background: white;
+        margin-bottom: 25px;
+        h3 {
+            color: $color-2;
+            text-transform: uppercase;
+        }
+        p {
+            margin-top: 20px;
+        }
+        .button {
+            position: absolute;
+            font-size: 18px;
+            padding: 15px;
+            right: 0;
+            bottom: 0;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            height: 50px;
+            text-align: center;
+            background: white;
+            color: $color-1;
+            border: 1px solid $color-4;
+            -webkit-user-select: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            span {
+                position: relative;
+                left: 0;
+                transition: all 0.2s;
+            }
+            &:hover span {
+                left: -10px;
+                transition: all 0.2s;
+            }
+            i {
+                position: absolute;
+                left: 85%;
+                top: 40%;
+                opacity: 0;
+                transition: all 0.2s;
+            }
+            &:hover i {
+                left: 88%;
+                opacity: 1;
+                transition: all 0.2s;
+            }
+        }
+    }
+}

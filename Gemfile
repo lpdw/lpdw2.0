@@ -44,4 +44,7 @@ gem 'spring',        group: :development
 #Add gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'bootstrap-sass', '~> 3.2.0.2'
 
+#Add gem 'font-awesome-rails', '~> 4.2.0.0'
+gem 'font-awesome-rails', '~> 4.2.0.0'
+
 gem 'rails_12factor', group: :production

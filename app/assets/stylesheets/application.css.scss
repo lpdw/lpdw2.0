@@ -1,3 +1,20 @@
+@import "fonts";
+@import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+$color-1: #ea483e;
+$color-2: #7b83a1;
+$color-3: #45474e;
+$color-4: #cacaca;
+$color-5: #f0f0f0;
+body{
+    background: $color-5;
+    font-family: "Roboto Condensed Regular", sans-serif;
+}
+*{
+    outline:none;
+}
+
 @import "header";
+@import "home";
+
