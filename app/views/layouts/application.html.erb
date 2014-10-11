@@ -20,10 +20,8 @@
         <%= render :partial => "partials/header" %>
         <p class="alert"><%= alert %></p>
         <p class="flash"><%= flash[:error] %></p>
-        <div class="container">
-            <%= render :partial => "partials/home" %>
-            <%= yield %>
-        </div>
+        <%= render :partial => "partials/home" %>
+        <%= yield %>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </body>
 </html>

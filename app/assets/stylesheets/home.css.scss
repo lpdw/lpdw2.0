@@ -1,7 +1,7 @@
 .headband-top {
-    position: absolute;
+    position: relative;
     height: 200px;
-    top: 80px;
+    top: 29px;
     left: 0;
     right: 0;
     text-transform: uppercase;
@@ -34,8 +34,6 @@
 
 .home-news {
     position: relative;
-    margin-top: 280px;
-    box-sizing: border-box;
     article {
         height: 230px;
         background: white;
@@ -84,6 +82,49 @@
                 opacity: 1;
                 transition: all 0.2s;
             }
+        }
+    }
+    & .more-article {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $color-1;
+    }
+}
+
+.headband-middle {
+    position: relative;
+    height: 200px;
+    top: 50px;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+    color: white;
+    background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
+    background-position-y: 30%;
+    background-size: cover;
+    margin-bottom: 50px;
+    &:before {
+        content: "";
+        background-color: $color-2;
+        opacity: 0.7;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    p {
+        white-space: pre;
+        font-size: 2em;
+        position: relative;
+        line-height: 65px;
+        z-index: 2;
+        strong{
+           font-family: "Roboto Condensed Bold", sans-serif;
         }
     }
 }
