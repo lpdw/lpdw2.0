@@ -22,6 +22,11 @@
         <p class="flash"><%= flash[:error] %></p>
         <%= render :partial => "partials/home" %>
         <%= yield %>
+        <div class="scroll-top" id="scroll-top" >
+            <a id="scroll-link" class="scroll-link" title="Revenir en haut de page">
+                <i class="fa fa-arrow-up scroll-icon"></i>
+            </a>
+        </div>
         <%= render :partial => "partials/footer" %>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </body>

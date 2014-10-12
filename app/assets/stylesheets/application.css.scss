@@ -2,20 +2,47 @@
 @import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 $color-1: #ea483e;
 $color-2: #7b83a1;
 $color-3: #45474e;
 $color-4: #cacaca;
 $color-5: #f0f0f0;
-body{
+
+body {
     background: $color-5;
     font-family: "Roboto Condensed Regular", sans-serif;
 }
-*{
-    outline:none;
+
+* {
+    outline: none;
+}
+
+.scroll-top {
+    height: 40px;
+    padding: 0;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    border: 2px solid black;
+    background: white;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+.scroll-link {
+    margin: 16px;
+    list-style: none;
+    line-height: 35px;
+    text-decoration: initial;
+    text-align: center;
+    font-weight: bold;
+}
+
+.scroll-icon {
+    color:black;
 }
 
 @import "header";
 @import "home";
 @import "footer";
-

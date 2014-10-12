@@ -3,19 +3,23 @@
     background: white;
     text-transform: uppercase;
     & .navbar-brand {
-        height:auto;
-        color:black;
-        padding-top: 0;
-        padding-bottom: 0;
+        font-size: 28px;
+        height: auto;
+        color: black;
+        padding-top: 5px;
+        padding-bottom: 5px;
         border: 1px solid black;
-        margin-top: 28px;
+        margin-top: 20px;
     }
     & .navbar-nav {
         margin-left: 50px;
         & > li > a {
             color: $color-1;
-            padding: 10px 20px 10px 20px;
+            padding: 10px 30px 10px 30px;
             line-height: 60px;
+        }
+        & > li > a:hover {
+            background-color: transparent;
         }
     }
 }

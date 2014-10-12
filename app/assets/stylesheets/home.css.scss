@@ -57,12 +57,11 @@
         .button {
             position: absolute;
             font-size: 18px;
-            padding: 15px;
+            padding: 10px 15px 10px 15px;
             right: 0;
             bottom: 0;
-            margin-bottom: 20px;
-            margin-right: 20px;
-            height: 50px;
+            margin-bottom: 15px;
+            margin-right: 25px;
             text-align: center;
             background: white;
             color: $color-1;
@@ -83,7 +82,7 @@
             i {
                 position: absolute;
                 left: 85%;
-                top: 40%;
+                top: 30%;
                 opacity: 0;
                 transition: all 0.2s;
             }
