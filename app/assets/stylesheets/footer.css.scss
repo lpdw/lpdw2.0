@@ -1,0 +1,10 @@
+.footer {
+    border-top: 2px solid $color-1;
+    padding-top: 10px;
+    background: white;
+    & div {
+        & img {
+            height: 100px;
+        }
+    }
+}

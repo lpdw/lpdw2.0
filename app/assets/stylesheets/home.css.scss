@@ -34,10 +34,19 @@
 
 .home-news {
     position: relative;
+    h1 {
+        text-transform: uppercase;
+    }
     article {
         height: 230px;
-        background: white;
         margin-bottom: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
+        & .article-new{
+             background: white;
+             height:100%;
+             padding:15px;
+        }
         h3 {
             color: $color-2;
             text-transform: uppercase;
@@ -61,6 +70,7 @@
             -webkit-user-select: none;
             cursor: pointer;
             text-transform: uppercase;
+            text-decoration: none;
             span {
                 position: relative;
                 left: 0;
@@ -123,8 +133,108 @@
         position: relative;
         line-height: 65px;
         z-index: 2;
-        strong{
-           font-family: "Roboto Condensed Bold", sans-serif;
+        strong {
+            font-family: "Roboto Condensed Bold", sans-serif;
         }
+    }
+}
+
+.home-faclab {
+    position: relative;
+    margin-top: 50px;
+    h1 {
+        text-transform: uppercase;
+    }
+    article {
+        margin-bottom: 25px;
+        padding: 20px;
+        h3 {
+            color: $color-2;
+            text-transform: uppercase;
+        }
+        img {
+            float: left;
+            border: 3px solid #979797;
+            height: 150px;
+            width: 150px;
+            margin-right: 50px;
+        }
+        p {
+            padding-top: 55px;
+        }
+        .button {
+            position: absolute;
+            font-size: 16px;
+            padding: 15px;
+            padding-top: 0;
+            padding-bottom: 0;
+            right: 0;
+            bottom: 0;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            text-align: center;
+            background: $color-3;
+            color: white;
+            border: 1px solid $color-4;
+            -webkit-user-select: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            text-decoration: none;
+            span {
+                position: relative;
+                left: 0;
+                transition: all 0.2s;
+            }
+            &:hover span {
+                left: -10px;
+                transition: all 0.2s;
+            }
+            i {
+                position: absolute;
+                left: 85%;
+                top: 20%;
+                opacity: 0;
+                transition: all 0.2s;
+            }
+            &:hover i {
+                left: 88%;
+                opacity: 1;
+                transition: all 0.2s;
+            }
+        }
+    }
+}
+
+.white {
+    background: white;
+}
+
+.home-creations {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    article {
+        padding-left: 5px;
+        padding-right: 5px;
+        cursor: pointer;
+        & .article-creation{
+             background: $color-5;
+        }
+    }
+    img {}
+    h4 {
+        color: $color-1;
+    }
+    p {
+        color: $color-2;
+        padding: 10px;
+    }
+
+    & .more-creations {
+        position: absolute;
+        right: 0;
+        bottom: -25px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $color-1;
     }
 }
