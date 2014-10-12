@@ -18,6 +18,10 @@ body {
 * {
     outline: none;
 }
+
+.bg-white{
+    background:white;
+}
 .padding-section
 {
     padding:25px 0px;
@@ -51,7 +55,7 @@ body {
         small {
             font-size: 0.5em;
         }
-    }    
+    }
 }
 .content-title
 {
@@ -85,5 +89,6 @@ body {
 
 @import "header";
 @import "index";
+@import "news";
 @import "venir";
 @import "footer";

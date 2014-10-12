@@ -32,7 +32,7 @@
                     </div>
                 </article>
             </div>
-            <a href="#" class="more-article">Voir tous les articles</a>
+            <%= link_to 'Voir tous les articles', actualites_path() , html_options = {"class" =>"more-article"}%>
         </section>
     </div>
 </div>
@@ -55,7 +55,7 @@
         </section>
     </div>
 </div>
-<div class="white">
+<div class="bg-white">
     <div class="container">
         <div class="row">
             <section class="col-md-10 col-md-offset-1 home-creations">

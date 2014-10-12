@@ -1,6 +1,7 @@
 .headband-top {
     position: relative;
     height: 200px;
+    top: 0;
     left: 0;
     right: 0;
     text-transform: uppercase;
@@ -201,10 +202,6 @@
             }
         }
     }
-}
-
-.white {
-    background: white;
 }
 
 .home-creations {
