@@ -10,7 +10,7 @@ root 'index#index'
   get 'admin/create_user' => 'admin#create_user'
   post 'admin/create_user' => 'admin#new'
   get 'venir' => 'venir'
-  get 'accueil' => 'index#home'
+  get 'accueil' => 'index#index'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
