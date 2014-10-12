@@ -1,3 +1,238 @@
-// Place all the styles related to the index controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.headband-top {
+    position: relative;
+    height: 200px;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+    color: white;
+    background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
+    background-position-y: 30%;
+    background-size: cover;
+    margin-bottom: 50px;
+    &:before {
+        content: "";
+        background-color: $color-1;
+        opacity: 0.7;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    p {
+        white-space: pre;
+        font-size: 2em;
+        position: relative;
+        z-index: 2;
+        small {
+            font-size: 0.5em;
+        }
+    }
+}
+
+.home-news {
+    position: relative;
+    h1 {
+        text-transform: uppercase;
+    }
+    article {
+        height: 230px;
+        margin-bottom: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
+        & .article-new{
+             background: white;
+             height:100%;
+             padding:15px;
+        }
+        h3 {
+            color: $color-2;
+            text-transform: uppercase;
+        }
+        p {
+            margin-top: 20px;
+        }
+        .button {
+            position: absolute;
+            font-size: 18px;
+            padding: 10px 15px 10px 15px;
+            right: 0;
+            bottom: 0;
+            margin-bottom: 15px;
+            margin-right: 25px;
+            text-align: center;
+            background: white;
+            color: $color-1;
+            border: 1px solid $color-4;
+            -webkit-user-select: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            text-decoration: none;
+            span {
+                position: relative;
+                left: 0;
+                transition: all 0.2s;
+            }
+            &:hover span {
+                left: -10px;
+                transition: all 0.2s;
+            }
+            i {
+                position: absolute;
+                left: 85%;
+                top: 30%;
+                opacity: 0;
+                transition: all 0.2s;
+            }
+            &:hover i {
+                left: 88%;
+                opacity: 1;
+                transition: all 0.2s;
+            }
+        }
+    }
+    & .more-article {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $color-1;
+    }
+}
+
+.headband-middle {
+    position: relative;
+    height: 200px;
+    top: 50px;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+    color: white;
+    background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
+    background-position-y: 30%;
+    background-size: cover;
+    margin-bottom: 50px;
+    &:before {
+        content: "";
+        background-color: $color-2;
+        opacity: 0.7;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    p {
+        white-space: pre;
+        font-size: 2em;
+        position: relative;
+        line-height: 65px;
+        z-index: 2;
+        strong {
+            font-family: "Roboto Condensed Bold", sans-serif;
+        }
+    }
+}
+
+.home-faclab {
+    position: relative;
+    margin-top: 50px;
+    h1 {
+        text-transform: uppercase;
+    }
+    article {
+        margin-bottom: 25px;
+        padding: 20px;
+        h3 {
+            color: $color-2;
+            text-transform: uppercase;
+        }
+        img {
+            float: left;
+            border: 3px solid #979797;
+            height: 150px;
+            width: 150px;
+            margin-right: 50px;
+        }
+        p {
+            padding-top: 55px;
+        }
+        .button {
+            position: absolute;
+            font-size: 16px;
+            padding: 15px;
+            padding-top: 0;
+            padding-bottom: 0;
+            right: 0;
+            bottom: 0;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            text-align: center;
+            background: $color-3;
+            color: white;
+            border: 1px solid $color-4;
+            -webkit-user-select: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            text-decoration: none;
+            span {
+                position: relative;
+                left: 0;
+                transition: all 0.2s;
+            }
+            &:hover span {
+                left: -10px;
+                transition: all 0.2s;
+            }
+            i {
+                position: absolute;
+                left: 85%;
+                top: 20%;
+                opacity: 0;
+                transition: all 0.2s;
+            }
+            &:hover i {
+                left: 88%;
+                opacity: 1;
+                transition: all 0.2s;
+            }
+        }
+    }
+}
+
+.white {
+    background: white;
+}
+
+.home-creations {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    article {
+        padding-left: 5px;
+        padding-right: 5px;
+        cursor: pointer;
+        & .article-creation{
+             background: $color-5;
+        }
+    }
+    img {}
+    h4 {
+        color: $color-1;
+    }
+    p {
+        color: $color-2;
+        padding: 10px;
+    }
+
+    & .more-creations {
+        position: absolute;
+        right: 0;
+        bottom: -25px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $color-1;
+    }
+}
