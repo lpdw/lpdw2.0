@@ -1,15 +1,31 @@
 Rails.application.routes.draw do
+
+
   devise_for :users, :path => '', :path_names => {sign_in: 'login', sign_out:  'logout', sign_up: 'create'}
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
 root 'index#index'
+
   get 'admin/create_user' => 'admin#create_user'
   post 'admin/create_user' => 'admin#new'
-  get 'actualites' => 'news#news'
-  get 'actualites/:id' => 'news#new'
-  get 'venir' => 'venir'
+
+  get '/', :to => 'pages#home'
+  get '/actualite', :to => 'pages#news'
+  get '/la_formation', :to => 'pages#training'
+  get '/equipe_pedagogique', :to => 'pages#team'
+  get '/projets_etudiants', :to => 'pages#work'
+  get '/postuler', :to => 'pages#apply'
+  get '/contactez_nous', :to => 'pages#contact'
+  get '/venir_a_la_fac', :to => 'pages#directions'
+
+  #get 'actualites' => 'news#news'
+  #get 'actualites/:id' => 'news#new'
+  #get 'venir' => 'venir'
+
+
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
