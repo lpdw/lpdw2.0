@@ -9,7 +9,7 @@
     background-size: cover;
     &:before {
         content: "";
-        background-color: $color-3;
+        background-color: black;
         opacity: 0.7;
         top: 0;
         left: 0;
@@ -19,20 +19,19 @@
         z-index: 1;
     }
     div {
-    	 vertical-align:middle;
+        background:red;
+        height:100%;
 
     }
     div p {
-        white-space: pre;
-        font-size: 2em;
+
+        display: block;
+        font-size: 1.5em;
         position: relative;
         z-index: 2;
 
         small {
-            font-size: 0.5em;
+            font-size: 1em;
         }
     }
-}
-.white-back{
-	background:white;
 }

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 root 'index#index'
   get 'admin/create_user' => 'admin#create_user'
   post 'admin/create_user' => 'admin#new'
+  get 'actualites' => 'news#news'
+  get 'actualites/:id' => 'news#new'
+  get 'venir' => 'venir'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
