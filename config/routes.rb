@@ -6,19 +6,23 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-root 'index#index'
+root 'pages#home'
 
   get 'admin/create_user' => 'admin#create_user'
   post 'admin/create_user' => 'admin#new'
 
   get '/', :to => 'pages#home'
-  get '/actualite', :to => 'pages#news'
-  get '/la_formation', :to => 'pages#training'
-  get '/equipe_pedagogique', :to => 'pages#team'
-  get '/projets_etudiants', :to => 'pages#work'
+  get '/actualites', :to => 'pages#news'
+  get '/actualites/:id' => 'pages#new'
+  get '/formation', :to => 'pages#training'
+  get '/projets-etudiants', :to => 'pages#work'
+  get '/equipe', :to => 'pages#team'
+  get '/ucp', :to => 'pages#ucp'
+  get '/venir', :to => 'pages#directions'
+
   get '/postuler', :to => 'pages#apply'
-  get '/contactez_nous', :to => 'pages#contact'
-  get '/venir_a_la_fac', :to => 'pages#directions'
+  get '/contactez-nous', :to => 'pages#contact'
+
 
   #get 'actualites' => 'news#news'
   #get 'actualites/:id' => 'news#new'
