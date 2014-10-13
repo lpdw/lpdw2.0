@@ -3,21 +3,65 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$color-1: #ea483e;
-$color-2: #7b83a1;
-$color-3: #45474e;
-$color-4: #cacaca;
-$color-5: #f0f0f0;
+$color-1: #ea483e; /* rouge */
+$color-2: #7b83a1; /* bleu */
+$color-3: #45474e; /* noir */
+$color-4: #cacaca; /* opacité réduite */
+$color-5: #f0f0f0;  /* opacité réduite */
 
 body {
     background: $color-5;
     font-family: "Roboto Condensed Regular", sans-serif;
+    padding-top:80px;
 }
 
 * {
     outline: none;
 }
 
+.bg-white{
+    background:white;
+}
+.padding-section
+{
+    padding:25px 0px;
+}
+.section-top {
+    position: relative;
+    height: 200px;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+    color: white;
+    background: url("/assets/ESSEC_campus_cergy.jpg") no-repeat center center;
+    background-size: cover;
+    margin-bottom:0px;
+    &:before {
+        content: "";
+        background-color: $color-2;
+        opacity: 0.7;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    p {
+        vertical-align: middle;
+        font-size: 5em;
+        position: relative;
+        z-index: 2;
+        small {
+            font-size: 0.5em;
+        }
+    }
+}
+.content-title
+{
+    color: #ea483e;
+    text-transform: uppercase;
+}
 .scroll-top {
     height: 40px;
     padding: 0;
@@ -44,5 +88,7 @@ body {
 }
 
 @import "header";
-@import "home";
+@import "index";
+@import "news";
+@import "venir";
 @import "footer";

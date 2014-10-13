@@ -1,0 +1,137 @@
+// Place all the styles related to the news controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.headband-top-news {
+    background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
+    background-position-y: 30%;
+    background-size: cover;
+    margin-bottom: 0;
+    &:before {
+        background-color: $color-2;
+    }
+    p {
+        white-space: pre;
+         font-size: 5em;
+         line-height: 60px;
+        position: relative;
+        z-index: 2;
+        small {
+            font-size: 0.5em;
+        }
+    }
+}
+
+.timeline-news {
+    margin: 10em auto;
+    position: relative;
+    max-width: 46em;
+    &:before {
+        background-color: $color-3;
+        content: '';
+        margin-left: -4px;
+        position: absolute;
+        top: 10px;
+        left: 2.5em;
+        width: 2px;
+        height: 100%;
+    }
+    .view-more {
+        position: relative;
+        color: black;
+        text-transform: uppercase;
+        text-decoration: none;
+        left: 1.5em;
+        top: 5em;
+        padding: 2em 2em 2em 2em;
+        &:before {
+            content: "";
+            @include transition(transform 0.2s ease-in);
+            @include rotate(45deg);
+            background-color: $color-1;
+            display: block;
+            margin: 2em 1em 1em 0em;
+            position: absolute;
+            top: 0;
+            width: 1.5em;
+            height: 1.5em;
+        }
+    }
+}
+
+.timeline-new {
+    position: relative;
+    &:hover {
+        .timeline-new-icon {
+            @include rotate(-45deg);
+            background-color: $color-2;
+        }
+    }
+}
+
+.timeline-new-contents {
+    padding: 2em;
+    position: relative;
+    top: -2.5em;
+    left: 1.5em;
+    margin-bottom: 3em;
+    .button {
+        position: absolute;
+        font-size: 18px;
+        padding: 10px 15px 10px 15px;
+        right: 0;
+        bottom: 0;
+        margin-bottom: -40px;
+        margin-right: 25px;
+        text-align: center;
+        background: white;
+        color: $color-1;
+        border: 1px solid $color-4;
+        -webkit-user-select: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        text-decoration: none;
+        span {
+            position: relative;
+            left: 0;
+            transition: all 0.2s;
+        }
+        &:hover span {
+            left: -10px;
+            transition: all 0.2s;
+        }
+        i {
+            position: absolute;
+            left: 85%;
+            top: 30%;
+            opacity: 0;
+            transition: all 0.2s;
+        }
+        &:hover i {
+            left: 88%;
+            opacity: 1;
+            transition: all 0.2s;
+        }
+    }
+}
+
+.timeline-new-info {
+    white-space: pre-line;
+    strong {
+        font-family: "Roboto Condensed Bold", sans-serif;
+        text-transform: uppercase;
+    }
+}
+
+.timeline-new-icon {
+    @include transition(transform 0.2s ease-in);
+    @include rotate(45deg);
+    background-color: $color-3;
+    outline: 10px solid white;
+    display: block;
+    margin: 1em 1em 1em -1em;
+    position: absolute;
+    top: 0;
+    left: 2.55em;
+    width: 1.5em;
+    height: 1.5em;
+}
