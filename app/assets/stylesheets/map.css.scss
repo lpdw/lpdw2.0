@@ -1,3 +1,22 @@
+.headband-top-venir {
+    background: url("/assets/6931240265_9fb7573673_b.jpg") no-repeat center center;
+    background-position-y: 60%;
+    background-size: cover;
+    margin-bottom: 0;
+    &:before {
+        background-color: $color-2;
+    }
+    p {
+        white-space: pre;
+         font-size: 5em;
+         line-height: 60px;
+        position: relative;
+        z-index: 2;
+        small {
+            font-size: 0.5em;
+        }
+    }
+}
 .map {
     position: relative;
     height: 350px;
