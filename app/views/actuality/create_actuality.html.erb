@@ -1,0 +1,13 @@
+<%= render 'layouts/admin' %>
+
+  	<h2>Ajout d'actualité/h2>
+
+<%= form_for :actuality do |f| %>
+
+  <div><%= f.label :title %><br />
+  <%= f.title_field :title, autofocus: true , :class => 'form-control' %></div>
+  <div><%= f.label :content %><br />
+  <%= f.content_field :content, :class => 'form-control' %></div>
+
+  <div><%= f.submit "Creer actualité", :class => 'btn btn-default' %></div>
+<% end %>

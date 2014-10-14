@@ -11,6 +11,9 @@ root 'pages#home'
   get 'admin/create_user' => 'admin#create_user'
   post 'admin/create_user' => 'admin#new'
 
+  get 'admin/create_actuality' => 'actuality#create_actuality'
+  post 'admin/create_actuality' => 'actuality#new'
+
   get '/', :to => 'pages#home'
   get '/actualites', :to => 'pages#news'
   get '/actualites/:id' => 'pages#new'
