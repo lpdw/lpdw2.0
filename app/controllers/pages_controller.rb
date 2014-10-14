@@ -9,10 +9,10 @@ class PagesController < ApplicationController
   def new
   end
   #La formation
-  def training
+  def formation
   end
   #Projets étudiants
-  def work
+  def project
   end
   #L'équipe
   def team
@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   def ucp
   end
   #Venir à la fac
-  def directions
+  def map
   end
   #Postuler
   def apply
