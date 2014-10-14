@@ -2,7 +2,7 @@ class AdminController < ApplicationController
 	#Before any action just authetificate user
 	before_action :authenticate_user!, :is_admin
 
-		def create_user
+	def create_user
 		@user = User.new
 	end
 
@@ -16,6 +16,10 @@ class AdminController < ApplicationController
       flash[:error] = "You must be admin to access this section"
       redirect_to root_path # halts request cycle
     end
+  end
+
+  def create_new
+    @actuality = Actuality.new
   end
 
 end
