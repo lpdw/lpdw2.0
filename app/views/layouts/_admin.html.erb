@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lpdw - 2.0</title>
+        <title>Lpdw - 2.0 Admin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tags %>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,49 +16,24 @@
         <![endif]-->
     </head>
     <body>
-        <p class="flash"><%= flash[:error] %></p>
-        <%= yield %>
-        <span class='bckg'></span>
-<header>
-  <h1>
-    Dashboard
-  </h1>
-  <nav>
-    <ul>
-      <li>
-        <a>Projects</a>
-      </li>
-      <li>
-        <a>Team</a>
-      </li>
-      <li>
-        <a>Diary</a>
-      </li>
-      <li>
-        <a>Timeline</a>
-      </li>
-      <li>
-        <a>Settings</a>
-      </li>
-      <li>
-        <a>Search</a>
-      </li>
-    </ul>
-  </nav>
-</header>
-<main>
-  <div class='title'>
-    <h2>Projects</h2>
-    <a href='#' title='Profil'>
-      Hello <%= current_user.email %>
-    </a>
-  </div>
-  <article class='larg'>
-    <div>
-      <%= yield %>
-    </div>
-  </article>
-</main>
+        <%= render :partial => "partials/admin_header" %>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Diary</a></li>
+                        <li><a href="#">Timeline</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-10 col-md-offset-2 main">
+                    <%= yield %>
+                </div>
+            </div>
+        </div>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     </body>
 </html>
-
