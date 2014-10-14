@@ -19,7 +19,7 @@
     color: white;
     background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
     background-position-y: 30%;
-    background-size: cover;
+    background-size: 100%;
     &:before {
         content: "";
         background-color: $color-1;
@@ -30,6 +30,8 @@
         right: 0;
         position: absolute;
         z-index: 1;
+        -webkit-transition: opacity .1s ease-in-out;
+        transition: opacity .1s ease-in-out;
     }
     p {
         white-space: pre;
@@ -68,5 +70,23 @@
 .banner-blue {
     &:before {
         background-color: $color-2;
+    }
+}
+
+.banner-link {
+    a {
+        color: white;
+        text-decoration: none;
+        z-index: 2;
+        display: block;
+        line-height: 200px;
+        position: relative;
+        white-space: initial;
+        font-size: 28px;
+    }
+    &:hover {
+        &:before {
+            opacity: .9;
+        }
     }
 }
