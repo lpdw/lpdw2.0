@@ -1,0 +1,45 @@
+.headband-top-team {
+    background: url("/assets/background-2.jpeg") no-repeat center center;
+    background-position-y: 30%;
+    background-size: cover;
+    margin-bottom: 0;
+    font-family: "Roboto Condensed Light", sans-serif;
+    p {
+        white-space: pre;
+         font-size: 100px;
+         line-height: 200px;
+        position: relative;
+        z-index: 2;
+        small {
+            font-size: 0.5em;
+        }
+    }
+}
+
+.team-profiles {
+	padding: 80px 0;
+
+	.col-md-3 {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.team-profile {
+	border: 1px solid $color-5;
+	margin: 0 -1px -1px 0;
+	padding: 30px 10px;
+	min-height: 400px;
+	figure {
+		display: block;
+		margin: auto;
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	h4 {
+		margin-top: 20px;
+	}
+}
