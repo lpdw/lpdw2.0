@@ -1,0 +1,72 @@
+/**
+*
+* Banner
+*
+* LPDW website's makeover
+*
+* LPDW 2014
+* @author Antoine Grelard
+* @author Alain Cajuste
+* @author Ivan Daum
+*
+**/
+
+.banner {
+    position: relative;
+    height: 200px;
+    font-family: "Roboto Condensed Light", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
+    background-position-y: 30%;
+    background-size: cover;
+    &:before {
+        content: "";
+        background-color: $color-1;
+        opacity: 0.7;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    p {
+        white-space: pre;
+        font-size: 100px;
+        line-height: 200px;
+        position: relative;
+        z-index: 2;
+    }
+    span {
+        font-family: "Roboto Condensed Bold", sans-serif;
+    }
+}
+
+.banner-team {
+    background: url("/assets/background-2.jpeg") no-repeat center center;
+}
+
+.banner-news {
+    background: url("/assets/background-3.jpg") no-repeat center center;
+}
+
+.banner-directions {
+    background: url("/assets/ESSEC_campus_cergy.jpg") no-repeat center center;
+}
+
+.banner-detailed {
+    p {
+        font-size: 28px;
+        line-height: initial;
+        small {
+            font-size: 12px;
+        }
+    }
+}
+
+.banner-blue {
+    &:before {
+        background-color: $color-2;
+    }
+}
