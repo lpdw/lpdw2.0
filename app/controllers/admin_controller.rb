@@ -18,8 +18,6 @@ class AdminController < ApplicationController
     end
   end
 
-  def create_new
-    @actuality = Actuality.new
-  end
+  
 
 end
