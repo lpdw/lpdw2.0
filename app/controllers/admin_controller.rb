@@ -32,24 +32,4 @@ class AdminController < ApplicationController
   end
  
 
-# projects Controllers
-  def new_projects
-    @Projects = Projects.new
-  end
-
-  def create_projects
-    @Projects = Projects.new(params[:projects].permit(:name))
-  end
-
-  def delete_projects
-    @Projects = projects.find()
-    @Projects.destroy
-  end
-
-  def  update_projects
-    @Projects = projects.find()
-    
-    @Projects.save
-  end
-
 end
