@@ -24,12 +24,6 @@ class AdminController < ApplicationController
     @actuality = Actuality.new
   end
 
-<<<<<<< HEAD
-def new_actuality
-  @actuality = Actuality.new(params[:actuality].permit(:title, :content, :author))
-end
-  
-=======
   def new_actuality
     @actuality = Actuality.new(params[:actuality].permit(:title, :content))
   end
@@ -53,6 +47,5 @@ end
     
     @Projects.save
   end
->>>>>>> 078fc2ff5dc537e346eaace0bb356838c85c68b4
 
 end
