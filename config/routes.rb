@@ -18,6 +18,10 @@ root 'pages#home'
   get 'admin/create_actuality' => 'admin#create_actuality'
   post 'admin/create_actuality' => 'admin#new_actuality'
 
+  get 'admin/create_projects' => 'admin#create_projects'
+  post 'admin/create_projects' => 'admin#new_projects'
+
+
   get '/', :to => 'pages#home'
   get '/actualites', :to => 'pages#news'
   get '/actualites/:id' => 'pages#new'

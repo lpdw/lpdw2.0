@@ -16,54 +16,10 @@
         <![endif]-->
     </head>
     <body>
-<<<<<<< HEAD
-        <p class="flash"><%= flash[:error] %></p>
-        <%= yield %>
-        <span class='bckg'></span>
-<header>
-  <h1>
-    Dashboard
-  </h1>
-  <nav>
-    <ul>
-      <li>
-        <a>Projects</a>
-      </li>
-      <li>
-        <a>Team</a>
-      </li>
-      <li>
-        <a>Diary</a>
-      </li>
-      <li>
-        <a>Timeline</a>
-      </li>
-      <li>
-        <a>Settings</a>
-      </li>
-      <li>
-        <a>Search</a>
-      </li>
-    </ul>
-  </nav>
-</header>
-<main>
-  <div class='title'>
-    <h2>Projects</h2>
-    <a href='#' title='Profil'>
-      Hello <%= @current_user.email %>
-    </a>
-  </div>
-  <article class='larg'>
-    <div>
-      <%= yield %>
-    </div>
-  </article>
-</main>
-=======
         <%= render :partial => "partials/admin_header" %>
         <div class="container-fluid">
             <div class="row">
+            <% if user_signed_in? %>
                 <div class="col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li><a href="#">Projects</a></li>
@@ -74,12 +30,12 @@
                         <li><a href="#">Search</a></li>
                     </ul>
                 </div>
+                <% end %>
                 <div class="col-md-10 col-md-offset-2 main">
                     <%= yield %>
                 </div>
             </div>
         </div>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
->>>>>>> 9d0373627b5afb7c9fcbbbb235c1f06f0028b479
     </body>
 </html>
