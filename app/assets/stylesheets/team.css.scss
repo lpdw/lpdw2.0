@@ -8,10 +8,11 @@
 }
 
 .team-profile {
-	border: 1px solid $color-5;
+	border: 1px solid $color-4;
 	margin: 0 -1px -1px 0;
 	padding: 30px 10px;
 	min-height: 400px;
+	position: relative;
 	figure {
 		display: block;
 		margin: auto;
@@ -23,5 +24,21 @@
 
 	h4 {
 		margin-top: 20px;
+	}
+
+	.social_section {
+		padding: 0;
+		position: absolute;
+		width: 100%;
+		bottom: 15px;
+		left: 0;
+		font-size: 16px;
+		li {
+			display: inline-block;
+			padding: 10px;
+			a {
+				color: $color-2;
+			}
+		}
 	}
 }

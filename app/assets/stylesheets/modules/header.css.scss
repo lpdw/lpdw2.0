@@ -22,5 +22,17 @@
         & > li > a:hover {
             background-color: transparent;
         }
+
+        & > .right-navbar {
+            position:absolute;
+            right:0px;
+        }
+        & > .right-navbar > a {
+            color:white;
+            background:$color-1;
+         }
+        & > .right-navbar > a:hover {
+            background:$color-2;
+         }
     }
 }

@@ -26,7 +26,8 @@ root 'pages#home'
   get '/projets', :to => 'pages#project'
   get '/equipe', :to => 'pages#team'
   get '/ucp', :to => 'pages#ucp'
-  get '/venir', :to => 'pages#map'
+  get '/informations', :to => 'pages#map'
+
   get '/postuler', :to => 'pages#apply'
   get '/contactez-nous', :to => 'pages#contact'
 

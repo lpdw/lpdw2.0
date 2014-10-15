@@ -34,16 +34,17 @@
 div .address {
     top:0px;
     bottom:0px;
-    margin-top:25px;
     width:100%;
     padding:25px 0px;
     display: block;
     font-size: 3em;
-    line-height: 25px;
+    line-height: 20px;
     z-index: 2;
+
 
     small{
         font-style: italic;
         font-size: 20px;
+        margin-top:0px;
     }
 }
