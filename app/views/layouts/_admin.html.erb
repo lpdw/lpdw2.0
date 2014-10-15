@@ -19,6 +19,7 @@
         <%= render :partial => "partials/admin_header" %>
         <div class="container-fluid">
             <div class="row">
+            <% if user_signed_in? %>
                 <div class="col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li><a href="#">Projects</a></li>
@@ -29,6 +30,7 @@
                         <li><a href="#">Search</a></li>
                     </ul>
                 </div>
+                <% end %>
                 <div class="col-md-10 col-md-offset-2 main">
                     <%= yield %>
                 </div>
