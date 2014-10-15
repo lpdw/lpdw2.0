@@ -2,6 +2,7 @@ class AdminController < ApplicationController
 	#Before any action just authetificate user
 	before_action :authenticate_user!, :is_admin
 
+#user Controller
 	def create_user
 		@user = User.new
 	end
@@ -18,13 +19,40 @@ class AdminController < ApplicationController
     end
   end
 
-def create_actuality
-  @actuality = Actuality.new
-end
+# actuality Controller
+  def create_actuality
+    @actuality = Actuality.new
+  end
 
+<<<<<<< HEAD
 def new_actuality
   @actuality = Actuality.new(params[:actuality].permit(:title, :content, :author))
 end
   
+=======
+  def new_actuality
+    @actuality = Actuality.new(params[:actuality].permit(:title, :content))
+  end
+ 
+# projects Controllers
+  def new_projects
+    @Projects = Projects.new
+  end
+
+  def create_projects
+    @Projects = Projects.new(params[:projects].permit(:name))
+  end
+
+  def delete_aprojects
+    @Projects = projects.find()
+    @Projects.destroy
+  end
+
+  def  update_projects
+    @Projects = projects.find()
+    
+    @Projects.save
+  end
+>>>>>>> 078fc2ff5dc537e346eaace0bb356838c85c68b4
 
 end
