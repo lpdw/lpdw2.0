@@ -1,0 +1,10 @@
+<h2>Ajout d'actualité</h2>
+
+<%= form_for @actuality, url:  admin_create_actuality_path do |f| %>
+<div><%= f.label :title %><br />
+<%= f.text_field :title, autofocus: true , :class => 'form-control' %></div>
+<div><%= f.label :content %><br />
+<%= f.text_area :content, autofocus: true , :class => 'form-control' %></div>
+<div><%= f.submit "Creer actualité", :class => 'btn btn-default' %></div>
+<%= hidden_field :author , current_user.email %>
+<% end%>
