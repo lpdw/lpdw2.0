@@ -23,7 +23,7 @@ def create_actuality
 end
 
 def new_actuality
-  @actuality = Actuality.new(params[:actuality].permit(:title, :content))
+  @actuality = Actuality.new(params[:actuality].permit(:title, :content, :author))
 end
   
 

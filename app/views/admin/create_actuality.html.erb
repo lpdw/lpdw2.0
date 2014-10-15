@@ -6,4 +6,5 @@
 <div><%= f.label :content %><br />
 <%= f.text_area :content, autofocus: true , :class => 'form-control' %></div>
 <div><%= f.submit "Creer actualité", :class => 'btn btn-default' %></div>
+<%= hidden_field :author , current_user.email %>
 <% end%>
