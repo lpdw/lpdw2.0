@@ -1,5 +1,5 @@
 <h2>Ajout d'actualité</h2>
-<%= @actuality.inspect %>
+
 <%= form_for @actuality, url:  admin_create_actuality_path do |f| %>
 <div><%= f.label :title %><br />
 <%= f.text_field :title, autofocus: true , :class => 'form-control' %></div>

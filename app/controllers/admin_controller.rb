@@ -18,6 +18,13 @@ class AdminController < ApplicationController
     end
   end
 
+def create_actuality
+  @actuality = Actuality.new
+end
+
+def new_actuality
+  @actuality = Actuality.new(params[:actuality].permit(:title, :content))
+end
   
 
 end
