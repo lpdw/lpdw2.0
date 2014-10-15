@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'projects/new'
+
   devise_for :users, :path => '', :path_names => {sign_in: 'login', sign_out:  'logout', sign_up: 'create'}
 
   # The priority is based upon order of creation: first created -> highest priority.
