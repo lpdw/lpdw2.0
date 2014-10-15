@@ -19,7 +19,7 @@
     color: white;
     background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
     background-position-y: 30%;
-    background-size: 100%;
+    background-size: cover;
     &:before {
         content: "";
         background-color: $color-1;
@@ -47,14 +47,17 @@
 
 .banner-team {
     background: url("/assets/background-2.jpeg") no-repeat center center;
+    background-size: cover;
 }
 
 .banner-news {
     background: url("/assets/background-3.jpg") no-repeat center center;
+    background-size: cover;
 }
 
 .banner-directions {
     background: url("/assets/ESSEC_campus_cergy.jpg") no-repeat center center;
+    background-size: cover;
 }
 
 .banner-detailed {
