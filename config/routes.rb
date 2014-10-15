@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 
 root 'pages#home'
 
-
-
   get 'admin/create_user' => 'admin#create_user'
   post 'admin/create_user' => 'admin#new'
 
