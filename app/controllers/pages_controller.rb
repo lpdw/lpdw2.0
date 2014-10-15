@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   #Accueil
   def home
+     flash[:error] = "You must be admin to access this section"
   end
   #Actualités
   def news
