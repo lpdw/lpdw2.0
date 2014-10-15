@@ -1,37 +1,3 @@
-.headband-top {
-    position: relative;
-    height: 200px;
-    top: 0;
-    left: 0;
-    right: 0;
-    text-transform: uppercase;
-    color: white;
-    background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
-    background-position-y: 30%;
-    background-size: cover;
-    margin-bottom: 50px;
-    &:before {
-        content: "";
-        background-color: $color-1;
-        opacity: 0.7;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        position: absolute;
-        z-index: 1;
-    }
-    p {
-        white-space: pre;
-        font-size: 2em;
-        position: relative;
-        z-index: 2;
-        small {
-            font-size: 0.5em;
-        }
-    }
-}
-
 .home-news {
     position: relative;
     h1 {
@@ -46,9 +12,11 @@
              background: white;
              height:100%;
              padding:15px;
+             border-bottom: 2px solid #D5D5D5;
         }
         h3 {
             color: $color-2;
+            margin-top: 0;
             text-transform: uppercase;
         }
         p {
@@ -56,12 +24,14 @@
         }
         .button {
             position: absolute;
-            font-size: 18px;
-            padding: 10px 15px 10px 15px;
             right: 0;
             bottom: 0;
-            margin-bottom: 15px;
             margin-right: 25px;
+            margin-bottom: 15px;
+            display: block;
+            width: 140px;
+            font-size: 18px;
+            padding: 10px 15px 10px 15px;
             text-align: center;
             background: white;
             color: $color-1;
@@ -94,47 +64,10 @@
         }
     }
     & .more-article {
-        position: absolute;
-        right: 0;
-        bottom: 0;
+        float: right;
         text-transform: uppercase;
         text-decoration: none;
         color: $color-1;
-    }
-}
-
-.headband-middle {
-    position: relative;
-    height: 200px;
-    top: 50px;
-    left: 0;
-    right: 0;
-    text-transform: uppercase;
-    color: white;
-    background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
-    background-position-y: 30%;
-    background-size: cover;
-    margin-bottom: 50px;
-    &:before {
-        content: "";
-        background-color: $color-2;
-        opacity: 0.7;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        position: absolute;
-        z-index: 1;
-    }
-    p {
-        white-space: pre;
-        font-size: 2em;
-        position: relative;
-        line-height: 65px;
-        z-index: 2;
-        strong {
-            font-family: "Roboto Condensed Bold", sans-serif;
-        }
     }
 }
 

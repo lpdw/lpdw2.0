@@ -1,0 +1,27 @@
+.team-profiles {
+	padding: 80px 0;
+
+	.col-md-3 {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.team-profile {
+	border: 1px solid $color-5;
+	margin: 0 -1px -1px 0;
+	padding: 30px 10px;
+	min-height: 400px;
+	figure {
+		display: block;
+		margin: auto;
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	h4 {
+		margin-top: 20px;
+	}
+}
