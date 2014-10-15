@@ -23,7 +23,7 @@ class AdminController < ApplicationController
 
 
 # actuality Controller
-  before_action :get_this,only: [:edit_actuality,:delete_actuality]
+  before_action :get_this,only: [:edit_actuality,:update_actuality,:delete_actuality]
   def get_this
     @this = Actuality.find(params[:id])  
   end
