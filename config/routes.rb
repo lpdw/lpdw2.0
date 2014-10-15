@@ -10,16 +10,11 @@ Rails.application.routes.draw do
 
 root 'pages#home'
 
-
-
   get 'admin/create_user' => 'admin#create_user'
   post 'admin/create_user' => 'admin#new'
 
   get 'admin/create_actuality' => 'admin#create_actuality'
   post 'admin/create_actuality' => 'admin#new_actuality'
-
-  get 'admin/create_projects' => 'admin#create_projects'
-  post 'admin/create_projects' => 'admin#new_projects'
 
 
   get '/', :to => 'pages#home'
@@ -29,7 +24,8 @@ root 'pages#home'
   get '/projets', :to => 'pages#project'
   get '/equipe', :to => 'pages#team'
   get '/ucp', :to => 'pages#ucp'
-  get '/venir', :to => 'pages#map'
+  get '/informations', :to => 'pages#map'
+
   get '/postuler', :to => 'pages#apply'
   get '/contactez-nous', :to => 'pages#contact'
 
