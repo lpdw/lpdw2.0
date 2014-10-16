@@ -7,6 +7,9 @@ class AdminController < ApplicationController
 	def create_user
 		@user = User.new
 	end
+      def index
+
+      end
 
 	def new
 		@user = User.new(params[:user].permit(:email, :password, :password_confirmation, :role))
@@ -25,7 +28,7 @@ class AdminController < ApplicationController
 # actuality Controller
   before_action :get_this,only: [:edit_actuality,:update_actuality,:delete_actuality]
   def get_this
-    @this = Actuality.find(params[:id])  
+    @this = Actuality.find(params[:id])
   end
 
   def create_actuality
@@ -35,9 +38,9 @@ class AdminController < ApplicationController
   def new_actuality
     @actuality = Actuality.new(params[:actuality].permit(:title, :content, :author))
   end
-  
+
   def edit_actuality
-     
+
   end
   def delete_actuality
     @this.destroy

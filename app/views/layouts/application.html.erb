@@ -20,6 +20,16 @@
         <%= render :partial => "partials/header" %>
         <!-- <p class="alert"><%= alert %></p> -->
         <!-- <p class="flash"><%= flash[:error] %></p> -->
+        <!-- <% flash.each do |type, message| %>
+        <div class="flash">
+            <p class="alerte alerte-<%= type %>">
+            <%= message %>
+            <button class="close-alerte">
+            <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            </p>
+        </div>
+        <% end %> -->
         <%= yield %>
         <div class="scroll-top hidden-xs" id="scroll-top" >
             <a id="scroll-link" class="scroll-link" title="Revenir en haut de page">
@@ -31,9 +41,9 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <script src="assets/grid.js"></script>
         <script>
-            $(function() {
-                Grid.init();
-            });
+        $(function() {
+        Grid.init();
+        });
         </script>
     </body>
 </html>

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   layout :layout_by_resource
-after_filter :set_access_control_headers
+  after_filter :set_access_control_headers
 
   protected
 
@@ -13,11 +13,11 @@ after_filter :set_access_control_headers
     else
       "application"
     end
-
   end
 
    def set_access_control_headers
      headers['Access-Control-Allow-Origin'] = '*'
      headers['Access-Control-Request-Method'] = '*'
    end
+
  end

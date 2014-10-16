@@ -3,13 +3,21 @@ Rails.application.routes.draw do
 
   get 'projects/new'
 
-  devise_for :users, :path => '', :path_names => {sign_in: 'login', sign_out:  'logout', sign_up: 'create'}
+  #devise_for :users, :path => '', :path_names => {sign_in: 'admin/login', sign_out:  'logout', sign_up: 'create'}
+
+devise_for :users,
+:path => '/admin',
+:path_names => {
+    :sign_in  => 'login',
+    :sign_out => 'logout'
+  }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
 root 'pages#home'
 
+  get 'admin' => 'admin#index'
   get 'admin/create_user' => 'admin#create_user'
   post 'admin/create_user' => 'admin#new'
 
