@@ -3,7 +3,7 @@ class CreateAlerts < ActiveRecord::Migration
     create_table :alerts do |t|
       t.string :name
       t.string :level
-      t.bool :active
+      t.boolean :active
 
       t.timestamps
     end
