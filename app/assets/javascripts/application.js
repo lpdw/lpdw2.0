@@ -42,4 +42,30 @@ $(document).ready(function() {
         $(this).parent().slideUp();
         return false;
     });
+    var tw_url = "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?lang=fr&screen_names=ivandaum";
+    var fb_url = "https://graph.facebook.com/lpdwm";
+    $.ajax({
+        url: tw_url,
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(data) {
+            $(".tw-retour").html(data[0].user.followers_count + " abonnés");
+        }
+    });
+
+    jQuery.getJSON(""+fb_url+"&callback=?", function(data) {
+        $(".fb-retour").html(data.shares);
+    });
+
+    $.ajax({
+        url: fb_url,
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(data) {
+            $(".fb-retour").html(data.likes + " mentions j'aime");
+        }
+    });
 });
+

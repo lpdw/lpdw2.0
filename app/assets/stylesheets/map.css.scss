@@ -48,3 +48,36 @@ div .address {
         margin-top:0px;
     }
 }
+.contact {
+    margin:25px 0px;
+
+    textarea {
+        height:150px;
+    }
+    input,textarea {
+        padding:20px ;
+        border-radius:0px;
+        text-shadow:none;
+    }
+    .col-md-6 {
+        .loader-network{
+            .network{
+                text-align:center;
+                display:block;
+                width:100%;
+                padding:10px;
+                color:white;
+            } 
+            .network:hover
+            {
+                text-decoration: none;
+            }
+            .tw-retour {
+                background:#55acee;
+            }
+            .fb-retour {
+                background:#3b5998;
+            }       
+        }
+    }
+}
