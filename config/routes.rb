@@ -16,6 +16,9 @@ root 'pages#home'
   get 'admin/create_actuality' => 'admin#create_actuality'
   post 'admin/create_actuality' => 'admin#new_actuality'
 
+  get 'admin/create_alert' => 'admin#create_alert'
+  post 'admin/create_alert' => 'admin#new_alert'
+
 
   get '/', :to => 'pages#home'
   get '/actualites', :to => 'pages#news'
