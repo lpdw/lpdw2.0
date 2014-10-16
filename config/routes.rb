@@ -16,6 +16,9 @@ root 'pages#home'
   get 'admin/create_actuality' => 'admin#create_actuality'
   post 'admin/create_actuality' => 'admin#new_actuality'
 
+  get 'admin/create_alert' => 'admin#create_alert'
+  post 'admin/create_alert' => 'admin#new_alert'
+
 
   get '/', :to => 'pages#home'
   get '/actualites', :to => 'pages#news'
@@ -25,9 +28,8 @@ root 'pages#home'
   get '/equipe', :to => 'pages#team'
   get '/ucp', :to => 'pages#ucp'
   get '/informations', :to => 'pages#map'
-
   get '/postuler', :to => 'pages#apply'
-  get '/contactez-nous', :to => 'pages#contact'
+  get '/mentions', :to => 'pages#mentions'
 
 
   #get 'actualites' => 'news#news'

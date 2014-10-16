@@ -43,4 +43,15 @@ class AdminController < ApplicationController
     @this.destroy
   end
 
+  #alert controller
+  def create_alert
+    @alert = Alert.new
+  end
+
+  def new_alert
+    @alert = Alert.new(params[:Alert].permit(:name,:content,:level,:active))
+  end
+   def show_alert
+     @alerts = Alert.where(active: true)
+   end
 end
