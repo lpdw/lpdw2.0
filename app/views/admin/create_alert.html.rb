@@ -1,0 +1,20 @@
+<h2>Ajout d'alerte</h2>
+
+<%= form_for @alert, url:  admin_create_alert_path do |f| %>
+
+<div><%= f.label :name %><br />
+<%= f.text_field :name, autofocus: true , :class => 'form-control' %></div>
+
+<div><%= f.label :content %><br />
+<%= f.text_area :content, autofocus: true , :class => 'form-control' %></div>
+
+<div><%= f.label :level %></br>
+<%= options_for_select([['Orange', 1], ['Bleu', 2],['Vert', 3],['Violet', 4] , 4) %></div>
+
+<div><%= f.radio_button (:active) %></br>
+<%= f.label(:active) %></div>
+
+<div><%= f.submit "Creer une alerte", :class => 'btn btn-default' %></div>
+
+
+<% end%>
