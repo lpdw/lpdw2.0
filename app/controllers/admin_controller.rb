@@ -52,6 +52,6 @@ class AdminController < ApplicationController
     @alert = Alert.new(params[:Alert].permit(:name,:content,:level,:active))
   end
    def show_alert
-     
+     @alerts = Alert.where(active: true)
    end
 end
