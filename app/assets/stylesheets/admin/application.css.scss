@@ -12,6 +12,9 @@ $color-5: #f0f0f0;
 * {
     outline: none;
 }
+html {
+  overflow-y: scroll;
+}
 
 html, body {
     -webkit-font-smoothing: antialiased;
@@ -32,29 +35,21 @@ body {
     height: 60px;
     background-color: $color-3;
     border-bottom: 1px solid $color-4;
-    .header-title {
+    .header-info {
         background-color: #fff;
         height: 59px;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        margin-left: 213px;
+        position: fixed;
         h2 {
+            float: left;
             font-size: 20px;
             text-transform: uppercase;
             margin: 0;
             letter-spacing: 3px;
             color: #919191;
             font-weight: normal;
-            padding-left: 40px;
+            padding-left: 25px;
             line-height: 60px;
             text-shadow: 1px 1px 2px #fff;
-            position: relative;
-            flex: 1;
-            -webkit-flex: 1;
-            -ms-flex: 1;
             &:before {
                 content: '';
                 width: 36px;
@@ -63,8 +58,6 @@ body {
                 left: -19px;
                 top: 12px;
                 background-color: $color-3;
-                -webkit-transform: rotate(45deg);
-                -moz-transform: rotate(45deg);
                 transform: rotate(45deg);
             }
         }
@@ -128,6 +121,7 @@ body {
     width: 300px;
     margin: 30px auto;
     background: white;
+    border-bottom: 2px solid #D5D5D5;
     & h2 {
         color: $color-3;
         font: 18px/37px;
@@ -139,7 +133,8 @@ body {
     .fa-user, .fa-lock {
         background-color: $color-3;
         border-radius: 3px 0px 0px 3px;
-        color: $color-5;
+        color: $color-4;
+        border-right: 3px solid $color-2;
         display: block;
         float: left;
         height: 50px;
