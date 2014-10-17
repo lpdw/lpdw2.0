@@ -49,8 +49,8 @@ div .address {
     }
 }
 .contact {
-    margin:25px 0px;
-
+    margin-top:25px;
+    margin-bottom:25px;
     textarea {
         height:150px;
     }
@@ -60,24 +60,55 @@ div .address {
         text-shadow:none;
     }
     .col-md-6 {
-        .loader-network{
-            .network{
-                text-align:center;
-                display:block;
-                width:100%;
-                padding:10px;
-                color:white;
-            } 
-            .network:hover
-            {
-                text-decoration: none;
-            }
-            .tw-retour {
-                background:#55acee;
-            }
-            .fb-retour {
-                background:#3b5998;
-            }       
+        h4 {
+            margin:0px;
+            padding:0px;
+            margin-bottom:10px;
         }
+
+        .network {
+            text-align:left;
+            display:block;
+            width:100%;
+            margin-bottom:20px;
+
+            div {
+                margin-left:0px;
+                padding-left:0px;
+                a{
+                    color:white;
+                    text-align:left;
+                    font-size:20px;
+                    background:#f6f6f6;
+                    padding:10px;
+                    .fa
+                    {
+                        margin-right:10px;
+                        margin-left:10px;
+
+                    }
+                }
+
+                a:hover
+                {
+                    text-decoration: none;
+                    color:white;
+                }
+
+                .tw-retour {
+                    color:#55acee;
+                }
+                .tw-retour:hover
+                {
+                    background:#55acee;
+                }
+                .fb-retour {
+                    color:#3b5998;
+                }
+                .fb-retour:hover {
+                    background:#3b5998;
+                }
+            }
+        }     
     }
 }
