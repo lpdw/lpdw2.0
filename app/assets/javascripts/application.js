@@ -42,7 +42,8 @@ $(document).ready(function() {
         var body = $("html, body");
         $(this).parent().slideUp();
         return false;
-    });
+     });
+
     var tw_url = "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?lang=fr&screen_names=";
     var fb_url = "https://graph.facebook.com/";
 
@@ -55,8 +56,9 @@ $(document).ready(function() {
         crossDomain: true,
         dataType: 'jsonp',
         success: function(data) {
-            $(".licence .tw-retour").html('<i class="fa fa-twitter"></i>'+data[0].user.followers_count);
+            $(".licence .tw-retour").html('<i class="fa fa-twitter"></i>'+data[0].followers_count);
             $(".licence .tw-retour").attr("href", tw_site+"ivandaum");
+            console.log("TEST");
         }
     });
 
@@ -77,12 +79,11 @@ $(document).ready(function() {
         crossDomain: true,
         dataType: 'jsonp',
         success: function(data) {
-            $(".faclab .tw-retour").html('<i class="fa fa-twitter"></i>'+data[0].user.followers_count);
+            $(".faclab .tw-retour").html('<i class="fa fa-twitter"></i>'+data[0].followers_count);
             $(".faclab .tw-retour").attr("href",tw_site+"FacLabUcp");
 
         }
     });
-
     $.ajax({
         url: fb_url+"faclab",
         type: 'GET',
@@ -94,4 +95,3 @@ $(document).ready(function() {
         }
     });
 });
-
