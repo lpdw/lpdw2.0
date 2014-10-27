@@ -17,14 +17,15 @@
 	cursor: pointer;
 }
 
-.og-grid li > img {
+.og-grid li > .image-wrapper,
+.og-grid li > .image-wrapper img {
 	border: none;
 	outline: none;
 	display: block;
 	position: relative;
 }
 
-.og-grid li.og-expanded:after {
+.og-grid li.og-expanded > .image-wrapper:after {
 	top: auto;
 	border: solid transparent;
 	content: " ";
@@ -137,11 +138,18 @@
 	display: inline-block;
 	margin: 30px 0 0;
 	outline: none;
-}
-
-.og-details a:hover {
-	border-color: $color-1;
-	color: $color-1;
+	&:hover {
+		border-color: $color-1;
+		color: $color-1;
+	}
+	&.disabled {
+		cursor: default;
+		pointer-events: none;
+		&:hover {
+			border-color: #333;
+			color: #333;
+		}
+	}
 }
 
 .og-loading {

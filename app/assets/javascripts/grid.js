@@ -387,7 +387,14 @@ var Grid = (function() {
 
 			this.$title.html( eldata.title );
 			this.$description.html( eldata.description );
-			this.$href.attr( 'href', eldata.href );
+			if(eldata.href == "#") {
+				this.$href.text("pas de lien disponible");
+				this.$href.addClass("disabled");
+			} else {
+				this.$href.attr( 'href', eldata.href );
+				this.$href.text("voir le projet");
+				this.$href.removeClass("disabled");
+			}
 
 			var self = this;
 
