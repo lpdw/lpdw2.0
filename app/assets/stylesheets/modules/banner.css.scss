@@ -13,7 +13,7 @@
 
 .banner {
     position: relative;
-    height: 200px;
+    height: 100px;
     font-family: "Roboto Condensed Light", sans-serif;
     text-transform: uppercase;
     color: white;
@@ -34,9 +34,10 @@
         transition: opacity .1s ease-in-out;
     }
     p {
+        text-align: center;
         white-space: pre;
-        font-size: 100px;
-        line-height: 200px;
+        font-size: 30px;
+        line-height: 100px;
         position: relative;
         z-index: 2;
     }
@@ -67,10 +68,11 @@
 
 .banner-detailed {
     p {
-        font-size: 28px;
-        line-height: initial;
+        font-size: 14px;
+        line-height: 26px;
         small {
             font-size: 12px;
+            display: none;
         }
     }
 }
@@ -95,6 +97,45 @@
     &:hover {
         &:before {
             opacity: .9;
+        }
+    }
+}
+
+@media (min-width: $screen-sm-min) {
+    .banner {
+        height: 150px;
+        p {
+            font-size: 60px;
+            line-height: 150px;
+            text-align: left;
+        }
+    }
+
+    .banner-detailed {
+        p {
+            text-align: center;
+            font-size: 28px;
+            line-height: initial;
+        }
+    }
+}
+
+@media (min-width: $screen-md-min) {
+    .banner {
+        height: 200px;
+        p {
+            font-size: 100px;
+            line-height: 200px;
+        }
+    }
+
+    .banner-detailed {
+        p {
+            font-size: 28px;
+            line-height: initial;
+            small {
+                display: block;
+            }
         }
     }
 }
