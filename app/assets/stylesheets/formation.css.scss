@@ -2,11 +2,26 @@
 {
 	font-style: italic;
 	font-size:2em;
-	margin:0px;
+	margin:50px 0px;
 	padding:25px;
 	display:block;
 	border:none;
+	background:$color-5;
+	border-bottom:2px solid $color-4;
 	text-align:center;
+	&:before{
+		content:" ";
+		width:25px;
+		height:25px;
+		border-radius:50%;
+		position:absolute;
+		margin:auto;
+		right:0px;
+		left:0px;
+		margin-top:-35px;
+		background:$color-5;
+	}
+
 	small {
 		display:block;
 		width:100%;
@@ -25,6 +40,7 @@
 	background:$color-5;
 	width:100%;
 	margin:0px;
+	margin-bottom:25px;
 }
 .formation .row {
 	vertical-align: middle;
