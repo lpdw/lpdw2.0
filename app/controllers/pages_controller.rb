@@ -27,6 +27,9 @@ class PagesController < ApplicationController
   #Postuler
   def apply
   end
+  #Mentions
+  def mentions
+  end
   #Contactez-nous
   def contact
   end
