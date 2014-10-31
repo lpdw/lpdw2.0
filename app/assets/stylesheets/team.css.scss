@@ -9,7 +9,6 @@
 
 .team-profile {
 	border: 1px solid $color-4;
-	margin: 0 -1px -1px 0;
 	padding: 30px 10px;
 	min-height: 400px;
 	position: relative;
@@ -42,5 +41,11 @@
 				color: $color-2;
 			}
 		}
+	}
+}
+
+@media (min-width: $screen-sm-min) {
+	.team-profile {
+		margin: 0 -1px -1px 0;
 	}
 }
