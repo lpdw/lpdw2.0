@@ -1,4 +1,4 @@
-.timeline-news {
+/* .timeline-news {
     margin: 10em auto;
     position: relative;
     &:before {
@@ -110,4 +110,119 @@
     left: 2.55em;
     width: 1.5em;
     height: 1.5em;
+} */
+.timeline-news {
+    margin: 10em auto;
+    position: relative;
+    &:before {
+        background-color: $color-3;
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 30px;
+        width: 2px;
+        height: 100%;
+    }
+    .view-more {
+        position: relative;
+        color: black;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 16px;
+        left: 21px;
+        top: 5em;
+        padding: 23px 0px 0px 20px;
+        &:before {
+            content: "";
+            @include transition(transform 0.2s ease-in);
+            @include rotate(45deg);
+            background-color: $color-1;
+            display: block;
+            position: absolute;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+        }
+        &:after {
+            content: "+";
+            @include transition(transform 0.2s ease-in);
+            // @include rotate(45deg);
+            color: #FFF;
+            display: block;
+            position: absolute;
+            top: 17px;
+            left: -11px;
+            color: #FFF;
+            font-size: 25px;
+        }
+        &:hover:after{
+            @include rotate(90deg);
+        }
+    }
+}
+
+.timeline-new {
+    margin-left: 2.5em;
+    .timeline-new-icon {
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: $color-3;
+        @include rotate(45deg);
+        position: absolute;
+        top: 0;
+        left: -1em;
+        outline: 10px solid white;
+    }
+    .timeline-new-contents {
+        margin-left: 20px;
+        position: relative;
+        margin-bottom: 6em;
+        .timeline-new-info {
+            p {
+                padding: 0;
+                margin: 0;
+            }
+            strong {
+                text-transform: uppercase;
+            }
+        }
+        .button {
+            float: right;
+            position: relative;
+            font-size: 18px;
+            padding: 10px 15px 10px 15px;
+            margin-top: 10px;
+            margin-right: 25px;
+            text-align: center;
+            background: white;
+            color: $color-1;
+            border: 1px solid $color-4;
+            -webkit-user-select: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            text-decoration: none;
+            span {
+                position: relative;
+                left: 0;
+                transition: all 0.2s;
+            }
+            &:hover span {
+                left: -10px;
+                transition: all 0.2s;
+            }
+            i {
+                position: absolute;
+                left: 85%;
+                top: 30%;
+                opacity: 0;
+                transition: all 0.2s;
+            }
+            &:hover i {
+                left: 88%;
+                opacity: 1;
+                transition: all 0.2s;
+            }
+        }
+    }
 }
