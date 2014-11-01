@@ -24,9 +24,9 @@
                     <ul class="nav nav-sidebar">
                         <li><a href="#">Projects</a></li>
                         <li><a href="#">Team</a></li>
-                        <li><a href="#">Diary</a></li>
-                        <li><a href="#">Timeline</a></li>
-                        <li><a href="#">Settings</a></li>
+                        <li><%= link_to 'Users', admin_create_user_path() %></li>
+                        <li><%= link_to 'Actuality', admin_create_actuality_path() %></li>
+                        <li><%= link_to 'Alerts', admin_create_alert_path() %></li>
                         <li><a href="#">Search</a></li>
                     </ul>
                 </div>
