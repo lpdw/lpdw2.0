@@ -11,6 +11,9 @@ class PagesController < ApplicationController
   #Une actualité
   def new
     @actuality = Actuality.find(params[:id])
+  end  
+  def show_new(id)
+    @actuality = Actuality.find(params[:id])
   end
   #La formation
   def formation
