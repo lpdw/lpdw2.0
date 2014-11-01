@@ -2,12 +2,15 @@ class PagesController < ApplicationController
   #Accueil
   def home
      flash[:error] = "You must be admin to access this section"
+     @actualities = Actuality.all
   end
   #Actualités
   def news
+    @actualities = Actuality.all
   end
   #Une actualité
   def new
+    @actuality = Actuality.find(params[:id])
   end
   #La formation
   def formation
