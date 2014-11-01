@@ -24,14 +24,9 @@ ActiveRecord::Schema.define(version: 20141015143030) do
 
   create_table "alerts", force: true do |t|
     t.string   "name"
+    t.string   "content"
     t.string   "level"
     t.boolean  "active"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "projects", force: true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
