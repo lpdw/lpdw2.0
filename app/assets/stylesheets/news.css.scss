@@ -155,7 +155,7 @@
             color: #FFF;
             font-size: 25px;
         }
-        &:hover:after{
+        &:hover:after {
             @include rotate(90deg);
         }
     }
@@ -163,6 +163,12 @@
 
 .timeline-new {
     margin-left: 2.5em;
+    &:hover {
+           *.timeline-new-icon {
+                @include rotate(-45deg);
+                background-color: $color-2;
+            }
+        }
     .timeline-new-icon {
         display: block;
         width: 20px;
@@ -173,11 +179,18 @@
         top: 0;
         left: -1em;
         outline: 10px solid white;
+        @include transition(transform 0.2s ease-in);
+        &:hover {
+            @include rotate(-45deg);
+            background-color: $color-2;
+        }
     }
+
     .timeline-new-contents {
         margin-left: 20px;
         position: relative;
         margin-bottom: 6em;
+
         .timeline-new-info {
             p {
                 padding: 0;
@@ -187,7 +200,7 @@
                 text-transform: uppercase;
             }
         }
-        .button {
+        .button-timeline {
             float: right;
             position: relative;
             font-size: 18px;

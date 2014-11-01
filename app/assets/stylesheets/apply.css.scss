@@ -1,0 +1,102 @@
+.separator {
+	display: block;
+	max-width: 50px;
+	padding: 10px;
+	box-sizing: border-box;
+	line-height: 10px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	&:before,
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		width: 50px;
+		height: 1px;
+		background-color: $color-1;
+		top: 50%;
+		margin-top: -1px;
+	}
+	&:before {
+		left: -50px;
+	}
+	&:after {
+		right: -50px;
+	}
+}
+
+.form_wrapper {
+	background-color: #f0f0f0;
+	margin-bottom: 50px;
+
+	.apply_steps {
+		margin: 0;
+		padding: 0;
+
+		.apply_step {
+			list-style: none;
+			padding: 20px 20px;
+			text-align: center;
+			background: $color-2;
+			box-sizing: border-box;
+			color: #fff;
+
+			&.active {
+				background-color: $color-1;
+			}
+
+		}
+	}
+
+	.step {
+		padding: 20px;
+		display: none;
+
+		& textarea,
+		& input[type= "text"],
+		& input[type= "email"],
+		& input[type= "date"],
+		& input[type= "tel"] {
+			width: 100%;
+			height: 30px;
+			border: none;
+			padding-left: 10px;
+		}
+
+		& textarea {
+			resize: none;
+			&.big {
+				height: 60px;
+			}
+		}
+
+		.schools_list,
+		.cursus_list,
+		.experience_list,
+		.projects_list {
+			li {
+				list-style: none;
+			}
+
+			ul {
+				padding: 0;
+			}
+		}
+
+		.submit {
+			float: right;
+			display: block;
+		}
+
+	}
+
+}
+
+.centered {
+	text-align: center;
+}
+
+.input_wrapper {
+	margin-top: 20px;
+}
