@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ff07470b1cbdd08e34148d784d48a066681cb780
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -25,18 +28,25 @@ ActiveRecord::Schema.define(version: 20141015143030) do
 
   create_table "alerts", force: true do |t|
     t.string   "name"
+<<<<<<< HEAD
+=======
+    t.string   "content"
+>>>>>>> ff07470b1cbdd08e34148d784d48a066681cb780
     t.string   "level"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "projects", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> ff07470b1cbdd08e34148d784d48a066681cb780
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -57,6 +67,7 @@ ActiveRecord::Schema.define(version: 20141015143030) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
+<<<<<<< HEAD
 =======
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
@@ -112,3 +123,5 @@ ActiveRecord::Schema.define(version: 20141015143030) do
 
 end
 >>>>>>> 801611ab1ccd6312be7ee9ff43a65035e478f63b
+=======
+>>>>>>> ff07470b1cbdd08e34148d784d48a066681cb780

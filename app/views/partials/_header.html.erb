@@ -7,11 +7,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">LP DW</a>
+          <a class="navbar-brand" href=<%= root_path()%>>LP DW</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/">Accueil</a></li>
+            <li><%= link_to 'Accueil' , root_path()%></li>
             <li><%= link_to 'Actualités', actualites_path() %></li>
             <li><%= link_to 'La formation', formation_path() %></li>
             <li><%= link_to 'Projets étudiants', projets_path() %></li>
