@@ -71,6 +71,15 @@
     background-size: cover;
 }
 
+.banner-ucp {
+    background: url("/assets/cergy.jpg") no-repeat center center;
+    background-size: cover;
+
+    & p {
+        font-size: 25px;
+    }
+}
+
 .banner-detailed {
     p {
         font-size: 14px;
@@ -114,6 +123,12 @@
             line-height: 150px;
             text-align: left;
         }
+
+        &.banner-ucp {
+            p {
+                font-size: 50px;
+            }
+        }
     }
 
     .banner-detailed {
@@ -131,6 +146,12 @@
         p {
             font-size: 100px;
             line-height: 200px;
+        }
+
+        &.banner-ucp {
+            p {
+                font-size: 70px;
+            }
         }
     }
 

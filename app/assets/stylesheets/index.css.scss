@@ -112,6 +112,8 @@
             cursor: pointer;
             text-transform: uppercase;
             text-decoration: none;
+            width: initial;
+            max-width: 200px;
             span {
                 position: relative;
                 left: 0;

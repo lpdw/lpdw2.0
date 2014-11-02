@@ -58,7 +58,6 @@ $(document).ready(function() {
         success: function(data) {
             $(".licence .tw-retour").html('<i class="fa fa-twitter"></i>'+data[0].followers_count);
             $(".licence .tw-retour").attr("href", tw_site+"ivandaum");
-            console.log("TEST");
         }
     });
 
@@ -95,7 +94,8 @@ $(document).ready(function() {
         }
     });
 
-    $(".navbar-toggle").click(function(){
+    $(".navbar-toggle").click(function(e){
+        e.preventDefault();
 
          if($(".navbar-collapse").hasClass("in")){
             document.documentElement.style.overflow = 'auto';
