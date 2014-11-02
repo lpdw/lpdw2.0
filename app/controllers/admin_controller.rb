@@ -31,17 +31,30 @@ class AdminController < ApplicationController
   end
   def delete_user
     @user=User.find(params[:id])
-    @user.destroy
+    if @user.destroy
+      flash["sucess"] ="SUCESS DELETE"
+      redirect_to admin_show_users_path()
+    else
+      flash["fail"] = "Delete Fail"
+      redirect_to admin_show_users_path()
+    end
   end
 
   def new
     @user = User.new(params[:user].permit(:email, :password, :password_confirmation, :role))
+    if @user.save
+      flash["sucess"] ="User created"
+      redirect_to admin_show_users_path()
+    else
+      flash["fail"] = "Fail to create User"
+      redirect_to admin_create_user_path()
+    end
   end
 
   def is_admin
     @user = current_user
     if (@user.role != "admin") then
-      flash[:error] = "You must be admin to access this section"
+      flash["error"] = "You must be admin to access this section"
       redirect_to root_path # halts request cycle
     end
   end
@@ -63,6 +76,13 @@ class AdminController < ApplicationController
 
   def new_actuality
     @actuality = Actuality.new(params[:actuality].permit(:title, :content, :author))
+    if @actuality.save
+      flash["sucess"] = "Actuality created"
+      redirect_to admin_show_actualities_path() # halts request cycle
+    else
+      flash["fail"] = "Actuality not created"
+      redirect_to admin_create_actuality_path() # halts request cycle
+    end
   end
 
   def edit_actuality
@@ -77,7 +97,13 @@ class AdminController < ApplicationController
     end
   end
   def delete_actuality
-    @this.destroy
+    if @this.destroy
+      flash["sucess"] ="SUCESS DELETE"
+      redirect_to admin_show_actualities_path()
+    else
+      flash["fail"] = "Delete Fail"
+      redirect_to admin_show_actualities_path()
+    end
   end
 
   #alert controller

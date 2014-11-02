@@ -23,12 +23,15 @@ root 'pages#home'
   get 'admin/edit_user/:id' => 'admin#edit_user' , :as => 'admin_edit_user'
   post 'admin/edit_user/:id' => 'admin#update_user'
   post 'admin/create_user' => 'admin#new'
+  get 'admin/delete_user/:id' => 'admin#delete_user', :as => 'admin_delete_user'
+
 
   get 'admin/create_actuality' => 'admin#create_actuality'
   post 'admin/create_actuality' => 'admin#new_actuality'
   get 'admin/edit_actuality/:id' => 'admin#edit_actuality', :as => 'admin_edit_actuality'
   get 'admin/show_actualities' => 'admin#show_actualities'
   post 'admin/edit_actuality/:id' => 'admin#update_actuality'
+  get 'admin/delete_actuality/:id' => 'admin#delete_actuality', :as => 'admin_delete_actuality'
 
   get 'admin/create_alert' => 'admin#create_alert'
   post 'admin/create_alert' => 'admin#new_alert'
