@@ -74,6 +74,12 @@
         font-size: 20px;
         letter-spacing: 2px;
     }
+    .title-dashboard {
+            text-decoration: none !important;
+            &:hover{
+                text-decoration: none !important;
+            }
+        }
 }
 
 @media (max-width: $screen-xs-max) {
