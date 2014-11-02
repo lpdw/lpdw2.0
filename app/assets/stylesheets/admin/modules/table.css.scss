@@ -1,0 +1,119 @@
+.table {
+  background: $color-3;
+  box-shadow: -4px 0px 10px rgba(14, 14, 14, 0.48) inset;
+  i{
+    color:white;
+}
+}
+th {
+  color: $color-4;
+  font-size: 18px;
+  padding: 0.5em 1em;
+  text-align: left;
+  border-bottom: 1px solid $color-2 !important;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+  border-top: none !important;
+}
+.disabled td {
+  color: $color-1;
+}
+tr {
+  transition: background 0.25s ease;
+}
+tr:hover {
+  background: $color-2;
+}
+
+@media (max-width: $screen-xs-max) {
+  .table {
+    width:90%;
+  }
+  thead{
+    display:none;
+  }
+  tr{
+    border-bottom: 1px solid $color-2 !important;
+  }
+ td {
+    display: block;
+    &:first-child {
+      padding-top: .5em;
+    }
+    &:last-child {
+      padding-bottom: .5em;
+    }
+    &:before {
+      content: attr(data-th)" :";
+      font-weight: bold;
+      color:$color-1;
+      width: 4.5em;
+      display:inline-block;
+    }
+  }
+}
+/*
+.table {
+  margin: 1em 0;
+  min-width: 300px;
+  tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    display: none;
+  }
+  td {
+    display: block;
+    &:first-child {
+      padding-top: .5em;
+    }
+    &:last-child {
+      padding-bottom: .5em;
+    }
+    &:before {
+      content: attr(data-th)":";
+      font-weight: bold;
+      width: 6.5em;
+      display:inline-block;
+      @media (min-width:$screen-xs-max) {
+        display: none;
+      }
+    }
+  }
+  th, td {
+    text-align: left;
+    @media (min-width:$screen-xs-max) {
+      display: table-cell;
+      padding: .25em .5em;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.table {
+  background: #34495E;
+  color: #fff;
+  border-radius: .4em;
+  overflow: hidden;
+  tr {
+    border-color: lighten(#34495E, 10%);
+  }
+  th, td {
+    margin: .5em 1em;
+    @media (min-width:$screen-xs-max) {
+      padding: 1em !important;
+    }
+  }
+  th, td:before {
+    color: #dd5;
+  }
+} */

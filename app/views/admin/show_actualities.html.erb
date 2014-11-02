@@ -2,7 +2,6 @@
 <%= link_to(admin_create_actuality_path(),:class=>'button button-blue float-right') do %>
     <span>Créer Actualité</span> <i class="fa fa-newspaper-o"></i>
 <% end %>
-<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -16,11 +15,11 @@
     <tbody>
     <% @actualities.each do |actuality| %>
         <tr>
-            <td><%= actuality.id %></td>
-            <td><%= actuality.title %></td>
-            <td><%= actuality.content %></td>
-            <td><%= actuality.author %></td>
-            <td>
+            <td data-th="ID" ><%= actuality.id %></td>
+            <td data-th="Titre" ><%= actuality.title %></td>
+            <td data-th="Contenu" ><%= actuality.content %></td>
+            <td data-th="Auteur" ><%= actuality.author %></td>
+            <td data-th="Action" >
                 <%= link_to(admin_edit_actuality_path(actuality)) do %>
                 <i class="fa fa-pencil"></i>
                 <% end %>
@@ -32,4 +31,3 @@
         <% end %>
     </tbody>
 </table>
-</div>
