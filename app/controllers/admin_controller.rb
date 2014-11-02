@@ -7,9 +7,28 @@ class AdminController < ApplicationController
 	def create_user
 		@user = User.new
 	end
-      def index
+  def index
 
-      end
+  end
+  def show_users
+    @users = User.all
+  end
+  def edit_user
+    @user=User.find(params[:id])
+  end
+  def update_user
+    @user=User.find(params[:id])
+    if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role))
+      # Handle a successful update.
+      redirect_to admin_path
+    else
+      redirect_to admin_edit_user_path(user)
+    end
+  end
+  def delete_user
+    @user=User.find(params[:id])
+    @user.destroy
+  end
 
 	def new
 		@user = User.new(params[:user].permit(:email, :password, :password_confirmation, :role))
@@ -31,6 +50,9 @@ class AdminController < ApplicationController
     @this = Actuality.find(params[:id])
   end
 
+  def show_actualities
+    @actualities = Actuality.all
+  end
   def create_actuality
     @actuality = Actuality.new
   end
@@ -40,7 +62,15 @@ class AdminController < ApplicationController
   end
 
   def edit_actuality
-
+    @actuality=@this
+  end
+  def update_actuality
+    if @this.update_attributes(params[:this].permit(:title, :content, :author))
+      # Handle a successful update.
+      redirect_to admin_path
+    else
+      redirect_to admin_edit_actuality_path(this)
+    end
   end
   def delete_actuality
     @this.destroy

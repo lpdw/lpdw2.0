@@ -19,10 +19,16 @@ root 'pages#home'
 
   get 'admin' => 'admin#index'
   get 'admin/create_user' => 'admin#create_user'
+  get 'admin/show_users' => 'admin#show_users'
+  get 'admin/edit_user/:id' => 'admin#edit_user' , :as => 'admin_edit_user'
+  post 'admin/edit_user/:id' => 'admin#update_user'
   post 'admin/create_user' => 'admin#new'
 
   get 'admin/create_actuality' => 'admin#create_actuality'
   post 'admin/create_actuality' => 'admin#new_actuality'
+  get 'admin/edit_actuality/:id' => 'admin#edit_actuality', :as => 'admin_edit_actuality'
+  get 'admin/show_actualities' => 'admin#show_actualities'
+  post 'admin/edit_actuality/:id' => 'admin#update_actuality'
 
   get 'admin/create_alert' => 'admin#create_alert'
   post 'admin/create_alert' => 'admin#new_alert'
