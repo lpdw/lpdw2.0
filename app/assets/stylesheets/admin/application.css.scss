@@ -1,13 +1,16 @@
-@import "fonts";
-@import "font-awesome";
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "modules/alert";
 $color-1: #ea483e;
 $color-2: #7b83a1;
 $color-3: #45474e;
 $color-4: #cacaca;
 $color-5: #f0f0f0;
+@import "fonts";
+@import "font-awesome";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "admin/modules/alert";
+@import "admin/modules/header";
+@import "admin/modules/sidebar";
+
 
 * {
     outline: none;
@@ -29,88 +32,6 @@ body {
 
 .gray-bg {
     background-color: $color-5;
-}
-
-.navbar-lpdw-admin {
-    height: 60px;
-    background-color: $color-3;
-    border-bottom: 1px solid $color-4;
-    .header-info {
-        background-color: #fff;
-        height: 59px;
-        position: fixed;
-        h2 {
-            float: left;
-            font-size: 20px;
-            text-transform: uppercase;
-            margin: 0;
-            letter-spacing: 3px;
-            color: #919191;
-            font-weight: normal;
-            padding-left: 25px;
-            line-height: 60px;
-            text-shadow: 1px 1px 2px #fff;
-            &:before {
-                content: '';
-                width: 36px;
-                height: 36px;
-                position: absolute;
-                left: -19px;
-                top: 12px;
-                background-color: $color-3;
-                transform: rotate(45deg);
-            }
-        }
-    }
-    h1 {
-        text-align: center;
-        font-weight: normal;
-        color: #F6F6EF;
-        line-height: 59px;
-        margin: 0;
-        font-size: 20px;
-        letter-spacing: 2px;
-    }
-}
-
-.sidebar {
-    position: fixed;
-    top: 60px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    margin: 0;
-    padding: 0;
-    display: block;
-    background-color: $color-3;
-    // border-top: 1px solid rgba(101, 116, 134, 0.57);
-    box-shadow: -4px 0px 10px rgba(14, 14, 14, 0.48) inset;
-    ul li {
-        border-bottom: 1px solid #42454D;
-        padding-left: 48px;
-        transition: all 0.6s;
-        border-top: 1px solid #2E3036;
-    }
-    ul li:hover {
-        background-color: $color-2;
-        transition: all 0.6s;
-        border-bottom: 1px solid #797979;
-    }
-    ul li a {
-        line-height: 55px;
-        font-size: 18px;
-        position: relative;
-        letter-spacing: 1px;
-        transition: all 0.6s;
-        display: block;
-        color: #b3b3b3;
-        text-decoration: none;
-    }
-    ul li:hover a {
-        background-color: transparent;
-        color: #fff;
-        transition: all 0.6s;
-    }
 }
 
 .main {

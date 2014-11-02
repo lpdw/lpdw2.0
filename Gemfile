@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'rails-i18n', '~> 4.0.3'
 #Add gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'bootstrap-sass', '~> 3.2.0.2'
 

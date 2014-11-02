@@ -16,7 +16,7 @@ class AdminController < ApplicationController
     end
 
     def is_admin
-    	@user = current_user
+    @user = current_user
     if (@user.role != "admin") then
       flash[:error] = "You must be admin to access this section"
       redirect_to root_path # halts request cycle
