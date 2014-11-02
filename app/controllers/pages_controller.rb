@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   #Accueil
   def home
-     flash[:error] = "You must be admin to access this section"
      @actualities = Actuality.all().order(id: :desc).limit(3)
   end
   #Actualités

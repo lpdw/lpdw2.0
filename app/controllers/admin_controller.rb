@@ -55,20 +55,25 @@ class AdminController < ApplicationController
   end
 
   def show_actualities
+    @title_admin = "Actualités"
     @actualities = Actuality.all
   end
   def create_actuality
+    @title_admin = "Actualité"
     @actuality = Actuality.new
   end
 
   def new_actuality
+    @title_admin = "Actualité"
     @actuality = Actuality.new(params[:actuality].permit(:title, :content, :author))
   end
 
   def edit_actuality
+    @title_admin = "Actualité"
     @actuality=@this
   end
   def update_actuality
+    @title_admin = "Actualité"
     if @this.update_attributes(params[:this].permit(:title, :content, :author))
       # Handle a successful update.
       redirect_to admin_path

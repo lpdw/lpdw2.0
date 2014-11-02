@@ -74,3 +74,17 @@ select {
       padding: 15px;
      }
 }
+
+@media (max-width: $screen-xs-max) {
+  .navbar-lpdw-admin .header-info {
+background-color: #fff;
+height: 59px;
+position: fixed;
+top: 0;
+right: 0;
+}
+.table-responsive{
+  overflow: hidden;
+}
+
+}
