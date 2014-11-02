@@ -45,6 +45,8 @@ gem 'rails-i18n', '~> 4.0.3'
 #Add gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'bootstrap-sass', '~> 3.2.0.2'
 
+gem 'simple_form', '~> 3.0.2'
+
 #Add gem 'font-awesome-rails', '~> 4.2.0.0'
 gem 'font-awesome-rails', '~> 4.2.0.0'
 

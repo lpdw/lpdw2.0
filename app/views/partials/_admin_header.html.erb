@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-10 col-md-offset-2 header-info">
           <% if user_signed_in? %>
-          <h2>Projects</h2>
+          <h2><%= @title_admin %></h2>
           <% elsif controller_name == "registrations" and action_name == 'new'%>
           <h2>Sign up</h2>
           <% elsif controller_name == "passwords" and action_name == 'new'%>

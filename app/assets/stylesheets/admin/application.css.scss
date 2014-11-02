@@ -7,9 +7,11 @@ $color-5: #f0f0f0;
 @import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "admin/components/button";
 @import "admin/modules/alert";
 @import "admin/modules/header";
 @import "admin/modules/sidebar";
+@import "admin/show_users";
 
 
 * {
@@ -32,6 +34,11 @@ body {
 
 .gray-bg {
     background-color: $color-5;
+}
+
+.float-right{
+    float:right;
+    margin-bottom: 20px;
 }
 
 .main {

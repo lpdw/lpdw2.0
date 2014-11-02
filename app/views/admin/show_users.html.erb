@@ -1,10 +1,30 @@
-	<h1>Users</h1>
-	<% @users.each do |user| %>
-       <div class="row">
-			<p> Email : <%= user.email %> Rôle : <%= user.role %></p>
-                                <%= link_to(admin_edit_user_path(user),:class=>'button') do %>
-                           <span>Edit user</span> <i class="fa fa-chevron-right"></i>
-                           <% end %>
-		</div>
-	<% end %>
-	<%= link_to 'Create User', admin_create_user_path() %>
+<h1>Gérer les comptes utilisateurs</h1>
+<%= link_to(admin_create_user_path(),:class=>'button button-blue float-right') do %>
+    <span>Créer un utilisateur</span> <i class="fa fa-user"></i>
+<% end %>
+<div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Rôle</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.role %></td>
+            <td>
+                <%= link_to(admin_edit_user_path(user)) do %>
+                <i class="fa fa-pencil"></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
