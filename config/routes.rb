@@ -9,15 +9,18 @@ devise_for :users,
 :path => '/admin',
 :path_names => {
     :sign_in  => 'login',
-    :sign_out => 'logout'
+    :sign_out => 'logout',
+    :sign_up => 'login'
   }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
 root 'pages#home'
-
+  
   get 'admin' => 'admin#index'
+  #Avoid sign_up by devise
+  get 'admin/sign_up' => 'admin#index'
   get 'admin/create_user' => 'admin#create_user'
   get 'admin/show_users' => 'admin#show_users'
   get 'admin/edit_user/:id' => 'admin#edit_user' , :as => 'admin_edit_user'
