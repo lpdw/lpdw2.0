@@ -1,0 +1,11 @@
+<h2>Edit Actuality</h2>
+
+<%= form_for :this, url:  admin_edit_actuality_path do |f| %>
+<div><%= f.label :title %><br />
+<%= f.text_field :title, autofocus: true , :class => 'form-control' %></div>
+<div><%= f.label :content %><br />
+<%= f.text_area :content, autofocus: true , :class => 'form-control' %></div>
+<%= hidden_field :author , current_user.email %>
+<div><%= f.submit "Update actualité", :class => 'btn btn-default' %></div>
+
+<% end%>

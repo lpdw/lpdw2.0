@@ -94,4 +94,14 @@ $(document).ready(function() {
             $(".faclab .fb-retour").attr("href", fb_site+"faclab");
         }
     });
+
+    $(".navbar-toggle").click(function(){
+
+         if($(".navbar-collapse").hasClass("in")){
+            document.documentElement.style.overflow = 'auto';
+        }else{
+            document.documentElement.style.overflow = 'hidden';
+        }
+     });
+
 });

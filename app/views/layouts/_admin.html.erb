@@ -22,12 +22,9 @@
                 <% if user_signed_in? %>
                 <div class="col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><%= link_to 'Users', admin_create_user_path() %></li>
-                        <li><%= link_to 'Actuality', admin_create_actuality_path() %></li>
+                        <li><%= link_to 'Users', admin_show_users_path() %></li>
+                        <li><%= link_to 'Actuality', admin_show_actualities_path() %></li>
                         <li><%= link_to 'Alerts', admin_create_alert_path() %></li>
-                        <li><a href="#">Search</a></li>
                     </ul>
                 </div>
                 <% end %>

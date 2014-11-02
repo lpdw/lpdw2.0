@@ -1,0 +1,47 @@
+.alert{
+    background:#2980b9;
+    margin:0px;
+    padding:0px;
+    width:100%;
+    line-height:55px;
+    color:white;
+    text-align: center;
+    display:block;
+    position:relative;
+    z-index:300;
+    & a{
+        font-size:19px;
+        color:white;
+    }
+    & a:hover {
+        text-decoration: none;
+        border-bottom:1px dotted white;
+    }
+    & .close-alert {
+        position:absolute;
+        right:0px;
+        padding:0px;
+        margin:0px;
+        font-size:20px;
+        width:57px;
+        height:57px;
+        cursor:pointer;
+        border:none;
+        color:white;
+        background:none;
+    }
+
+}
+
+.alert-info {
+    background:#2980b9;
+}
+.alert-alert {
+    background:#f39c12;
+}
+.alert-success {
+    background:#27ae60;
+}
+.alert-error {
+    background:#e74c3c;
+}

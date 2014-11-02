@@ -11,6 +11,7 @@
         padding-bottom: 5px;
         border: 1px solid black;
         margin-top: 20px;
+        margin-left: 20px;
     }
     & .navbar-nav {
         margin-left: 50px;
@@ -22,17 +23,47 @@
         & > li > a:hover {
             background-color: transparent;
         }
-
         & > .right-navbar {
-            position:absolute;
-            right:0px;
+            position: absolute;
+            right: 0px;
         }
         & > .right-navbar > a {
-            color:white;
-            background:$color-1;
-         }
+            color: white;
+            background: $color-1;
+        }
         & > .right-navbar > a:hover {
-            background:$color-2;
-         }
+            background: $color-2;
+        }
     }
 }
+
+//responsive
+
+.navbar-toggle {
+    margin-top: 20px;
+    .icon-bar {
+        background: #000;
+    }
+}
+
+@media (max-width: $screen-xs-max) {
+    .navbar-lpdw {
+        .navbar-nav {
+            margin: 0 auto;
+            text-align: center;
+            z-index: 99999;
+            background: white;
+            position: absolute;
+            top:80px;
+            left:0;
+            right:0;
+            bottom:0;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling:touch;
+        }
+    }
+}
+
+// @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
+// @media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }
+// @media (min-width: @screen-lg-min) { ... }
