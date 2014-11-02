@@ -22,6 +22,9 @@
                 <%= link_to(admin_edit_user_path(user)) do %>
                 <i class="fa fa-pencil"></i>
                 <% end %>
+                <%= link_to(admin_delete_user_path(user)) do %>
+                <i class="fa fa-trash-o"></i>
+                <% end %>
             </td>
         </tr>
         <% end %>
