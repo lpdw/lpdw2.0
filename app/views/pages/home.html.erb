@@ -11,96 +11,87 @@
             <section class="col-md-10 col-md-offset-1 home-news">
                 <h1>Actualités</h1>
                 <div class="row">
-                    <% @actualities.each do |actuality| %>
+                    <% @actualities.each_with_index do |actuality, i| %>
+                    <% if i === 2 %>
+                        <article class="col-md-12">
+                    <% else %>
                         <article class="col-md-6">
+                    <% end %>
                             <div class="article-new">
                                 <h3><%= actuality.title %></h3>
                                 <p><%= (actuality.content).truncate(50) %></p>
                                 <%= link_to 'Lire la suite', actuality_show_path(actuality),:class=>"button" %>
                                 <%= link_to(actuality_show_path(actuality),:class=>'button') do %>
-                           <span>Lire la suite</span> <i class="fa fa-chevron-right"></i>
-                           <% end %>
+                                <span>Lire la suite</span> <i class="fa fa-chevron-right"></i>
+                                <% end %>
                             </div>
                         </article>
-                    <% end %>
-                    <!-- <article class="col-md-6">
-                        <div class="article-new">
-                            <h3>Ceci est un titre</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium repellendus, sint expedita nobis optio cumque!</p>
-                            <a href="#" class="button"><span>Lire la suite</span> <i class="fa fa-chevron-right"></i></a>
-                        </div>
-                    </article>
-                    <article class="col-md-12">
-                        <div class="article-new">
-                            <h3>Ceci est un titre</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque tempora sit provident vitae dolorum quo, aliquam accusantium commodi quos nesciunt sunt, optio laboriosam facere tempore magni repellat, tenetur adipisci repellendus?</p>
-                            <a href="#" class="button"><span>Lire la suite</span> <i class="fa fa-chevron-right"></i></a>
-                        </div>
-                    </article> -->
-                </div>
-                <%= link_to 'Voir tous les articles', actualites_path() , html_options = {"class" =>"more-article"}%>
-            </section>
+                        <% end %>
+
+                    </div>
+                    <%= link_to 'Voir tous les articles', actualites_path() , html_options = {"class" =>"more-article"}%>
+                </section>
+            </div>
         </div>
     </div>
-</div>
-<section class="banner banner-blue banner-link text-center hidden-xs">
-    <%= link_to formation_path() do%>
-       <span>Découvrez</span> la formation
-    <% end %>
-</section>
-<div class="gray-bg wrapper">
-    <div class="container">
-        <div class="row">
-            <section class="col-md-8 col-md-offset-2 home-faclab">
-                <h1 class="text-center">Le faclab: Apprendre, créer, partager</h1>
-                <div class="row">
-                    <article class="col-md-12">
-                        <img src="/assets/img_4974_0.jpg" alt=."Faclab gennevilliers" class="img-circle">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
-                        <a class="button" href="http://www.faclab.org/"><span>Voir le site</span> <i class="fa fa-chevron-right"></i></a>
-                    </article>
-                </div>
-            </section>
+    <section class="banner banner-blue banner-link text-center hidden-xs">
+        <%= link_to formation_path() do%>
+        <span>Découvrez</span> la formation
+        <% end %>
+    </section>
+    <div class="gray-bg wrapper">
+        <div class="container">
+            <div class="row">
+                <section class="col-md-8 col-md-offset-2 home-faclab">
+                    <h1 class="text-center">Le faclab: Apprendre, créer, partager</h1>
+                    <div class="row">
+                        <article class="col-md-12">
+                            <img src="/assets/img_4974_0.jpg" alt=."Faclab gennevilliers" class="img-circle">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
+                            <a class="button" href="http://www.faclab.org/"><span>Voir le site</span> <i class="fa fa-chevron-right"></i></a>
+                        </article>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
-</div>
-<div class="bg-white">
-    <div class="container">
-        <div class="row">
-            <section class="col-md-10 col-md-offset-1 home-creations">
-                <h1>Créations</h1>
-                <div class="row">
-                    <article class="col-md-3">
-                        <div class="article-creation">
-                            <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
-                            <h4 class="text-center">Titre de projet</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
-                        </div>
-                    </article>
-                    <article class="col-md-3">
-                        <div class="article-creation">
-                            <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
-                            <h4 class="text-center">Titre de projet</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
-                        </div>
-                    </article>
-                    <article class="col-md-3">
-                        <div class="article-creation">
-                            <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
-                            <h4 class="text-center">Titre de projet</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
-                        </div>
-                    </article>
-                    <article class="col-md-3">
-                        <div class="article-creation">
-                            <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
-                            <h4 class="text-center">Titre de projet</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
-                        </div>
-                    </article>
-                </div>
-                <a href="#" class="more-creations">Voir toutes les créations</a>
-            </section>
+    <div class="bg-white">
+        <div class="container">
+            <div class="row">
+                <section class="col-md-10 col-md-offset-1 home-creations">
+                    <h1>Créations</h1>
+                    <div class="row">
+                        <article class="col-md-3">
+                            <div class="article-creation">
+                                <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
+                                <h4 class="text-center">Titre de projet</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
+                            </div>
+                        </article>
+                        <article class="col-md-3">
+                            <div class="article-creation">
+                                <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
+                                <h4 class="text-center">Titre de projet</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
+                            </div>
+                        </article>
+                        <article class="col-md-3">
+                            <div class="article-creation">
+                                <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
+                                <h4 class="text-center">Titre de projet</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
+                            </div>
+                        </article>
+                        <article class="col-md-3">
+                            <div class="article-creation">
+                                <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
+                                <h4 class="text-center">Titre de projet</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <a href="#" class="more-creations">Voir toutes les créations</a>
+                </section>
+            </div>
         </div>
     </div>
-</div>

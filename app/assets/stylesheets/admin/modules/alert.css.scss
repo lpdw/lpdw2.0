@@ -1,5 +1,5 @@
 .alert{
-    background:#2980b9;
+    background:$color-7;
     margin:0px;
     padding:0px;
     width:100%;
@@ -34,14 +34,14 @@
 }
 
 .alert-info {
-    background:#2980b9;
+    background:$color-7;
 }
 .alert-alert {
-    background:#f39c12;
+    background:$color-8;
 }
 .alert-success {
-    background:#27ae60;
+    background:$color-6;
 }
 .alert-error {
-    background:#e74c3c;
+    background:$color-1;
 }

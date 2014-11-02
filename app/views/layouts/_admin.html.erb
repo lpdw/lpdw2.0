@@ -29,12 +29,13 @@
                 </div>
                 <% end %>
                 <% if user_signed_in? %>
-                    <div class="col-md-10 col-md-offset-2 main">
-                <% else %>
+                <div class="col-md-10 col-md-offset-2 main">
+                    <% else %>
                     <div >
-                <% end %>
-
-                        <%= yield %>
+                        <% end %>
+                        <div class="row">
+                            <%= yield %>
+                        </div>
                     </div>
                 </div>
             </div>

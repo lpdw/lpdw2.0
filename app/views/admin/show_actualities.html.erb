@@ -1,10 +1,32 @@
 <h1>Gérer les comptes actualité</h1>
-<% @actualities.each do |actuality| %>
-<div class="row">
-    <p> Titre Article : <%= actuality.title %></p>
-    <%= link_to(admin_edit_actuality_path(actuality),:class=>'button') do %>
-    <span>Edit actuality</span> <i class="fa fa-chevron-right"></i>
-    <% end %>
-</div>
+<%= link_to(admin_create_actuality_path(),:class=>'button button-blue float-right') do %>
+    <span>Créer Actualité</span> <i class="fa fa-newspaper-o"></i>
 <% end %>
-<%= link_to 'Create Actuality', admin_create_actuality_path() %>
+<div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Contenu</th>
+            <th>Auteur</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @actualities.each do |actuality| %>
+        <tr>
+            <td><%= actuality.id %></td>
+            <td><%= actuality.title %></td>
+            <td><%= actuality.content %></td>
+            <td><%= actuality.author %></td>
+            <td>
+                <%= link_to(admin_edit_actuality_path(actuality)) do %>
+                <i class="fa fa-pencil"></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>

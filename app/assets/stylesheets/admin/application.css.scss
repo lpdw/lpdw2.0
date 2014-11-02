@@ -3,6 +3,9 @@ $color-2: #7b83a1;
 $color-3: #45474e;
 $color-4: #cacaca;
 $color-5: #f0f0f0;
+$color-6: #27ae60;
+$color-7: #2980b9;
+$color-8: #f39c12;
 @import "fonts";
 @import "font-awesome";
 @import "bootstrap-sprockets";
@@ -11,8 +14,9 @@ $color-5: #f0f0f0;
 @import "admin/modules/alert";
 @import "admin/modules/header";
 @import "admin/modules/sidebar";
+@import "admin/modules/form";
 @import "admin/show_users";
-
+@import "admin/create_user";
 
 * {
     outline: none;
