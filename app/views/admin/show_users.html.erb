@@ -1,0 +1,10 @@
+	<h1>Users</h1>
+	<% @users.each do |user| %>
+       <div class="row">
+			<p> Email : <%= user.email %> Rôle : <%= user.role %></p>
+                                <%= link_to(admin_edit_user_path(user),:class=>'button') do %>
+                           <span>Edit user</span> <i class="fa fa-chevron-right"></i>
+                           <% end %>
+		</div>
+	<% end %>
+	<%= link_to 'Create User', admin_create_user_path() %>

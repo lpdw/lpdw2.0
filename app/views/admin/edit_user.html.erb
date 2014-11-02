@@ -1,0 +1,17 @@
+<h2>Edit d'utilisateur</h2>
+
+<%= form_for :user do |f| %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true , :class => 'form-control' %></div>
+
+  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" , :class => 'form-control' %></div>
+  <div>
+   <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+  </div>
+  <div><%= f.submit "Update utilisateur", :class => 'btn btn-default' %></div>
+<% end %>
