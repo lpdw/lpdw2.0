@@ -54,16 +54,43 @@
             z-index: 99999;
             background: white;
             position: absolute;
-            top:80px;
-            left:0;
-            right:0;
-            bottom:0;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
             overflow-y: scroll;
-            -webkit-overflow-scrolling:touch;
+            -webkit-overflow-scrolling: touch;
         }
     }
 }
 
-// @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
-// @media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .navbar-lpdw {
+        .navbar-nav {
+            text-align: center;
+            background: white;
+            position: absolute;
+            left: 0;
+            right:0;
+            & > li > a {
+                padding: 10px 10px 10px 20px;
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+.navbar-lpdw {
+        .navbar-nav {
+            text-align: center;
+            background: white;
+            position: absolute;
+            left: 0;
+            right:0;
+            & > li > a {
+                padding: 10px 30px 10px 30px;
+            }
+        }
+    }
+}
 // @media (min-width: @screen-lg-min) { ... }

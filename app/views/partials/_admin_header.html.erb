@@ -8,8 +8,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>
-        <div class="title-dashboard col-md-2">
-          <h1>Dashboard</h1>
+        <div class="col-md-2">
+          <%= link_to(admin_path(),:class=>'title-dashboard ' ) do %>
+                <h1>Dashboard</h1>
+          <% end %>
         </div>
         <div class="col-md-10 col-md-offset-2 header-info">
           <% if user_signed_in? %>

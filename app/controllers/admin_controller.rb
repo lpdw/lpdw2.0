@@ -9,7 +9,7 @@ class AdminController < ApplicationController
     @user = User.new
   end
   def index
-
+    @title_admin = "Dashboard"
   end
   def show_users
     @title_admin = "Utilisateurs"
