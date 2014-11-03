@@ -2,7 +2,7 @@ class CreateAlerts < ActiveRecord::Migration
   def change
     create_table :alerts do |t|
       t.string :name
-      t.string :content
+      t.text :content
       t.string :level
       t.boolean :active
 
