@@ -9,10 +9,12 @@
 <%= f.text_area :content, autofocus: true , :class => 'form-control' %></div>
 
 <div><%= f.label :level %></br>
-<%= options_for_select([['Orange', 1], ['Bleu', 2],['Vert', 3],['Violet', 4] , 4) %></div>
+<%= f.collection_select :level, Alert::LEVELS, :to_s, :humanize %></div>
 
-<div><%= f.radio_button (:active) %></br>
+<div><%= f.check_box (:active) %></br>
 <%= f.label(:active) %></div>
+
+
 
 <div><%= f.submit "Creer une alerte", :class => 'btn btn-default' %></div>
 
