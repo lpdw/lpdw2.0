@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20141015143030) do
 
   create_table "actualities", force: true do |t|
     t.string "title",   default: "", null: false
-    t.string "content", default: "", null: false
+    t.text   "content", default: "", null: false
     t.string "author",  default: "", null: false
   end
 
