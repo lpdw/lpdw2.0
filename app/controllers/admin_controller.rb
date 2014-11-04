@@ -117,9 +117,17 @@ class AdminController < ApplicationController
   end
 
   def new_alert
-    @alert = Alert.new(params[:Alert].permit(:name,:content,:level,:active))
+    @alert = Alert.new(params[:alert].permit(:name,:content,:level,:active))
+    if @alert.save
+      flash["sucess"] ="Alert created"
+      redirect_to admin_show_alert_path()
+    else
+      flash["fail"] = "Fail to create alert"
+      redirect_to admin_create_alert_path()
+    end
   end
   def show_alert
-    @alerts = Alert.where(active: true)
+    @title_admin = "Alert"
+    @alerts = Alert.all
   end
 end

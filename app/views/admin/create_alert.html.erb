@@ -1,20 +1,29 @@
-<h2>Ajout d'alerte</h2>
-
+<h2>Ajouter une alerte</h2>
 <%= form_for @alert, url:  admin_create_alert_path do |f| %>
-
-<div><%= f.label :name %><br />
-<%= f.text_field :name, autofocus: true , :class => 'form-control' %></div>
-
-<div><%= f.label :content %><br />
-<%= f.text_area :content, autofocus: true , :class => 'form-control' %></div>
-
-<div><%= f.label :level %></br>
-<%= options_for_select([['Orange', 1], ['Bleu', 2],['Vert', 3],['Violet', 4] , 4]) %></div>
-
-<div><%= f.radio_button (:active) %></br>
-<%= f.label(:active) %></div>
-
-<div><%= f.submit "Creer une alerte", :class => 'btn btn-default' %></div>
-
-
+<div class="form-group">
+    <div class="col-sm-10">
+        <%= f.text_field :name, autofocus: true , :class => 'input' ,:placeholder=>"Nom" %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-10">
+        <%= f.text_area :content, autocomplete: "off", :class => 'input textarea' ,:placeholder=>"Contenu" %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-10">
+        <%= f.collection_select :level, Alert::LEVELS, :to_s, :humanize %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-10">
+        <%= f.check_box (:active) %></br>
+        <%= f.label(:active) %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-10">
+        <%= f.submit "Creer une alerte", :class => 'input-btn' %>
+    </div>
+</div>
 <% end%>

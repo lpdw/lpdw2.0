@@ -24,6 +24,19 @@
       </div>
 </header>
 
+<% @alerts.each do |alert| %>
+<% if alert.active %>
+        <div class="flash">
+            <div class="alert <%= alert.level %>" >
+            <%= alert.content %>
+            <button class="close-alert">
+            <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            </div>
+        </div>
+<% end %>
+
+<% end %>
 <!-- <p class="alert alert-blue">
   <%= link_to 'Téléchargez le dossier de candidature!', postuler_path() %>
   <button class="close-alert">
