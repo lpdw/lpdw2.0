@@ -38,7 +38,7 @@ root 'pages#home'
 
   get 'admin/create_alert' => 'admin#create_alert'
   post 'admin/create_alert' => 'admin#new_alert'
-  get 'admin/show_alert' => 'admin#show_alert'
+  get 'admin/show_alerts' => 'admin#show_alerts'
   
 
 

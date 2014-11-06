@@ -126,8 +126,8 @@ class AdminController < ApplicationController
       redirect_to admin_create_alert_path()
     end
   end
-  def show_alert
-    @title_admin = "Alert"
+  def show_alerts
+    @title_admin = "Alertes"
     @alerts = Alert.all
   end
 end
