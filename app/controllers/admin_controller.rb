@@ -22,10 +22,12 @@ class AdminController < ApplicationController
   def update_user
     @title_admin = "Utilisateur"
     @user=User.find(params[:id])
-    if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role))
+    if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname))
       # Handle a successful update.
-      redirect_to admin_path
+      flash["sucess"] ="Mis a jour avec succès"
+      redirect_to admin_show_users_path
     else
+      flash["fail"] = "Mise à jour Fail"
       redirect_to admin_edit_user_path(user)
     end
   end
@@ -41,7 +43,7 @@ class AdminController < ApplicationController
   end
 
   def new
-    @user = User.new(params[:user].permit(:email, :password, :password_confirmation, :role))
+    @user = User.new(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname))
     if @user.save
       flash["sucess"] ="User created"
       redirect_to admin_show_users_path()
@@ -130,56 +132,5 @@ class AdminController < ApplicationController
     @title_admin = "Alertes"
     @alerts = Alert.all
   end
-
-    # actuality Controller
-  before_action :get_this,only: [:edit_team,:update_team,:delete_team]
-  def get_this
-    @this = Team.find(params[:id])
-  end
-
-  def show_members
-    @title_admin = "Team"
-    @members = Team.all
-  end
-  def create_member
-    @title_admin = "Team"
-    @actuality = Actuality.new
-  end
-
-  def new_actuality
-    @title_admin = "Actualité"
-    @actuality = Actuality.new(params[:actuality].permit(:title, :content, :author))
-    if @actuality.save
-      flash["sucess"] = "Actuality created"
-      redirect_to admin_show_actualities_path() # halts request cycle
-    else
-      flash["fail"] = "Actuality not created"
-      redirect_to admin_create_actuality_path() # halts request cycle
-    end
-  end
-
-  def edit_actuality
-    @title_admin = "Actualité"
-    @actuality=@this
-  end
-  def update_actuality
-    @title_admin = "Actualité"
-    if @this.update_attributes(params[:this].permit(:title, :content, :author))
-      # Handle a successful update.
-      redirect_to admin_path
-    else
-      redirect_to admin_edit_actuality_path(this)
-    end
-  end
-  def delete_actuality
-    if @this.destroy
-      flash["sucess"] ="SUCESS DELETE"
-      redirect_to admin_show_actualities_path()
-    else
-      flash["fail"] = "Delete Fail"
-      redirect_to admin_show_actualities_path()
-    end
-  end
-
 
 end

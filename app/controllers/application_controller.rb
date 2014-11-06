@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout_by_resource
   after_filter :set_access_control_headers
+  before_action :set_alerts
 
   protected
 
@@ -19,5 +20,8 @@ class ApplicationController < ActionController::Base
      headers['Access-Control-Allow-Origin'] = '*'
      headers['Access-Control-Request-Method'] = '*'
    end
+   def set_alerts
+    @alerts= Alert.all()
+  end
 
  end

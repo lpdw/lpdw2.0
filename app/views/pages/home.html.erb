@@ -19,7 +19,7 @@
                     <% end %>
                             <div class="article-new">
                                 <h3><%= actuality.title %></h3>
-                                <p><%= (actuality.content).truncate(50) %></p>
+                                <p><%= (actuality.content).truncate(50).html_safe %></p>
                                 <%= link_to 'Lire la suite', actuality_show_path(actuality),:class=>"button" %>
                                 <%= link_to(actuality_show_path(actuality),:class=>'button') do %>
                                 <span>Lire la suite</span> <i class="fa fa-chevron-right"></i>

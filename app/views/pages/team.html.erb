@@ -6,19 +6,23 @@
 <div class="team-profiles">
     <div class="container">
         <div class="row">
-        	<article class="col-sm-4 col-md-3">
-        	    <div class="team-profile">
-        	        <figure>
-        	        	<img src="assets/equipe/laurent.jpg" alt=."Faclab gennevilliers" class="img-responsive">
-        	        </figure>
-        	        <h4 class="text-center">Laurent Ricard</h4>
-        	        <p class="text-center job-title">Responsable de la licence</p>
-                    <ul class="social_section text-center">
-                        <li><a href="https://twitter.com/LaurentRicard"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/laurentricard/fr"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-        	    </div>
-        	</article>
+            <% @intervenants.each do |intervenant| %>
+            	<article class="col-sm-4 col-md-3">
+            	    <div class="team-profile">
+            	        <figure>
+            	        	<img src="assets/equipe/laurent.jpg" alt=."Faclab gennevilliers" class="img-responsive">
+            	        </figure>
+            	        <h4 class="text-center"><%= intervenant.name%> <%= intervenant.lastname%></h4>
+            	        <p class="text-center job-title">Responsable de la licence</p>
+                        <ul class="social_section text-center">
+                            <li><a href="https://twitter.com/LaurentRicard"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/laurentricard/fr"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+            	    </div>
+            	</article>
+            <% end %>
+
+            <!-- 
             <article class="col-sm-4 col-md-3">
                 <div class="team-profile">
                     <figure>
@@ -57,7 +61,7 @@
                         <li><a href="http://fr.linkedin.com/pub/olivier-le-cam/8/125/b43"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div>
-            </article>
+            </article> -->
         </div>
     </div>
 </div>

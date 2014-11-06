@@ -35,6 +35,8 @@ gem 'spring',        group: :development
 # Add User auth + role
  gem 'cancan'
  gem 'devise'
+#plugin actuality
+ gem 'tinymce-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
