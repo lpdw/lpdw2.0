@@ -39,7 +39,7 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+#gem 'debugger', group: [:development, :test]
 
 gem 'rails-i18n', '~> 4.0.3'
 #Add gem 'bootstrap-sass', '~> 3.2.0.2'

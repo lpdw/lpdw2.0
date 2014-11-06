@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   #devise_for :users, :path => '', :path_names => {sign_in: 'admin/login', sign_out:  'logout', sign_up: 'create'}
 
-devise_for :users,
+devise_for :users, :controllers => {:sessions => "sessions"},
 :path => '/admin',
 :path_names => {
     :sign_in  => 'login',
