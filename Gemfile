@@ -61,3 +61,5 @@ gem 'execjs'
 gem 'therubyracer'
 #Postgre to mysql
 gem 'yaml_db'
+
+gem "html_truncator", "~>0.2"
