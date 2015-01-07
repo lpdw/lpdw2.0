@@ -27,7 +27,7 @@ class AdminController < ApplicationController
       flash["sucess"] ="Mis a jour avec succès"
       redirect_to admin_show_users_path
     else
-      flash["fail"] = "Mise à jour Fail"
+      flash["fail"] = @user.errors.messages
       redirect_to admin_edit_user_path(@user)
     end
   end
@@ -37,7 +37,7 @@ class AdminController < ApplicationController
       flash["sucess"] ="SUCESS DELETE"
       redirect_to admin_show_users_path()
     else
-      flash["fail"] = "Delete Fail"
+      flash["fail"] = @user.errors.messages
       redirect_to admin_show_users_path()
     end
   end
@@ -48,7 +48,7 @@ class AdminController < ApplicationController
       flash["sucess"] ="User created"
       redirect_to admin_show_users_path()
     else
-      flash["fail"] = "Fail to create User"
+      flash["fail"] = @user.errors.messages
       redirect_to admin_create_user_path()
     end
   end
