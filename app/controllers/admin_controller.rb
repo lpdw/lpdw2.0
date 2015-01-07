@@ -2,7 +2,6 @@ class AdminController < ApplicationController
   #Before any action just authetificate user
   before_action :authenticate_user!, :is_admin
 
-
   #user Controller
   def create_user
     @title_admin = "Utilisateur"
