@@ -1,6 +1,6 @@
 <h1>Gérer les alertes</h1>
-<%= link_to(admin_create_user_path(),:class=>'button button-blue float-right') do %>
-    <span>Créer une alerte</span> <i class="fa fa-user"></i>
+<%= link_to(admin_create_alert_path(),:class=>'button button-blue float-right') do %>
+    <span>Créer une alerte</span> <i class="fa fa-bell"></i>
 <% end %>
 <table class="table">
     <thead>
@@ -22,10 +22,10 @@
             <td data-th="Niveau"><%= alert.level %></td>
             <td data-th="Active"><%= alert.active %></td>
             <td data-th="Actions">
-                <%= link_to(admin_edit_user_path(alert)) do %>
+                <%= link_to(admin_edit_alert_path(alert)) do %>
                 <i class="fa fa-pencil"></i>
                 <% end %>
-                <%= link_to(admin_delete_user_path(alert)) do %>
+                <%= link_to(admin_delete_alert_path(alert)) do %>
                 <i class="fa fa-trash-o"></i></td>
                 <% end %>
             </td>
