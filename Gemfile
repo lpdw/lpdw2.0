@@ -37,6 +37,9 @@ gem 'spring',        group: :development
  gem 'devise'
 #plugin actuality
  gem 'tinymce-rails'
+ gem 'tinymce-rails-langs'
+ gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
+ gem 'paperclip'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

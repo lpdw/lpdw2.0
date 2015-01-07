@@ -21,7 +21,12 @@ module Lpdw20
     config.i18n.default_locale = :fr
     config.i18n.available_locales = :fr
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    Paperclip::Attachment.default_options[:path] = "public/assets/upload/:class/:attachment/:filename"
+    Paperclip::Attachment.default_options[:url] = "/assets/upload/:class/:attachment/:filename"
     # config.action_controller.include_all_helpers = true
+    config.active_support.escape_html_entities_in_json = true
+    config.assets.enabled = true
+    config.assets.precompile += %w(tinymce/plugins/uploadimage/langs/fr.js tinymce/plugins/uploadimage/langs/fr_FR.js)
 
     config.serve_static_assets = true
   end

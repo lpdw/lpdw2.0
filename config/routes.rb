@@ -35,6 +35,7 @@ root 'pages#home'
   get 'admin/show_actualities' => 'admin#show_actualities'
   post 'admin/edit_actuality/:id' => 'admin#update_actuality'
   get 'admin/delete_actuality/:id' => 'admin#delete_actuality', :as => 'admin_delete_actuality'
+  post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
 
   get 'admin/create_alert' => 'admin#create_alert'
   post 'admin/create_alert' => 'admin#new_alert'

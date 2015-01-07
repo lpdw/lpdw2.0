@@ -1,6 +1,17 @@
+theme :
+  modern
 toolbar:
-  - styleselect | bold italic | undo redo
-  - image | link
+  - insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image uploadimage
 plugins:
   - image
   - link
+  - media
+  - code
+  - preview
+  - uploadimage
+image_dimensions:
+  false
+language:
+  - fr_FR
+uploadimage_form_url:
+  tinymce_assets

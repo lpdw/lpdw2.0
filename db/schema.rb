@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106085618) do
+ActiveRecord::Schema.define(version: 20150107184254) do
 
   create_table "actualities", force: true do |t|
     t.string "title"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20141106085618) do
     t.text     "content"
     t.string   "level"
     t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "alt",          default: ""
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,6 +54,10 @@ ActiveRecord::Schema.define(version: 20141106085618) do
     t.string   "role"
     t.string   "lastname"
     t.string   "name"
+    t.string   "photo"
+    t.string   "twitter"
+    t.string   "description"
+    t.string   "linkin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

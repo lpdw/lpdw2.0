@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
-//= require tinymce
 $(document).ready(function() {
         topScroll();
 
@@ -104,8 +103,6 @@ $(document).ready(function() {
             document.documentElement.style.overflow = 'hidden';
         }
      });
-    tinyMCE.init({
-    selector: 'textarea.content'
-  });
+
 
 });

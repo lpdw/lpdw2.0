@@ -21,7 +21,7 @@ class AdminController < ApplicationController
   def update_user
     @title_admin = "Utilisateur"
     @user=User.find(params[:id])
-    if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname))
+    if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname, :twitter, :description, :photo, :linkin))
       # Handle a successful update.
       flash["sucess"] ="Mis a jour avec succès"
       redirect_to admin_show_users_path
@@ -75,6 +75,23 @@ class AdminController < ApplicationController
   def create_actuality
     @title_admin = "Actualité"
     @actuality = Actuality.new
+  end
+
+  respond_to :json
+  def create_tinymce_assets
+    # respond_to :json
+    geometry = Paperclip::Geometry.from_file params[:file]
+    image    = Image.create params.permit(:file, :alt, :hint)
+
+    renderJson = {
+      image: {
+        url:    image.file.url,
+        height: geometry.height.to_i,
+        width:  geometry.width.to_i
+      }
+    }
+
+    render json: renderJson, content_type: "text/html"
   end
 
   def new_actuality
