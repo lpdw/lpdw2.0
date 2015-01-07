@@ -13,15 +13,22 @@
              height:100%;
              padding:15px;
              border-bottom: 2px solid #D5D5D5;
+             overflow: hidden;
         }
         h3 {
             color: $color-2;
             margin-top: 0;
             text-transform: uppercase;
         }
+
         p {
             margin-top: 20px;
+            
+            img {
+                display: none;
+            }
         }
+
         .button {
             position: absolute;
             right: 0;
@@ -97,17 +104,13 @@
         .button {
             position: absolute;
             font-size: 16px;
-            padding: 15px;
-            padding-top: 0;
-            padding-bottom: 0;
+            padding: 10px 15px;
             right: 0;
             bottom: 0;
-            margin-bottom: 20px;
-            margin-right: 20px;
+            margin: 0;
             text-align: center;
             background: $color-3;
             color: white;
-            border: 1px solid $color-4;
             -webkit-user-select: none;
             cursor: pointer;
             text-transform: uppercase;
@@ -126,7 +129,7 @@
             i {
                 position: absolute;
                 left: 85%;
-                top: 20%;
+                top: 33%;
                 opacity: 0;
                 transition: all 0.2s;
             }
@@ -150,7 +153,9 @@
              background: $color-5;
         }
     }
-    img {}
+    img {
+        margin: 0 auto;
+    }
     h4 {
         color: $color-1;
     }

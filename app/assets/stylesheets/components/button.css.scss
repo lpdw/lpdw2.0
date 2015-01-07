@@ -13,6 +13,11 @@
 		background-color: $color-2;
 		text-decoration: none;
 	}
+
+	&.faclab {
+		border: none;
+		padding: 10px;
+	}
 }
 
 @media (min-width: $screen-sm-min) {
