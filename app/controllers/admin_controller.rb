@@ -22,7 +22,7 @@ class AdminController < ApplicationController
   def update_user
     @title_admin = "Utilisateur"
     @user=User.find(params[:id])
-    if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname))
+    if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname, :twitter, :description, :photo, :linkin))
       # Handle a successful update.
       flash["sucess"] ="Mis a jour avec succès"
       redirect_to admin_show_users_path
