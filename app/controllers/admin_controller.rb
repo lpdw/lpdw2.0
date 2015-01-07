@@ -22,13 +22,13 @@ class AdminController < ApplicationController
   def update_user
     @title_admin = "Utilisateur"
     @user=User.find(params[:id])
-    if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname))
+    if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname, :twitter, :description, :photo, :linkin))
       # Handle a successful update.
       flash["sucess"] ="Mis a jour avec succès"
       redirect_to admin_show_users_path
     else
       flash["fail"] = "Mise à jour Fail"
-      redirect_to admin_edit_user_path(user)
+      redirect_to admin_edit_user_path(@user)
     end
   end
   def delete_user
@@ -98,7 +98,8 @@ class AdminController < ApplicationController
     @title_admin = "Actualité"
     if @this.update_attributes(params[:this].permit(:title, :content, :author))
       # Handle a successful update.
-      redirect_to admin_path
+      flash["sucess"] ="Mis a jour avec succès"
+      redirect_to admin_show_actualities_path
     else
       redirect_to admin_edit_actuality_path(this)
     end
@@ -114,6 +115,11 @@ class AdminController < ApplicationController
   end
 
   #alert controller
+  before_action :get_this_alert,only: [:edit_alert,:update_alert,:delete_alert]
+  def get_this_alert
+    @thisAlert = Alert.find(params[:id])
+  end
+
   def create_alert
     @alert = Alert.new
   end
@@ -122,7 +128,7 @@ class AdminController < ApplicationController
     @alert = Alert.new(params[:alert].permit(:name,:content,:level,:active))
     if @alert.save
       flash["sucess"] ="Alert created"
-      redirect_to admin_show_alert_path()
+      redirect_to admin_show_alerts_path()
     else
       flash["fail"] = "Fail to create alert"
       redirect_to admin_create_alert_path()
@@ -131,6 +137,30 @@ class AdminController < ApplicationController
   def show_alerts
     @title_admin = "Alertes"
     @alerts = Alert.all
+  end
+
+  def edit_alert
+    @title_admin = "Alerte"
+    @actuality=@thisAlert
+  end
+def update_alert
+    @title_admin = "Alerte"
+    if @thisAlert.update_attributes(params[:thisAlert].permit(:name,:content,:level,:active))
+      # Handle a successful update.
+      flash["sucess"] ="Mis a jour avec succès"
+      redirect_to admin_show_alerts_path()
+    else
+      redirect_to admin_edit_alert_path(@thisAlert)
+    end
+  end
+  def delete_alert
+    if @thisAlert.destroy
+      flash["sucess"] ="SUCESS DELETE"
+      redirect_to admin_show_alerts_path()
+    else
+      flash["fail"] = "Delete Fail"
+      redirect_to admin_show_alerts_path()
+    end
   end
 
 end

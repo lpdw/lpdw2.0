@@ -17,7 +17,7 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   # See how all your routes lay out with "rake routes".
 
 root 'pages#home'
-  
+
   get 'admin' => 'admin#index'
   #Avoid sign_up by devise
   get 'admin/sign_up' => 'admin#index'
@@ -39,7 +39,9 @@ root 'pages#home'
   get 'admin/create_alert' => 'admin#create_alert'
   post 'admin/create_alert' => 'admin#new_alert'
   get 'admin/show_alerts' => 'admin#show_alerts'
-  
+  get 'admin/edit_alerts/:id' => 'admin#edit_alert', :as => 'admin_edit_alert'
+  post 'admin/edit_alerts/:id' => 'admin#update_alert'
+  get 'admin/delete_alerts/:id' => 'admin#delete_alert', :as => 'admin_delete_alert'
 
 
   get '/', :to => 'pages#home'
