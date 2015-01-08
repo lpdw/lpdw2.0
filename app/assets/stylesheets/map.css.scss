@@ -1,14 +1,12 @@
 .map {
     position: relative;
-    height: 350px;
     width:100%;
-    left: 0;
-    right: 0;
     text-transform: uppercase;
     color: white;
     margin:0px;
     background: url("/assets/map.png") no-repeat center center;
     background-size: cover;
+    padding: 20px 0;
     &:before {
         content: "";
         background:black;
@@ -22,7 +20,6 @@
     }
     div
         {
-            margin-top:40px;
         .btn {
             display:block;
             width:200px;
@@ -52,6 +49,7 @@ div .address-2 {
     margin-bottom:25px;
     textarea {
         height:150px;
+        resize: vertical;
     }
     input,textarea {
         padding:20px ;
@@ -66,6 +64,7 @@ div .address-2 {
         }
 
         .network {
+            margin-top: 10px;
             text-align:left;
             display:block;
             width:100%;
@@ -110,4 +109,20 @@ div .address-2 {
             }
         }     
     }
+}
+
+@media (min-width: $screen-sm-min) {
+
+    .map {
+        height: 350px;
+    }
+
+    .contact {
+        .col-md-6 {
+            .network {
+                margin-top: 0;
+            }
+        }
+    }
+
 }
