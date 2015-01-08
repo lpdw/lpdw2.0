@@ -26,7 +26,7 @@ class AdminController < ApplicationController
       flash["sucess"] ="Mis a jour avec succès"
       redirect_to admin_show_users_path
     else
-      flash["fail"] = @user.errors.messages
+      flash[:error] = @user.errors.messages[:email].to_s + @user.errors.messages[:password].to_s +  @user.errors.messages[:password_confirmation].to_s + @user.errors.messages[:photo].to_s
       redirect_to admin_edit_user_path(@user)
     end
   end
@@ -36,7 +36,7 @@ class AdminController < ApplicationController
       flash["sucess"] ="SUCESS DELETE"
       redirect_to admin_show_users_path()
     else
-      flash["fail"] = @user.errors.messages
+      flash[:error] =  @user.errors.messages[:email] + @user.errors.messages[:password] +  @user.errors.messages[:password_confirmation] + @user.errors.messages[:photo]
       redirect_to admin_show_users_path()
     end
   end
@@ -47,7 +47,7 @@ class AdminController < ApplicationController
       flash["sucess"] ="User created"
       redirect_to admin_show_users_path()
     else
-      flash["fail"] = @user.errors.messages
+      flash[:error] =  @user.errors.messages[:email].to_s + @user.errors.messages[:password] +  @user.errors.messages[:password_confirmation] + @user.errors.messages[:photo]
       redirect_to admin_create_user_path()
     end
   end
@@ -55,7 +55,7 @@ class AdminController < ApplicationController
   def is_admin
     @user = current_user
     if (@user.role != "admin") then
-      flash["error"] = "You must be admin to access this section"
+      flash[:error] = "You must be admin to access this section"
       redirect_to root_path # halts request cycle
     end
   end
