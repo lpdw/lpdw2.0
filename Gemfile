@@ -63,3 +63,5 @@ gem 'therubyracer'
 gem 'yaml_db'
 
 gem "html_truncator", "~>0.2"
+
+gem 'jquery-turbolinks'

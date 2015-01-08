@@ -47,6 +47,7 @@
             cursor: pointer;
             text-transform: uppercase;
             text-decoration: none;
+
             span {
                 position: relative;
                 left: 0;
@@ -172,4 +173,21 @@
         text-decoration: none;
         color: $color-1;
     }
+}
+
+@media (max-width: $screen-sm-max) {
+    
+    .home-faclab {
+
+        article {
+
+            .button {
+                bottom: -30px;
+                right: 30px;
+            }
+
+        }
+
+    }
+
 }
