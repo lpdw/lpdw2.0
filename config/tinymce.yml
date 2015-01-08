@@ -15,3 +15,5 @@ language:
   - fr_FR
 uploadimage_form_url:
   tinymce_assets
+uploadimage_default_img_class:
+ img-responsive

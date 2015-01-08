@@ -77,17 +77,13 @@ class AdminController < ApplicationController
     @actuality = Actuality.new
   end
 
-  respond_to :json
   def create_tinymce_assets
-    # respond_to :json
     geometry = Paperclip::Geometry.from_file params[:file]
-    image    = Image.create params.permit(:file, :alt, :hint)
+    image    = Image.create params.permit(:file, :alt)
 
     renderJson = {
       image: {
-        url:    image.file.url,
-        height: geometry.height.to_i,
-        width:  geometry.width.to_i
+        url:    image.file.url
       }
     }
 
