@@ -175,4 +175,69 @@ def update_alert
     end
   end
 
+  # Projects Controller
+  before_action :get_this,only: [:edit_project,:update_project,:delete_project]
+  def get_this
+    @this = Project.find(params[:id])
+  end
+
+  def show_projects
+    @title_admin = "projects"
+    @projects = Project.all
+  end
+  def create_project
+    @title_admin = "projects"
+    @project = Project.new
+  end
+
+  def create_tinymce_assets
+    geometry = Paperclip::Geometry.from_file params[:file]
+    image    = Image.create params.permit(:file, :alt)
+
+    renderJson = {
+      image: {
+        url:    image.file.url
+      }
+    }
+
+    render json: renderJson, content_type: "text/html"
+  end
+
+  def new_project
+    @title_admin = "Project"
+    @project = Project.new(params[:project].permit(:photo, :name, :description, :link))
+    if @project.save
+      flash[:info] = "Project created"
+      redirect_to admin_show_projects_path() # halts request cycle
+    else
+      flash[:error] = "Project not created"
+      redirect_to admin_create_project_path() # halts request cycle
+    end
+  end
+
+  def edit_project
+    @title_admin = "Project"
+    @project=@this
+  end
+  def update_project
+    @title_admin = "project"
+    if @this.update_attributes(params[:this].permit(:photo, :name, :description, :link))
+      # Handle a successful update.
+      flash[:info] ="Mis a jour avec succès"
+      redirect_to admin_show_projects_path
+    else
+      flash[:error] = @this.messages.errors
+      redirect_to admin_edit_project_path(this)
+    end
+  end
+  def delete_project
+    if @this.destroy
+      flash["sucess"] ="SUCESS DELETE"
+      redirect_to admin_show_projects_path()
+    else
+      flash[:error] = @this.messages.errors
+      redirect_to admin_show_projects_path()
+    end
+  end
+
 end
