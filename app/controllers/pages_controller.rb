@@ -20,6 +20,7 @@ class PagesController < ApplicationController
   end
   #Projets étudiants
   def project
+    @projects = Project.all().order(id: :desc)
   end
   #L'équipe
   def team

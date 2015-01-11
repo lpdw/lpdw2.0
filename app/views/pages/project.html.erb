@@ -6,46 +6,20 @@
 <div class="work_list">
     <div class="container">
         <ul id="og-grid" class="og-grid">
+            <!--
             <li>
                 <div class="image-wrapper" data-url="http://quentinmangin.com/ScoutUp/" data-largesrc="/assets/project-full.png" data-title="Scout Up" data-description="On passe un temps fou dans les transports en commun. La SNCF a publié quantité de données en « Open Data ». Quentin et Aurélien s’en sont emparés pour réaliser un site mobile pour se simplifier la vie, afin de partager les messages d’information des gares, et se rendre service entre usagers.">
                     <img src="/assets/thumbs/project-preview.png" alt="Scout Up preview"/>
                 </div>
             </li>
+            -->
+            <% @projects.each do |project| %>
             <li>
-                <div class="image-wrapper" data-url="#" data-largesrc="/assets/project2-full.jpg" data-title="TrainsPOVing" data-description="Pour ne pas oublier d’aller à la gare, Pauline, Lucile et Mathieu ont inventé « TrainsPOVing ». Ce projet mêle web, électronique, javascript, Arduino, réseau, et une bonne dose de bricolage (scie à métaux et couture compris)...">
-                    <img src="/assets/thumbs/project2-preview.jpg" alt="TrainsPOVing preview"/>
+                <div class="image-wrapper" data-url="<%= project.link %>" data-largesrc="<%= project.photo %>" data-title="<%= project.name %>" data-description="<%= project.description %>">
+                    <img width="250px" height="250px" src="<%= project.photo %>" alt="<%= project.name %>"/>
                 </div>
             </li>
-            <li>
-                <div class="image-wrapper" data-url="http://quentinmangin.com/ScoutUp/" data-largesrc="/assets/project-full.png" data-title="Scout Up" data-description="On passe un temps fou dans les transports en commun. La SNCF a publié quantité de données en « Open Data ». Quentin et Aurélien s’en sont emparés pour réaliser un site mobile pour se simplifier la vie, afin de partager les messages d’information des gares, et se rendre service entre usagers.">
-                    <img src="/assets/thumbs/project-preview.png" alt="Scout Up preview"/>
-                </div>
-            </li>
-            <li>
-                <div class="image-wrapper" data-url="#" data-largesrc="/assets/project2-full.jpg" data-title="TrainsPOVing" data-description="Pour ne pas oublier d’aller à la gare, Pauline, Lucile et Mathieu ont inventé « TrainsPOVing ». Ce projet mêle web, électronique, javascript, Arduino, réseau, et une bonne dose de bricolage (scie à métaux et couture compris)...">
-                    <img src="/assets/thumbs/project2-preview.jpg" alt="TrainsPOVing preview"/>
-                </div>
-            </li>
-            <li>
-                <div class="image-wrapper" data-url="#" data-largesrc="/assets/project2-full.jpg" data-title="TrainsPOVing" data-description="Pour ne pas oublier d’aller à la gare, Pauline, Lucile et Mathieu ont inventé « TrainsPOVing ». Ce projet mêle web, électronique, javascript, Arduino, réseau, et une bonne dose de bricolage (scie à métaux et couture compris)...">
-                    <img src="/assets/thumbs/project2-preview.jpg" alt="TrainsPOVing preview"/>
-                </div>
-            </li>
-            <li>
-                <div class="image-wrapper" data-url="http://quentinmangin.com/ScoutUp/" data-largesrc="/assets/project-full.png" data-title="Scout Up" data-description="On passe un temps fou dans les transports en commun. La SNCF a publié quantité de données en « Open Data ». Quentin et Aurélien s’en sont emparés pour réaliser un site mobile pour se simplifier la vie, afin de partager les messages d’information des gares, et se rendre service entre usagers.">
-                    <img src="/assets/thumbs/project-preview.png" alt="Scout Up preview"/>
-                </div>
-            </li>
-            <li>
-                <div class="image-wrapper" data-url="#" data-largesrc="/assets/project2-full.jpg" data-title="TrainsPOVing" data-description="Pour ne pas oublier d’aller à la gare, Pauline, Lucile et Mathieu ont inventé « TrainsPOVing ». Ce projet mêle web, électronique, javascript, Arduino, réseau, et une bonne dose de bricolage (scie à métaux et couture compris)...">
-                    <img src="/assets/thumbs/project2-preview.jpg" alt="TrainsPOVing preview"/>
-                </div>
-            </li>
-            <li>
-                <div class="image-wrapper" data-url="http://quentinmangin.com/ScoutUp/" data-largesrc="/assets/project-full.png" data-title="Scout Up" data-description="On passe un temps fou dans les transports en commun. La SNCF a publié quantité de données en « Open Data ». Quentin et Aurélien s’en sont emparés pour réaliser un site mobile pour se simplifier la vie, afin de partager les messages d’information des gares, et se rendre service entre usagers.">
-                    <img src="/assets/thumbs/project-preview.png" alt="Scout Up preview"/>
-                </div>
-            </li>
+            <% end %>
         </ul>
     </div>
 </div>
