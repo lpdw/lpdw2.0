@@ -56,6 +56,7 @@ root 'pages#home'
   get '/informations', :to => 'pages#map'
   get '/postuler', :to => 'pages#apply'
   get '/mentions', :to => 'pages#mentions'
+  get '/live', :to => 'pages#live'
 
 
   #get 'actualites' => 'news#news'

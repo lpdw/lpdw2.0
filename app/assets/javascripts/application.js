@@ -52,7 +52,7 @@ $(document).ready(function() {
     var tw_site = "https://twitter.com/";
 
     $.ajax({
-        url: tw_url+"ivandaum",
+        url: tw_url+"lpdw_ucp",
         type: 'GET',
         crossDomain: true,
         dataType: 'jsonp',

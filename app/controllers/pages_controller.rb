@@ -40,4 +40,7 @@ class PagesController < ApplicationController
   #Contactez-nous
   def contact
   end
+  #réactions et live
+  def live
+  end
 end

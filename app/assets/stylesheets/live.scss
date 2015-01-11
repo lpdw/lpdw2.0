@@ -1,0 +1,20 @@
+.live {
+  .note-live {
+    font-size:20px;
+    padding:30px;
+
+    span {
+      color:$color-1;
+      font-weight: bold;
+    }
+  }
+  .live-message {
+    article .article-new {
+      padding:10px;
+      p {
+        background:white;
+      }
+    }
+  }
+
+}
