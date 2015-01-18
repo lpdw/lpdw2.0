@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150108131917) do
     t.string "title"
     t.text   "content"
     t.string "author"
+    t.datetime "created_at"
   end
 
   create_table "alerts", force: true do |t|
