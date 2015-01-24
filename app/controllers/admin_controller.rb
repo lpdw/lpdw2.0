@@ -9,6 +9,9 @@ class AdminController < ApplicationController
   end
   def index
     @title_admin = "Dashboard"
+    @users = User.all
+    @projects = Project.all
+    @alerts = Alert.all
   end
   def show_users
     @title_admin = "Utilisateurs"
