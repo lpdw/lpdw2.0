@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108131917) do
+ActiveRecord::Schema.define(version: 20150124222241) do
 
   create_table "actualities", force: true do |t|
-    t.string "title"
-    t.text   "content"
-    t.string "author"
+    t.string   "title"
+    t.text     "content"
+    t.string   "author"
     t.datetime "created_at"
   end
 
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20150108131917) do
     t.text     "content"
     t.string   "level"
     t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "alt"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
