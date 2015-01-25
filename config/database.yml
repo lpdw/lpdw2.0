@@ -20,5 +20,6 @@ development:
   pool: 5
   username: root
   database: lpdw2_0_development
+  password: root
 
 
