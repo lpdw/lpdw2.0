@@ -44,6 +44,13 @@ root 'pages#home'
   post 'admin/edit_alerts/:id' => 'admin#update_alert'
   get 'admin/delete_alerts/:id' => 'admin#delete_alert', :as => 'admin_delete_alert'
 
+  get 'admin/create_project' => 'admin#create_project'
+  post 'admin/create_project' => 'admin#new_project'
+  get 'admin/edit_project/:id' => 'admin#edit_project', :as => 'admin_edit_project'
+  get 'admin/show_projects' => 'admin#show_projects'
+  post 'admin/edit_project/:id' => 'admin#update_project'
+  get 'admin/delete_project/:id' => 'admin#delete_project', :as => 'admin_delete_project'
+  post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
 
   get '/', :to => 'pages#home'
   get '/actualites', :to => 'pages#news'
@@ -56,6 +63,7 @@ root 'pages#home'
   get '/informations', :to => 'pages#map'
   get '/postuler', :to => 'pages#apply'
   get '/mentions', :to => 'pages#mentions'
+  get '/live', :to => 'pages#live'
 
 
   #get 'actualites' => 'news#news'

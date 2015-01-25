@@ -1,1 +1,28 @@
-<h1>Bonjour, <%= current_user.email %></h1>
+<h1>Bonjour, <%= current_user.email %> voici un résumé des stats du site actuel :</h1>
+<br></br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Combien</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td data-th="Nom" >Utilisateurs</td>
+            <td data-th="count" ><%= @users.count %></td>
+        </tr>
+        <tr>
+       		<td data-th="Nom" >Projets</td>
+            <td data-th="count" ><%= @projects.count %></td>
+        </tr>
+        <tr>
+       		<td data-th="Nom" >Alertes</td>
+            <td data-th="count" ><%= @alerts.count %></td>
+        </tr>
+        <tr>
+       		<td data-th="Nom" >Dossiers en cours</td>
+            <td data-th="count" >Non Implémenté</td>
+        </tr>
+    </tbody>
+</table>

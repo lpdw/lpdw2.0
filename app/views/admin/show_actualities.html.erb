@@ -8,6 +8,7 @@
             <th>ID</th>
             <th>Titre</th>
             <th>Auteur</th>
+            <th>created at</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -17,6 +18,7 @@
             <td data-th="ID" ><%= actuality.id %></td>
             <td data-th="Titre" ><%= actuality.title %></td>
             <td data-th="Auteur" ><%= actuality.author %></td>
+            <td data-th="Auteur" ><%= actuality.created_at %></td>
             <td data-th="Action" >
                 <%= link_to(admin_edit_actuality_path(actuality)) do %>
                 <i class="fa fa-pencil"></i>
