@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150124222241) do
   end
 
   create_table "images", force: true do |t|
-    t.string   "alt"
+    t.string   "alt",               default: ""
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
