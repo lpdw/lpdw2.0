@@ -66,9 +66,9 @@ class AdminController < ApplicationController
 
 
   # actuality Controller
-  before_action :get_this,only: [:edit_actuality,:update_actuality,:delete_actuality]
-  def get_this
-    @this = Actuality.find(params[:id])
+  before_action :get_this_actuality,only: [:edit_actuality,:update_actuality,:delete_actuality]
+  def get_this_actuality
+    @thisActuality = Actuality.find(params[:id])
   end
 
   def show_actualities
@@ -107,20 +107,19 @@ class AdminController < ApplicationController
 
   def edit_actuality
     @title_admin = "Actualité"
-    @actuality=@this
   end
   def update_actuality
     @title_admin = "Actualité"
-    if @this.update_attributes(params[:this].permit(:title, :content, :author))
+    if @thisActuality.update_attributes(params[:this].permit(:title, :content, :author))
       # Handle a successful update.
       flash["sucess"] ="Mis a jour avec succès"
       redirect_to admin_show_actualities_path
     else
-      redirect_to admin_edit_actuality_path(this)
+      redirect_to admin_edit_actuality_path(thisActuality)
     end
   end
   def delete_actuality
-    if @this.destroy
+    if @thisActuality.destroy
       flash["sucess"] ="SUCESS DELETE"
       redirect_to admin_show_actualities_path()
     else
