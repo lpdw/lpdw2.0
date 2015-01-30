@@ -66,9 +66,9 @@ class AdminController < ApplicationController
 
 
   # actuality Controller
-  before_action :get_this,only: [:edit_actuality,:update_actuality,:delete_actuality]
-  def get_this
-    @this = Actuality.find(params[:id])
+  before_action :get_this_actuality,only: [:edit_actuality,:update_actuality,:delete_actuality]
+  def get_this_actuality
+    @thisActuality = Actuality.find(params[:id])
   end
 
   def show_actualities
@@ -107,20 +107,19 @@ class AdminController < ApplicationController
 
   def edit_actuality
     @title_admin = "Actualité"
-    @actuality=@this
   end
   def update_actuality
     @title_admin = "Actualité"
-    if @this.update_attributes(params[:this].permit(:title, :content, :author))
+    if @thisActuality.update_attributes(params[:this].permit(:title, :content, :author))
       # Handle a successful update.
       flash["sucess"] ="Mis a jour avec succès"
       redirect_to admin_show_actualities_path
     else
-      redirect_to admin_edit_actuality_path(this)
+      redirect_to admin_edit_actuality_path(thisActuality)
     end
   end
   def delete_actuality
-    if @this.destroy
+    if @thisActuality.destroy
       flash["sucess"] ="SUCESS DELETE"
       redirect_to admin_show_actualities_path()
     else
@@ -208,7 +207,7 @@ def update_alert
 
   def new_project
     @title_admin = "Project"
-    @project = Project.new(params[:project].permit(:photo, :name, :description, :link))
+    @project = Project.new(params[:project].permit(:photo, :name, :description, :link, :thumbmail))
     if @project.save
       flash[:info] = "Project created"
       redirect_to admin_show_projects_path() # halts request cycle
@@ -224,7 +223,7 @@ def update_alert
   end
   def update_project
     @title_admin = "project"
-    if @this.update_attributes(params[:this].permit(:photo, :name, :description, :link))
+    if @this.update_attributes(params[:this].permit(:photo, :name, :description, :link, :thumbmail))
       # Handle a successful update.
       flash[:info] ="Mis a jour avec succès"
       redirect_to admin_show_projects_path

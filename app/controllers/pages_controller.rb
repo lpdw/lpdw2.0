@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   #Accueil
   def home
      @actualities = Actuality.all().order(id: :desc).limit(3)
-     
+     @projects = Project.all().order(id: :desc).limit(4)
   end
   #Actualités
   def news

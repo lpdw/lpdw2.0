@@ -17,3 +17,5 @@ uploadimage_form_url:
   tinymce_assets
 uploadimage_default_img_class:
  img-responsive
+relative_urls:
+  false
