@@ -152,14 +152,23 @@
         padding-right: 5px;
         & .article-creation{
              background: $color-5;
+             overflow: hidden;
         }
     }
     img {
         margin: 0 auto;
+        height: 234px;
+        width: auto;
+        text-align: center;
+        position: relative;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+           -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+                transform: translateX(-50%);
     }
     h4 {
         color: $color-1;
-        padding-bottom:10px;
     }
     p {
         color: $color-2;
@@ -176,6 +185,14 @@
     }
 }
 
+@media (max-width: $screen-md-max) {
+    .home-creations {
+        img {
+            height: 192px;
+        }
+    }
+}
+
 @media (max-width: $screen-sm-max) {
     
     .home-faclab {
@@ -189,6 +206,13 @@
 
         }
 
+    }
+
+    .home-creations {
+        img {
+            height: auto;
+            max-width: 100%;
+        }
     }
 
 }
