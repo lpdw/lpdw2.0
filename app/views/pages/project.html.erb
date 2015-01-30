@@ -15,7 +15,7 @@
             -->
             <% @projects.each do |project| %>
             <li>
-                <div class="image-wrapper" data-url="<%= project.link %>" data-largesrc="<%= project.photo %>" data-title="<%= project.name %>" data-description="<%= project.description %>">
+                <div class="image-wrapper" data-url="<%= project.link %>" data-largesrc="<%= project.thumbmail.url %>" data-title="<%= project.name %>" data-description="<%= project.description %>">
                     <img width="250px" height="250px" src="<%= project.thumbmail.url(:thumb) %>" alt="<%= project.name %>"/>
                 </div>
             </li>
