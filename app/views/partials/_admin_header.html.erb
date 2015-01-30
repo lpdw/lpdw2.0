@@ -8,12 +8,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>
-        <div class="col-md-2">
+        <div class="col-sm-2">
           <%= link_to(admin_path(),:class=>'title-dashboard ' ) do %>
                 <h1>Dashboard</h1>
           <% end %>
         </div>
-        <div class="col-md-10 col-md-offset-2 header-info">
+        <div class="col-sm-10 col-sm-offset-2 header-info">
           <% if user_signed_in? %>
           <h2><%= @title_admin %></h2>
           <% elsif controller_name == "registrations" and action_name == 'new'%>

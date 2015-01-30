@@ -14,6 +14,13 @@ html, body {
   font-smoothing: antialiased;
 }
 
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}
+
 body {
     font-family: "Roboto Condensed Light", sans-serif;
 }

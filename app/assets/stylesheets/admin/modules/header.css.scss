@@ -84,7 +84,7 @@
 
 @media (max-width: $screen-xs-max) {
     .title-dashboard {
-        left: 0;
+        left: 20px;
         position: absolute;
         z-index: 99999;
     }
@@ -102,10 +102,6 @@
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
         }
-    }
-    .sidebar{
-        width:250px;
-        display:none !important;
     }
 }
 

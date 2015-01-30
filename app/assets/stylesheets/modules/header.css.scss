@@ -63,6 +63,11 @@
             -webkit-overflow-scrolling: touch;
         }
     }
+
+    .container-fluid > .navbar-header {
+        margin-right: 0;
+        margin-left: 0;
+    }
 }
 
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {

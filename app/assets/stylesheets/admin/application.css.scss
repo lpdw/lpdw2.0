@@ -50,6 +50,12 @@ body {
     padding-left: 50px;
 }
 
+@media (max-width: $screen-xs-max) {
+    .main {
+        padding-left: 15px;
+    }
+}
+
 .admin-panel {
     width: 300px;
     margin: 30px auto;

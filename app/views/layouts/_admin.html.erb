@@ -21,17 +21,19 @@
         <div class="container-fluid">
             <div class="row">
                 <% if user_signed_in? %>
-                <div class="col-md-2 sidebar">
+                <div class="col-sm-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li><%= link_to 'Utilisateurs', admin_show_users_path() %></li>
                         <li><%= link_to 'Actualités', admin_show_actualities_path() %></li>
                         <li><%= link_to 'Alertes', admin_show_alerts_path() %></li>
                         <li><%= link_to 'Projets', admin_show_projects_path() %></li>
+                        <li class="visible-xs-block"><%= link_to 'Retour au site', root_path()%></li>
+                        <li class="visible-xs-block"><%= link_to 'Se déconnecter', destroy_user_session_path(),:method => 'delete' %></li>
                     </ul>
                 </div>
                 <% end %>
                 <% if user_signed_in? %>
-                <div class="col-md-9 col-md-offset-2 main">
+                <div class="col-sm-9 col-sm-offset-2 main">
                     <% else %>
                     <div >
                         <% end %>
