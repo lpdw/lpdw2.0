@@ -208,7 +208,7 @@ def update_alert
 
   def new_project
     @title_admin = "Project"
-    @project = Project.new(params[:project].permit(:photo, :name, :description, :link))
+    @project = Project.new(params[:project].permit(:photo, :name, :description, :link, :thumbmail))
     if @project.save
       flash[:info] = "Project created"
       redirect_to admin_show_projects_path() # halts request cycle
@@ -224,7 +224,7 @@ def update_alert
   end
   def update_project
     @title_admin = "project"
-    if @this.update_attributes(params[:this].permit(:photo, :name, :description, :link))
+    if @this.update_attributes(params[:this].permit(:photo, :name, :description, :link, :thumbmail))
       # Handle a successful update.
       flash[:info] ="Mis a jour avec succès"
       redirect_to admin_show_projects_path

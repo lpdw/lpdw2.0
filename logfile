@@ -1,7 +1,0 @@
-postgres cannot access the server configuration file "/usr/local/var/postgres9.3.5/postgresql.conf": No such file or directory
-LOG:  database system was shut down at 2014-11-06 09:02:12 CET
-LOG:  autovacuum launcher started
-LOG:  database system is ready to accept connections
-FATAL:  database "lpdw2_0_development" does not exist
-ERROR:  column users.password does not exist at character 77
-STATEMENT:  SELECT "users".* FROM "users"  WHERE "users"."email" = 'admin@mail.com' AND "users"."password" = 'azerty123'
