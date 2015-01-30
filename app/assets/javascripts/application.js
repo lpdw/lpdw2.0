@@ -58,7 +58,7 @@ $(document).ready(function() {
         dataType: 'jsonp',
         success: function(data) {
             $(".licence .tw-retour").html('<i class="fa fa-twitter"></i>'+data[0].followers_count);
-            $(".licence .tw-retour").attr("href", tw_site+"ivandaum");
+            $(".licence .tw-retour").attr("href", tw_site+"lpdw_ucp");
         }
     });
 

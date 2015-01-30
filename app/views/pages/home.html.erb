@@ -2,7 +2,7 @@
     <p class="text-center">
     <span>Une licence en évolution</span>
     dans un monde de révolutions
-    <small>licence professionnelle développement web et web mobile université de cergy-pontoise</small>
+    <small>licence professionnelle développement web et web mobile - Université de cergy-pontoise</small>
     </p>
 </section>
 <div class="gray-bg wrapper">
@@ -58,38 +58,23 @@
         <div class="container">
             <div class="row">
                 <section class="col-md-10 col-md-offset-1 home-creations">
-                    <h1>Créations</h1>
+                    <h1>Projets étudiants</h1>
                     <div class="row">
+
+                        <!-- Projets étudiants -->
+                        <% @projects.each_with_index do |project, i| %>
                         <article class="col-md-3">
                             <div class="article-creation">
-                                <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
-                                <h4 class="text-center">Titre de projet</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
+                                <img src="<%= project.photo %>" alt="Faclab gennevilliers" class="img-responsive">
+                                <h4 class="text-center"><%= project.name %></h4>
                             </div>
                         </article>
-                        <article class="col-md-3">
-                            <div class="article-creation">
-                                <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
-                                <h4 class="text-center">Titre de projet</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
-                            </div>
-                        </article>
-                        <article class="col-md-3">
-                            <div class="article-creation">
-                                <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
-                                <h4 class="text-center">Titre de projet</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
-                            </div>
-                        </article>
-                        <article class="col-md-3">
-                            <div class="article-creation">
-                                <img src="http://lorempixel.com/400/400/technics" alt=."Faclab gennevilliers" class="img-responsive">
-                                <h4 class="text-center">Titre de projet</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
-                            </div>
-                        </article>
+                        <% end %>
                     </div>
-                    <a href="#" class="more-creations">Voir toutes les créations</a>
+
+                    <%= link_to 'Voir toutes les créations', projets_path() , html_options = {"class" =>"more-creations"}%>
+
+                    <!-- fin projets -->
                 </section>
             </div>
         </div>
