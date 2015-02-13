@@ -65,7 +65,7 @@ root 'pages#home'
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
 
-
+r
   #get 'actualites' => 'news#news'
   #get 'actualites/:id' => 'news#new'
   #get 'venir' => 'venir'
