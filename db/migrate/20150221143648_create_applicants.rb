@@ -7,8 +7,8 @@ class CreateApplicants < ActiveRecord::Migration
     	t.column :address, :string
     	t.column :zip_code, :integer
     	t.column :city, :string
-    	t.column :home_phone, :integer
-    	t.column :private_phone, :integer
+    	t.column :home_phone, :string
+    	t.column :private_phone, :string
     	t.column :email, :string
     	t.column :birth, :datetime
     	t.column :birth_place, :string
