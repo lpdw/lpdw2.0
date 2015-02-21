@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20150221150412) do
     t.string   "address"
     t.integer  "zip_code"
     t.string   "city"
-    t.string  "home_phone"
-    t.string  "private_phone"
+    t.string   "home_phone"
+    t.string   "private_phone"
     t.string   "email"
     t.datetime "birth"
     t.string   "birth_place"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150221150412) do
     t.text     "after_school"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string    "ip_address"
   end
 
   create_table "cursus", force: true do |t|

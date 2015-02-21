@@ -21,6 +21,7 @@ class CreateApplicants < ActiveRecord::Migration
     	t.column :english_skill, :integer
     	t.column :other_language, :string
     	t.column :after_school, :text
+      t.column :ip_address, :string
       t.timestamps
     end
   end
