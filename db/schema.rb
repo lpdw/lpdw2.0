@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130092011) do
+ActiveRecord::Schema.define(version: 20150221150412) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -29,9 +29,84 @@ ActiveRecord::Schema.define(version: 20150130092011) do
     t.datetime "updated_at"
   end
 
+  create_table "applicant_statuses", force: true do |t|
+    t.integer  "id_applicant"
+    t.boolean  "is_finish"
+    t.integer  "is_complete"
+    t.boolean  "ok_for_interview"
+    t.integer  "interview_result"
+    t.datetime "interview_date"
+    t.integer  "applicant_response"
+    t.boolean  "is_refused"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "applicants", force: true do |t|
+    t.datetime "deposit_date"
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "address"
+    t.integer  "zip_code"
+    t.string   "city"
+    t.integer  "home_phone"
+    t.integer  "private_phone"
+    t.string   "email"
+    t.datetime "birth"
+    t.string   "birth_place"
+    t.string   "nationality"
+    t.string   "assurance"
+    t.boolean  "status"
+    t.boolean  "has_connection"
+    t.text     "connection_desc"
+    t.text     "know_formation"
+    t.integer  "english_skill"
+    t.string   "other_language"
+    t.text     "after_school"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cursus", force: true do |t|
+    t.integer  "id_applicant"
+    t.string   "graduation"
+    t.integer  "year"
+    t.string   "option"
+    t.string   "result"
+    t.string   "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "images", force: true do |t|
     t.string   "alt"
     t.string   "attachment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "other_applications", force: true do |t|
+    t.integer  "id_applicant"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "professional_experiences", force: true do |t|
+    t.integer  "id_applicant"
+    t.integer  "year"
+    t.string   "company"
+    t.string   "role"
+    t.text     "skill"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_applicants", force: true do |t|
+    t.integer  "id_applicant"
+    t.string   "type"
+    t.integer  "year"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,5 +148,13 @@ ActiveRecord::Schema.define(version: 20150130092011) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "votes", force: true do |t|
+    t.integer  "id_applicant"
+    t.integer  "id_voter"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
