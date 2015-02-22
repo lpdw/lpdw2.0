@@ -8,13 +8,24 @@
 		<a href="http://www.lp-dw.com/wp-content/uploads/LPDW-Candidature-2014-15.pdf" class="button">Télécharger le dossier de candidature</a>
 		<span class="separator hidden-xs">OU</span>
 		<a href="#" id="fill_form" class="button hidden-xs">Remplir le dossier de candidature</a>
+		<a href="#" class="button_2" id="get_progression">Déjà commencé à remplir? Reprenez-en là où vous en étiez</a>
 	</div>
 	<div class="form_wrapper hidden-xs">
+		<div class="get_progression_form hidden-xs">
+			<form>
+				<fieldset class="row centered">
+					<h3>Entrez vos informations pour retrouver votre progression</h3>
+					<input type="text" name="mail" maxlength="60" placeholder="Adresse mail">
+					<input type="text" name="secu_social" maxlength="60" placeholder="N° de sécurité sociale">
+					<input type="submit" class="button submit gotoend" value="Connexion">
+				</fieldset>
+			</form>
+		</div>
 		<ul class="apply_steps row">
-			<li class="apply_step col-sm-3 active" data-step="1">01 - Informations</li>
-			<li class="apply_step col-sm-3" data-step="2">02 - Cursus</li>
-			<li class="apply_step col-sm-3" data-step="3">03 - Expériences</li>
-			<li class="apply_step col-sm-3" data-step="4">04 - Projets</li>
+			<li class="apply_step step_1 col-sm-3 active" data-step="1">01 - Informations</li>
+			<li class="apply_step step_2 col-sm-3" data-step="2">02 - Cursus</li>
+			<li class="apply_step step_3 col-sm-3" data-step="3">03 - Expériences</li>
+			<li class="apply_step step_4 col-sm-3" data-step="4">04 - Projets</li>
 		</ul>
 		<form class="hidden-xs" id="apply-form" data-parsley-validate>
 			<div class="step step1">
@@ -99,7 +110,7 @@
 						</div>
 					</div>
 			    </fieldset>
-			    <a class="next" data-current="1" data-next="2" href="">Etape suivante</a>
+			    <a class="next" data-current="1" data-next="2" href="">étape suivante</a>
 			</div>
 			<div class="step step2">
 			 	<fieldset class="row centered">
@@ -115,14 +126,14 @@
 			 				<li class="col-md-2">Bac*</li>
 			 				<li class="col-md-2"><input type="text" name="annee" required data-parsley-group="step2"></li>
 			 				<li class="col-md-3"><input type="text" name="specialite" required data-parsley-group="step2"></li>
-			 				<li class="col-md-2"><input type="text" name="mention" required data-parsley-group="step2"></li>
+			 				<li class="col-md-2"><input type="text" name="mention" data-parsley-group="step2"></li>
 			 				<li class="col-md-3"><input type="text" name="lieu" required data-parsley-group="step2"></li>
 			 			</ul>
 			 			<ul class="row">
 			 				<li class="col-md-2">Bac +2*</li>
 			 				<li class="col-md-2"><input type="text" name="annee" required data-parsley-group="step2"></li>
 			 				<li class="col-md-3"><input type="text" name="specialite" required data-parsley-group="step2"></li>
-			 				<li class="col-md-2"><input type="text" name="mention" required data-parsley-group="step2"></li>
+			 				<li class="col-md-2"><input type="text" name="mention" data-parsley-group="step2"></li>
 			 				<li class="col-md-3"><input type="text" name="lieu" required data-parsley-group="step2"></li>
 			 			</ul>
 			 			<ul class="row">
@@ -152,7 +163,7 @@
 			 			</ul>
 			 		</div>
 			    </fieldset>
-			    <a class="next" data-current="2" data-next="3" href="#">Etape suivante</a>
+				<a class="next" data-current="2" data-next="3" href="#">étape suivante</a>
 			</div>
 			<div class="step step3">
 			 	<fieldset class="centered">
@@ -183,18 +194,19 @@
 			 			</ul>
 			 		</div>
 			    </fieldset>
-			    <a class="next" data-current="3" data-next="4" href="#">Etape suivante</a>
+				<a class="next" data-current="3" data-next="4" href="#">étape suivante</a>
 			</div>
 			<div class="step step4">
 			 	<fieldset class="centered">
 			 		<div class="row">
 			 			<span class="col-sm-12">Projets scolaires</span>
 			 		</div>
+					<br>
 			 		<div class="projects_list">
 			 			<ul class="row">
 			 				<li class="col-md-1">Année</li>
 			 				<li class="col-md-2">Formation</li>
-			 				<li class="col-md-9">Descrption</li>
+			 				<li class="col-md-9">Description</li>
 			 			</ul>
 			 			<ul class="row">
 			 				<li class="col-md-1"><input type="text" name="annee"></li>
@@ -212,13 +224,15 @@
 			 				<li class="col-md-9"><input type="text" name="description"></li>
 			 			</ul>
 			 		</div>
+					<br>
 			 		<div class="row">
 			 			<span class="col-sm-12">Projets personnels</span>
 			 		</div>
+					<br>
 			 		<div class="projects_list">
 			 			<ul class="row">
 			 				<li class="col-md-1">Année</li>
-			 				<li class="col-md-11">Descrption</li>
+			 				<li class="col-md-11">Description</li>
 			 			</ul>
 			 			<ul class="row">
 			 				<li class="col-md-1"><input type="text" name="annee"></li>
@@ -234,8 +248,11 @@
 			 			</ul>
 			 		</div>
 			    </fieldset>
-			    <a class="submit gotoend" href="#">Imprimer</a>
+
+				<input type="submit" class="button submit gotoend" href="#" value="Valider défintivement">
+			    <!-- <a class="submit gotoend" href="#">Imprimer</a> -->
 			</div>
+			<input type="submit"  class="button submit gotoend save_entry" value="Sauvegarder pour reprendre plus tard" />
 		</form>
 	</div>
 </div>

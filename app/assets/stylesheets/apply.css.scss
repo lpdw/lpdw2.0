@@ -4,6 +4,13 @@
 		text-decoration: none;
 		color: #fff;
 	}
+  .button_2 {
+	margin:auto;
+	display:block;
+	text-align:center;
+	margin-top:-15px;
+	margin-bottom:25px;
+  }
 
 }
 
@@ -38,7 +45,19 @@
 .form_wrapper {
 	background-color: #f0f0f0;
 	margin-bottom: 50px;
+  	padding-bottom: 25px;
+	.get_progression_form {
+	  max-width:300px;
+	  margin:auto;
+	  input {
+		border:none;
+		padding:5px 10px;
+		margin:5px 0px;
+		width:100%;
+	  }
 
+
+	}
 	.apply_steps {
 		margin: 0;
 		padding: 0;
@@ -96,14 +115,37 @@
 				padding: 0;
 			}
 		}
-
-		.submit,
 		.next {
-			float: right;
-			display: block;
+		  	margin:5px;
+		  	padding:5px;
+		  	background:$color-4;
+		  	color:white;
+		  	float:right;
+		  	text-transform: uppercase;
+			display: inline-block;
 		}
 
 	}
+  .submit,.submit_separator {
+	border:none;
+	float:right;
+	width:auto;
+	display:inline-block;
+	margin:0px;
+	padding:5px;
+  }
+  .submit_separator {
+	width:150px;
+	line-height:20px;
+
+	&:after,&:before{
+	  width:0px;
+	}
+  }
+  .save_entry {
+	float:left;
+	margin:50px auto;
+  }
 
 }
 
