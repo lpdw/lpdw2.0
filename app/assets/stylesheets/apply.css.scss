@@ -1,3 +1,12 @@
+.button_wrapper {
+
+	.button {
+		text-decoration: none;
+		color: #fff;
+	}
+
+}
+
 .separator {
 	display: block;
 	max-width: 50px;
@@ -60,7 +69,7 @@
 		& input[type= "tel"] {
 			width: 100%;
 			height: 30px;
-			border: none;
+			border: 1px solid transparent;
 			padding-left: 10px;
 		}
 
@@ -69,6 +78,10 @@
 			&.big {
 				height: 60px;
 			}
+		}
+
+		.entourage_wrapper {
+			display: none;
 		}
 
 		.schools_list,
@@ -84,7 +97,8 @@
 			}
 		}
 
-		.submit {
+		.submit,
+		.next {
 			float: right;
 			display: block;
 		}
@@ -99,4 +113,62 @@
 
 .input_wrapper {
 	margin-top: 20px;
+}
+
+textarea.parsley-error,
+input[type= "text"].parsley-error,
+input[type= "email"].parsley-error,
+input[type= "date"].parsley-error,
+input[type= "tel"].parsley-error {
+	border: 1px solid #ea483e !important;
+}
+
+textarea.parsley-success,
+input[type= "text"].parsley-success,
+input[type= "email"].parsley-success,
+input[type= "date"].parsley-success,
+input[type= "tel"].parsley-success {
+	border: 1px solid #9EEA3E !important;
+}
+
+p.parsley-error {
+	background: rgba(234, 72, 62, .3);
+}
+
+p.parsley-success {
+	background: transparent;
+}
+
+.parsley-errors-list {
+	position: absolute;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+		-ms-user-select: none;
+			user-select: none;
+	list-style: none;
+	top: 7px;
+	right: 0;
+	padding: 0;
+	padding-right: 20px !important;
+	font-size: 12px;
+}
+
+.school_item .parsley-errors-list {
+	top: 26px !important;
+}
+
+.radio_left {
+	margin-left: 20% !important;
+}
+
+.radio_right {
+	margin-right: 20% !important;
+}
+
+.radio_center-left {
+	margin-right: 10% !important;
+}
+
+.radio_center-right {
+	margin-left: 10% !important;
 }

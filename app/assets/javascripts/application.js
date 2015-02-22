@@ -13,9 +13,11 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require parsley.min.js
 
 //= require_tree .
 //= require bootstrap-sprockets
+
 $(document).ready(function() {
         topScroll();
 

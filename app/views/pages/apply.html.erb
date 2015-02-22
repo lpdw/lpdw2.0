@@ -11,233 +11,231 @@
 	</div>
 	<div class="form_wrapper hidden-xs">
 		<ul class="apply_steps row">
-			<li class="apply_step col-sm-3 active">01 - Informations</li>
-			<li class="apply_step col-sm-3">02 - Cursus</li>
-			<li class="apply_step col-sm-3">03 - Expériences</li>
-			<li class="apply_step col-sm-3">04 - Projets</li>
+			<li class="apply_step col-sm-3 active" data-step="1">01 - Informations</li>
+			<li class="apply_step col-sm-3" data-step="2">02 - Cursus</li>
+			<li class="apply_step col-sm-3" data-step="3">03 - Expériences</li>
+			<li class="apply_step col-sm-3" data-step="4">04 - Projets</li>
 		</ul>
-		<form class="step step1 hidden-xs">
-		 	<fieldset class="row centered">
-		 		<div class="col-sm-6">
-		 			<div class="row">
-			 			<div class="col-sm-6 input_wrapper">
-						    <input type="text" name="nom" maxlength="60" placeholder="Nom">
-						</div>
-						<div class="col-sm-6 input_wrapper">
-						    <input type="text" name="prenom" maxlength="60" placeholder="Prenom">
-						</div>
-						<div class="col-sm-12 input_wrapper">
-						    <textarea name="adresse" placeholder="Adresse"></textarea>
-						</div>
-						<div class="col-sm-6 input_wrapper">
-						    <input type="text" name="postal" placeholder="Code postal">
-						</div>
-						<div class="col-sm-6 input_wrapper">
-						    <input type="text" name="ville" placeholder="Ville">
-						</div>
-						<span class="col-sm-12 input_wrapper">Téléphone</span>
-						<div class="col-sm-6 input_wrapper">
-						    <input type="tel" name="phone_home" placeholder="Domicile">
-						</div>
-						<div class="col-sm-6 input_wrapper">
-						    <input type="tel" name="phone_mobile" placeholder="Mobile">
-						</div>
-						<div class="col-sm-12 input_wrapper">
-						    <input type="email" name="email" placeholder="Email">
-						</div>
-						<div class="col-sm-6 input_wrapper">
-						    <input type="date" name="birth" placeholder="Date de naissance">
-						</div>
-						<div class="col-sm-6 input_wrapper">
-						    <input type="text" name="birth_location" placeholder="Lieu de naissance">
-						</div>
-						<div class="col-sm-12 input_wrapper">
-						    <input type="text" name="nationalite" placeholder="Nationalité">
-						</div>
-						<div class="col-sm-12 input_wrapper">
-						    <input type="text" name="secu" placeholder="N° de sécurité sociale">
-						</div>
-						<span class="col-sm-12 input_wrapper">Situation de famille</span>
-					    <div class="col-sm-6">
-					    	<label for="situation">Célibataire</label>
-						    <input type="radio" name="situation" value="celibataire">
-						</div>
-						<div class="col-sm-6">
-							<label for="situation">Marié</label>
-							<input type="radio" name="situation" value="marie">
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="row">
-						<p class="col-sm-12 input_wrapper">Avez-vous dans votre entourage immédiat une ou plusieurs personnes travaillant dans le domaine du multimédia ?</p>
-						<div class="col-sm-6">
-					    	<label for="entourage">Oui</label>
-						    <input type="radio" name="entourage" value="yes">
-						</div>
-						<div class="col-sm-6">
-							<label for="entourage">Non</label>
-							<input type="radio" name="entourage" value="no">
-						</div>
-						<div class="col-sm-12 input_wrapper">
-						    <textarea class="big" name="precision_entourage" placeholder="Précisez"></textarea>
-						</div>
-						<div class="col-sm-12 input_wrapper">
-						    <p>Comment avez-vous été informé de l'existence de cette formation?</p>
-						    <textarea class="big" name="connaissance_formation"></textarea>
-						</div>
-						<p class="col-sm-12 input_wrapper">AUTRE CANDIDATURES (Universités, écoles, autres établissements) :Indiquer les autres candidatures que vous présentez pour l’année universitaire, par ordre de préférence (en y incluant votre demande concernant la Licence professionnelle Développeur Web et Web Mobile) </p>
-						<ul class="col-sm-12 input_wrapper schools_list">
-							<div class="row">
-								<li class="col-sm-6">1<input type="text"></li>
-								<li class="col-sm-6">2<input type="text"></li>
-								<li class="col-sm-6">3<input type="text"></li>
-								<li class="col-sm-6">4<input type="text"></li>
+		<form class="hidden-xs" id="apply-form" data-parsley-validate>
+			<div class="step step1">
+			 	<fieldset class="row centered">
+			 		<div class="col-sm-6">
+			 			<div class="row">
+				 			<div class="col-sm-6 input_wrapper">
+							    <input type="text" name="nom" maxlength="60" placeholder="Nom*" required data-parsley-group="step1">
 							</div>
-						</ul>
+							<div class="col-sm-6 input_wrapper">
+							    <input type="text" name="prenom" maxlength="60" placeholder="Prenom*" required data-parsley-group="step1">
+							</div>
+							<div class="col-sm-12 input_wrapper">
+							    <textarea name="adresse" placeholder="Adresse*" required data-parsley-group="step1"></textarea>
+							</div>
+							<div class="col-sm-6 input_wrapper">
+							    <input type="text" name="postal" placeholder="Code postal*" required data-parsley-group="step1" data-parsley-type="digits">
+							</div>
+							<div class="col-sm-6 input_wrapper">
+							    <input type="text" name="ville" placeholder="Ville*" required data-parsley-group="step1">
+							</div>
+							<span class="col-sm-12 input_wrapper">Téléphone</span>
+							<div class="col-sm-6 input_wrapper">
+							    <input type="tel" name="phone_home" placeholder="Domicile*" required data-parsley-group="step1" data-parsley-type="digits" data-parsley-length="[10, 10]">
+							</div>
+							<div class="col-sm-6 input_wrapper">
+							    <input type="tel" name="phone_mobile" placeholder="Mobile" data-parsley-group="step1" data-parsley-type="digits" data-parsley-length="[10, 10]">
+							</div>
+							<div class="col-sm-12 input_wrapper">
+							    <input type="email" name="email" placeholder="Email*" required data-parsley-group="step1">
+							</div>
+							<div class="col-sm-6 input_wrapper">
+							    <input type="date" name="birth" placeholder="Date de naissance*" required data-parsley-group="step1">
+							</div>
+							<div class="col-sm-6 input_wrapper">
+							    <input type="text" name="birth_location" placeholder="Lieu de naissance*" required data-parsley-group="step1">
+							</div>
+							<div class="col-sm-12 input_wrapper">
+							    <input type="text" name="nationalite" placeholder="Nationalité*" required data-parsley-group="step1">
+							</div>
+							<div class="col-sm-12 input_wrapper">
+							    <input type="text" name="secu" placeholder="N° de sécurité sociale*" required data-parsley-group="step1" data-parsley-type="digits" data-parsley-length="[15, 15]">
+							</div>
+							<span class="col-sm-12 input_wrapper">Situation de famille*</span>
+							<div class="col-sm-12 input_wrapper">
+								<p>
+							    	<label for="celibataire" class="radio_left">Célibataire</label>
+								    <input type="radio" name="situation" class="radio_center-left" value="celibataire" id="celibataire" required data-parsley-group="step1" data-parsley-errors-messages-disabled>
+									<label for="marie" class="radio_center-right">Marié</label>
+									<input type="radio" name="situation" class="radio_right" value="marie" id="marie">
+								</p>
+							</div>
+						</div>
 					</div>
-				</div>
-		    </fieldset>
-		    <a class="submit gotostep2" href="#">Etape suivante</a>
-		</form>
-		<form class="step step2 hidden-xs">
-		 	<fieldset class="row centered">
-		 		<div class="cursus_list col-md-12">
-		 			<ul class="row">
-		 				<li class="col-md-2">Dîplome</li>
-		 				<li class="col-md-2">Année</li>
-		 				<li class="col-md-3">Spécialité</li>
-		 				<li class="col-md-2">Mention</li>
-		 				<li class="col-md-3">Lieu</li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-2">Bac</li>
-		 				<li class="col-md-2"><input type="text" name="anne"></li>
-		 				<li class="col-md-3"><input type="text" name="specialite"></li>
-		 				<li class="col-md-2"><input type="text" name="mention"></li>
-		 				<li class="col-md-3"><input type="text" name="lieu"></li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-2">Bac +2</li>
-		 				<li class="col-md-2"><input type="text" name="anne"></li>
-		 				<li class="col-md-3"><input type="text" name="specialite"></li>
-		 				<li class="col-md-2"><input type="text" name="mention"></li>
-		 				<li class="col-md-3"><input type="text" name="lieu"></li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-2">Autre</li>
-		 				<li class="col-md-2"><input type="text" name="anne"></li>
-		 				<li class="col-md-3"><input type="text" name="specialite"></li>
-		 				<li class="col-md-2"><input type="text" name="mention"></li>
-		 				<li class="col-md-3"><input type="text" name="lieu"></li>
-		 			</ul>
-		 		</div>
-		 		<div class="col-sm-6">
-		 			<span class="col-sm-12 input_wrapper">Niveau d'anglais</span>
-					<div class="col-sm-4 input_wrapper">
-					   	<label for="niveau_anglais">Notions</label>
-					    <input type="radio" name="niveau_anglais" value="notions">
+					<div class="col-sm-6">
+						<div class="row">
+							<p class="col-sm-12">Avez-vous dans votre entourage immédiat une ou plusieurs personnes travaillant dans le domaine du multimédia ? *</p>
+							<div class="col-sm-12 input_wrapper">
+								<p>
+							    	<label for="entourage_true" class="radio_left">Oui</label>
+								    <input type="radio" name="entourage" class="radio_center-left" value="yes" id="entourage_true" required data-parsley-group="step1" data-parsley-errors-messages-disabled>
+									<label for="entourage_false" class="radio_center-right">Non</label>
+									<input type="radio" name="entourage" class="radio_right" value="no" id="entourage_false">
+								</p>
+							</div>
+							<div class="col-sm-12 input_wrapper entourage_wrapper">
+							    <textarea class="big" name="precision_entourage" placeholder="Précisez*"></textarea>
+							</div>
+							<p class="col-sm-12">Comment avez-vous été informé de l'existence de cette formation? *</p>
+							<div class="col-sm-12 input_wrapper">
+							    <textarea class="big" name="connaissance_formation" required data-parsley-group="step1"></textarea>
+							</div>
+							<p class="col-sm-12 input_wrapper">AUTRE CANDIDATURES (Universités, écoles, autres établissements) :Indiquer les autres candidatures que vous présentez pour l’année universitaire, par ordre de préférence (en y incluant votre demande concernant la Licence professionnelle Développeur Web et Web Mobile) </p>
+							<ul class="col-sm-12 input_wrapper schools_list">
+								<div class="row">
+									<li class="col-sm-6 school_item">1<input type="text" name="school_1" required data-parsley-group="step1"></li>
+									<li class="col-sm-6 school_item">2<input type="text" name="school_2" required data-parsley-group="step1"></li>
+									<li class="col-sm-6 school_item">3<input type="text" name="school_3"></li>
+									<li class="col-sm-6 school_item">4<input type="text" name="school_4"></li>
+								</div>
+							</ul>
+						</div>
 					</div>
-					<div class="col-sm-4 input_wrapper">
-						<label for="niveau_anglais">Bien</label>
-						<input type="radio" name="niveau_anglais" value="bien">
-					</div>
-					<div class="col-sm-4 input_wrapper">
-						<label for="niveau_anglais">Courant</label>
-						<input type="radio" name="niveau_anglais" value="courant">
-					</div>
-					<textarea class="col-sm-12 input_wrapper" placeholder="Autres langues"></textarea>
-		 		</div>
-		 		<div class="col-sm-6">
-		 			<span class="col-sm-12 input_wrapper">Activités extra-scolaires</span>
-		 			<ul>
-		 				<li><input class="input_wrapper" type="text" placeholder="Activité"></li>
-		 			</ul>
-		 		</div>
-		    </fieldset>
-		    <a class="submit gotostep3" href="#">Etape suivante</a>
-		</form>
-		<form class="step step3 hidden-xs">
-		 	<fieldset class="centered">
-		 		<div class="experience_list">
-		 			<ul class="row">
-		 				<li class="col-md-1">Date</li>
-		 				<li class="col-md-2">Entreprise</li>
-		 				<li class="col-md-5">Mission</li>
-		 				<li class="col-md-4">Compétences mises en oeuvre</li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-1"><input type="text" name="date"></li>
-		 				<li class="col-md-2"><input type="text" name="entreprise"></li>
-		 				<li class="col-md-5"><input type="text" name="mission"></li>
-		 				<li class="col-md-4"><input type="text" name="competences"></li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-1"><input type="text" name="date"></li>
-		 				<li class="col-md-2"><input type="text" name="entreprise"></li>
-		 				<li class="col-md-5"><input type="text" name="mission"></li>
-		 				<li class="col-md-4"><input type="text" name="competences"></li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-1"><input type="text" name="date"></li>
-		 				<li class="col-md-2"><input type="text" name="entreprise"></li>
-		 				<li class="col-md-5"><input type="text" name="mission"></li>
-		 				<li class="col-md-4"><input type="text" name="competences"></li>
-		 			</ul>
-		 		</div>
-		    </fieldset>
-		    <a class="submit gotostep4" href="#">Etape suivante</a>
-		</form>
-		<form class="step step4 hidden-xs">
-		 	<fieldset class="centered">
-		 		<div class="row">
-		 			<span class="col-sm-12">Projets scolaires</span>
-		 		</div>
-		 		<div class="projects_list">
-		 			<ul class="row">
-		 				<li class="col-md-1">Année</li>
-		 				<li class="col-md-2">Formation</li>
-		 				<li class="col-md-9">Descrption</li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-1"><input type="text" name="annee"></li>
-		 				<li class="col-md-2"><input type="text" name="formation"></li>
-		 				<li class="col-md-9"><input type="text" name="description"></li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-1"><input type="text" name="annee"></li>
-		 				<li class="col-md-2"><input type="text" name="formation"></li>
-		 				<li class="col-md-9"><input type="text" name="description"></li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-1"><input type="text" name="annee"></li>
-		 				<li class="col-md-2"><input type="text" name="formation"></li>
-		 				<li class="col-md-9"><input type="text" name="description"></li>
-		 			</ul>
-		 		</div>
-		 		<div class="row">
-		 			<span class="col-sm-12">Projets personnels</span>
-		 		</div>
-		 		<div class="projects_list">
-		 			<ul class="row">
-		 				<li class="col-md-1">Année</li>
-		 				<li class="col-md-11">Descrption</li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-1"><input type="text" name="annee"></li>
-		 				<li class="col-md-11"><input type="text" name="description"></li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-1"><input type="text" name="annee"></li>
-		 				<li class="col-md-11"><input type="text" name="description"></li>
-		 			</ul>
-		 			<ul class="row">
-		 				<li class="col-md-1"><input type="text" name="annee"></li>
-		 				<li class="col-md-11"><input type="text" name="description"></li>
-		 			</ul>
-		 		</div>
-		    </fieldset>
-		    <a class="submit gotoend" href="#">Imprimer</a>
+			    </fieldset>
+			    <a class="next" data-current="1" data-next="2" href="">Etape suivante</a>
+			</div>
+			<div class="step step2">
+			 	<fieldset class="row centered">
+			 		<div class="cursus_list col-md-12">
+			 			<ul class="row">
+			 				<li class="col-md-2">Dîplome</li>
+			 				<li class="col-md-2">Année</li>
+			 				<li class="col-md-3">Spécialité</li>
+			 				<li class="col-md-2">Mention</li>
+			 				<li class="col-md-3">Lieu</li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-2">Bac*</li>
+			 				<li class="col-md-2"><input type="text" name="annee" required data-parsley-group="step2"></li>
+			 				<li class="col-md-3"><input type="text" name="specialite" required data-parsley-group="step2"></li>
+			 				<li class="col-md-2"><input type="text" name="mention" required data-parsley-group="step2"></li>
+			 				<li class="col-md-3"><input type="text" name="lieu" required data-parsley-group="step2"></li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-2">Bac +2*</li>
+			 				<li class="col-md-2"><input type="text" name="annee" required data-parsley-group="step2"></li>
+			 				<li class="col-md-3"><input type="text" name="specialite" required data-parsley-group="step2"></li>
+			 				<li class="col-md-2"><input type="text" name="mention" required data-parsley-group="step2"></li>
+			 				<li class="col-md-3"><input type="text" name="lieu" required data-parsley-group="step2"></li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-2">Autre</li>
+			 				<li class="col-md-2"><input type="text" name="annee"></li>
+			 				<li class="col-md-3"><input type="text" name="specialite"></li>
+			 				<li class="col-md-2"><input type="text" name="mention"></li>
+			 				<li class="col-md-3"><input type="text" name="lieu"></li>
+			 			</ul>
+			 		</div>
+			 		<div class="col-sm-6">
+			 			<span class="col-sm-12 input_wrapper">Niveau d'anglais</span>
+						<p>
+						   	<label for="notions">Notions</label>
+						    <input type="radio" name="niveau_anglais" value="notions" id="notions" required data-parsley-group="step2" data-parsley-errors-messages-disabled>
+							<label for="bien">Bien</label>
+							<input type="radio" name="niveau_anglais" value="bien" id="bien">
+							<label for="courant">Courant</label>
+							<input type="radio" name="niveau_anglais" value="courant" id="courant">
+						</p>
+						<textarea class="col-sm-12 input_wrapper" placeholder="Autres langues"></textarea>
+			 		</div>
+			 		<div class="col-sm-6">
+			 			<span class="col-sm-12 input_wrapper">Activités extra-scolaires</span>
+			 			<ul>
+			 				<li><input class="input_wrapper" type="text" placeholder="Activité"></li>
+			 			</ul>
+			 		</div>
+			    </fieldset>
+			    <a class="next" data-current="2" data-next="3" href="#">Etape suivante</a>
+			</div>
+			<div class="step step3">
+			 	<fieldset class="centered">
+			 		<div class="experience_list">
+			 			<ul class="row">
+			 				<li class="col-md-1">Date</li>
+			 				<li class="col-md-2">Entreprise</li>
+			 				<li class="col-md-5">Mission</li>
+			 				<li class="col-md-4">Compétences mises en oeuvre</li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-1"><input type="text" name="date"></li>
+			 				<li class="col-md-2"><input type="text" name="entreprise"></li>
+			 				<li class="col-md-5"><input type="text" name="mission"></li>
+			 				<li class="col-md-4"><input type="text" name="competences"></li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-1"><input type="text" name="date"></li>
+			 				<li class="col-md-2"><input type="text" name="entreprise"></li>
+			 				<li class="col-md-5"><input type="text" name="mission"></li>
+			 				<li class="col-md-4"><input type="text" name="competences"></li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-1"><input type="text" name="date"></li>
+			 				<li class="col-md-2"><input type="text" name="entreprise"></li>
+			 				<li class="col-md-5"><input type="text" name="mission"></li>
+			 				<li class="col-md-4"><input type="text" name="competences"></li>
+			 			</ul>
+			 		</div>
+			    </fieldset>
+			    <a class="next" data-current="3" data-next="4" href="#">Etape suivante</a>
+			</div>
+			<div class="step step4">
+			 	<fieldset class="centered">
+			 		<div class="row">
+			 			<span class="col-sm-12">Projets scolaires</span>
+			 		</div>
+			 		<div class="projects_list">
+			 			<ul class="row">
+			 				<li class="col-md-1">Année</li>
+			 				<li class="col-md-2">Formation</li>
+			 				<li class="col-md-9">Descrption</li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-1"><input type="text" name="annee"></li>
+			 				<li class="col-md-2"><input type="text" name="formation"></li>
+			 				<li class="col-md-9"><input type="text" name="description"></li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-1"><input type="text" name="annee"></li>
+			 				<li class="col-md-2"><input type="text" name="formation"></li>
+			 				<li class="col-md-9"><input type="text" name="description"></li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-1"><input type="text" name="annee"></li>
+			 				<li class="col-md-2"><input type="text" name="formation"></li>
+			 				<li class="col-md-9"><input type="text" name="description"></li>
+			 			</ul>
+			 		</div>
+			 		<div class="row">
+			 			<span class="col-sm-12">Projets personnels</span>
+			 		</div>
+			 		<div class="projects_list">
+			 			<ul class="row">
+			 				<li class="col-md-1">Année</li>
+			 				<li class="col-md-11">Descrption</li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-1"><input type="text" name="annee"></li>
+			 				<li class="col-md-11"><input type="text" name="description"></li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-1"><input type="text" name="annee"></li>
+			 				<li class="col-md-11"><input type="text" name="description"></li>
+			 			</ul>
+			 			<ul class="row">
+			 				<li class="col-md-1"><input type="text" name="annee"></li>
+			 				<li class="col-md-11"><input type="text" name="description"></li>
+			 			</ul>
+			 		</div>
+			    </fieldset>
+			    <a class="submit gotoend" href="#">Imprimer</a>
+			</div>
 		</form>
 	</div>
 </div>
