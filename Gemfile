@@ -65,3 +65,6 @@ gem 'yaml_db'
 gem "html_truncator", "~>0.2"
 
 gem 'jquery-turbolinks'
+
+#Add support to active foreign key
+gem 'foreigner', '~> 1.7.2'

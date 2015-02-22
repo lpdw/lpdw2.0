@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221150412) do
+ActiveRecord::Schema.define(version: 20150221161709) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20150221150412) do
     t.datetime "updated_at"
   end
 
+  add_index "applicant_statuses", ["id_applicant"], name: "applicant_statuses_id_applicant_fk", using: :btree
+
   create_table "applicants", force: true do |t|
     t.datetime "deposit_date"
     t.string   "name"
@@ -65,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150221150412) do
     t.text     "after_school"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string    "ip_address"
+    t.string   "ip_address"
   end
 
   create_table "cursus", force: true do |t|
@@ -78,6 +80,8 @@ ActiveRecord::Schema.define(version: 20150221150412) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "cursus", ["id_applicant"], name: "cursus_id_applicant_fk", using: :btree
 
   create_table "images", force: true do |t|
     t.string   "alt"
@@ -93,6 +97,8 @@ ActiveRecord::Schema.define(version: 20150221150412) do
     t.datetime "updated_at"
   end
 
+  add_index "other_applications", ["id_applicant"], name: "other_applications_id_applicant_fk", using: :btree
+
   create_table "professional_experiences", force: true do |t|
     t.integer  "id_applicant"
     t.integer  "year"
@@ -103,6 +109,8 @@ ActiveRecord::Schema.define(version: 20150221150412) do
     t.datetime "updated_at"
   end
 
+  add_index "professional_experiences", ["id_applicant"], name: "professional_experiences_id_applicant_fk", using: :btree
+
   create_table "project_applicants", force: true do |t|
     t.integer  "id_applicant"
     t.string   "type"
@@ -111,6 +119,8 @@ ActiveRecord::Schema.define(version: 20150221150412) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "project_applicants", ["id_applicant"], name: "project_applicants_id_applicant_fk", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "photo"
@@ -157,5 +167,19 @@ ActiveRecord::Schema.define(version: 20150221150412) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "votes", ["id_applicant"], name: "votes_id_applicant_fk", using: :btree
+
+  add_foreign_key "applicant_statuses", "applicants", name: "applicant_statuses_id_applicant_fk", column: "id_applicant"
+
+  add_foreign_key "cursus", "applicants", name: "cursus_id_applicant_fk", column: "id_applicant"
+
+  add_foreign_key "other_applications", "applicants", name: "other_applications_id_applicant_fk", column: "id_applicant"
+
+  add_foreign_key "professional_experiences", "applicants", name: "professional_experiences_id_applicant_fk", column: "id_applicant"
+
+  add_foreign_key "project_applicants", "applicants", name: "project_applicants_id_applicant_fk", column: "id_applicant"
+
+  add_foreign_key "votes", "applicants", name: "votes_id_applicant_fk", column: "id_applicant"
 
 end

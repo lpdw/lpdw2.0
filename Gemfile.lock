@@ -55,6 +55,8 @@ GEM
     execjs (2.2.2)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
+    foreigner (1.7.2)
+      activerecord (>= 3.0.0)
     hike (1.2.3)
     html_truncator (0.4.0)
       nokogiri (~> 1.5)
@@ -172,6 +174,7 @@ DEPENDENCIES
   devise
   execjs
   font-awesome-rails (~> 4.2.0.0)
+  foreigner (~> 1.7.2)
   html_truncator (~> 0.2)
   jbuilder (~> 2.0)
   jquery-rails
