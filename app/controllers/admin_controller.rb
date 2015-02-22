@@ -12,6 +12,7 @@ class AdminController < ApplicationController
     @users = User.all
     @projects = Project.all
     @alerts = Alert.all
+    @applicants = Applicant.all
   end
   def show_users
     @title_admin = "Utilisateurs"
