@@ -1,0 +1,53 @@
+.flash {
+    color:white;
+    font-size:17px;
+    border-radius:0px;
+
+    .alert{
+        background:$color-7;
+        margin:0px;
+        padding:0px;
+        width:100%;
+        line-height:55px;
+        color:white;
+        text-align: center;
+        display:block;
+        position:relative;
+        z-index:300;
+        & a{
+            font-size:19px;
+            color:white;
+        }
+        & a:hover {
+            text-decoration: none;
+            border-bottom:1px dotted white;
+        }
+        & .close-alert {
+            position:absolute;
+            right:0px;
+            padding:0px;
+            margin:0px;
+            font-size:20px;
+            width:57px;
+            height:57px;
+            cursor:pointer;
+            border:none;
+            color:white;
+            background:none;
+        }
+
+    }
+
+    .alert-info {
+        background:$color-7;
+    }
+    .alert-alert {
+        background:$color-8;
+    }
+    .alert-success {
+        background:$color-6;
+    }
+    .alert-error {
+        background:$color-1;
+    }
+}

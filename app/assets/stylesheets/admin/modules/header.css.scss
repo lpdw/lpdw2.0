@@ -1,0 +1,110 @@
+.navbar-lpdw-admin {
+    height: 60px;
+    background-color: $color-3;
+    border-bottom: 1px solid $color-4;
+    .header-info {
+        background-color: #fff;
+        height: 59px;
+        position: fixed;
+        h2 {
+            float: left;
+            font-size: 20px;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 3px;
+            color: #919191;
+            font-weight: normal;
+            padding-left: 25px;
+            line-height: 60px;
+            text-shadow: 1px 1px 2px #fff;
+            &:before {
+                content: '';
+                width: 36px;
+                height: 36px;
+                position: absolute;
+                left: -19px;
+                top: 12px;
+                background-color: $color-3;
+                transform: rotate(45deg);
+            }
+        }
+        .nav {
+            height: 59px;
+            color: white;
+            background: $color-3;
+            li {
+                height: 100%;
+                .dropdown-toggle {
+                    line-height: 30px;
+                    padding: 15px 15px;
+                    color: white;
+                    height: 100%;
+                    &:hover, &:active {
+                        background: $color-2 !important;
+                        background-color: $color-2 !important;
+                    }
+                }
+            }
+            .open {
+                .dropdown-toggle {
+                    background: $color-2 !important;
+                    background-color: $color-2 !important;
+                }
+            }
+            .dropdown-menu {
+                color: white;
+                background: $color-3;
+                li {
+                    a {
+                        color: white;
+                        &:hover, &:active {
+                            background: $color-2 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    h1 {
+        text-align: center;
+        font-weight: normal;
+        color: #F6F6EF;
+        line-height: 59px;
+        margin: 0;
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    .title-dashboard {
+            text-decoration: none !important;
+            &:hover{
+                text-decoration: none !important;
+            }
+        }
+}
+
+@media (max-width: $screen-xs-max) {
+    .title-dashboard {
+        left: 20px;
+        position: absolute;
+        z-index: 99999;
+    }
+    .navbar-lpdw {
+        .navbar-nav {
+            margin: 0 auto;
+            text-align: center;
+            z-index: 99999;
+            background: white;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+}
+
+// @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
+// @media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }
+// @media (min-width: @screen-lg-min) { ... }

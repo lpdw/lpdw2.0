@@ -1,0 +1,33 @@
+<h1>Gérer les comptes actualité</h1>
+<%= link_to(admin_create_actuality_path(),:class=>'button button-blue float-right') do %>
+    <span>Créer Actualité</span> <i class="fa fa-newspaper-o"></i>
+<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>created at</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @actualities.each do |actuality| %>
+        <tr>
+            <td data-th="ID" ><%= actuality.id %></td>
+            <td data-th="Titre" ><%= actuality.title %></td>
+            <td data-th="Auteur" ><%= actuality.author %></td>
+            <td data-th="Auteur" ><%= actuality.created_at %></td>
+            <td data-th="Action" >
+                <%= link_to(admin_edit_actuality_path(actuality)) do %>
+                <i class="fa fa-pencil"></i>
+                <% end %>
+                <%= link_to(admin_delete_actuality_path(actuality)) do %>
+                <i class="fa fa-trash-o"></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

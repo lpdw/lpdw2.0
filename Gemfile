@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -35,12 +35,18 @@ gem 'spring',        group: :development
 # Add User auth + role
  gem 'cancan'
  gem 'devise'
+#plugin actuality
+ gem 'tinymce-rails'
+ gem 'tinymce-rails-langs'
+ gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
+ gem 'paperclip'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+#gem 'debugger', group: [:development, :test]
 
+gem 'rails-i18n', '~> 4.0.3'
 #Add gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'bootstrap-sass', '~> 3.2.0.2'
 
@@ -48,3 +54,17 @@ gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'font-awesome-rails', '~> 4.2.0.0'
 
 gem 'rails_12factor', group: :production
+
+#Fix exect runtime
+gem 'execjs'
+
+gem 'therubyracer'
+#Postgre to mysql
+gem 'yaml_db'
+
+gem "html_truncator", "~>0.2"
+
+gem 'jquery-turbolinks'
+
+#Add support to active foreign key
+gem 'foreigner', '~> 1.7.2'

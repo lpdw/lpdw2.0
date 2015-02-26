@@ -1,0 +1,2 @@
+module ActualityHelper
+end

@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-lpdw" role="navigation">
+<header class=" navbar-lpdw" role="navigation">
     <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -7,6 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+<<<<<<< HEAD
           <a class="navbar-brand" href="/">LP DW</a>
         </div>
         <div class="collapse navbar-collapse">
@@ -18,7 +19,54 @@
             <li><a href="#">L'équipe</a></li>
             <li><a href="#">L'ucp</a></li>
             <li><%= link_to 'Venir à la fac', venir_path() %></li>
+=======
+          <a class="navbar-brand" href=<%= root_path()%>>LP DW</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Accueil' , root_path(), :"data-hover" => "Accueil" %></li>
+            <li><%= link_to 'Actualités', actualites_path(), :"data-hover" => "Actualités" %></li>
+            <li><%= link_to 'La formation', formation_path(), :"data-hover" => "La formation" %></li>
+            <li><%= link_to 'Projets étudiants', projets_path(), :"data-hover" => "Projets étudiants" %></li>
+            <li><%= link_to "L'équipe", equipe_path(), :"data-hover" => "L'équipe" %></li>
+            <li><%= link_to "L'ucp", ucp_path(), :"data-hover" => "L'ucp" %></li>
+            <li><%= link_to "Live", live_path(), :"data-hover" => "Live" %></li>
+            <li><%= link_to 'Plan & contact', informations_path(), :"data-hover" => "Plan & contact" %></li>
+            <li class="right-navbar"><%= link_to 'Postuler', postuler_path(), :"data-hover" => "Postuler" %></li>
+>>>>>>> dev
           </ul>
         </div>
       </div>
 </header>
+
+<% @alerts.each do |alert| %>
+<% if alert.active %>
+        <div class="flash">
+            <div class="alert <%= alert.level %>" >
+            <%= alert.content %>
+            <button class="close-alert">
+            <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            </div>
+        </div>
+<% end %>
+
+<% end %>
+<!-- <p class="alert alert-blue">
+  <%= link_to 'Téléchargez le dossier de candidature!', postuler_path() %>
+  <button class="close-alert">
+    <span class="glyphicon glyphicon-remove"></span>
+  </button>
+</p>
+<p class="alert alert-green">
+  <%= link_to 'Téléchargez le dossier de candidature!', postuler_path() %>
+  <button class="close-alert">
+    <span class="glyphicon glyphicon-remove"></span>
+  </button>
+</p>
+<p class="alert alert-orange">
+  <%= link_to 'Téléchargez le dossier de candidature!', postuler_path() %>
+  <button class="close-alert">
+    <span class="glyphicon glyphicon-remove"></span>
+  </button>
+</p> -->

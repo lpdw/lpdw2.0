@@ -8,17 +8,36 @@ $color-2: #7b83a1; /* bleu */
 $color-3: #45474e; /* noir */
 $color-4: #cacaca; /* opacité réduite */
 $color-5: #f0f0f0;  /* opacité réduite */
+<<<<<<< HEAD
 
 body {
     background: $color-5;
     font-family: "Roboto Condensed Regular", sans-serif;
     padding-top:80px;
+=======
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}
+
+body {
+    font-family: "Roboto Condensed Light", sans-serif;
+>>>>>>> dev
 }
 
 * {
     outline: none;
 }
 
+<<<<<<< HEAD
 .bg-white{
     background:white;
 }
@@ -57,6 +76,16 @@ body {
         }
     }
 }
+=======
+.gray-bg {
+    background-color: $color-5;
+}
+
+.wrapper {
+    padding: 40px 0;
+}
+
+>>>>>>> dev
 .content-title
 {
     color: #ea483e;
@@ -87,8 +116,34 @@ body {
     color:black;
 }
 
+<<<<<<< HEAD
 @import "header";
 @import "index";
 @import "news";
 @import "venir";
 @import "footer";
+=======
+.back-grey5 {
+    background:$color-5;
+}
+
+@import "components/work_grid";
+@import "components/button";
+
+@import "modules/header";
+@import "modules/banner";
+@import "modules/alert";
+@import "index";
+@import "news";
+@import "new";
+@import "map";
+@import "team";
+@import "projects";
+@import "ucp";
+@import "formation";
+@import "project";
+@import "modules/footer";
+@import "apply";
+@import "mentions";
+@import "live";
+>>>>>>> dev

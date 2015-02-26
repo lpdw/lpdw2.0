@@ -1,0 +1,81 @@
+<section class="banner banner-detailed">
+    <p class="text-center">
+    <span>Une licence en évolution</span>
+    dans un monde de révolutions
+    <small>licence professionnelle développement web et web mobile - Université de cergy-pontoise</small>
+    </p>
+</section>
+<div class="gray-bg wrapper">
+    <div class="container">
+        <div class="row">
+            <section class="col-md-10 col-md-offset-1 home-news">
+                <h1>Actualités</h1>
+                <div class="row">
+                    <% @actualities.each_with_index do |actuality, i| %>
+                    <% if i === 2 %>
+                        <article class="col-md-12">
+                    <% else %>
+                        <article class="col-md-6">
+                    <% end %>
+                            <div class="article-new">
+                                <h3><%= actuality.title %></h3>
+                                <p><%= HTML_Truncator.truncate((actuality.content),40).html_safe %></p>
+                                <%= link_to(actuality_show_path(actuality),:class=>'button') do %>
+                                <span>Lire la suite</span> <i class="fa fa-chevron-right"></i>
+                                <% end %>
+                            </div>
+                        </article>
+                        <% end %>
+
+                    </div>
+                    <%= link_to 'Voir tous les articles', actualites_path() , html_options = {"class" =>"more-article"}%>
+                </section>
+            </div>
+        </div>
+    </div>
+    <section class="banner banner-blue banner-link text-center hidden-xs">
+        <%= link_to formation_path() do%>
+        <span>Découvrez</span> la formation
+        <% end %>
+    </section>
+    <div class="gray-bg wrapper">
+        <div class="container">
+            <div class="row">
+                <section class="col-md-8 col-md-offset-2 home-faclab">
+                    <h1 class="text-center">Le faclab: Apprendre, créer, partager</h1>
+                    <div class="row">
+                        <article class="col-md-12">
+                            <img src="/assets/img_4974_0.jpg" alt=."Faclab gennevilliers" class="img-circle">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
+                            <a class="button faclab" href="http://www.faclab.org/" target="_blank"><span>Voir le site</span> <i class="fa fa-chevron-right"></i></a>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="container">
+            <div class="row">
+                <section class="col-md-10 col-md-offset-1 home-creations">
+                    <h1>Projets étudiants</h1>
+                    <div class="row">
+
+                        <!-- Projets étudiants -->
+                        <% @projects.each_with_index do |project, i| %>
+                        <article class="col-md-3">
+                            <div class="article-creation">
+                                <img src="<%= project.photo %>" alt="Faclab gennevilliers">
+                                <h4 class="text-center"><%= project.name %></h4>
+                            </div>
+                        </article>
+                        <% end %>
+                    </div>
+
+                    <%= link_to 'Voir toutes les créations', projets_path() , html_options = {"class" =>"more-creations"}%>
+
+                    <!-- fin projets -->
+                </section>
+            </div>
+        </div>
+    </div>

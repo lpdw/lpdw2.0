@@ -1,0 +1,28 @@
+.button {
+	display: block;
+	margin: 50px 20px;
+	line-height: 20px;
+	background-color: $color-1;
+	padding: 20px;
+	box-sizing: border-box;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	&:hover {
+		color: #fff;
+		background-color: $color-2;
+		text-decoration: none;
+	}
+
+	&.faclab {
+		border: none;
+		padding: 10px;
+	}
+}
+
+@media (min-width: $screen-sm-min) {
+	.button {
+		width: 300px;
+		margin: 50px auto;
+	}
+}

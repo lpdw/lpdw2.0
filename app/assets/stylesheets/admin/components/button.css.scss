@@ -1,0 +1,183 @@
+$color-white: #f9f9f9;
+$color-red: #e64133;
+$color-red-light: #ff5e4c;
+$color-yellow: #db9c3d;
+$color-yellow-light: #fab13c;
+$color-green: #2eb363;
+$color-green-light: #3dd17a;
+$color-blue: #3498db;
+$color-blue-soft: #50b1f2;
+$color-blue-dark: #2c3e50;
+$color-blue-dark-soft: #34495e;
+$color-grey-dark: #b6c4cf;
+
+//
+$color-grey-light: #e1eaf1;
+
+@mixin theme-color($color) {
+    @if $color == red {
+        color: $color-white;
+        background-color: $color-red-light;
+    }
+    @else if $color == blue {
+        color: $color-white;
+        background-color: $color-blue-soft;
+    }
+    @else if $color == green {
+        color: $color-white;
+        background-color: $color-green-light;
+    }
+    @else if $color == yellow {
+        color: $color-white;
+        background-color: $color-yellow-light;
+    }
+    @else if $color == default {
+        color: $color-blue-dark-soft;
+        background-color: $color-grey-light;
+    }
+    @else {
+        color: $color-white;
+        background-color: $color-blue-dark-soft;
+    }
+}
+
+/*    ----------------------------------------  */
+
+@mixin theme-color-hover($color) {
+    @if $color == red {
+        &:hover {
+            text-decoration: none;
+            background-color: $color-red;
+        }
+        &:active {
+            background-color: $color-red-light;
+        }
+    }
+    @else if $color == blue {
+        &:hover {
+            text-decoration: none;
+            background-color: $color-blue;
+        }
+        &:active {
+            background-color: $color-blue-soft;
+        }
+    }
+    @else if $color == green {
+        &:hover {
+            text-decoration: none;
+            background-color: $color-green;
+        }
+        &:active {
+            background-color: $color-green-light;
+        }
+    }
+    @else if $color == yellow {
+        &:hover {
+            text-decoration: none;
+            background-color: $color-yellow;
+        }
+        &:active {
+            background-color: $color-yellow-light;
+        }
+    }
+    @else if $color == default {
+        &:hover {
+            text-decoration: none;
+            background-color: $color-grey-dark;
+        }
+        &:active {
+            background-color: $color-grey-light;
+        }
+    }
+    @else {
+        &:hover {
+            text-decoration: none;
+            background-color: $color-blue-dark;
+        }
+        &:active {
+            background-color: $color-blue-dark-soft;
+        }
+    }
+}
+
+/*--------------------------------------------------------*/
+
+.button {
+    @include theme-color(default);
+    display: inline-block;
+    padding: 8px 12px;
+    margin-bottom: 0;
+    font-size: 1.1em;
+    text-decoration: none;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    @include theme-color-hover(default);
+    &:active {
+        position: relative;
+        top: 1px;
+        left: 1px;
+    }
+    &.button-red {
+        @include theme-color(red);
+        @include theme-color-hover(red);
+    }
+    &.button-blue {
+        @include theme-color(blue);
+        @include theme-color-hover(blue);
+    }
+    &.button-green {
+        @include theme-color(green);
+        @include theme-color-hover(green);
+    }
+    &.button-yellow {
+        @include theme-color(yellow);
+        @include theme-color-hover(yellow);
+    }
+    &.button-inverse {
+        @include theme-color(inverse);
+        @include theme-color-hover(inverse);
+    }
+    &.button-sm {
+        font-size: 0.95em;
+        //12px
+        padding: 6px 12px;
+    }
+    &.button-lg {
+        font-size: 1.4em;
+        //18px
+
+    }
+}
+
+.badge {
+    @include theme-color(default);
+    font-size: 0.95em;
+    padding: 2px 10px;
+    &.badge-red {
+        @include theme-color(red);
+    }
+    &.badge-blue {
+        @include theme-color(blue);
+    }
+    &.badge-green {
+        @include theme-color(green);
+    }
+    &.badge-yellow {
+        @include theme-color(yellow);
+    }
+    &.badge-inverse {
+        @include theme-color(inverse);
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: .65;
+    filter: alpha(opacity = 65);
+}

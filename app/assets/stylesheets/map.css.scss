@@ -1,0 +1,128 @@
+.map {
+    position: relative;
+    width:100%;
+    text-transform: uppercase;
+    color: white;
+    margin:0px;
+    background: url("/assets/map.png") no-repeat center center;
+    background-size: cover;
+    padding: 20px 0;
+    &:before {
+        content: "";
+        background:black;
+        opacity: 0.8;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+
+    }
+    div
+        {
+        .btn {
+            display:block;
+            width:200px;
+            margin:auto;
+            margin-top:25px;
+        }
+    }
+}
+div .address {
+    top:0px;
+    bottom:0px;
+    width:100%;
+    padding:25px 0px;
+    display: block;
+    font-size: 3em;
+    line-height: 40px;
+    z-index: 2;
+}
+
+div .address-2 {
+    font-style: italic;
+    font-size: 20px;
+}
+
+.contact {
+    margin-top:25px;
+    margin-bottom:25px;
+    textarea {
+        height:150px;
+        resize: vertical;
+    }
+    input,textarea {
+        padding:20px ;
+        border-radius:0px;
+        text-shadow:none;
+    }
+    .col-md-6 {
+        h4 {
+            margin:0px;
+            padding:0px;
+            margin-bottom:10px;
+        }
+
+        .network {
+            margin-top: 10px;
+            text-align:left;
+            display:block;
+            width:100%;
+            margin-bottom:20px;
+
+            div {
+                margin-left:0px;
+                padding-left:0px;
+                a{
+                    color:white;
+                    text-align:left;
+                    font-size:20px;
+                    background:#f6f6f6;
+                    padding:10px;
+                    .fa
+                    {
+                        margin-right:10px;
+                        margin-left:10px;
+
+                    }
+                }
+
+                a:hover
+                {
+                    text-decoration: none;
+                    color:white;
+                }
+
+                .tw-retour {
+                    color:#55acee;
+                }
+                .tw-retour:hover
+                {
+                    background:#55acee;
+                }
+                .fb-retour {
+                    color:#3b5998;
+                }
+                .fb-retour:hover {
+                    background:#3b5998;
+                }
+            }
+        }     
+    }
+}
+
+@media (min-width: $screen-sm-min) {
+
+    .map {
+        height: 350px;
+    }
+
+    .contact {
+        .col-md-6 {
+            .network {
+                margin-top: 0;
+            }
+        }
+    }
+
+}

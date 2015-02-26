@@ -1,0 +1,21 @@
+theme :
+  modern
+toolbar:
+  - insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image uploadimage
+plugins:
+  - image
+  - link
+  - media
+  - code
+  - preview
+  - uploadimage
+image_dimensions:
+  false
+language:
+  - fr_FR
+uploadimage_form_url:
+  tinymce_assets
+uploadimage_default_img_class:
+ img-responsive
+relative_urls:
+  false

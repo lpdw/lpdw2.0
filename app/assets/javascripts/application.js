@@ -11,9 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= require parsley.min.js
+
 //= require_tree .
+//= require bootstrap-sprockets
+
 $(document).ready(function() {
         topScroll();
 
@@ -36,4 +40,73 @@ $(document).ready(function() {
         });
         return false;
     });
+
+    $(".close-alert").click(function(){
+        var body = $("html, body");
+        $(this).parent().slideUp();
+        return false;
+     });
+
+    var tw_url = "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?lang=fr&screen_names=";
+    var fb_url = "https://graph.facebook.com/";
+
+    var fb_site = "https://facebook.com/";
+    var tw_site = "https://twitter.com/";
+
+    $.ajax({
+        url: tw_url+"lpdw_ucp",
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(data) {
+            $(".licence .tw-retour").html('<i class="fa fa-twitter"></i>'+data[0].followers_count);
+            $(".licence .tw-retour").attr("href", tw_site+"lpdw_ucp");
+        }
+    });
+
+    $.ajax({
+        url: fb_url+"lpdwm",
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(data) {
+            $(".licence .fb-retour").html('<i class="fa fa-facebook"></i>'+data.likes);
+            $(".licence .fb-retour").attr("href", fb_site+"lpdwm");
+        }
+    });
+
+        $.ajax({
+        url: tw_url+"FacLabUcp",
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(data) {
+            $(".faclab .tw-retour").html('<i class="fa fa-twitter"></i>'+data[0].followers_count);
+            $(".faclab .tw-retour").attr("href",tw_site+"FacLabUcp");
+
+        }
+    });
+    $.ajax({
+        url: fb_url+"faclab",
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(data) {
+            $(".faclab .fb-retour").html('<i class="fa fa-facebook"></i>'+data.likes);
+            $(".faclab .fb-retour").attr("href", fb_site+"faclab");
+        }
+    });
+
+    $(".navbar-toggle").click(function(e){
+        e.preventDefault();
+
+         if($(".navbar-collapse").hasClass("in")){
+            document.documentElement.style.overflow = 'auto';
+        }else{
+            document.documentElement.style.overflow = 'hidden';
+        }
+     });
+
+
 });
+//= require turbolinks

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .headband-top {
     position: relative;
     height: 200px;
@@ -32,6 +33,8 @@
     }
 }
 
+=======
+>>>>>>> dev
 .home-news {
     position: relative;
     h1 {
@@ -46,6 +49,7 @@
              background: white;
              height:100%;
              padding:15px;
+<<<<<<< HEAD
         }
         h3 {
             color: $color-2;
@@ -62,6 +66,35 @@
             bottom: 0;
             margin-bottom: 15px;
             margin-right: 25px;
+=======
+             border-bottom: 2px solid #D5D5D5;
+             overflow: hidden;
+        }
+        h3 {
+            color: $color-2;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        p {
+            margin-top: 20px;
+            
+            img {
+                display: none;
+            }
+        }
+
+        .button {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin-right: 25px;
+            margin-bottom: 15px;
+            display: block;
+            width: 140px;
+            font-size: 18px;
+            padding: 10px 15px 10px 15px;
+>>>>>>> dev
             text-align: center;
             background: white;
             color: $color-1;
@@ -70,6 +103,10 @@
             cursor: pointer;
             text-transform: uppercase;
             text-decoration: none;
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
             span {
                 position: relative;
                 left: 0;
@@ -94,15 +131,20 @@
         }
     }
     & .more-article {
+<<<<<<< HEAD
         position: absolute;
         right: 0;
         bottom: 0;
+=======
+        float: right;
+>>>>>>> dev
         text-transform: uppercase;
         text-decoration: none;
         color: $color-1;
     }
 }
 
+<<<<<<< HEAD
 .headband-middle {
     position: relative;
     height: 200px;
@@ -138,6 +180,8 @@
     }
 }
 
+=======
+>>>>>>> dev
 .home-faclab {
     position: relative;
     margin-top: 50px;
@@ -164,6 +208,7 @@
         .button {
             position: absolute;
             font-size: 16px;
+<<<<<<< HEAD
             padding: 15px;
             padding-top: 0;
             padding-bottom: 0;
@@ -175,10 +220,24 @@
             background: $color-3;
             color: white;
             border: 1px solid $color-4;
+=======
+            padding: 10px 15px;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            text-align: center;
+            background: $color-3;
+            color: white;
+>>>>>>> dev
             -webkit-user-select: none;
             cursor: pointer;
             text-transform: uppercase;
             text-decoration: none;
+<<<<<<< HEAD
+=======
+            width: initial;
+            max-width: 200px;
+>>>>>>> dev
             span {
                 position: relative;
                 left: 0;
@@ -191,7 +250,11 @@
             i {
                 position: absolute;
                 left: 85%;
+<<<<<<< HEAD
                 top: 20%;
+=======
+                top: 33%;
+>>>>>>> dev
                 opacity: 0;
                 transition: all 0.2s;
             }
@@ -207,6 +270,7 @@
 .home-creations {
     margin-top: 50px;
     margin-bottom: 100px;
+<<<<<<< HEAD
     article {
         padding-left: 5px;
         padding-right: 5px;
@@ -216,6 +280,29 @@
         }
     }
     img {}
+=======
+
+    article {
+        padding-left: 5px;
+        padding-right: 5px;
+        & .article-creation{
+             background: $color-5;
+             overflow: hidden;
+        }
+    }
+    img {
+        margin: 0 auto;
+        height: 234px;
+        width: auto;
+        text-align: center;
+        position: relative;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+           -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+                transform: translateX(-50%);
+    }
+>>>>>>> dev
     h4 {
         color: $color-1;
     }
@@ -232,4 +319,39 @@
         text-decoration: none;
         color: $color-1;
     }
+<<<<<<< HEAD
+=======
+}
+
+@media (max-width: $screen-md-max) {
+    .home-creations {
+        img {
+            height: 192px;
+        }
+    }
+}
+
+@media (max-width: $screen-sm-max) {
+    
+    .home-faclab {
+
+        article {
+
+            .button {
+                bottom: -30px;
+                right: 30px;
+            }
+
+        }
+
+    }
+
+    .home-creations {
+        img {
+            height: auto;
+            max-width: 100%;
+        }
+    }
+
+>>>>>>> dev
 }

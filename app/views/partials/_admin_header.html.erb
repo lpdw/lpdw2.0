@@ -1,0 +1,56 @@
+<header class="navbar navbar-fixed-top navbar-lpdw-admin" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="row">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <div class="col-sm-2">
+          <%= link_to(admin_path(),:class=>'title-dashboard ' ) do %>
+                <h1>Dashboard</h1>
+          <% end %>
+        </div>
+        <div class="col-sm-10 col-sm-offset-2 header-info">
+          <% if user_signed_in? %>
+          <h2><%= @title_admin %></h2>
+          <% elsif controller_name == "registrations" and action_name == 'new'%>
+          <h2>Sign up</h2>
+          <% elsif controller_name == "passwords" and action_name == 'new'%>
+          <h2>Forgot your password</h2>
+          <% else %>
+          <h2>Se connecter</h2>
+          <% end %>
+          <div class="collapse navbar-collapse" id="navbar-collapse1">
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+              <li class="dropdown">
+                <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
+                <ul id="g-account-menu" class="dropdown-menu" role="menu">
+                  <li>
+                    <%= link_to(destroy_user_session_path(),:method => 'delete') do %>
+                    <i class="fa fa-sign-out fa-fw"></i> Se déconnecter
+                    <% end %>
+                  </li>
+                </ul>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<% flash.each do |type, message| %>
+        <div class="flash">
+            <div class="alert <%= flash_class(type) %>" >
+            <%= message %>
+            <button class="close-alert">
+            <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            </div>
+        </div>
+<% end %>

@@ -1,0 +1,103 @@
+.navbar-lpdw {
+    height: 80px;
+    background: white;
+    text-transform: uppercase;
+    font-family: "Roboto Condensed Light", sans-serif;
+    & .navbar-brand {
+        font-size: 28px;
+        height: auto;
+        color: black;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: 1px solid black;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    & .navbar-nav {
+        margin-left: 50px;
+        & > li > a {
+            color: $color-1;
+            padding: 10px 20px;
+            line-height: 60px;
+            text-shadow: 0 0 1px rgba(111,134,134,0.3);
+        }
+        & > li > a:hover {
+            background-color: transparent;
+        }
+        & > .right-navbar {
+            position: absolute;
+            right: 0px;
+        }
+        & > .right-navbar > a {
+            color: white;
+            background: $color-1;
+        }
+        & > .right-navbar > a:hover {
+            background: $color-2;
+        }
+    }
+}
+
+//responsive
+
+.navbar-toggle {
+    margin-top: 20px;
+    .icon-bar {
+        background: #000;
+    }
+}
+
+@media (max-width: $screen-xs-max) {
+    .navbar-lpdw {
+        .navbar-nav {
+            margin: 0 auto;
+            text-align: center;
+            z-index: 99999;
+            background: white;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+
+    .container-fluid > .navbar-header {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .navbar-lpdw {
+        .navbar-nav {
+            text-align: center;
+            background: white;
+            position: absolute;
+            left: 0;
+            right: 0;
+            & > li > a {
+                padding: 10px 10px 10px 20px;
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    .navbar-lpdw {
+        .navbar-nav {
+            text-align: center;
+            background: white;
+            position: absolute;
+            left: 0;
+            right: 0;
+            & > li > a {
+                padding: 10px 30px 10px 30px;
+            }
+        }
+    }
+}
+
+// @media (min-width: @screen-lg-min) { ... }
