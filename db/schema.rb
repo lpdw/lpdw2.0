@@ -182,4 +182,5 @@ ActiveRecord::Schema.define(version: 20150221161709) do
 
   add_foreign_key "votes", "applicants", name: "votes_id_applicant_fk", column: "id_applicant"
 
+>>>>>>> 36018b3d473b654e4ab74740a6743af0e44f117e
 end
