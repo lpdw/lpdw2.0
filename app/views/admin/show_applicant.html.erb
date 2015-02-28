@@ -1,0 +1,35 @@
+<br />
+<%= link_to(admin_show_applicants_path(),:class=>'button button-blue float-left') do %>
+<i class="fa fa-reply"></i><span> Retour aux dossiers</span>
+<% end %>
+
+<p class="float-right">Dossier mis à jour le <%= @applicant.updated_at %> </p>
+<h1><%= @applicant.name %> <%= @applicant.first_name %></h1>
+<div>
+    <h3>Informations personnelles</h3>
+    <p><span>Adresse : </span>
+        <%= @applicant.address %>, <%= @applicant.zip_code %> <%= @applicant.city %>
+    </p>
+    <p><span>Tél fixe: </span>
+        <%= @applicant.home_phone %>
+    </p>
+    <p><span>Tél portable: </span>
+        <%= @applicant.private_phone %>
+    </p>
+     <p><span>email: </span>
+        <%= @applicant.email %>
+    </p>
+    <p><span>Né le: </span>
+        <%= @applicant.birth %> à <%= @applicant.birth_place %>
+    </p>
+    <p><span>Nationalité: </span>
+        <%= @applicant.nationality %>
+    </p>
+    <p><span>Sécurité social: </span>
+        <%= @applicant.assurance %>
+    </p>
+    <p><span>Situation de famille : </span>
+        <%= @applicant.status %>
+    </p>
+
+</div>

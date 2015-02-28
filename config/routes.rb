@@ -18,6 +18,9 @@ devise_for :users, :controllers => {:sessions => "sessions"},
 
 root 'pages#home'
 
+  get 'admin/show_applicants' => 'admin#show_applicants'
+  get 'admin/show_applicant/:id' => 'admin#show_applicant', :as => 'admin_show_applicant'
+
   get 'admin' => 'admin#index'
   #Avoid sign_up by devise
   get 'admin/sign_up' => 'admin#index'
@@ -51,6 +54,7 @@ root 'pages#home'
   post 'admin/edit_project/:id' => 'admin#update_project'
   get 'admin/delete_project/:id' => 'admin#delete_project', :as => 'admin_delete_project'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
+
 
   get '/', :to => 'pages#home'
   get '/actualites', :to => 'pages#news'

@@ -23,6 +23,7 @@
                 <% if user_signed_in? %>
                 <div class="col-sm-2 sidebar">
                     <ul class="nav nav-sidebar">
+                        <li><%= link_to 'Candidatures', admin_show_applicants_path() %></li>
                         <li><%= link_to 'Utilisateurs', admin_show_users_path() %></li>
                         <li><%= link_to 'Actualités', admin_show_actualities_path() %></li>
                         <li><%= link_to 'Alertes', admin_show_alerts_path() %></li>

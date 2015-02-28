@@ -1,0 +1,36 @@
+<h1>Dossiers de candidatures</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Date de dépot</th>
+            <th>Email</th>
+            <th>Tel domicile</th>
+            <th>Status</th>
+            <th>Vote</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    <% @applicants.each do |applicant| %>
+        <tr>
+            <td data-th="ID" ><%= applicant.id %></td>
+            <td data-th="Name" ><%= applicant.name %></td>
+            <td data-th="First_name" ><%= applicant.first_name %></td>
+            <td data-th="Date_depot" ><%= applicant.updated_at %></td>
+            <td data-th="Email" ><%= applicant.email %></td>
+            <td data-th="Email" ><%= applicant.home_phone %></td>
+            <td data-th="Status" ></td>
+            <td data-th="Vote" ></td>
+            <td data-th="See" >
+                <%= link_to(admin_show_applicant_path(applicant)) do %>
+                <i class="fa fa-eye"></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

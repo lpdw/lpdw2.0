@@ -65,6 +65,17 @@ class AdminController < ApplicationController
   end
 
 
+  # applicants controller
+  def show_applicants
+    @title_admin = "Candidatures"
+    @applicants = Applicant.all
+  end
+
+  def show_applicant
+    @title_admin = "Voir un étudiant"
+    @applicant = Applicant.find(params[:id])
+    @cursus = Cursus.find(params[:id_applicant])
+  end
 
   # actuality Controller
   before_action :get_this_actuality,only: [:edit_actuality,:update_actuality,:delete_actuality]
