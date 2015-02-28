@@ -74,7 +74,7 @@ class AdminController < ApplicationController
   def show_applicant
     @title_admin = "Voir un étudiant"
     @applicant = Applicant.find(params[:id])
-    @cursus = Cursus.find(params[:id_applicant])
+    @cursus = @applicant.cursus
   end
 
   # actuality Controller
