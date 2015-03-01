@@ -2,9 +2,38 @@
 <%= link_to(admin_show_applicants_path(),:class=>'button button-blue float-left') do %>
 <i class="fa fa-reply"></i><span> Retour aux dossiers</span>
 <% end %>
+<div class="float-right">
+    <div >
+        <h3>Avis :</h3>
+        <%
+        @positif = 0
+        @neutre = 0
+        @negatif = 0
 
-<p class="float-right">Dossier mis à jour le <%= @applicant.updated_at %> </p>
+        @votes.each do |vote|
+            if vote.value == 2
+                @positif += 1
+            elsif vote.value == 1
+                @negatif += 1
+            else
+                @neutre += 1
+            end
+
+        end
+        %>
+        <p class="badge badge-green"><%= @positif %> avis positif(s)</p>
+        <p class="badge badge-yellow"><%= @neutre %> avis neutre(s)</p>
+        <p class="badge badge-red"><%= @negatif %> avis négatif(s)</p>
+    </div>
+    <div>
+        <h3>Mon vote</h3>
+        <button class="button button-green">Positif</button>
+        <button class="button button-yellow">Neutre</button>
+        <button class="button button-red">Négatif</button>
+    </div>
+</div>
 <h1><%= @applicant.name %> <%= @applicant.first_name %></h1>
+<p>Dossier mis à jour le <%= @applicant.updated_at %> </p>
 <div>
     <h3>Informations personnelles</h3>
     <p><span>Adresse : </span>
@@ -31,5 +60,4 @@
     <p><span>Situation de famille : </span>
         <%= @applicant.status %>
     </p>
-
 </div>

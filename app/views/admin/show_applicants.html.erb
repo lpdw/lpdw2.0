@@ -24,7 +24,23 @@
             <td data-th="Email" ><%= applicant.email %></td>
             <td data-th="Email" ><%= applicant.home_phone %></td>
             <td data-th="Status" ></td>
-            <td data-th="Vote" ></td>
+            <td data-th="Vote" >
+            <%
+                @positif = 0
+                @neutre = 0
+                @negatif = 0
+
+                @votes.each do |vote|
+                    if vote.value == 2
+                        @positif += 1
+                    elsif vote.value == 1
+                        @negatif += 1
+                    else
+                        @neutre += 1
+                    end
+                end
+            %>
+            </td>
             <td data-th="See" >
                 <%= link_to(admin_show_applicant_path(applicant)) do %>
                 <i class="fa fa-eye"></i>

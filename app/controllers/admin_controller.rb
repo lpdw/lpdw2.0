@@ -69,12 +69,19 @@ class AdminController < ApplicationController
   def show_applicants
     @title_admin = "Candidatures"
     @applicants = Applicant.all
+    @votes = @applicants.votes
+    @status = @applicants.applicant_statuses
   end
 
   def show_applicant
     @title_admin = "Voir un étudiant"
     @applicant = Applicant.find(params[:id])
     @cursus = @applicant.cursus
+    @application = @applicant.other_application
+    @experience = @applicant.professional_experiences
+    @projects = @applicant.project_applicants
+    @votes = @applicant.votes
+    @status = @applicant.applicant_statuses
   end
 
   # actuality Controller

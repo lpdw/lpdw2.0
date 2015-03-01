@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 20150221161709) do
     t.integer  "english_skill"
     t.string   "other_language"
     t.text     "after_school"
+    t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "ip_address"
   end
 
   create_table "cursus", force: true do |t|
@@ -82,13 +82,6 @@ ActiveRecord::Schema.define(version: 20150221161709) do
   end
 
   add_index "cursus", ["id_applicant"], name: "cursus_id_applicant_fk", using: :btree
-
-  create_table "images", force: true do |t|
-    t.string   "alt"
-    t.string   "attachment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "other_applications", force: true do |t|
     t.integer  "id_applicant"
@@ -123,7 +116,6 @@ ActiveRecord::Schema.define(version: 20150221161709) do
   add_index "project_applicants", ["id_applicant"], name: "project_applicants_id_applicant_fk", using: :btree
 
   create_table "projects", force: true do |t|
-    t.string   "photo"
     t.string   "name"
     t.text     "description"
     t.string   "link"
@@ -182,5 +174,4 @@ ActiveRecord::Schema.define(version: 20150221161709) do
 
   add_foreign_key "votes", "applicants", name: "votes_id_applicant_fk", column: "id_applicant"
 
->>>>>>> 36018b3d473b654e4ab74740a6743af0e44f117e
 end
