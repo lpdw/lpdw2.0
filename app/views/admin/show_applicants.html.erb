@@ -9,7 +9,7 @@
             <th>Email</th>
             <th>Tel domicile</th>
             <th>Status</th>
-            <th>Vote</th>
+            <th>Avis</th>
             <th>Options</th>
         </tr>
     </thead>
@@ -29,16 +29,6 @@
                 @positif = 0
                 @neutre = 0
                 @negatif = 0
-
-                @votes.each do |vote|
-                    if vote.value == 2
-                        @positif += 1
-                    elsif vote.value == 1
-                        @negatif += 1
-                    else
-                        @neutre += 1
-                    end
-                end
             %>
             </td>
             <td data-th="See" >

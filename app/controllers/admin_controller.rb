@@ -69,8 +69,6 @@ class AdminController < ApplicationController
   def show_applicants
     @title_admin = "Candidatures"
     @applicants = Applicant.all
-    @votes = @applicants.votes
-    @status = @applicants.applicant_statuses
   end
 
   def show_applicant

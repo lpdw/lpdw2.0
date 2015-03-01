@@ -57,7 +57,113 @@
     <p><span>Sécurité social: </span>
         <%= @applicant.assurance %>
     </p>
-    <p><span>Situation de famille : </span>
+    <p><span>En couple? : </span>
         <%= @applicant.status %>
     </p>
+</div>
+<div>
+    <h3>Informations générales</h3>
+    <p><span>Connaissait des gens dans la licence : </span>
+        <%= @applicant.address %>, <%= @applicant.zip_code %> <%= @applicant.city %>
+    </p>
+    <p><span>personnes dans entourage travaillant dans domaine multimédia ?: </span>
+        <%= @applicant.has_connection %>
+    </p>
+    <p><span>Comment il a connu la formation :</span>
+        <%= @applicant.know_formation %>
+    </p>
+    <p><span>Niveau d'anglais (sur une échelle de 1 à 5): </span>
+        <%= @applicant.english_skill %>
+    </p>
+    <p><span>Autres langues connus :</span>
+        <%= @applicant.other_language %>
+    </p>
+    <p><span>Extra-scolaire :</span>
+        <%= @applicant.after_school %>
+    </p>
+</div>
+<div>
+    <h3>Cursus</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Formation</th>
+                <th>Année</th>
+                <th>Option</th>
+                <th>Résultat</th>
+                <th>Ville</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @cursus.each do |cursus| %>
+        <tr>
+            <td><%= cursus.graduation %></td>
+            <td><%= cursus.year %></td>
+            <td><%= cursus.option %></td>
+            <td ><%= cursus.result %></td>
+            <td><%= cursus.place %></td>
+        </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>Experience professionnelles</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Année</th>
+            <th>Entreprise</th>
+            <th>Role</th>
+            <th>Compétences utilisées</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @experience.each do |experience| %>
+        <tr>
+            <td><%= experience.year %></td>
+            <td><%= experience.company %></td>
+            <td><%= experience.role %></td>
+            <td><%= experience.skill %></td>
+        </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>Projets réalisés</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Année</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @projects.each do |project| %>
+        <tr>
+            <td><%= project.year %></td>
+            <td><%= project.content %></td>
+        </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>Candidatures pour les autres écoles</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Ecole</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @application.each do |application| %>
+        <tr>
+            <td ><%= application.content %></td>
+        </tr>
+        <% end %>
+        </tbody>
+    </table>
 </div>
