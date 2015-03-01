@@ -67,10 +67,11 @@
               <span class="col-sm-12 input_wrapper">Situation de famille*</span>
               <div class="col-sm-12 input_wrapper">
                 <p>
-                    <label for="celibataire" class="radio_left">Célibataire</label>
-                    <input type="radio" name="situation" class="radio_center-left" value="celibataire" id="celibataire" required data-parsley-group="step1" data-parsley-errors-messages-disabled>
-                  <label for="marie" class="radio_center-right">Marié</label>
-                  <input type="radio" name="situation" class="radio_right" value="marie" id="marie">
+                    <%= f.label "Célibataire", 'for' => "celibataire", :class =>'radio_left'%>
+                    <%= f.radio_button :status,"true" ,{:class =>'radio_center-left' , 'data-parsley-group' => "step1", "required"=> '', "data-parsley-errors-messages-disabled" => ""}%>
+
+                  <%= f.label "Marié", 'for' => "marie", :class =>'radio_center-right'%>
+                    <%= f.radio_button :status, "false", {:class =>'radio_right' , 'data-parsley-group' => "step1", "required"=> '', "data-parsley-errors-messages-disabled" => ""}%>
                 </p>
               </div>
             </div>
@@ -80,10 +81,11 @@
               <p class="col-sm-12">Avez-vous dans votre entourage immédiat une ou plusieurs personnes travaillant dans le domaine du multimédia ? *</p>
               <div class="col-sm-12 input_wrapper">
                 <p>
-                    <label for="entourage_true" class="radio_left">Oui</label>
-                    <input type="radio" name="entourage" class="radio_center-left" value="yes" id="entourage_true" required data-parsley-group="step1" data-parsley-errors-messages-disabled>
-                  <label for="entourage_false" class="radio_center-right">Non</label>
-                  <input type="radio" name="entourage" class="radio_right" value="no" id="entourage_false">
+                  <%= f.label "Oui", 'for' => "entourage_true", :class =>'radio_left'%>
+                    <%= f.radio_button :has_connection, 'true', {:class =>'radio_center-left' , 'data-parsley-group' => "step1", "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "yes", :id => "entourage_true"}%>
+
+                  <%= f.label "Non", 'for' => "entourage_false", :class =>'radio_center-right'%>
+                    <%= f.radio_button :has_connection, 'false', {:class =>'radio_right' , 'data-parsley-group' => "step1", "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "no", :id => "entourage_false"}%>
                 </p>
               </div>
               <div class="col-sm-12 input_wrapper entourage_wrapper">
