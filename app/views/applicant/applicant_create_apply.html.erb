@@ -56,13 +56,13 @@
                   <%= f.date_field :birth, 'data-parsley-group' => "step1", 'placeholder' => "Date de naissance*", "required"=> ''%>
               </div>
               <div class="col-sm-6 input_wrapper">
-                  <input type="text" name="birth_location" placeholder="Lieu de naissance*" required data-parsley-group="step1">
+                  <%= f.text_field :birth_place, 'data-parsley-group' => "step1", 'placeholder' => "Lieu de naissance*", "required"=> ''%>
               </div>
               <div class="col-sm-12 input_wrapper">
-                  <input type="text" name="nationalite" placeholder="Nationalité*" required data-parsley-group="step1">
+                  <%= f.text_field :nationality, 'data-parsley-group' => "step1", 'placeholder' => "Nationalité*", "required"=> ''%>
               </div>
               <div class="col-sm-12 input_wrapper">
-                  <input type="text" name="secu" placeholder="N° de sécurité sociale*" required data-parsley-group="step1" data-parsley-type="digits" data-parsley-length="[15, 15]">
+                  <%= f.text_field :assurance, 'data-parsley-group' => "step1", 'placeholder' => "N° de sécurité sociale*", "required"=> '', "data-parsley-type" => "digits", "data-parsley-length" => "[15, 15]"%>
               </div>
               <span class="col-sm-12 input_wrapper">Situation de famille*</span>
               <div class="col-sm-12 input_wrapper">
