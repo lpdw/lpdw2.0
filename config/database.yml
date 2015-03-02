@@ -19,4 +19,5 @@ development:
   encoding: utf8
   pool: 5
   username: root
+  password: root
   database: lpdw2_0_development

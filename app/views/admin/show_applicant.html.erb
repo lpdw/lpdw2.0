@@ -2,168 +2,174 @@
 <%= link_to(admin_show_applicants_path(),:class=>'button button-blue float-left') do %>
 <i class="fa fa-reply"></i><span> Retour aux dossiers</span>
 <% end %>
-<div class="float-right">
-    <div >
-        <h3>Avis :</h3>
-        <%
-        @positif = 0
-        @neutre = 0
-        @negatif = 0
+<br />
+<br />
+<div class="col-md-12 applicants">
+    <div class="col-md-12 admin_option">
+        <div class="col-md-6">
+            <h2>Status du dossier</h2>
+            <h2><%= status_applicant(@status) %></h2>
+        </div>
+        <div class="col-md-6">
+            <h3>Avis</h3>
+            <%
+            @positif = 0
+            @neutre = 0
+            @negatif = 0
 
-        @votes.each do |vote|
-            if vote.value == 2
-                @positif += 1
-            elsif vote.value == 1
-                @negatif += 1
-            else
-                @neutre += 1
+            @votes.each do |vote|
+                if vote.value == 2
+                    @positif += 1
+                elsif vote.value == 1
+                    @negatif += 1
+                else
+                    @neutre += 1
+                end
             end
-
-        end
-        %>
-        <p class="badge badge-green"><%= @positif %> avis positif(s)</p>
-        <p class="badge badge-yellow"><%= @neutre %> avis neutre(s)</p>
-        <p class="badge badge-red"><%= @negatif %> avis négatif(s)</p>
+            %>
+            <span class="alert alert alert-success"><%= @positif %> avis positif(s)</span>
+            <span class="alert alert-info"><%= @neutre %> avis neutre(s)</span>
+            <span class="alert alert-danger"><%= @negatif %> avis négatif(s)</span>
+            <h3>Voter</h3>
+            <button class="button button-green">Positif</button>
+            <button class="button button-yellow">Neutre</button>
+            <button class="button button-red">Négatif</button>
+        </div>
     </div>
-    <div>
-        <h3>Mon vote</h3>
-        <button class="button button-green">Positif</button>
-        <button class="button button-yellow">Neutre</button>
-        <button class="button button-red">Négatif</button>
+    <br />
+    <div class="col-md-12">
+        <h1><%= @applicant.name %> <%= @applicant.first_name %></h1>
+        <p>Dossier mis à jour le <%= @applicant.updated_at %> </p>
     </div>
-</div>
-<h1><%= @applicant.name %> <%= @applicant.first_name %></h1>
-<p>Dossier mis à jour le <%= @applicant.updated_at %> </p>
-<div>
-    <h3>Informations personnelles</h3>
-    <p><span>Adresse : </span>
-        <%= @applicant.address %>, <%= @applicant.zip_code %> <%= @applicant.city %>
-    </p>
-    <p><span>Tél fixe: </span>
-        <%= @applicant.home_phone %>
-    </p>
-    <p><span>Tél portable: </span>
-        <%= @applicant.private_phone %>
-    </p>
-     <p><span>email: </span>
-        <%= @applicant.email %>
-    </p>
-    <p><span>Né le: </span>
-        <%= @applicant.birth %> à <%= @applicant.birth_place %>
-    </p>
-    <p><span>Nationalité: </span>
-        <%= @applicant.nationality %>
-    </p>
-    <p><span>Sécurité social: </span>
-        <%= @applicant.assurance %>
-    </p>
-    <p><span>En couple? : </span>
-        <%= @applicant.status %>
-    </p>
-</div>
-<div>
-    <h3>Informations générales</h3>
-    <p><span>Connaissait des gens dans la licence : </span>
-        <%= @applicant.address %>, <%= @applicant.zip_code %> <%= @applicant.city %>
-    </p>
-    <p><span>personnes dans entourage travaillant dans domaine multimédia ?: </span>
-        <%= @applicant.has_connection %>
-    </p>
-    <p><span>Comment il a connu la formation :</span>
-        <%= @applicant.know_formation %>
-    </p>
-    <p><span>Niveau d'anglais (sur une échelle de 1 à 5): </span>
-        <%= @applicant.english_skill %>
-    </p>
-    <p><span>Autres langues connus :</span>
-        <%= @applicant.other_language %>
-    </p>
-    <p><span>Extra-scolaire :</span>
-        <%= @applicant.after_school %>
-    </p>
-</div>
-<div>
-    <h3>Cursus</h3>
-    <table class="table">
-        <thead>
+    <div class="col-md-6">
+        <h3>Informations personnelles</h3>
+        <p><span>Adresse : </span>
+            <%= @applicant.address %>, <%= @applicant.zip_code %> <%= @applicant.city %>
+        </p>
+        <p><span>Tél fixe: </span>
+            <%= @applicant.home_phone %>
+        </p>
+        <p><span>Tél portable: </span>
+            <%= @applicant.private_phone %>
+        </p>
+         <p><span>email: </span>
+            <%= @applicant.email %>
+        </p>
+        <p><span>Né le: </span>
+            <%= @applicant.birth %> à <%= @applicant.birth_place %>
+        </p>
+        <p><span>Nationalité: </span>
+            <%= @applicant.nationality %>
+        </p>
+        <p><span>Sécurité social: </span>
+            <%= @applicant.assurance %>
+        </p>
+        <p><span>En couple? : </span>
+            <%= @applicant.status %>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <h3>Informations générales</h3>
+        <p><span>Connaissait des gens dans la licence : </span>
+            <%= @applicant.address %>, <%= @applicant.zip_code %> <%= @applicant.city %>
+        </p>
+        <p><span>personnes dans entourage travaillant dans domaine multimédia ?: </span>
+            <%= @applicant.has_connection %>
+        </p>
+        <p><span>Comment il a connu la formation :</span>
+            <%= @applicant.know_formation %>
+        </p>
+        <p><span>Niveau d'anglais (sur une échelle de 1 à 5): </span>
+            <%= @applicant.english_skill %>
+        </p>
+        <p><span>Autres langues connus :</span>
+            <%= @applicant.other_language %>
+        </p>
+        <p><span>Extra-scolaire :</span>
+            <%= @applicant.after_school %>
+        </p>
+    </div>
+    <br />
+    <div class="col-md-12">
+        <h3>Cursus</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Formation</th>
+                    <th>Année</th>
+                    <th>Option</th>
+                    <th>Résultat</th>
+                    <th>Ville</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @cursus.each do |cursus| %>
             <tr>
-                <th>Formation</th>
-                <th>Année</th>
-                <th>Option</th>
-                <th>Résultat</th>
-                <th>Ville</th>
+                <td><%= cursus.graduation %></td>
+                <td><%= cursus.year %></td>
+                <td><%= cursus.option %></td>
+                <td ><%= cursus.result %></td>
+                <td><%= cursus.place %></td>
             </tr>
-        </thead>
-        <tbody>
-        <% @cursus.each do |cursus| %>
-        <tr>
-            <td><%= cursus.graduation %></td>
-            <td><%= cursus.year %></td>
-            <td><%= cursus.option %></td>
-            <td ><%= cursus.result %></td>
-            <td><%= cursus.place %></td>
-        </tr>
-        <% end %>
-        </tbody>
-    </table>
-</div>
-<div>
-    <h3>Experience professionnelles</h3>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Année</th>
-            <th>Entreprise</th>
-            <th>Role</th>
-            <th>Compétences utilisées</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% @experience.each do |experience| %>
-        <tr>
-            <td><%= experience.year %></td>
-            <td><%= experience.company %></td>
-            <td><%= experience.role %></td>
-            <td><%= experience.skill %></td>
-        </tr>
-        <% end %>
-        </tbody>
-    </table>
-</div>
-<div>
-    <h3>Projets réalisés</h3>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Année</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% @projects.each do |project| %>
-        <tr>
-            <td><%= project.year %></td>
-            <td><%= project.content %></td>
-        </tr>
-        <% end %>
-        </tbody>
-    </table>
-</div>
-<div>
-    <h3>Candidatures pour les autres écoles</h3>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Ecole</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% @application.each do |application| %>
-        <tr>
-            <td ><%= application.content %></td>
-        </tr>
-        <% end %>
-        </tbody>
-    </table>
+            <% end %>
+            </tbody>
+        </table>
+
+        <h3>Experience professionnelles</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Année</th>
+                <th>Entreprise</th>
+                <th>Role</th>
+                <th>Compétences utilisées</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @experience.each do |experience| %>
+            <tr>
+                <td><%= experience.year %></td>
+                <td><%= experience.company %></td>
+                <td><%= experience.role %></td>
+                <td><%= experience.skill %></td>
+            </tr>
+            <% end %>
+            </tbody>
+        </table>
+
+        <h3>Projets réalisés</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Année</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @projects.each do |project| %>
+            <tr>
+                <td><%= project.year %></td>
+                <td><%= project.content %></td>
+            </tr>
+            <% end %>
+            </tbody>
+        </table>
+
+        <h3>Candidatures pour les autres écoles</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Ecole</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @application.each do |application| %>
+            <tr>
+                <td ><%= application.content %></td>
+            </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
 </div>
