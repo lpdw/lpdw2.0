@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221161709) do
+ActiveRecord::Schema.define(version: 20150302211237) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 20150221161709) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true, using: :btree
 
   create_table "cursus", force: true do |t|
     t.integer  "id_applicant"
