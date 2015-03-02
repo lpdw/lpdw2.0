@@ -14,6 +14,8 @@ class ApplicantController < ApplicationController
   end
   #Postuler
   def apply
+    @applicant = Applicant.new
+    4.times { @applicant.other_application.build }
   end
   #Post method apply
   def applicant_create_apply
@@ -27,5 +29,13 @@ class ApplicantController < ApplicationController
   def redirect_applicant
     flash["error"] = "Connectez vous pour modifier votre dossier d'application"
     redirect_to '/postuler'
+  end
+  def applicant_create_apply_from_scratch
+    @applicant = Applicant.new(params[:applicant].permit(:deposit_date, :name, :first_name, :zip_code, :city, :home_phone, :private_phone, :email, :birth, :birth_place, :nationality, :assurance, :status, :has_connection, :connection_desc, :know_formation, :english_skill, :other_language, :after_school, :ip_address, :created_at, :updated_at, :address, :other_application_attributes))
+    if @applicant.save
+      flash["success"] = "Dossier sauvegardé"
+    else
+      flash["error"] = "Erreur d'enregistrement"
+    end
   end
 end

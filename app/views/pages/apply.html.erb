@@ -101,10 +101,13 @@
 							<p class="col-sm-12 input_wrapper">AUTRE CANDIDATURES (Universités, écoles, autres établissements) :Indiquer les autres candidatures que vous présentez pour l’année universitaire, par ordre de préférence (en y incluant votre demande concernant la Licence professionnelle Développeur Web et Web Mobile) </p>
 							<ul class="col-sm-12 input_wrapper schools_list">
 								<div class="row">
-									<li class="col-sm-6 school_item">1<input type="text" name="school_1" required data-parsley-group="step1"></li>
-									<li class="col-sm-6 school_item">2<input type="text" name="school_2" required data-parsley-group="step1"></li>
-									<li class="col-sm-6 school_item">3<input type="text" name="school_3"></li>
-									<li class="col-sm-6 school_item">4<input type="text" name="school_4"></li>
+									<% @i = 0 %>
+                  <%= f.fields_for :other_application do |ff| %>
+                    <% @i = @i + 1 %>
+                    <li class="col-sm-6 school_item"><%= ff.label @i.to_s %>
+                    <%= ff.text_field :content, 'data-parsley-group' => "step1", "required"=> ''%>
+                    </li>
+                  <% end %>
 								</div>
 							</ul>
 						</div>

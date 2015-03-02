@@ -48,7 +48,7 @@ class AdminController < ApplicationController
   def new
     @user = User.new(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname))
     if @user.save
-      flash["sucess"] ="User created"
+      flash["success"] ="User created"
       redirect_to admin_show_users_path()
     else
       flash[:error] =  @user.errors.messages[:email].to_s + @user.errors.messages[:password] +  @user.errors.messages[:password_confirmation] + @user.errors.messages[:photo]
