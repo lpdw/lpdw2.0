@@ -160,7 +160,8 @@
       <% end %>
     </div>
     <div class="step step3">
-      <fieldset class="centered">
+      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
+        <fieldset class="centered">
         <div class="experience_list">
           <ul class="row">
             <li class="col-md-1">Date</li>
@@ -168,27 +169,19 @@
             <li class="col-md-5">Mission</li>
             <li class="col-md-4">Compétences mises en oeuvre</li>
           </ul>
-          <ul class="row">
-            <li class="col-md-1"><input type="text" name="date"></li>
-            <li class="col-md-2"><input type="text" name="entreprise"></li>
-            <li class="col-md-5"><input type="text" name="mission"></li>
-            <li class="col-md-4"><input type="text" name="competences"></li>
-          </ul>
-          <ul class="row">
-            <li class="col-md-1"><input type="text" name="date"></li>
-            <li class="col-md-2"><input type="text" name="entreprise"></li>
-            <li class="col-md-5"><input type="text" name="mission"></li>
-            <li class="col-md-4"><input type="text" name="competences"></li>
-          </ul>
-          <ul class="row">
-            <li class="col-md-1"><input type="text" name="date"></li>
-            <li class="col-md-2"><input type="text" name="entreprise"></li>
-            <li class="col-md-5"><input type="text" name="mission"></li>
-            <li class="col-md-4"><input type="text" name="competences"></li>
-          </ul>
+          <%= f.fields_for :professional_experiences, @applicant.professional_experiences do |ff| %>
+            <ul class="row">
+              <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step3" %></li>
+              <li class="col-md-2"><%= ff.text_field :company, 'data-parsley-group' => "step3" %></li>
+              <li class="col-md-5"><%= ff.text_field :role, 'data-parsley-group' => "step3" %></li>
+              <li class="col-md-4"><%= ff.text_field :skill, 'data-parsley-group' => "step3" %></li>
+            </ul>
+          <% end %>
         </div>
       </fieldset>
-      <a class="next" data-current="3" data-next="4" href="#">étape suivante</a>
+        <a class="next" data-current="3" data-next="4" href="#">étape suivante</a>
+        <%= f.submit "Sauvegarder pour reprendre plus tard", :class => 'button submit gotoend save_entry' %>
+      <% end %>
     </div>
     <div class="step step4">
       <fieldset class="centered">
