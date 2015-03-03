@@ -42,9 +42,17 @@ $('.next').on('click', function (e) {
 	// .parsley().validate() returns validation result AND show errors
 
 	if (next > current) {
-		if (false === $('#apply-form').parsley().validate('step' + current)) {
-			return;
-		}
+        if ($('#new_applicant').length === 0){
+            if (false === $('#edit_applicant').parsley().validate('step' + current)) {
+                return;
+            }
+        }else
+        {
+            if (false === $('#new_applicant').parsley().validate('step' + current)) {
+                return;
+            }
+        }
+
 	}
 	// validation was ok. We can go on next step.
 	$(".apply_step.active").removeClass("active").addClass("clickable");
@@ -62,3 +70,14 @@ $(".apply_steps").on("click", ".clickable", function () {
 	$(".step" + current).hide();
 	$(".step" + next).show();
 });
+
+function remove_fields(link) {
+    $(link).prev("input[type=hidden]").val("1");
+    $(link).closest(".fields").hide();
+}
+
+function add_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g");
+    $(link).parent().before(content.replace(regexp, new_id));
+}
