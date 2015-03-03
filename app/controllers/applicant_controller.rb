@@ -46,6 +46,8 @@ class ApplicantController < ApplicationController
     @applicant.update(params[:applicant].permit(:english_skill, :after_school, :other_language))
     @applicant.update(params[:applicant].permit(cursus_attributes: [ :id, :graduation, :year, :option, :result, :place]))
     @applicant.update(params[:applicant].permit(professional_experiences_attributes: [ :id, :year, :company, :role, :skill]))
+    @applicant.update(params[:applicant].permit(project_applicants: [ :id, :year, :project_type, :content]))
+
     if @applicant.save
       flash["success"] = "Dossier sauvegardé"
       redirect_to '/postuler/'+ @applicant.assurance.to_s

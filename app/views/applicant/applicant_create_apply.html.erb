@@ -8,7 +8,6 @@
     <div class="alert alert-orange"><%= flash[:error] %></div>
   <% else %>
     <div class="alert alert-green"><%= flash[:success] %></div>
-    <%= @applicant.inspect %>
   <% end %>
   <div class="button_wrapper row">
     <a href="http://www.lp-dw.com/wp-content/uploads/LPDW-Candidature-2014-15.pdf" class="button">Télécharger le dossier de candidature</a>
@@ -184,6 +183,7 @@
       <% end %>
     </div>
     <div class="step step4">
+      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
       <fieldset class="centered">
         <div class="row">
           <span class="col-sm-12">Projets scolaires</span>
@@ -195,21 +195,13 @@
             <li class="col-md-2">Formation</li>
             <li class="col-md-9">Description</li>
           </ul>
-          <ul class="row">
-            <li class="col-md-1"><input type="text" name="annee"></li>
-            <li class="col-md-2"><input type="text" name="formation"></li>
-            <li class="col-md-9"><input type="text" name="description"></li>
-          </ul>
-          <ul class="row">
-            <li class="col-md-1"><input type="text" name="annee"></li>
-            <li class="col-md-2"><input type="text" name="formation"></li>
-            <li class="col-md-9"><input type="text" name="description"></li>
-          </ul>
-          <ul class="row">
-            <li class="col-md-1"><input type="text" name="annee"></li>
-            <li class="col-md-2"><input type="text" name="formation"></li>
-            <li class="col-md-9"><input type="text" name="description"></li>
-          </ul>
+          <%= f.fields_for :project_applicants, @applicant.project_applicants do |ff| %>
+            <ul class="row">
+              <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step5" %></li>
+              <li class="col-md-2"><%= ff.text_field :project_type, 'data-parsley-group' => "step5", :value => 'scolaire'%></li>
+              <li class="col-md-5"><%= ff.text_field :content, 'data-parsley-group' => "step5" %></li>
+            </ul>
+          <% end %>
         </div>
         <br>
         <div class="row">
@@ -221,23 +213,17 @@
             <li class="col-md-1">Année</li>
             <li class="col-md-11">Description</li>
           </ul>
-          <ul class="row">
-            <li class="col-md-1"><input type="text" name="annee"></li>
-            <li class="col-md-11"><input type="text" name="description"></li>
-          </ul>
-          <ul class="row">
-            <li class="col-md-1"><input type="text" name="annee"></li>
-            <li class="col-md-11"><input type="text" name="description"></li>
-          </ul>
-          <ul class="row">
-            <li class="col-md-1"><input type="text" name="annee"></li>
-            <li class="col-md-11"><input type="text" name="description"></li>
-          </ul>
+          <%= f.fields_for :project_applicants, @applicant.project_applicants do |ff| %>
+            <ul class="row">
+              <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step5" %></li>
+              <li class="col-md-2"><%= ff.text_field :project_type, 'data-parsley-group' => "step5", :value => 'personnel' %></li>
+              <li class="col-md-5"><%= ff.text_field :content, 'data-parsley-group' => "step5" %></li>
+            </ul>
+          <% end %>
         </div>
       </fieldset>
-
-      <input type="submit" class="button submit gotoend" href="#" value="Valider défintivement">
-      <!-- <a class="submit gotoend" href="#">Imprimer</a> -->
+        <%= f.submit "Valider Définitivement", :class => 'button submit gotoend save_entry' %>
+      <% end %>
     </div>
   </div>
 </div>
