@@ -1,5 +1,5 @@
 <h1>Dossiers de candidatures</h1>
-<table class="table">
+<table class="table applicants">
     <thead>
         <tr>
             <th>ID</th>
@@ -8,9 +8,9 @@
             <th>Date de dépot</th>
             <th>Email</th>
             <th>Tel domicile</th>
-            <th>Status</th>
             <th>Avis</th>
             <th>Options</th>
+            <th class="important-section-list">Status</th>
         </tr>
     </thead>
     <tbody>
@@ -22,12 +22,6 @@
             <td data-th="Date_depot" ><%= applicant.updated_at %></td>
             <td data-th="Email" ><%= applicant.email %></td>
             <td data-th="phone_fix" ><%= applicant.home_phone %></td>
-            <td data-th="Status" >
-                <% applicant.applicant_statuses do |this_status|%>
-                    <p><%= status_applicant(this_status) %></p>
-                <% end %>
-            </td>
-
             <td data-th="Vote" >
                 <%
                     @positif = 0
@@ -53,6 +47,10 @@
                 <i class="fa fa-eye"></i> voir
                 <% end %>
                 <a class="badge badge-red"><i class="fa fa-close"></i> refuser</a>
+            </td>
+            <td class="important-section-list" data-th="Status">
+                <% @status = applicant.applicant_statuses %>
+                <%= status_applicant(@status) %>
             </td>
         </tr>
         <% end %>

@@ -11,7 +11,7 @@ module AdminHelper
     def status_applicant(status)
         @status_applicant = ""
         if @status.is_refused == true
-            @status_applicant = '<span class="alert alert-danger">Dossier refusé</span>'.html_safe
+            @status_applicant = '<span class="badge badge-alert">Dossier refusé</span>'.html_safe
         else
             if @status.is_finish == true
                 if @status.is_complete == 0
@@ -25,14 +25,14 @@ module AdminHelper
                             if @status.interview_result == 1
                                 @status_applicant = "L'entretien à été positif, en attente de la réponse de l'étudiant"
                                 if @status.applicant_response == 1
-                                    @status_applicant = '<span class="alert alert-success">Admis en licence</span>'.html_safe
+                                    @status_applicant = '<span class="badge badge-success">Admis en licence</span>'.html_safe
                                 elsif @status.applicant_response == 2
                                     @status_applicant = "L'étudiant ne viendra pas dans la licence"
                                 end
                             elsif @status.interview_result == 2
                                 @status_applicant = "L'entretien à été négatif"
                             elsif @status.interview_result == 3
-                                @status_applicant = '<span class="alert alert-error">Etudiant absent à l\'entretien</span>'.html_safe
+                                @status_applicant = '<span class="badge badge-yellow">Etudiant absent à l\'entretien</span>'.html_safe
                             end
                         end
                     end
