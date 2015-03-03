@@ -43,7 +43,9 @@ class ApplicantController < ApplicationController
   def update_apply
     @applicant = Applicant.find_by_assurance(params[:assurance].to_s)
 
-    @applicant.update(params[:applicant].permit(:english_skill, :after_school, :other_language, cursus_attributes: [:graduation, :year, :option, :result, :place]))
+    @applicant.update(params[:applicant].permit(:english_skill, :after_school, :other_language))
+    @applicant.update(params[:applicant].permit(cursus_attributes: [ :id, :graduation, :year, :option, :result, :place]))
+    @applicant.update(params[:applicant].permit(professional_experiences_attributes: [ :id, :year, :company, :role, :skill]))
     if @applicant.save
       flash["success"] = "Dossier sauvegardé"
       redirect_to '/postuler/'+ @applicant.assurance.to_s
