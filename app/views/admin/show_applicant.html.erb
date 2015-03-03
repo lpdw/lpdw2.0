@@ -10,7 +10,11 @@
         <div class="row">
             <div class="col-md-4">
                 <h2>Status du dossier</h2>
-                <h3><%= status_applicant(@status) %></h3>
+                <% if @status != nil %>
+                    <h3><%= status_applicant(@status) %></h3>
+                <% else %>
+                <span class="badge badge-red">Erreur dans la base de donnée : le dossier n'a pas de status lié</span>
+                <% end %>
             </div>
             <div class="col-md-4">
                 <h3>Avis</h3>

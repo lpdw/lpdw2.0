@@ -30,3 +30,41 @@
         </tr>
     </tbody>
 </table>
+<br />
+<h1>Liste définitive</h1>
+<table class="table applicants">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Date de dépot</th>
+        <th>Email</th>
+        <th>Tel domicile</th>
+        <th>Options</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <% @applicants.each do |applicant|
+        if applicant.applicant_statuses != nil
+            @status = applicant.applicant_statuses
+                if @status.applicant_response == 1%>
+                <tr>
+                    <td data-th="ID" ><%= applicant.id %></td>
+                    <td data-th="Name" ><%= applicant.name %></td>
+                    <td data-th="First_name" ><%= applicant.first_name %></td>
+                    <td data-th="Date_depot" ><%= applicant.updated_at %></td>
+                    <td data-th="Email" ><%= applicant.email %></td>
+                    <td data-th="phone_fix" ><%= applicant.home_phone %></td>
+
+                    <td data-th="See">
+                        <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
+                        <i class="fa fa-eye"></i> voir
+                        <% end %>
+                    </td>
+                </tr>
+            <% end
+        end
+    end %>
+    </tbody>
