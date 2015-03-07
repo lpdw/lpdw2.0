@@ -98,12 +98,14 @@
               <ul class="col-sm-12 input_wrapper schools_list">
                 <div class="row">
                   <% @i = 0 %>
-                  <%= f.fields_for :other_application do |ff| %>
-                    <% @i = @i + 1 %>
+                  <%= f.nested_fields_for :other_application, wrapper_tag: :div do |ff| %>
+                    <% @i = @i +1 %>
                     <li class="col-sm-6 school_item"><%= ff.label @i.to_s %>
                       <%= ff.text_field :content, 'data-parsley-group' => "step1", "required"=> ''%>
+                      <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
                     </li>
-                  <% end %>
+                  <%end%>
+                  <%= f.add_nested_fields_link :other_application, 'Ajouter une autre école' %>
                 </div>
               </ul>
             </div>
@@ -124,7 +126,7 @@
               <li class="col-md-2">Mention</li>
               <li class="col-md-3">Lieu</li>
             </ul>
-            <%= f.fields_for :cursus, @applicant.cursus do |ff| %>
+            <%= f.nested_fields_for :cursus, wrapper_tag: :div do |ff| %>
               <ul class="row">
                 <li class="col-md-2"><%= ff.text_field :graduation, 'data-parsley-group' => "step2", "required"=> ''%></li>
                 <li class="col-md-2"><%= ff.text_field :year, 'data-parsley-group' => "step2", "required"=> ''%></li>
@@ -132,7 +134,8 @@
                 <li class="col-md-2"><%= ff.text_field :result, 'data-parsley-group' => "step2", "required"=> ''%></li>
                 <li class="col-md-3"><%= ff.text_field :place, 'data-parsley-group' => "step2", "required"=> ''%></li>
               </ul>
-            <% end %>
+            <%end%>
+            <%= f.add_nested_fields_link :cursus, 'Ajouter un autre diplome' %>
             </ul>
           </div>
           <div class="col-sm-6">
@@ -168,14 +171,15 @@
             <li class="col-md-5">Mission</li>
             <li class="col-md-4">Compétences mises en oeuvre</li>
           </ul>
-          <%= f.fields_for :professional_experiences, @applicant.professional_experiences do |ff| %>
+          <%= f.nested_fields_for :professional_experiences, wrapper_tag: :div do |ff| %>
             <ul class="row">
               <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step3" %></li>
               <li class="col-md-2"><%= ff.text_field :company, 'data-parsley-group' => "step3" %></li>
               <li class="col-md-5"><%= ff.text_field :role, 'data-parsley-group' => "step3" %></li>
               <li class="col-md-4"><%= ff.text_field :skill, 'data-parsley-group' => "step3" %></li>
             </ul>
-          <% end %>
+          <%end%>
+          <%= f.add_nested_fields_link :professional_experiences, 'Ajouter une autre expérience professionnelle' %>
         </div>
       </fieldset>
         <a class="next" data-current="3" data-next="4" href="#">étape suivante</a>
@@ -186,41 +190,25 @@
       <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
       <fieldset class="centered">
         <div class="row">
-          <span class="col-sm-12">Projets scolaires</span>
+          <span class="col-sm-12">Projets</span>
         </div>
         <br>
         <div class="projects_list">
           <ul class="row">
             <li class="col-md-1">Année</li>
-            <li class="col-md-2">Formation</li>
+            <li class="col-md-2">Type projet</li>
             <li class="col-md-9">Description</li>
           </ul>
-          <%= f.fields_for :project_applicants, @applicant.project_applicants do |ff| %>
+          <%= f.nested_fields_for :project_applicants, wrapper_tag: :div do |ff| %>
             <ul class="row">
               <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step5" %></li>
               <li class="col-md-2"><%= ff.text_field :project_type, 'data-parsley-group' => "step5", :value => 'scolaire'%></li>
               <li class="col-md-5"><%= ff.text_field :content, 'data-parsley-group' => "step5" %></li>
             </ul>
-          <% end %>
+          <%end%>
+          <%= f.add_nested_fields_link :project_applicants, 'Ajouter un autre projet scolaire' %>
         </div>
         <br>
-        <div class="row">
-          <span class="col-sm-12">Projets personnels</span>
-        </div>
-        <br>
-        <div class="projects_list">
-          <ul class="row">
-            <li class="col-md-1">Année</li>
-            <li class="col-md-11">Description</li>
-          </ul>
-          <%= f.fields_for :project_applicants, @applicant.project_applicants do |ff| %>
-            <ul class="row">
-              <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step5" %></li>
-              <li class="col-md-2"><%= ff.text_field :project_type, 'data-parsley-group' => "step5", :value => 'personnel' %></li>
-              <li class="col-md-5"><%= ff.text_field :content, 'data-parsley-group' => "step5" %></li>
-            </ul>
-          <% end %>
-        </div>
       </fieldset>
         <%= f.submit "Valider Définitivement", :class => 'button submit gotoend save_entry' %>
       <% end %>

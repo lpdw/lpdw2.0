@@ -117,12 +117,14 @@
               <ul class="col-sm-12 input_wrapper schools_list">
                 <div class="row">
                   <% @i = 0 %>
-                  <%= f.fields_for :other_application do |ff| %>
-                    <% @i = @i + 1 %>
-                    <li class="col-sm-6 school_item"><%= ff.label @i.to_s %>
-                      <%= ff.text_field :content, 'data-parsley-group' => "step1", "required"=> ''%>
-                    </li>
-                  <% end %>
+                    <%= f.nested_fields_for :other_application, wrapper_tag: :div do |ff| %>
+                      <% @i = @i +1 %>
+                      <li class="col-sm-6 school_item"><%= ff.label @i.to_s %>
+                        <%= ff.text_field :content, 'data-parsley-group' => "step1", "required"=> ''%>
+                        <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                      </li>
+                    <%end%>
+                    <%= f.add_nested_fields_link :other_application, 'Ajouter une autre école' %>
                 </div>
               </ul>
             </div>
