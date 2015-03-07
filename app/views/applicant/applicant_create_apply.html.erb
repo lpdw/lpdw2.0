@@ -213,7 +213,7 @@
             <li class="col-md-1">Année</li>
             <li class="col-md-11">Description</li>
           </ul>
-          <%= f.fields_for :project_applicants, @applicant.project_applicants do |ff| %>
+          <%= f.fields_for :project_applicants, @applicant.project_applicants.new do |ff| %>
             <ul class="row">
               <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step5" %></li>
               <li class="col-md-2"><%= ff.text_field :project_type, 'data-parsley-group' => "step5", :value => 'personnel' %></li>
