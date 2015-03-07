@@ -79,7 +79,7 @@ class AdminController < ApplicationController
     @experience = @applicant.professional_experiences
     @projects = @applicant.project_applicants
     @votes = @applicant.votes
-    @status = @applicant.applicant_statuses
+    @status = @applicant.applicant_status
   end
 
   # actuality Controller
