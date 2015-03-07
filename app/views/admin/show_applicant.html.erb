@@ -49,7 +49,7 @@
     <br />
     <div class="col-md-12">
         <h1><%= @applicant.name %> <%= @applicant.first_name %></h1>
-        <p>Dossier mis à jour le <%= @applicant.updated_at %> </p>
+        <p>Dossier mis à jour le <%=  @applicant.updated_at.to_time.strftime("%m/%d/%Y à %Mh%S") %> </p>
     </div>
     <div class="col-md-6">
         <h3>Informations personnelles</h3>
