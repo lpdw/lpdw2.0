@@ -190,13 +190,13 @@
       <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
       <fieldset class="centered">
         <div class="row">
-          <span class="col-sm-12">Projets scolaires</span>
+          <span class="col-sm-12">Projets</span>
         </div>
         <br>
         <div class="projects_list">
           <ul class="row">
             <li class="col-md-1">Année</li>
-            <li class="col-md-2">Formation</li>
+            <li class="col-md-2">Type projet</li>
             <li class="col-md-9">Description</li>
           </ul>
           <%= f.nested_fields_for :project_applicants, wrapper_tag: :div do |ff| %>
@@ -209,24 +209,6 @@
           <%= f.add_nested_fields_link :project_applicants, 'Ajouter un autre projet scolaire' %>
         </div>
         <br>
-        <div class="row">
-          <span class="col-sm-12">Projets personnels</span>
-        </div>
-        <br>
-        <div class="projects_list">
-          <ul class="row">
-            <li class="col-md-1">Année</li>
-            <li class="col-md-11">Description</li>
-          </ul>
-          <%= f.nested_fields_for :project_applicants, wrapper_tag: :div do |ff| %>
-            <ul class="row">
-              <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step5" %></li>
-              <li class="col-md-2"><%= ff.text_field :project_type, 'data-parsley-group' => "step5", :value => 'personnel'%></li>
-              <li class="col-md-5"><%= ff.text_field :content, 'data-parsley-group' => "step5" %></li>
-            </ul>
-          <%end%>
-          <%= f.add_nested_fields_link :project_applicants, 'Ajouter un autre projet scolaire' %>
-        </div>
       </fieldset>
         <%= f.submit "Valider Définitivement", :class => 'button submit gotoend save_entry' %>
       <% end %>
