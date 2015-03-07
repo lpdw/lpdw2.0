@@ -34,11 +34,13 @@
             background: $color-3;
             li {
                 height: 100%;
+
                 .dropdown-toggle {
                     line-height: 30px;
                     padding: 15px 15px;
                     color: white;
                     height: 100%;
+
                     &:hover, &:active {
                         background: $color-2 !important;
                         background-color: $color-2 !important;

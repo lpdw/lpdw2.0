@@ -23,12 +23,13 @@
                 <% if user_signed_in? %>
                 <div class="col-sm-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li><%= link_to admin_show_applicants_path() do %> <i class="fa fa-mortar-board"> Candidatures<% end %></i> </li>
+                        <li><%= link_to root_path(), :class=>'first' do %><i class="fa fa-reply"></i> Retour au site <% end %> </li>
+                        <li><%= link_to admin_path() do %><i class="fa fa-home"></i> Accueil <% end %> </li>
+                        <li><%= link_to admin_show_applicants_path() do %> <i class="fa fa-mortar-board"> </i>Candidatures<% end %></i> </li>
                         <li><%= link_to admin_show_users_path() do %><i class="fa fa-user"></i> Utilisateurs <% end %></li>
                         <li><%= link_to admin_show_actualities_path() do %><i class="fa fa-newspaper-o"></i> Actualités <% end %></li>
                         <li><%= link_to admin_show_alerts_path() do%><i class="fa fa-bell-o"></i> Alertes <% end %> </li>
                         <li><%= link_to admin_show_projects_path() do %><i class="fa fa-file-text"></i>  Projets <% end %></li>
-                        <li><%= link_to root_path() do %><i class="fa fa-reply"></i> Retour au site <% end %> </li>
                         <li class="visible-xs-block"><%= link_to 'Se déconnecter', destroy_user_session_path(),:method => 'delete' %></li>
                     </ul>
                 </div>
