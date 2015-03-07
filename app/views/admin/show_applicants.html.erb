@@ -2,11 +2,10 @@
 <table class="table applicants">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Num</th>
             <th>Prénom</th>
             <th>Nom</th>
             <th>Date de dépot</th>
-            <th>Email</th>
             <th>Avis</th>
             <th>Options</th>
             <th class="important-section-list">Status</th>
@@ -20,7 +19,6 @@
             <td data-th="Name" ><%= applicant.name %></td>
             <td data-th="First_name" ><%= applicant.first_name %></td>
             <td data-th="Date_depot" ><%= applicant.updated_at.to_time.strftime("%m/%d/%Y") %></td>
-            <td data-th="Email" ><%= applicant.email %></td>
 
             <td data-th="Vote" >
                 <%

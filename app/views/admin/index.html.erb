@@ -1,12 +1,6 @@
 <h1>Bonjour, <%= current_user.email %> voici un résumé des stats du site actuel :</h1>
 </br>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Quantité</th>
-        </tr>
-    </thead>
     <tbody>
         <tr>
             <td data-th="Nom" >Utilisateurs</td>
@@ -19,10 +13,6 @@
         <tr>
        		<td data-th="Nom" >Alertes</td>
             <td data-th="count" ><%= @alerts.count %></td>
-        </tr>
-        <tr>
-       		<td data-th="Nom" >Dossiers en cours</td>
-            <td data-th="count" >Non Implémenté</td>
         </tr>
         <tr>
             <td data-th="Nom" >Candidatures entrées</td>
@@ -41,7 +31,6 @@
         <th>Prénom</th>
         <th>Nom</th>
         <th>Date de dépot</th>
-        <th>Email</th>
         <th>Avis</th>
         <th>Options</th>
         <th class="important-section-list">Status</th>
@@ -55,7 +44,6 @@
         <td data-th="First_name" ><%= applicant.first_name %></td>
         <td data-th="Date_depot" >
         <%= applicant.updated_at.to_time.strftime("%m/%d/%Y") %></td>
-        <td data-th="Email" ><%= applicant.email %></td>
         <td data-th="Vote" >
             <%
             @positif = 0
@@ -110,7 +98,6 @@
         <th>Prénom</th>
         <th>Nom</th>
         <th>Date de dépot</th>
-        <th>Email</th>
         <th>Options</th>
 
     </tr>
@@ -125,7 +112,6 @@
                     <td data-th="Name" ><%= applicant.name %></td>
                     <td data-th="First_name" ><%= applicant.first_name %></td>
                     <td data-th="Date_depot" ><%= applicant.updated_at.to_time.strftime("%m/%d/%Y") %></td>
-                    <td data-th="Email" ><%= applicant.email %></td>
                     <td data-th="See">
                         <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
                         <i class="fa fa-eye"></i> voir
