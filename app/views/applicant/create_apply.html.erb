@@ -27,6 +27,13 @@
         <fieldset class="row centered">
           <div class="col-sm-6">
             <div class="row">
+              <%= f.fields_for :applicant_statuses do |ff| %>
+                <%= hidden_field_tag(:is_finish, false) %>
+                <%= hidden_field_tag(:is_complete, 0) %>
+                <%= hidden_field_tag(:ok_for_interview, false) %>
+                <%= hidden_field_tag(:interview_result, 0) %>
+                <%= hidden_field_tag(:is_refused, false) %>
+              <% end %>
               <div class="col-sm-6 input_wrapper">
                 <%= f.text_field :name, 'data-parsley-group' => "step1", 'placeholder' => "Nom*", "maxlength" => "60", "required"=> ''%>
               </div>
