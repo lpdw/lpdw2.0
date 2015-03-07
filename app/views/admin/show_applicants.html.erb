@@ -49,8 +49,8 @@
                 <a class="badge badge-red"><i class="fa fa-close"></i> refuser</a>
             </td>
             <td class="important-section-list" data-th="Status">
-                <% if applicant.applicant_statuses != nil %>
-                    <% @status = applicant.applicant_statuses %>
+                <% if applicant.applicant_status != nil %>
+                    <% @status = applicant.applicant_status %>
                     <%= status_applicant(@status) %>
                 <% else %>
                 <span class="alert alert-error">Erreur dans la base de donnée : le dossier n'a pas de status lié</span>

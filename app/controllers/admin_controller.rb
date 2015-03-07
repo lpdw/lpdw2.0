@@ -51,7 +51,7 @@ class AdminController < ApplicationController
       flash["success"] ="User created"
       redirect_to admin_show_users_path()
     else
-      flash[:error] =  @user.errors.messages[:email].to_s + @user.errors.messages[:password] +  @user.errors.messages[:password_confirmation] + @user.errors.messages[:photo]
+      flash[:error] =  @user.errors.messages[:email].to_s + @user.errors.messages[:password].to_s +  @user.errors.messages[:password_confirmation].to_s + @user.errors.messages[:photo].to_s
       redirect_to admin_create_user_path()
     end
   end
