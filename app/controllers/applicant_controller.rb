@@ -31,7 +31,15 @@ class ApplicantController < ApplicationController
     redirect_to '/postuler'
   end
   def create_apply
-    @applicant = Applicant.new(params[:applicant].permit(:deposit_date, :name, :first_name, :zip_code, :city, :home_phone, :private_phone, :email, :birth, :birth_place, :nationality, :assurance, :status, :has_connection, :connection_desc, :know_formation, :english_skill, :other_language, :after_school, :ip_address, :created_at, :updated_at, :address, :ip_address))
+    @applicant = Applicant.new(params[:applicant].permit(
+                                   :deposit_date, :name, :first_name, :zip_code, :city, :home_phone, :private_phone, :email,
+                                   :birth, :birth_place, :nationality, :assurance, :address, :status, :has_connection,
+                                   :connection_desc, :know_formation, :english_skill, :other_language, :after_school,
+                                   :ip_address, :created_at, :updated_at,
+                                   other_application_attributes: [:content],
+                                   applicant_status_attributes: [:id, :is_finish, :is_complete, :ok_for_interview,
+                                                                 :interview_result, :is_refused]
+                               ))
     if @applicant.save
       flash["success"] = "Dossier sauvegardé"
       redirect_to '/postuler/'+ @applicant.assurance.to_s

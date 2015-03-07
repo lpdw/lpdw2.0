@@ -1,5 +1,5 @@
 <h1>Bonjour, <%= current_user.email %> voici un résumé des stats du site actuel :</h1>
-<br></br>
+</br>
 <table class="table">
     <thead>
         <tr>
@@ -86,8 +86,8 @@
             <a class="badge badge-red"><i class="fa fa-close"></i> refuser</a>
         </td>
         <td class="important-section-list" data-th="Status">
-            <% if applicant.applicant_statuses != nil %>
-            <% @status = applicant.applicant_statuses %>
+            <% if applicant.applicant_status != nil %>
+            <% @status = applicant.applicant_status %>
             <%= status_applicant(@status) %>
             <% else %>
             <span class="alert alert-error">Erreur dans la base de donnée : le dossier n'a pas de status lié</span>
@@ -121,8 +121,8 @@
     </thead>
     <tbody>
     <% @applicants.each do |applicant|
-        if applicant.applicant_statuses != nil
-            @status = applicant.applicant_statuses
+        if applicant.applicant_status != nil
+            @status = applicant.applicant_status
                 if @status.applicant_response == 1%>
                 <tr>
                     <td data-th="ID" ><%= applicant.id %></td>
@@ -142,3 +142,4 @@
         end
     end %>
     </tbody>
+</table>
