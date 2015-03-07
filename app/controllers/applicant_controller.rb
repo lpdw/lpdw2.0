@@ -15,7 +15,6 @@ class ApplicantController < ApplicationController
   #Postuler
   def apply
     @applicant = Applicant.new
-    4.times { @applicant.other_application.build }
   end
   #Post method apply
   def applicant_create_apply
