@@ -23,10 +23,10 @@
             <td data-th="Rôle"><%= user.role %></td>
             <td data-th="Action">
                 <%= link_to(admin_edit_user_path(user)) do %>
-                <i class="fa fa-pencil"></i>
+                <i class="fa fa-pencil"></i> Modifier
                 <% end %>
                 <%= link_to(admin_delete_user_path(user)) do %>
-                <i class="fa fa-trash-o"></i>
+                <i class="fa fa-trash-o"></i> Supprimer
                 <% end %>
             </td>
         </tr>

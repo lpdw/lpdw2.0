@@ -21,10 +21,10 @@
             <td data-th="Auteur" ><%= actuality.created_at %></td>
             <td data-th="Action" >
                 <%= link_to(admin_edit_actuality_path(actuality)) do %>
-                <i class="fa fa-pencil"></i>
+                <i class="fa fa-pencil"></i> Modifier
                 <% end %>
                 <%= link_to(admin_delete_actuality_path(actuality)) do %>
-                <i class="fa fa-trash-o"></i>
+                <i class="fa fa-trash-o"></i> Supprimer
                 <% end %>
             </td>
         </tr>
