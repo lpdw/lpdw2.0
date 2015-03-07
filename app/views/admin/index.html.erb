@@ -38,12 +38,10 @@
 <table class="table applicants">
     <thead>
     <tr>
-        <th>ID</th>
         <th>Prénom</th>
         <th>Nom</th>
         <th>Date de dépot</th>
         <th>Email</th>
-        <th>Tel domicile</th>
         <th>Avis</th>
         <th>Options</th>
         <th class="important-section-list">Status</th>
@@ -53,12 +51,11 @@
     <% @count = 0
     @applicants.each do |applicant| %>
     <tr>
-        <td data-th="ID" ><%= applicant.id %></td>
         <td data-th="Name" ><%= applicant.name %></td>
         <td data-th="First_name" ><%= applicant.first_name %></td>
-        <td data-th="Date_depot" ><%= applicant.updated_at %></td>
+        <td data-th="Date_depot" >
+        <%= applicant.updated_at.to_time.strftime("%m/%d/%Y") %></td>
         <td data-th="Email" ><%= applicant.email %></td>
-        <td data-th="phone_fix" ><%= applicant.home_phone %></td>
         <td data-th="Vote" >
             <%
             @positif = 0
@@ -114,7 +111,6 @@
         <th>Nom</th>
         <th>Date de dépot</th>
         <th>Email</th>
-        <th>Tel domicile</th>
         <th>Options</th>
 
     </tr>
@@ -128,10 +124,8 @@
                     <td data-th="ID" ><%= applicant.id %></td>
                     <td data-th="Name" ><%= applicant.name %></td>
                     <td data-th="First_name" ><%= applicant.first_name %></td>
-                    <td data-th="Date_depot" ><%= applicant.updated_at %></td>
+                    <td data-th="Date_depot" ><%= applicant.updated_at.to_time.strftime("%m/%d/%Y") %></td>
                     <td data-th="Email" ><%= applicant.email %></td>
-                    <td data-th="phone_fix" ><%= applicant.home_phone %></td>
-
                     <td data-th="See">
                         <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
                         <i class="fa fa-eye"></i> voir
