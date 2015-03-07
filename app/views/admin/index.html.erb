@@ -4,7 +4,7 @@
     <thead>
         <tr>
             <th>Nom</th>
-            <th>Combien</th>
+            <th>Quantité</th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +30,75 @@
         </tr>
     </tbody>
 </table>
+<br />
+
+<!-- Les 5 derniers dossiers -->
+
+<h1>5 dernières candidatures</h1>
+<table class="table applicants">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Date de dépot</th>
+        <th>Email</th>
+        <th>Tel domicile</th>
+        <th>Avis</th>
+        <th>Options</th>
+        <th class="important-section-list">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @applicants.each do |applicant| %>
+    <tr>
+        <td data-th="ID" ><%= applicant.id %></td>
+        <td data-th="Name" ><%= applicant.name %></td>
+        <td data-th="First_name" ><%= applicant.first_name %></td>
+        <td data-th="Date_depot" ><%= applicant.updated_at %></td>
+        <td data-th="Email" ><%= applicant.email %></td>
+        <td data-th="phone_fix" ><%= applicant.home_phone %></td>
+        <td data-th="Vote" >
+            <%
+            @positif = 0
+            @neutre = 0
+            @negatif = 0
+
+            applicant.votes.each do |vote|
+            if vote.value == 2
+            @positif += 1
+            elsif vote.value == 1
+            @negatif += 1
+            else
+            @neutre += 1
+            end
+            end
+            %>
+            <span class="badge badge-green">+<%= @positif %></span>
+            <span class="badge badge-yellow">=<%= @neutre %></span>
+            <span class="badge badge-red">-<%= @negatif %></span>
+        </td>
+        <td data-th="See">
+            <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
+            <i class="fa fa-eye"></i> voir
+            <% end %>
+            <a class="badge badge-red"><i class="fa fa-close"></i> refuser</a>
+        </td>
+        <td class="important-section-list" data-th="Status">
+            <% if applicant.applicant_statuses != nil %>
+            <% @status = applicant.applicant_statuses %>
+            <%= status_applicant(@status) %>
+            <% else %>
+            <span class="alert alert-error">Erreur dans la base de donnée : le dossier n'a pas de status lié</span>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
+<%= link_to admin_show_applicants_path(), :class=>'button button-blue' do %>Voir toutes les candidatures<% end %>
+
+<!-- Candidatures acceptées -->
 <br />
 <h1>Liste des candidatures acceptées</h1>
 <table class="table applicants">
