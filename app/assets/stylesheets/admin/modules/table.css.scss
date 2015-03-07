@@ -3,6 +3,7 @@
     box-shadow: -4px 0px 10px rgba(14, 14, 14, 0.48) inset;
     i {
         color: white;
+        margin-right:5px;
     }
     .fa-trash-o{
       color:$color-1;
@@ -15,6 +16,16 @@ th {
     padding: 0.5em 1em;
     text-align: left;
     border-bottom: 1px solid $color-2 !important;
+}
+td a {
+  color:white;
+  text-decoration:none;
+  margin-right:15px;
+
+  &:hover {
+    color: #cacaca;
+    text-decoration: none;
+  }
 }
 
 td {
@@ -63,6 +74,7 @@ tr:hover {
             width: 4.5em;
             display: inline-block;
         }
+
     }
 }
 
