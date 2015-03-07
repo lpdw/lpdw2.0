@@ -14,7 +14,13 @@
         border-bottom: 1px solid #42454D;
         transition: all 0.6s;
         border-top: 1px solid #2E3036;
-        text-align: center;
+        text-align: left;
+
+        .first {
+            background:#6B99B8;
+            color:white;
+            line-height:35px;
+        }
     }
     ul li:hover {
         background-color: $color-2;
@@ -35,6 +41,9 @@
         background-color: transparent;
         color: #fff;
         transition: all 0.6s;
+    }
+    ul li a i{
+        margin:0px 15px;
     }
 }
 
