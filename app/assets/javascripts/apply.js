@@ -23,7 +23,7 @@ $("#get_progression").on("click",function(e){
 
 });
 
-$("input[name='entourage']").on("click", function() {
+$("input[name='applicant[has_connection]']").on("click", function() {
 	if($("#entourage_true").is(':checked')) {
 		$(".entourage_wrapper").show();
 		$("textarea[name='precision_entourage']").attr("required","required").attr("data-parsley-group","step1");
