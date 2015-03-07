@@ -50,7 +50,8 @@
     </tr>
     </thead>
     <tbody>
-    <% @applicants.each do |applicant| %>
+    <% @count = 0
+    @applicants.each do |applicant| %>
     <tr>
         <td data-th="ID" ><%= applicant.id %></td>
         <td data-th="Name" ><%= applicant.name %></td>
@@ -93,7 +94,11 @@
             <% end %>
         </td>
     </tr>
-    <% end %>
+    <% @count += 1
+        if @count == 5
+            break;
+        end
+    end %>
     </tbody>
 </table>
 <%= link_to admin_show_applicants_path(), :class=>'button button-blue' do %>Voir toutes les candidatures<% end %>
