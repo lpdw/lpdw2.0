@@ -7,21 +7,21 @@
             <th>Nom</th>
             <th>Date de dépot</th>
             <th>Email</th>
-            <th>Tel domicile</th>
             <th>Avis</th>
             <th>Options</th>
             <th class="important-section-list">Status</th>
         </tr>
     </thead>
     <tbody>
-    <% @applicants.each do |applicant| %>
+    <% @count = 1;
+    @applicants.each do |applicant| %>
         <tr>
-            <td data-th="ID" ><%= applicant.id %></td>
+            <td data-th="ID" ><%= @count %></td>
             <td data-th="Name" ><%= applicant.name %></td>
             <td data-th="First_name" ><%= applicant.first_name %></td>
-            <td data-th="Date_depot" ><%= applicant.updated_at %></td>
+            <td data-th="Date_depot" ><%= applicant.updated_at.to_time.strftime("%m/%d/%Y") %></td>
             <td data-th="Email" ><%= applicant.email %></td>
-            <td data-th="phone_fix" ><%= applicant.home_phone %></td>
+
             <td data-th="Vote" >
                 <%
                     @positif = 0
@@ -57,6 +57,7 @@
                 <% end %>
             </td>
         </tr>
-        <% end %>
+        <%  @count += 1
+    end %>
     </tbody>
 </table>
