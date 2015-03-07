@@ -14,7 +14,7 @@
                         <div class="timeline-new-contents">
                             <div class="timeline-new-info">
                                 <p><strong><%= actuality.title %></strong></p>
-                                <p><small><%= actuality.created_at %></small></p>
+                                <p><small><%= actuality.created_at.to_time.strftime("%m/%d/%Y") %></small></p>
                             </div>
                             <p class="timeline-new-resume"><%= HTML_Truncator.truncate((actuality.content),40).html_safe %></p>
 
