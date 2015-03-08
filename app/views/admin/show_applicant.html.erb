@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Outils d'administration</h2>
-                    <% if applicant.applicant_status != nil %>
+                    <% if @status != nil %>
                         <% if @status.is_refused != true %>
 
                             <% if @status.is_complete != 1 %>
@@ -94,42 +94,44 @@
                     </div>
                     <div class="col-md-4">
                     <h3>Voter</h3>
-                    <% if @status.is_complete == 1
-                        if @is_voter[0] != nil %>
-                        Vous avez déjà voté
-                        <%= form_for(Vote.new(), url:  user_vote_cancel_path, html: {class: "form_vote_cancel" }) do |f| %>
-                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                        <%= f.hidden_field :id_voter , :value => current_user.id %>
-                        <%= f.submit "Annuler", :class => 'button button-red' %>
-                        <%  end %>
+                    <% if @status != nil %>
+                        <% if @status.is_complete == 1
+                            if @is_voter[0] != nil %>
+                            Vous avez déjà voté
+                            <%= form_for(Vote.new(), url:  user_vote_cancel_path, html: {class: "form_vote_cancel" }) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                            <%= f.hidden_field :id_voter , :value => current_user.id %>
+                            <%= f.submit "Annuler", :class => 'button button-red' %>
+                            <%  end %>
 
-                        <%  else %>
+                            <%  else %>
 
-                        <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
-                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                        <%= f.hidden_field :id_voter , :value => current_user.id %>
-                        <%= f.hidden_field :value , :value => "2" %>
-                        <%= f.submit "Positif", :class => 'button button-green' %>
-                        <%  end %>
+                            <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                            <%= f.hidden_field :id_voter , :value => current_user.id %>
+                            <%= f.hidden_field :value , :value => "2" %>
+                            <%= f.submit "Positif", :class => 'button button-green' %>
+                            <%  end %>
 
-                        <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
-                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                        <%= f.hidden_field :id_voter , :value => current_user.id %>
-                        <%= f.hidden_field :value , :value => "0" %>
-                        <%= f.submit "Neutre", :class => 'button button-yellow' %>
-                        <%  end %>
+                            <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                            <%= f.hidden_field :id_voter , :value => current_user.id %>
+                            <%= f.hidden_field :value , :value => "0" %>
+                            <%= f.submit "Neutre", :class => 'button button-yellow' %>
+                            <%  end %>
 
-                        <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
-                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                        <%= f.hidden_field :id_voter , :value => current_user.id %>
-                        <%= f.hidden_field :value , :value => "1" %>
-                        <%= f.submit "Négatif", :class => 'button button-red' %>
-                        <%  end %>
+                            <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                            <%= f.hidden_field :id_voter , :value => current_user.id %>
+                            <%= f.hidden_field :value , :value => "1" %>
+                            <%= f.submit "Négatif", :class => 'button button-red' %>
+                            <%  end %>
 
-                        <%  end
-                    else %>
-                    Le dossier n'est pas encore complet ou n'as pas encore été validé par l'administrateur.
-                    <% end %>
+                            <%  end
+                        else %>
+                        Le dossier n'est pas encore complet ou n'as pas encore été validé par l'administrateur.
+                        <% end %>
+                        <%end %>
                 </div>
 
             </div>
