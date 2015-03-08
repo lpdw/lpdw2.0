@@ -11,9 +11,9 @@
                         <h1 class="new-title"><%= @actuality.title %></h1>
                         <p class="new-date"><%= (@actuality.created_at).strftime("%d/%m/%Y") %></p>
                     </div>
-                    <p class="col-md-9">
+                    <div class="col-md-9">
                     <%= @actuality.content.html_safe %>
-                    </p>
+                    </div>
                 </div>
             </article>
         </div>
