@@ -171,7 +171,7 @@ class AdminController < ApplicationController
   end
   def update_actuality
     @title_admin = "Actualité"
-    if @thisActuality.update_attributes(params[:this].permit(:title, :content, :author))
+    if @thisActuality.update_attributes(params[:thisActuality].permit(:title, :content, :author))
       # Handle a successful update.
       flash["sucess"] ="Mis a jour avec succès"
       redirect_to admin_show_actualities_path
