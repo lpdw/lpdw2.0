@@ -71,20 +71,28 @@
         </td>
         <td>
             <%  if @your_vote == -1 %>
-                Pas encore voté
+            Pas encore voté
             <%  elsif @your_vote == 0 %>
-                Neutre
+            <span class="badge badge-yellow">Neutre</span>
             <%  elsif @your_vote == 1 %>
-                Négatif
+            <span class="badge badge-red">Négatif</span>
             <%  elsif @your_vote == 2 %>
-                Positif
+            <span class="badge badge-green">Positif</span>
             <%  end %>
-            </td>
+        </td>
         <td data-th="See">
             <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
             <i class="fa fa-eye"></i> voir
             <% end %>
-            <a class="badge badge-red"><i class="fa fa-close"></i> refuser</a>
+            <div class="option_admin_applicants">
+                <buton class="option_admin_setting badge badge-blue"><i class="fa fa-cog"></i></buton>
+                <div>
+                    <a class=" btn btn-info">Dossier complet</a>
+                    <a class="btn btn-info">Accepter pour entretien</a>
+                    <a class="btn btn-danger"><i class="fa fa-close"></i> Refuser le dossier</a>
+                </div>
+            </div>
+
         </td>
         <td class="important-section-list" data-th="Status">
             <% if applicant.applicant_status != nil %>

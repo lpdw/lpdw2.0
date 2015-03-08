@@ -17,13 +17,13 @@ module AdminHelper
                 if @status.is_complete == 0
                     @status_applicant = "Dossier finit par l'étudiant"
                 elsif @status.is_complete == 1
-                    @status_applicant = "Dossier complet, vote attendus"
+                    @status_applicant = '<span class="badge badge-blue">Dossier complet, votes attendus</span>'.html_safe
                     if @status.ok_for_interview == true
                         @status_applicant = "Dossier apte à passer l'entretien,en attente d'une date"
                         if @status.interview_date != nil
                             @status_applicant = "Entretien prévu le " + @status.interview_date.to_time.strftime("%m/%d/%Y à %Mh%S")
                             if @status.interview_result == 1
-                                @status_applicant = "L'entretien à été positif, en attente de la réponse de l'étudiant"
+                                @status_applicant = "Entretien positif, en attente de la réponse de l'étudiant"
                                 if @status.applicant_response == 1
                                     @status_applicant = '<span class="badge badge-success">Admis en licence</span>'.html_safe
                                 elsif @status.applicant_response == 2
