@@ -1,4 +1,5 @@
 .applicants {
+
   span {
     padding:5px;
   }
@@ -28,6 +29,29 @@
       background:#526674;
       width:150px;
   }
+  .option_admin_applicants{
+    cursor: pointer;
+    display:inline;
+    position:relative;
+    .button{
+      z-index:200;
+    }
+    i{
+      margin:0px;
+    }
+    div{
+      position:absolute;
+      z-index:300;
+      background:white;
+      padding:5px;
+      right:0px;
+      text-align:center;
+      a{
+        margin-bottom:5px;
+        width:100%;
+      }
+    }
+  }
 }
 .applicant {
   .admin_option {
@@ -45,4 +69,5 @@
   span {
     padding:5px;
   }
+
 }
