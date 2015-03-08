@@ -46,14 +46,28 @@
       padding:5px;
       right:0px;
       text-align:center;
-      a{
-        margin-bottom:5px;
-        width:100%;
+      .btn{
+          margin-bottom:5px;
+          width:100%;
       }
+
     }
   }
 }
 .applicant {
+  .badge-alert {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+  }
+  form {
+    display:inline;
+    max-width:250px;
+    .btn {
+    display:inline;
+    margin:10px;
+    }
+  }
   .admin_option {
     background:white;
     padding-bottom: 25px;

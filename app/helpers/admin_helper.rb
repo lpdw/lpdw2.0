@@ -15,11 +15,11 @@ module AdminHelper
         else
             if @status.is_finish == true
                 if @status.is_complete == 0
-                    @status_applicant = "Dossier finit par l'étudiant"
+                    @status_applicant = "Dossier finit par l'étudiant, en attente d'une validation par l'administrateur"
                 elsif @status.is_complete == 1
-                    @status_applicant = '<span class="badge badge-blue">Dossier complet, votes attendus</span>'.html_safe
+                    @status_applicant = '<span class="badge badge-blue">Dossier complet, votes ouverts</span>'.html_safe
                     if @status.ok_for_interview == true
-                        @status_applicant = "Dossier apte à passer l'entretien,en attente d'une date"
+                        @status_applicant = "Dossier apte à passer l'entretien, en attente d'une date"
                         if @status.interview_date != nil
                             @status_applicant = "Entretien prévu le " + @status.interview_date.to_time.strftime("%m/%d/%Y à %Mh%S")
                             if @status.interview_result == 1

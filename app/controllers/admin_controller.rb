@@ -83,6 +83,31 @@ class AdminController < ApplicationController
     @is_voter = Vote.where("id_applicant = #{params[:id]} AND id_voter = #{current_user.id}")
   end
 
+  # Options administratives
+  def applicant_complete
+    @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
+    @status.is_complete = params[:applicant_status][:set]
+    if @status.save
+      redirect_to admin_show_applicants_path
+    end
+  end
+
+  def ok_for_interview
+      @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
+      @status.ok_for_interview = params[:applicant_status][:set]
+      if @status.save
+        redirect_to admin_show_applicants_path
+      end
+  end
+
+  def is_refused
+    @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
+    @status.is_refused = params[:applicant_status][:set]
+    if @status.save
+      redirect_to admin_show_applicants_path
+    end
+  end
+  # Votes
   def user_vote
     @vote = Vote.new(params[:vote].permit(:id_applicant, :id_voter, :value))
     if @vote.save

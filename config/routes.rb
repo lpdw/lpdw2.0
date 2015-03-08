@@ -24,6 +24,10 @@ root 'pages#home'
   post 'admin/show_applicants/user_vote' => 'admin#user_vote', :as => 'user_vote'
   post 'admin/show_applicants/user_vote_cancel' => 'admin#user_vote_cancel', :as => 'user_vote_cancel'
 
+  post 'admin/show_applicants/applicant_complete', :to => 'admin#applicant_complete', :as => 'applicant_complete'
+  post 'admin/show_applicants/ok_for_interview', :to => 'admin#ok_for_interview', :as => 'ok_for_interview'
+  post 'admin/show_applicants/is_refused', :to => 'admin#is_refused', :as => 'is_refused'
+
   get 'admin' => 'admin#index'
   #Avoid sign_up by devise
   get 'admin/sign_up' => 'admin#index'
