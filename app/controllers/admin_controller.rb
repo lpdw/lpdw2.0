@@ -80,6 +80,25 @@ class AdminController < ApplicationController
     @projects = @applicant.project_applicants
     @votes = @applicant.votes
     @status = @applicant.applicant_status
+    @is_voter = Vote.where("id_applicant = #{params[:id]} AND id_voter = #{current_user.id}")
+  end
+
+  def user_vote
+    @vote = Vote.new(params[:vote].permit(:id_applicant, :id_voter, :value))
+    if @vote.save
+      redirect_to admin_show_applicant_path(@vote.id_applicant)
+    else
+      redirect_to admin_show_applicant_path(@vote.id_applicant)
+    end
+  end
+
+  def user_vote_cancel
+    @vote = Vote.where("id_applicant = #{params[:vote][:id_applicant]} AND id_voter = #{params[:vote][:id_voter]}")
+    if @vote[0].destroy
+      redirect_to admin_show_applicant_path(@vote[0].id_applicant)
+    else
+      redirect_to admin_show_applicant_path(@vote[0].id_applicant)
+    end
   end
 
   # actuality Controller
