@@ -19,7 +19,7 @@
             <td data-th="ID" ><%= @count %></td>
             <td data-th="Name" ><%= applicant.name %></td>
             <td data-th="First_name" ><%= applicant.first_name %></td>
-            <td data-th="Date_depot" ><%= applicant.updated_at.to_time.strftime("%m/%d/%Y") %></td>
+            <td data-th="Date_depot" ><%= applicant.updated_at.to_time.strftime("%d/%m/%Y") %></td>
 
             <td data-th="Vote" >
                 <%
@@ -63,9 +63,50 @@
                 <div class="option_admin_applicants">
                     <buton class="option_admin_setting badge badge-blue"><i class="fa fa-cog"></i></buton>
                     <div>
-                    <a class=" btn btn-info">Dossier complet</a>
-                    <a class="btn btn-info">Accepter pour entretien</a>
-                    <a class="btn btn-danger"><i class="fa fa-close"></i> Refuser le dossier</a>
+                        <% if applicant.applicant_status != nil %>
+                        <% @status = applicant.applicant_status %>
+                            <% if @status.is_refused != true %>
+
+                            <% if @status.is_complete != 1 %>
+                            <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "1" %>
+                            <%= f.submit "Dossier complet, ouvrir le vote", :class => 'btn btn-info' %>
+                            <%  end
+                            else %>
+                            <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "0" %>
+                            <%= f.submit "Définir le dossier non complet", :class => 'btn btn-default' %>
+                            <%  end %>
+                            <%  end %>
+                            <% if @status.ok_for_interview != true %>
+                            <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "1" %>
+                            <%= f.submit "Accepter pour l'entretien", :class => 'btn btn-info' %>
+                            <%  end
+                            else %>
+                            <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "0" %>
+                            <%= f.submit "Ne plus accepter pour l'entretien", :class => 'btn btn-default' %>
+                            <%  end %>
+                            <%  end %>
+
+                            <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "1" %>
+                            <%= f.submit "Refuser le dossier", :class => 'btn btn-danger' %>
+                            <%  end
+                            else %>
+                            <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "0" %>
+                            <%= f.submit "Le dossier n'est plus refusé", :class => 'btn btn-success' %>
+                            <%  end %>
+                            <%  end %>
+                            <%  end %>
                     </div>
                 </div>
 
