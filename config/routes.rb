@@ -21,6 +21,9 @@ root 'pages#home'
   get 'admin/show_applicants' => 'admin#show_applicants'
   get 'admin/show_applicant/:id' => 'admin#show_applicant', :as => 'admin_show_applicant'
 
+  post 'admin/show_applicants/user_vote' => 'admin#user_vote', :as => 'user_vote'
+  post 'admin/show_applicants/user_vote_cancel' => 'admin#user_vote_cancel', :as => 'user_vote_cancel'
+
   get 'admin' => 'admin#index'
   #Avoid sign_up by devise
   get 'admin/sign_up' => 'admin#index'

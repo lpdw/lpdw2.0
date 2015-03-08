@@ -39,9 +39,38 @@
                 </div>
                 <div class="col-md-4">
                 <h3>Voter</h3>
-                <button class="button button-green">Positif</button>
-                <button class="button button-yellow">Neutre</button>
-                <button class="button button-red">Négatif</button>
+                <%  if @is_voter[0] != nil %>
+                Vous avez déjà voté
+                <%= form_for(Vote.new(), url:  user_vote_cancel_path, html: {class: "form_vote_cancel" }) do |f| %>
+                <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                <%= f.hidden_field :id_voter , :value => current_user.id %>
+                <%= f.submit "Annuler", :class => 'button button-red' %>
+                <%  end %>
+
+                <%  else %>
+
+                <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
+                <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                <%= f.hidden_field :id_voter , :value => current_user.id %>
+                <%= f.hidden_field :value , :value => "2" %>
+                <%= f.submit "Positif", :class => 'button button-green' %>
+                <%  end %>
+
+                <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
+                <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                <%= f.hidden_field :id_voter , :value => current_user.id %>
+                <%= f.hidden_field :value , :value => "0" %>
+                <%= f.submit "Neutre", :class => 'button button-yellow' %>
+                <%  end %>
+
+                <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
+                <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                <%= f.hidden_field :id_voter , :value => current_user.id %>
+                <%= f.hidden_field :value , :value => "1" %>
+                <%= f.submit "Négatif", :class => 'button button-red' %>
+                <%  end %>
+
+                <%  end %>
             </div>
 
         </div>

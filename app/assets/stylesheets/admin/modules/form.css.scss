@@ -74,7 +74,10 @@ select {
       padding: 15px;
      }
 }
-
+.form_vote{
+  float:left;
+  margin-right: 5px;
+}
 @media (max-width: $screen-xs-max) {
   .navbar-lpdw-admin .header-info {
 background-color: #fff;

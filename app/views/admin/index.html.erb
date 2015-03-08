@@ -32,6 +32,7 @@
         <th>Nom</th>
         <th>Date de dépot</th>
         <th>Avis</th>
+        <th>Votre avis</th>
         <th>Options</th>
         <th class="important-section-list">Status</th>
     </tr>
@@ -49,8 +50,12 @@
             @positif = 0
             @neutre = 0
             @negatif = 0
+            @your_vote = -1
 
             applicant.votes.each do |vote|
+            if vote.id_voter == @user.id
+                @your_vote = vote.value
+            end
             if vote.value == 2
             @positif += 1
             elsif vote.value == 1
@@ -64,6 +69,17 @@
             <span class="badge badge-yellow">=<%= @neutre %></span>
             <span class="badge badge-red">-<%= @negatif %></span>
         </td>
+        <td>
+            <%  if @your_vote == -1 %>
+                Pas encore voté
+            <%  elsif @your_vote == 0 %>
+                Neutre
+            <%  elsif @your_vote == 1 %>
+                Négatif
+            <%  elsif @your_vote == 2 %>
+                Positif
+            <%  end %>
+            </td>
         <td data-th="See">
             <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
             <i class="fa fa-eye"></i> voir
