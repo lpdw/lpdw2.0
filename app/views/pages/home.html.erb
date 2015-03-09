@@ -19,7 +19,7 @@
                     <% end %>
                             <div class="article-new">
                                 <h3><%= actuality.title %></h3>
-                                <p><%= HTML_Truncator.truncate((actuality.content),40).html_safe %></p>
+                                <div class="article-excerpt"><%= HTML_Truncator.truncate((actuality.content),40).html_safe %></div>
                                 <%= link_to(actuality_show_path(actuality),:class=>'button') do %>
                                 <span>Lire la suite</span> <i class="fa fa-chevron-right"></i>
                                 <% end %>
@@ -46,7 +46,7 @@
                     <div class="row">
                         <article class="col-md-12">
                             <img src="/assets/img_4974_0.jpg" alt=."Faclab gennevilliers" class="img-circle">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque vero assumenda ea fuga maxime ipsa dolorum eaque libero impedit vel vitae fugit debitis, officiis labore quam. Voluptas aliquam, animi et.</p>
+                            <p>Lieu ouvert à tous au sein de l’Université de Cergy-Pontoise, sur le site de Gennevilliers, le FacLab met à votre disposition les machines, l’infrastructure, le soutien nécessaire à la réalisation de votre projet, que ce soit l’accès au « Do It Yourself », s’approprier les nouvelles technologies, ou bien s’inscrire dans une démarche d’apprentissage et de partage.</p>
                             <a class="button faclab" href="http://www.faclab.org/" target="_blank"><span>Voir le site</span> <i class="fa fa-chevron-right"></i></a>
                         </article>
                     </div>

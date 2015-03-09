@@ -24,6 +24,16 @@ devise_for :users, :controllers => {:sessions => "sessions"},
 
 root 'pages#home'
 
+  get 'admin/show_applicants' => 'admin#show_applicants'
+  get 'admin/show_applicant/:id' => 'admin#show_applicant', :as => 'admin_show_applicant'
+
+  post 'admin/show_applicants/user_vote' => 'admin#user_vote', :as => 'user_vote'
+  post 'admin/show_applicants/user_vote_cancel' => 'admin#user_vote_cancel', :as => 'user_vote_cancel'
+
+  post 'admin/show_applicants/applicant_complete', :to => 'admin#applicant_complete', :as => 'applicant_complete'
+  post 'admin/show_applicants/ok_for_interview', :to => 'admin#ok_for_interview', :as => 'ok_for_interview'
+  post 'admin/show_applicants/is_refused', :to => 'admin#is_refused', :as => 'is_refused'
+
   get 'admin' => 'admin#index'
   #Avoid sign_up by devise
   get 'admin/sign_up' => 'admin#index'
@@ -64,6 +74,7 @@ root 'pages#home'
   get 'admin/delete_project/:id' => 'admin#delete_project', :as => 'admin_delete_project'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
 
+
   get '/', :to => 'pages#home'
   get '/actualites', :to => 'pages#news'
   get '/actualites/:id' => 'pages#new'
@@ -73,7 +84,12 @@ root 'pages#home'
   get '/equipe', :to => 'pages#team'
   get '/ucp', :to => 'pages#ucp'
   get '/informations', :to => 'pages#map'
-  get '/postuler', :to => 'pages#apply'
+  get '/postuler', :to => 'applicant#apply'
+  post '/postuler/login', :to => 'applicant#applicant_login', :as => 'applicant_login'
+  #post '/postuler/:assurance', :to => 'applicant#applicant_create_apply'
+  get '/postuler/:assurance', :to => 'applicant#applicant_create_apply', :as => 'applicant_create_apply'
+  post '/postuler/new', :to => 'applicant#create_apply', :as => 'create_apply'
+  patch '/postuler/:assurance', :to => 'applicant#update_apply', :as => 'update_apply'
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
 

@@ -1,2 +1,19 @@
 class Applicant < ActiveRecord::Base
+  has_many :cursus, :class_name => 'Cursus', :foreign_key => 'id_applicant', :dependent => :destroy
+  has_many :other_application, :class_name => 'OtherApplication', :foreign_key => 'id_applicant'
+  has_many :professional_experiences, :class_name => 'ProfessionalExperience', :foreign_key => 'id_applicant'
+  has_many :project_applicants, :class_name => 'ProjectApplicant', :foreign_key => 'id_applicant'
+  has_many :votes, :class_name => 'Vote', :foreign_key => 'id_applicant'
+  has_one :applicant_status, :class_name => 'ApplicantStatus', :foreign_key => 'id_applicant'
+
+  accepts_nested_attributes_for :cursus, :reject_if => lambda { |a| a[:place].blank? }
+  accepts_nested_attributes_for :other_application, :professional_experiences, :project_applicants, :applicant_status, :votes
+  def self.authenticate(email, assurance)
+    @current = Applicant.find_by(email: email)
+    if @current.assurance === assurance
+      return @current
+    else
+      return nil
+    end
+  end
 end
