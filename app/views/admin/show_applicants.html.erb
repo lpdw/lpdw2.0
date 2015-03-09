@@ -1,0 +1,126 @@
+<h1>Dossiers de candidatures</h1>
+<table class="table applicants">
+    <thead>
+        <tr>
+            <th>Num</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Date de dépot</th>
+            <th>Avis</th>
+            <th>Votre avis</th>
+            <th>Options</th>
+            <th class="important-section-list">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @count = 1;
+    @applicants.each do |applicant| %>
+        <tr>
+            <td data-th="ID" ><%= @count %></td>
+            <td data-th="Name" ><%= applicant.name %></td>
+            <td data-th="First_name" ><%= applicant.first_name %></td>
+            <td data-th="Date_depot" ><%= applicant.updated_at.to_time.strftime("%d/%m/%Y") %></td>
+
+            <td data-th="Vote" >
+                <%
+                    @positif = 0
+                    @neutre = 0
+                    @negatif = 0
+                    @your_vote = -1
+
+                    applicant.votes.each do |vote|
+                        if vote.id_voter == @user.id
+                            @your_vote = vote.value
+                        end
+                        if vote.value == 2
+                            @positif += 1
+                        elsif vote.value == 1
+                            @negatif += 1
+                        else
+                            @neutre += 1
+                        end
+                    end
+                 %>
+                <span class="badge badge-green">+<%= @positif %></span>
+                <span class="badge badge-yellow">=<%= @neutre %></span>
+                <span class="badge badge-red">-<%= @negatif %></span>
+            </td>
+            <td>
+            <%  if @your_vote == -1 %>
+                Pas encore voté
+            <%  elsif @your_vote == 0 %>
+                <span class="badge badge-yellow">Neutre</span>
+            <%  elsif @your_vote == 1 %>
+                <span class="badge badge-red">Négatif</span>
+            <%  elsif @your_vote == 2 %>
+                <span class="badge badge-green">Positif</span>
+            <%  end %>
+            </td>
+            <td data-th="See">
+                <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
+                <i class="fa fa-eye"></i> voir
+                <% end %>
+                <div class="option_admin_applicants">
+                    <buton class="option_admin_setting badge badge-blue"><i class="fa fa-cog"></i></buton>
+                    <div>
+                        <% if applicant.applicant_status != nil %>
+                        <% @status = applicant.applicant_status %>
+                            <% if @status.is_refused != true %>
+
+                            <% if @status.is_complete != 1 %>
+                            <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "1" %>
+                            <%= f.submit "Dossier complet, ouvrir le vote", :class => 'btn btn-info' %>
+                            <%  end
+                            else %>
+                            <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "0" %>
+                            <%= f.submit "Définir le dossier non complet", :class => 'btn btn-default' %>
+                            <%  end %>
+                            <%  end %>
+                            <% if @status.ok_for_interview != true %>
+                            <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "1" %>
+                            <%= f.submit "Accepter pour l'entretien", :class => 'btn btn-info' %>
+                            <%  end
+                            else %>
+                            <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "0" %>
+                            <%= f.submit "Ne plus accepter pour l'entretien", :class => 'btn btn-default' %>
+                            <%  end %>
+                            <%  end %>
+
+                            <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "1" %>
+                            <%= f.submit "Refuser le dossier", :class => 'btn btn-danger' %>
+                            <%  end
+                            else %>
+                            <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => applicant.id %>
+                            <%= f.hidden_field :set , :value => "0" %>
+                            <%= f.submit "Le dossier n'est plus refusé", :class => 'btn btn-success' %>
+                            <%  end %>
+                            <%  end %>
+                            <%  end %>
+                    </div>
+                </div>
+
+            </td>
+            <td class="important-section-list" data-th="Status">
+                <% if applicant.applicant_status != nil %>
+                    <% @status = applicant.applicant_status %>
+                    <%= status_applicant(@status) %>
+                <% else %>
+                <span class="alert alert-error">Erreur dans la base de donnée : le dossier n'a pas de status lié</span>
+                <% end %>
+            </td>
+        </tr>
+        <%  @count += 1
+    end %>
+    </tbody>
+</table>

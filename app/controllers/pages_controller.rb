@@ -32,9 +32,6 @@ class PagesController < ApplicationController
   #Venir à la fac
   def map
   end
-  #Postuler
-  def apply
-  end
   #Mentions
   def mentions
   end

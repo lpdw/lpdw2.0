@@ -48,10 +48,10 @@ class AdminController < ApplicationController
   def new
     @user = User.new(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname))
     if @user.save
-      flash["sucess"] ="User created"
+      flash["success"] ="User created"
       redirect_to admin_show_users_path()
     else
-      flash[:error] =  @user.errors.messages[:email].to_s + @user.errors.messages[:password] +  @user.errors.messages[:password_confirmation] + @user.errors.messages[:photo]
+      flash[:error] =  @user.errors.messages[:email].to_s + @user.errors.messages[:password].to_s +  @user.errors.messages[:password_confirmation].to_s + @user.errors.messages[:photo].to_s
       redirect_to admin_create_user_path()
     end
   end
@@ -65,6 +65,66 @@ class AdminController < ApplicationController
   end
 
 
+  # applicants controller
+  def show_applicants
+    @title_admin = "Candidatures"
+    @applicants = Applicant.all
+  end
+
+  def show_applicant
+    @title_admin = "Voir un étudiant"
+    @applicant = Applicant.find(params[:id])
+    @cursus = @applicant.cursus
+    @application = @applicant.other_application
+    @experience = @applicant.professional_experiences
+    @projects = @applicant.project_applicants
+    @votes = @applicant.votes
+    @status = @applicant.applicant_status
+    @is_voter = Vote.where("id_applicant = #{params[:id]} AND id_voter = #{current_user.id}")
+  end
+
+  # Options administratives
+  def applicant_complete
+    @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
+    @status.is_complete = params[:applicant_status][:set]
+    if @status.save
+      redirect_to admin_show_applicants_path
+    end
+  end
+
+  def ok_for_interview
+      @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
+      @status.ok_for_interview = params[:applicant_status][:set]
+      if @status.save
+        redirect_to admin_show_applicants_path
+      end
+  end
+
+  def is_refused
+    @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
+    @status.is_refused = params[:applicant_status][:set]
+    if @status.save
+      redirect_to admin_show_applicants_path
+    end
+  end
+  # Votes
+  def user_vote
+    @vote = Vote.new(params[:vote].permit(:id_applicant, :id_voter, :value))
+    if @vote.save
+      redirect_to admin_show_applicant_path(@vote.id_applicant)
+    else
+      redirect_to admin_show_applicant_path(@vote.id_applicant)
+    end
+  end
+
+  def user_vote_cancel
+    @vote = Vote.where("id_applicant = #{params[:vote][:id_applicant]} AND id_voter = #{params[:vote][:id_voter]}")
+    if @vote[0].destroy
+      redirect_to admin_show_applicant_path(@vote[0].id_applicant)
+    else
+      redirect_to admin_show_applicant_path(@vote[0].id_applicant)
+    end
+  end
 
   # actuality Controller
   before_action :get_this_actuality,only: [:edit_actuality,:update_actuality,:delete_actuality]
@@ -111,7 +171,7 @@ class AdminController < ApplicationController
   end
   def update_actuality
     @title_admin = "Actualité"
-    if @thisActuality.update_attributes(params[:this].permit(:title, :content, :author))
+    if @thisActuality.update_attributes(params[:thisActuality].permit(:title, :content, :author))
       # Handle a successful update.
       flash["sucess"] ="Mis a jour avec succès"
       redirect_to admin_show_actualities_path

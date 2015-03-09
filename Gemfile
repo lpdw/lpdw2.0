@@ -68,3 +68,6 @@ gem 'jquery-turbolinks'
 
 #Add support to active foreign key
 gem 'foreigner', '~> 1.7.2'
+
+#Create dynamic nested_form
+gem 'nested_form_fields'
