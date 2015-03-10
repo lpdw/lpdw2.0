@@ -5,6 +5,7 @@
 <br />
 <br />
 <div class="col-md-12 applicant">
+    <% if current_user.role === "admin" %>
     <!-- Options administratives -->
     <div class="row">
         <div class="col-md-12 admin_option">
@@ -58,6 +59,7 @@
             </div>
         </div>
     </div>
+    <% end %>
     <br />
     <!-- Status pour les votants & admin -->
     <div class="row">

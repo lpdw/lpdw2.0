@@ -45,6 +45,17 @@
     ul li a i{
         margin:0px 15px;
     }
+    .simple-li{
+        color:white;
+        padding:10px 0px;
+        margin-top:15px;
+        padding-left:25px;
+        border:none;
+        &:hover{
+            background:transparent;
+            border:none;
+        }
+    }
 }
 
 @media (max-width: $screen-xs-max) {
