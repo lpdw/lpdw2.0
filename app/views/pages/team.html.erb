@@ -14,15 +14,21 @@
             	        </figure>
             	        <h4 class="text-center"><%= intervenant.name%> <%= intervenant.lastname%></h4>
             	        <p class="text-center job-title"><%= intervenant.description%></p>
-                        <ul class="social_section text-center">
-                            <li><a href=<%= intervenant.twitter%>><i class="fa fa-twitter"></i></a></li>
-                            <li><a href=<%= intervenant.linkin%>><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+                        <% if intervenant.twitter != nil or intervenant.linkin != nil %>
+                            <ul class="social_section text-center">
+                                <% if intervenant.twitter != nil %>
+                                    <li><a target="_blank" href=<%= intervenant.twitter%>><i class="fa fa-twitter"></i></a></li>
+                                <% end %>
+                                <% if intervenant.linkin != nil %>
+                                    <li><a target="_blank" href=<%= intervenant.linkin%>><i class="fa fa-linkedin"></i></a></li>
+                                <% end %>
+                            </ul>
+                        <% end %>
             	    </div>
             	</article>
             <% end %>
 
-            <!-- 
+            <!--
             <article class="col-sm-4 col-md-3">
                 <div class="team-profile">
                     <figure>
