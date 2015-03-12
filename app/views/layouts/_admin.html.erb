@@ -22,6 +22,7 @@
             <div class="row">
                 <% if user_signed_in? %>
                 <div class="col-sm-2 sidebar">
+                    <button class="visible-xs menu-toggle">MENU</button>
                     <ul class="nav nav-sidebar">
                         <li><%= link_to root_path(), :class=>'first' do %><i class="fa fa-reply"></i> Retour au site <% end %> </li>
                         <li><%= link_to admin_path() do %><i class="fa fa-home"></i> Accueil <% end %> </li>
