@@ -31,13 +31,15 @@ class ApplicantController < ApplicationController
   end
   def create_apply
     @applicant = Applicant.new(params[:applicant].permit(
-                                   :deposit_date, :name, :first_name, :zip_code, :city, :home_phone, :private_phone, :email,
+                                   :english_skill, :after_school, :other_language,:name, :first_name, :zip_code,
+                                   :city, :home_phone, :private_phone, :email,
                                    :birth, :birth_place, :nationality, :assurance, :address, :status, :has_connection,
                                    :connection_desc, :know_formation, :english_skill, :other_language, :after_school,
-                                   :ip_address, :created_at, :updated_at,
-                                   other_application_attributes: [:content],
-                                   applicant_status_attributes: [:id, :is_finish, :is_complete, :ok_for_interview,
-                                                                 :interview_result, :is_refused]
+                                   :ip_address, :updated_at,
+                                   applicant_status_attributes: [:id, :is_finish, :is_complete, :ok_for_interview, :interview_result, :is_refused],
+                                   cursus_attributes: [ :id, :graduation, :year, :option, :result, :place],
+                                   professional_experiences_attributes: [ :id, :year, :company, :role, :skill],
+                                   project_applicants_attributes: [ :id, :year, :project_type, :content]
                                ))
     if @applicant.save
       flash["success"] = "Dossier sauvegardé"
@@ -61,7 +63,8 @@ class ApplicantController < ApplicationController
                           applicant_statuses: [:id, :is_finish, :is_complete, :ok_for_interview, :interview_result, :is_refused],
                           cursus_attributes: [ :id, :graduation, :year, :option, :result, :place],
                           professional_experiences_attributes: [ :id, :year, :company, :role, :skill],
-                          project_applicants_attributes: [ :id, :year, :project_type, :content]))
+                          project_applicants_attributes: [ :id, :year, :project_type, :content]
+                      ))
     #check if applicant send is apply definatly
     if params[:commit] === 'Valider Définitivement'
       @applicant.applicant_status.update_attributes(is_finish: 1, is_complete: 1)
