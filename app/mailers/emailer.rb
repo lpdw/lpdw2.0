@@ -5,6 +5,6 @@ class Emailer < ActionMailer::Base
       @name = data["name_contact"]
       @recipient = data["email_contact"]
       @message = data["message_contact"]
-      mail(to: @recipient, subject: 'Contacte')
+      mail(to: @recipient, subject: 'Contact')
    end
 end
