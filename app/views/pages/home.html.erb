@@ -65,7 +65,7 @@
                         <% @projects.each_with_index do |project, i| %>
                         <article class="col-md-3">
                             <div class="article-creation">
-                                <img src="<%= project.photo %>" alt="Faclab gennevilliers">
+                                <img src="<%= project.thumbnail.url %>" alt="Faclab gennevilliers">
                                 <h4 class="text-center"><%= project.name %></h4>
                             </div>
                         </article>
