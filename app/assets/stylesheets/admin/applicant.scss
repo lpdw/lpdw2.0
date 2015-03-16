@@ -1,0 +1,35 @@
+.applicant {
+  .badge-alert {
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	color: #a94442;
+  }
+  form {
+	display:inline;
+	max-width:250px;
+	.btn {
+	  display:inline;
+	  margin:10px;
+	}
+  }
+  .admin_option {
+	background:white;
+	padding-bottom: 25px;
+  }
+  .badge {
+	padding:10px;
+  }
+  .badge-success {
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	color: #3c763d;
+  }
+  span {
+	padding:5px;
+  }
+  .applicant-label {
+	font-weight: bold;
+	color:$color-red;
+  }
+
+}

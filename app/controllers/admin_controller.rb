@@ -2,8 +2,20 @@ class AdminController < ApplicationController
   #Before any action just authetificate user
   before_action :authenticate_user!, :is_admin
 
+  # permission restrictions
+  def admin_restriction_area
+    if @user.role != "admin"
+      flash[:error] = "You must be admin to access this section"
+      redirect_to admin_path()
+    end
+  end
+
   #user Controller
+
   def create_user
+# == Admin restriction == #
+admin_restriction_area
+
     @title_admin = "Utilisateur"
     @user = User.new
   end
@@ -13,16 +25,27 @@ class AdminController < ApplicationController
     @projects = Project.all
     @alerts = Alert.all
     @applicants = Applicant.all
+    @lasts = Applicant.order('id DESC')
   end
   def show_users
+# == Admin restriction == #
+admin_restriction_area
+
     @title_admin = "Utilisateurs"
     @users = User.all
   end
   def edit_user
+# == Admin restriction == #
+admin_restriction_area
+
     @title_admin = "Utilisateur"
     @user=User.find(params[:id])
   end
+
   def update_user
+# == Admin restriction == #
+admin_restriction_area
+
     @title_admin = "Utilisateur"
     @user=User.find(params[:id])
     if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname, :twitter, :description, :photo, :linkin))
@@ -35,6 +58,9 @@ class AdminController < ApplicationController
     end
   end
   def delete_user
+# == Admin restriction == #
+admin_restriction_area
+
     @user=User.find(params[:id])
     if @user.destroy
       flash["sucess"] ="SUCESS DELETE"
@@ -46,6 +72,9 @@ class AdminController < ApplicationController
   end
 
   def new
+# == Admin restriction == #
+admin_restriction_area
+
     @user = User.new(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname))
     if @user.save
       flash["success"] ="User created"
@@ -58,9 +87,11 @@ class AdminController < ApplicationController
 
   def is_admin
     @user = current_user
-    if (@user.role != "admin") then
-      flash[:error] = "You must be admin to access this section"
-      redirect_to root_path # halts request cycle
+    if @user.role != "intervenant"
+      if @user.role != "admin"
+        flash[:error] = "You must be admin to access this section"
+        redirect_to root_path # halts request cycle
+      end
     end
   end
 
@@ -133,6 +164,7 @@ class AdminController < ApplicationController
   end
 
   def show_actualities
+
     @title_admin = "Actualités"
     @actualities = Actuality.all
   end
@@ -192,6 +224,8 @@ class AdminController < ApplicationController
   #alert controller
   before_action :get_this_alert,only: [:edit_alert,:update_alert,:delete_alert]
   def get_this_alert
+  # == Admin restriction == #
+  admin_restriction_area
     @thisAlert = Alert.find(params[:id])
   end
 
@@ -200,6 +234,8 @@ class AdminController < ApplicationController
   end
 
   def new_alert
+  # == Admin restriction == #
+  admin_restriction_area
     @alert = Alert.new(params[:alert].permit(:name,:content,:level,:active))
     if @alert.save
       flash["sucess"] ="Alert created"
@@ -210,15 +246,21 @@ class AdminController < ApplicationController
     end
   end
   def show_alerts
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "Alertes"
     @alerts = Alert.all
   end
 
   def edit_alert
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "Alerte"
     @actuality=@thisAlert
   end
 def update_alert
+# == Admin restriction == #
+admin_restriction_area
     @title_admin = "Alerte"
     if @thisAlert.update_attributes(params[:thisAlert].permit(:name,:content,:level,:active))
       # Handle a successful update.
@@ -229,6 +271,8 @@ def update_alert
     end
   end
   def delete_alert
+  # == Admin restriction == #
+  admin_restriction_area
     if @thisAlert.destroy
       flash["sucess"] ="SUCESS DELETE"
       redirect_to admin_show_alerts_path()
@@ -245,15 +289,20 @@ def update_alert
   end
 
   def show_projects
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "projects"
     @projects = Project.all
   end
   def create_project
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "projects"
     @project = Project.new
   end
 
   def create_tinymce_assets
+
     geometry = Paperclip::Geometry.from_file params[:file]
     image    = Image.create params.permit(:file, :alt)
 
@@ -267,6 +316,8 @@ def update_alert
   end
 
   def new_project
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "Project"
     @project = Project.new(params[:project].permit(:photo, :name, :description, :link, :thumbmail))
     if @project.save
@@ -279,10 +330,14 @@ def update_alert
   end
 
   def edit_project
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "Project"
     @project=@this
   end
   def update_project
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "project"
     if @this.update_attributes(params[:this].permit(:photo, :name, :description, :link, :thumbmail))
       # Handle a successful update.
@@ -294,6 +349,8 @@ def update_alert
     end
   end
   def delete_project
+  # == Admin restriction == #
+  admin_restriction_area
     if @this.destroy
       flash["sucess"] ="SUCESS DELETE"
       redirect_to admin_show_projects_path()

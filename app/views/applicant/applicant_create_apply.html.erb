@@ -22,7 +22,7 @@
       <li class="apply_step step_4 col-sm-3" data-step="4">04 - Projets</li>
     </ul>
     <div class="step step1">
-      <%= form_for (@applicant), url: create_apply_path, :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
+      <%= form_for (@applicant), url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
         <fieldset class="row centered">
           <div class="col-sm-6">
             <div class="row">
