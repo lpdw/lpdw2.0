@@ -39,9 +39,18 @@ class PagesController < ApplicationController
   def contact
   end
   def sendmail
-      Emailer.contact(params).deliver
+    if params["name_contact"] != "" and params["email_contact"] != "" and params["message_contact"] != ""
+      begin
+        Emailer.contact(params).deliver
+      rescue Exception => e
+        flash["error"] = "Pas cool !!"
+      end
 
-      redirect_to informations_path
+    else
+      flash["error"] = "Vous deviez remplir les champs"
+    end
+
+    redirect_to informations_path
   end
   #réactions et live
   def live

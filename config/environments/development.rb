@@ -25,16 +25,18 @@ Rails.application.configure do
   #   :user_name            => "lpdw2.0@gmail.com",
   #   :password             => "azerty92",
   #   :authentication       => "plain",
-  #   :enable_starttls_auto => true
+  #   :enable_starttls_auto => true,
+  #   :ssl => true
   # }
   # SMTP settings for mandrill
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.mandrillapp.com",
-    :port                 => 587,
-    :domain               => 'localhost:3000',
-    :user_name            => "lpdw2.0@gmail.com",
-    :password             => "Ai3uyjuFNEuLgA3ckNI4Yw"
-  }
+  # config.action_mailer.smtp_settings = {
+  #   :address              => "smtp.mandrillapp.com",
+  #   :port                 => 587,
+  #   :domain               => 'localhost:3000',
+  #   :user_name            => "lpdw2.0@gmail.com",
+  #   # :password             => "Ai3uyjuFNEuLgA3ckNI4Yw"
+  #   :password             => "4TsxsVOkNNvr6JFHYR4P_g"
+  # }
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
 
