@@ -3,6 +3,9 @@
       <p>Postuler</p>
     </div>
 </section>
+<% if @applicant.applicant_status.is_finish %>
+     <div class="alert alert-orange"><%= flash[:error] = 'Votre dossier est en cours de validation pars l\'équipe pédagogique' %></div>
+<%else%>
 <div class="container">
   <% if flash[:error] %>
     <div class="alert alert-orange"><%= flash[:error] %></div>
@@ -133,6 +136,7 @@
                 <li class="col-md-3"><%= ff.text_field :option, 'data-parsley-group' => "step2", "required"=> ''%></li>
                 <li class="col-md-2"><%= ff.text_field :result, 'data-parsley-group' => "step2", "required"=> ''%></li>
                 <li class="col-md-3"><%= ff.text_field :place, 'data-parsley-group' => "step2", "required"=> ''%></li>
+                <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
               </ul>
             <%end%>
             <%= f.add_nested_fields_link :cursus, 'Ajouter un autre diplome' %>
@@ -204,6 +208,7 @@
               <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step5" %></li>
               <li class="col-md-2"><%= ff.text_field :project_type, 'data-parsley-group' => "step5", :value => 'scolaire'%></li>
               <li class="col-md-5"><%= ff.text_field :content, 'data-parsley-group' => "step5" %></li>
+              <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
             </ul>
           <%end%>
           <%= f.add_nested_fields_link :project_applicants, 'Ajouter un autre projet scolaire' %>
@@ -215,3 +220,4 @@
     </div>
   </div>
 </div>
+<%end%>

@@ -8,6 +8,7 @@ class Applicant < ActiveRecord::Base
 
   accepts_nested_attributes_for :cursus, :reject_if => lambda { |a| a[:place].blank? }
   accepts_nested_attributes_for :other_application, :professional_experiences, :project_applicants, :applicant_status, :votes
+
   def self.authenticate(email, assurance)
     @current = Applicant.find_by(email: email)
     if @current.assurance === assurance
