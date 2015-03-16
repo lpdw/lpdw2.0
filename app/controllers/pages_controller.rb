@@ -38,6 +38,11 @@ class PagesController < ApplicationController
   #Contactez-nous
   def contact
   end
+  def sendmail
+      Emailer.contact(params).deliver
+
+      redirect_to informations_path
+  end
   #réactions et live
   def live
   end
