@@ -10,6 +10,17 @@
     background-color: $color-3;
     // border-top: 1px solid rgba(101, 116, 134, 0.57);
     box-shadow: -4px 0px 10px rgba(14, 14, 14, 0.48) inset;
+
+    .menu-toggle {
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        width: 100%;
+        font-weight: bold;
+        background: #45474E;
+        border: none;
+    }
+
     ul li {
         border-bottom: 1px solid #42454D;
         transition: all 0.6s;
@@ -45,11 +56,23 @@
     ul li a i{
         margin:0px 15px;
     }
+    .simple-li{
+        color:white;
+        padding:10px 0px;
+        margin-top:15px;
+        padding-left:25px;
+        border:none;
+        &:hover{
+            background:transparent;
+            border:none;
+        }
+    }
 }
 
 @media (max-width: $screen-xs-max) {
     .sidebar {
         position: initial;
+        overflow: hidden;
 
         ul li a {
             line-height: 30px;
