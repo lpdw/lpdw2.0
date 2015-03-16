@@ -146,49 +146,53 @@
     </div>
     <div class="col-md-6">
         <h3>Informations personnelles</h3>
-        <p><span>Adresse : </span>
+        <p><span class="applicant-label">Adresse : </span>
             <%= @applicant.address %>, <%= @applicant.zip_code %> <%= @applicant.city %>
         </p>
-        <p><span>Tél fixe: </span>
+        <p><span class="applicant-label">Téléphone fixe: </span>
             <%= @applicant.home_phone %>
         </p>
-        <p><span>Tél portable: </span>
+        <p><span class="applicant-label">Téléphone portable: </span>
             <%= @applicant.private_phone %>
         </p>
-         <p><span>email: </span>
+         <p><span class="applicant-label">email: </span>
             <%= @applicant.email %>
         </p>
-        <p><span>Né le: </span>
-            <%= @applicant.birth %> à <%= @applicant.birth_place %>
+        <p><span class="applicant-label">Né le: </span>
+            <%= @applicant.birth.to_time.strftime("%m/%d/%Y") %> à <%= @applicant.birth_place %>
         </p>
-        <p><span>Nationalité: </span>
+        <p><span class="applicant-label">Nationalité: </span>
             <%= @applicant.nationality %>
         </p>
-        <p><span>Sécurité social: </span>
+        <p><span class="applicant-label">Sécurité social: </span>
             <%= @applicant.assurance %>
         </p>
-        <p><span>En couple? : </span>
-            <%= @applicant.status %>
+        <p><span class="applicant-label">Candidat est en couple : </span>
+            <% if @applicant.status === false%>
+            non
+            <% else %>
+            oui
+            <% end %>
         </p>
     </div>
     <div class="col-md-6">
         <h3>Informations générales</h3>
-        <p><span>Connaissait des gens dans la licence : </span>
+        <p><span class="applicant-label">Connaissait-il des gens dans la licence ? </span>
             <%= @applicant.address %>, <%= @applicant.zip_code %> <%= @applicant.city %>
         </p>
-        <p><span>personnes dans entourage travaillant dans domaine multimédia ?: </span>
+        <p><span class="applicant-label">Connaissait-il des personnes dans son entourage travaillant dans domaine multimédia ? </span>
             <%= @applicant.has_connection %>
         </p>
-        <p><span>Comment il a connu la formation :</span>
+        <p><span class="applicant-label">Comment a-t-il connu la formation :</span>
             <%= @applicant.know_formation %>
         </p>
-        <p><span>Niveau d'anglais (sur une échelle de 1 à 5): </span>
+        <p><span class="applicant-label">Niveau d'anglais (sur une échelle de 1 à 5): </span>
             <%= @applicant.english_skill %>
         </p>
-        <p><span>Autres langues connus :</span>
+        <p><span class="applicant-label">Autres langues connus :</span>
             <%= @applicant.other_language %>
         </p>
-        <p><span>Extra-scolaire :</span>
+        <p><span class="applicant-label">Activités extra-scolaire :</span>
             <%= @applicant.after_school %>
         </p>
     </div>
