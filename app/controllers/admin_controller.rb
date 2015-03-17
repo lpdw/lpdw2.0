@@ -120,6 +120,7 @@ admin_restriction_area
     @projects = @applicant.project_applicants
     @votes = @applicant.votes
     @status = @applicant.applicant_status
+    @attachements = @applicant.applicant_attachment
     @is_voter = Vote.where("id_applicant = #{params[:id]} AND id_voter = #{current_user.id}")
   end
 
