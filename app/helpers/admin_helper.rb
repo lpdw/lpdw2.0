@@ -21,7 +21,7 @@ module AdminHelper
                     if @status.ok_for_interview == true
                         @status_applicant = "Dossier apte à passer l'entretien, en attente d'une date"
                         if @status.interview_date != nil
-                            @status_applicant = "Entretien prévu le " + @status.interview_date.to_time.strftime("%m/%d/%Y à %Mh%S")
+                            @status_applicant = "Entretien prévu le " + @status.interview_date.to_time.strftime("%d/%m/%Y à %Hh%M")
                             if @status.interview_result == 1
                                 @status_applicant = "Entretien positif, en attente de la réponse de l'étudiant"
                                 if @status.applicant_response == 1
