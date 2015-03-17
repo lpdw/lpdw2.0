@@ -278,5 +278,23 @@
             <% end %>
             </tbody>
         </table>
+        <br />
+        <div class="attachments">
+            <h3>Pièces jointes au dossier</h3>
+            <% @attachements.each do |attachement|
+
+                @file = "http://"+ request.host_with_port.to_s + "/assets/upload/applicant_attachments/" + @applicant.id.to_s + "/" + attachement.file_file_name.to_s;
+
+                if attachement.file_content_type.to_s == "image/jpeg" || attachement.file_content_type.to_s == "image/png"
+                    @file_content_printed = "<p>" + attachement.name + "</p><img src='" + @file  + "' /></a>"
+                elsif attachement.file_content_type.to_s == "application/pdf"
+                    @file_content_printed = "<p>" + attachement.name + "<br />(format PDF)</p>"
+                else
+                    @file_content_printed = "<p>" + attachement.name + "</p>"
+                end
+            %>
+                <a href="<%= @file %>" target="_blank"><%= @file_content_printed.html_safe %></a>
+            <% end %>
+        </div>
     </div>
 </div>
