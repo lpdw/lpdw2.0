@@ -33,15 +33,14 @@ if ($(".modify_apply").length > 0) {
 $("input[name='applicant[has_connection]']").on("click", function() {
 	if($("#entourage_true").is(':checked')) {
 		$(".entourage_wrapper").show();
-		$("textarea[name='precision_entourage']").attr("required","required").attr("data-parsley-group","step1");
+		$("textarea[name='precision_entourage']").attr("required","required");
 	} else {
 		$(".entourage_wrapper").hide();
-		$("textarea[name='precision_entourage']").removeAttr('required').removeAttr("data-parsley-group");
+		$("textarea[name='precision_entourage']").removeAttr('required');
 	}
 });
 
-$('.next').on('click', function (e) {
-	e.preventDefault();
+$('.next').on('click', function () {
 	var current = $(this).data('current');
 	var next = $(this).data('next');
 
@@ -49,23 +48,11 @@ $('.next').on('click', function (e) {
 	// .parsley().validate() returns validation result AND show errors
 
 	if (next > current) {
-        if ($('#new_applicant').length === 0){
-            if (false === $('#edit_applicant').parsley().validate('step' + current)) {
+            if (false === $('#apply-step' + current).parsley().validate()) {
                 return;
             }
-        }else
-        {
-            if (false === $('#new_applicant').parsley().validate('step' + current)) {
-                return;
-            }
-        }
 
 	}
-	// validation was ok. We can go on next step.
-	$(".apply_step.active").removeClass("active");
-	$(".apply_step.step_"+next).addClass("active");
-	$('.step' + current).hide();
-	$('.step' + next).show();
 });
 
 
