@@ -294,6 +294,7 @@ admin_restriction_area
     @title_admin = "projects"
     @projects = Project.all
   end
+
   def create_project
   # == Admin restriction == #
   admin_restriction_area
@@ -358,6 +359,27 @@ admin_restriction_area
       flash[:error] = @this.messages.errors
       redirect_to admin_show_projects_path()
     end
+  end
+
+  def show_interview
+    @title_admin = "Entretien"
+    @status_interview = ApplicantStatus.all().where.not('applicant_statuses.interview_date' => nil)
+    @status_interview_nil = ApplicantStatus.all().where('applicant_statuses.interview_date' => nil,'applicant_statuses.ok_for_interview' => 1)
+  end
+
+  def create_interview
+
+    status = ApplicantStatus.find_by(id_applicant: params[:id_applicant])
+    format = "%m/%d/%Y %H:%M %p"
+    date_time = params[:interview_date]
+    datetime = DateTime.strptime(date_time, format)
+    if status.update(interview_date: datetime)
+      flash[:info] = "L'entretien a été sauvegardé un mail va être envoyé"
+    else
+      flash[:error] = "Une erreur s'est produite"
+    end
+
+    redirect_to admin_show_interview_path()
   end
 
 end

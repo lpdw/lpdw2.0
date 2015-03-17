@@ -35,8 +35,12 @@ class PagesController < ApplicationController
   #Mentions
   def mentions
   end
+
   #Contactez-nous
   def contact
+      @name_contact = params["name_contact"]
+      @email_contact = params["email_contact"]
+      @message_contact =params["message_contact"]
   end
   def sendmail
     if params["name_contact"] != "" and params["email_contact"] != "" and params["message_contact"] != ""
@@ -45,11 +49,9 @@ class PagesController < ApplicationController
       rescue Exception => e
         flash["error"] = "Pas cool !!"
       end
-
     else
       flash["error"] = "Vous deviez remplir les champs"
     end
-
     redirect_to informations_path
   end
   #réactions et live

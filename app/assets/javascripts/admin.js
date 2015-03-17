@@ -1,13 +1,13 @@
 $(document).ready(function() {
     $(".option_admin_applicants div").hide(0);
 
-    $(".option_admin_applicants .option_admin_setting").on("click",function(){
+    $(".option_admin_applicants .option_admin_setting").on("click", function() {
         var parent = $(this).parent();
         $(".option_admin_applicants div").hide(200);
-        if(parent.find('div').is(":hidden")) {
+        if (parent.find('div').is(":hidden")) {
             parent.find('div').show(100);
         }
-	});
+    });
 
     var opened = false;
     var navHeight = $(".nav-sidebar").height();
@@ -16,14 +16,46 @@ $(document).ready(function() {
 
     $(".menu-toggle").on("click", function() {
 
-    	if(!opened) {
-    		$(".nav-sidebar").stop().animate({height: navHeight }, 300);
-    		opened = true;
-    	} else {
-    		$(".nav-sidebar").stop().animate({height: 0}, 300);
-    		opened = false;
-    	}
+        if (!opened) {
+            $(".nav-sidebar").stop().animate({
+                height: navHeight
+            }, 300);
+            opened = true;
+        } else {
+            $(".nav-sidebar").stop().animate({
+                height: 0
+            }, 300);
+            opened = false;
+        }
 
     });
+
+    $("#nice-scroll").niceScroll({
+        enablescrollonselection: true,
+        styler: "fb",
+        cursorcolor: "#6B99B8"
+    });
+
+    $('#date-interview').datetimepicker({
+        minDate: new Date()
+    });
+
+    $('.has-events').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var body = $("body");
+        var interview = $(this).find('#interview');
+        var html_popup = '<div id="interview_popup" class="interview_popup" ><div class="head"><h1>Entretien avec:</h1><a id="close_interview_popup" class="btn-close" href="javascript:;"><i class="fa fa-close fa-2x"></i></a></div><div id="nice-scroll" class="nice-scroll">' + interview.html() + ' </div></div><div id="overlay" class="overlay"></div>';
+        body.append(html_popup);
+    });
+    $(document).on('click', "#close_interview_popup,#overlay", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var popup = $('#interview_popup');
+        var overlay = $('#overlay');
+        popup.remove();
+        overlay.remove();
+    });
+
 
 });
