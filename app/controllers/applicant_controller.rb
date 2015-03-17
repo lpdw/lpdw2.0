@@ -39,7 +39,8 @@ class ApplicantController < ApplicationController
                                    applicant_status_attributes: [:id, :is_finish, :is_complete, :ok_for_interview, :interview_result, :is_refused],
                                    cursus_attributes: [ :id, :graduation, :year, :option, :result, :place],
                                    professional_experiences_attributes: [ :id, :year, :company, :role, :skill],
-                                   project_applicants_attributes: [ :id, :year, :project_type, :content]
+                                   project_applicants_attributes: [ :id, :year, :project_type, :content],
+                                   applicant_attachments_attributes: [:id, :name, :file]
                                ))
     if @applicant.save
       flash["success"] = "Dossier sauvegardé"
@@ -56,14 +57,15 @@ class ApplicantController < ApplicationController
       redirect_to '/postuler'
     end
     @applicant.update(params[:applicant].permit(:english_skill, :after_school, :other_language,:name, :first_name, :zip_code,
-                                                :city, :home_phone, :private_phone, :email,
+                                                :city, :home_phone, :private_phone, :email, :step_position,
                                                 :birth, :birth_place, :nationality, :assurance, :address, :status, :has_connection,
                                                 :connection_desc, :know_formation, :english_skill, :other_language, :after_school,
                                                 :ip_address, :updated_at,
                           applicant_statuses: [:id, :is_finish, :is_complete, :ok_for_interview, :interview_result, :is_refused],
                           cursus_attributes: [ :id, :graduation, :year, :option, :result, :place],
                           professional_experiences_attributes: [ :id, :year, :company, :role, :skill],
-                          project_applicants_attributes: [ :id, :year, :project_type, :content]
+                          project_applicants_attributes: [ :id, :year, :project_type, :content],
+                          applicant_attachment_attributes: [:id, :name, :file]
                       ))
     #check if applicant send is apply definatly
     if params[:commit] === 'Valider Définitivement'
