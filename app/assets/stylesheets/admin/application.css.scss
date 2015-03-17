@@ -20,6 +20,8 @@ $color-8: #f39c12;
 @import "admin/create_user";
 @import "admin/applicants";
 @import "admin/applicant";
+@import "admin/interview";
+@import 'bootstrap-datetimepicker';
 
 * {
     outline: none;
@@ -164,6 +166,10 @@ body {
 
 .desc-input {
     padding: 16px;
+}
+
+.nice-scroll{
+    height:100%;
 }
 
 @keyframes top-left {
