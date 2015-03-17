@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317092833) do
+ActiveRecord::Schema.define(version: 20150317104038) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150317092833) do
     t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "step_position"
   end
 
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true, using: :btree
