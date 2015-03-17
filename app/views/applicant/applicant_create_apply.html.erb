@@ -3,7 +3,6 @@
       <p>Postuler</p>
     </div>
 </section>
-<%= @applicant.inspect %>
 <% if @applicant.applicant_status.is_finish %>
      <div class="alert alert-orange"><%= flash[:error] = 'Votre dossier est en cours de validation pars l\'équipe pédagogique' %></div>
 <%else%>
@@ -212,10 +211,34 @@
           <%= f.add_nested_fields_link :project_applicants, 'Ajouter un autre projet scolaire' %>
         </div>
         <br>
+        <a class="next" data-current="4" data-next="5" href="#">étape suivante</a>
       </fieldset>
         <%= f.submit "Valider Définitivement", :class => 'button submit gotoend save_entry' %>
       <% end %>
     </div>
+    <div class="step step5">
+
+      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
+        <fieldset class="centered">
+          <div class="row">
+            <span class="col-sm-12">Fichiers Joints</span>
+          </div>
+          <br>
+          <div class="">
+            <%= f.nested_fields_for :applicant_attachment, wrapper_tag: :div do |ff| %>
+              <ul class="row">
+                <li class="col-md-5"><%= ff.text_field :name, 'data-parsley-group' => "step5", :placeholder => "Nom de votre pièce jointe (CV / lettre de motivation / etc ... )" %></li>
+                <li class="col-md-2"><%= ff.file_field :file, 'data-parsley-group' => "step5", :placeholder=>"Pièce jointe" %></li>
+                <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+              </ul>
+            <%end%>
+            <%= f.add_nested_fields_link :applicant_attachment, 'Ajouter une pièce jointe' %>
+          </div>
+          <br>
+        </fieldset>
+        <%= f.submit 'Save', :class => 'button submit gotoend save_entry' %>
+      <% end %>
+  </div>
   </div>
 </div>
 <%end%>
