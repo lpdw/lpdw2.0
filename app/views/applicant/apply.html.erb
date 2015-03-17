@@ -3,7 +3,7 @@
       <p>Postuler</p>
     </div>
 </section>
-<div class="container">
+<div class="container first_apply">
   <% if flash[:error] %>
     <div class="alert alert-orange"><%= flash[:error] %></div>
   <% else %>
@@ -27,16 +27,16 @@
       <% end %>
     </div>
     <ul class="apply_steps row">
-      <li class="apply_step step_1 col-sm-3 active" data-step="1">01 - Informations</li>
-      <li class="apply_step step_2 col-sm-3" data-step="2">02 - Cursus</li>
-      <li class="apply_step step_3 col-sm-3" data-step="3">03 - Expériences</li>
-      <li class="apply_step step_4 col-sm-3" data-step="4">04 - Projets</li>
-      <li class="apply_step step_5 col-sm-3" data-step="5">05 - Documents</li>
+      <li class="apply_step step_1 active" data-step="1">01 - Informations</li>
+      <li class="apply_step step_2" data-step="2">02 - Cursus</li>
+      <li class="apply_step step_3" data-step="3">03 - Expériences</li>
+      <li class="apply_step step_4" data-step="4">04 - Projets</li>
+      <li class="apply_step step_5" data-step="5">05 - Documents</li>
     </ul>
     <div class="step step1">
       <%= form_for (@applicant), url: create_apply_path, :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
         <%= f.hidden_field(:ip_address, value: request.remote_ip.to_s) %>
-        <%= f.hidden_field(:step_position, value: '1') %>
+        <%= f.hidden_field(:step_position, value: 1) %>
         <%= f.fields_for :applicant_status, @applicant.build_applicant_status do |ff| %>
           <%= ff.hidden_field(:is_finish, value: false) %>
           <%= ff.hidden_field(:is_complete, value: 0) %>
@@ -213,6 +213,7 @@
     </div>
     <div class="step step4">
       <%= form_for @applicant, method: :patch, url: create_apply_path, :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
+        <%= f.hidden_field(:step_position, value: '1') %>
         <fieldset class="centered">
           <div class="row">
             <span class="col-sm-12">Projets scolaires</span>

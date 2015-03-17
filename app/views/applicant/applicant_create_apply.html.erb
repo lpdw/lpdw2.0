@@ -6,13 +6,13 @@
 <% if @applicant.applicant_status.is_finish %>
      <div class="alert alert-orange"><%= flash[:error] = 'Votre dossier est en cours de validation pars l\'équipe pédagogique' %></div>
 <%else%>
-<div class="container">
+<div class="container modify_apply">
   <% if flash[:error] %>
     <div class="alert alert-orange"><%= flash[:error] %></div>
   <% else %>
     <div class="alert alert-green"><%= flash[:success] %></div>
   <% end %>
-  <div class="step_positon hidden" data-step-position= "<%= @applicant.step_position %>"></div>
+  <div class="step_position hidden" data-step-position= "<%= @applicant.step_position %>"></div>
   <div class="form_wrapper hidden-xs">
     <ul class="apply_steps row">
       <li class="apply_step step_1 col-sm-3 active" data-step="1">01 - Informations</li>
@@ -23,6 +23,7 @@
     </ul>
     <div class="step step1">
       <%= form_for (@applicant), url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
+        <%= f.hidden_field(:step_position, value: 1) %>
         <fieldset class="row centered">
           <div class="col-sm-6">
             <div class="row">
@@ -117,6 +118,7 @@
     </div>
     <div class="step step2">
       <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
+        <%= f.hidden_field(:step_position, value: 2) %>
         <fieldset class="row centered">
           <div class="cursus_list col-md-12">
             <ul class="row">
@@ -164,6 +166,7 @@
     </div>
     <div class="step step3">
       <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
+        <%= f.hidden_field(:step_position, value: 3) %>
         <fieldset class="centered">
         <div class="experience_list">
           <ul class="row">
@@ -189,6 +192,7 @@
     </div>
     <div class="step step4">
       <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
+        <%= f.hidden_field(:step_position, value: 4) %>
       <fieldset class="centered">
         <div class="row">
           <span class="col-sm-12">Projets</span>

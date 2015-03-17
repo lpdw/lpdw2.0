@@ -1,5 +1,5 @@
-$(".form_wrapper").hide();
-$(".get_progression_form").hide();
+$(".first_apply .form_wrapper").hide();
+$(".first_apply .get_progression_form").hide();
 
 $("#fill_form").on("click", function (e) {
 	e.preventDefault();
@@ -22,6 +22,13 @@ $("#get_progression").on("click",function(e){
 	$(".form_wrapper").show();
 
 });
+
+if ($(".modify_apply").length > 0) {
+	var step_position = $(".modify_apply").find(".step_position").data("step-position");
+	$(".step"+step_position).show();
+	$(".apply_step.active").removeClass("active");
+	$(".apply_step.step_"+step_position).addClass("active");
+};
 
 $("input[name='applicant[has_connection]']").on("click", function() {
 	if($("#entourage_true").is(':checked')) {
@@ -55,14 +62,14 @@ $('.next').on('click', function (e) {
 
 	}
 	// validation was ok. We can go on next step.
-	$(".apply_step.active").removeClass("active").addClass("clickable");
-	$(".apply_step.step_"+next).addClass("active").css("cursor","pointer").addClass("clickable");
+	$(".apply_step.active").removeClass("active");
+	$(".apply_step.step_"+next).addClass("active");
 	$('.step' + current).hide();
 	$('.step' + next).show();
 });
 
 
-$(".apply_steps").on("click", ".clickable", function () {
+$(".apply_step").on("click", function () {
 	var next = $(this).data("step");
 	var current = $(".apply_step.active").data("step");
 	$(".apply_step.active").removeClass("active");
