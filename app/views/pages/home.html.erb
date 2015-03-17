@@ -62,9 +62,11 @@
 
                         <!-- Projets étudiants -->
                         <% @projects.each_with_index do |project, i| %>
-                        <article class="col-md-3">
+                        <article class="col-md-3 article-creation_wrapper">
                             <div class="article-creation">
-                                <img src="<%= project.thumbmail.url %>" alt="Faclab gennevilliers">
+                                <div class="image_wrapper">
+                                    <img src="<%= project.thumbmail.url %>" alt="Faclab gennevilliers">
+                                </div>
                                 <h4 class="text-center"><%= project.name %></h4>
                             </div>
                         </article>
