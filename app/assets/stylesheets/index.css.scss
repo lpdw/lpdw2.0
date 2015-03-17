@@ -23,7 +23,7 @@
 
         p {
             margin-top: 20px;
-            
+
             img {
                 display: none;
             }
@@ -166,10 +166,11 @@
         text-align: center;
         position: relative;
         left: 50%;
-        -webkit-transform: translateX(-50%);
-           -moz-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-                transform: translateX(-50%);
+        top: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+           -moz-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
     }
     h4 {
         color: $color-1;
@@ -198,7 +199,7 @@
 }
 
 @media (max-width: $screen-sm-max) {
-    
+
     .home-faclab {
 
         article {

@@ -108,7 +108,7 @@ $(document).ready(function() {
      });
 
     $(".home-creations .article-creation_wrapper").each(function() {
-        $(this).find("img").each(function() {
+        $(this).find("img").on('load',function() {
             if( $(this).width() < $(this).height()) {
                 $(this).css("width", "100%");
             } else {
