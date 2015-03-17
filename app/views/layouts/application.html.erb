@@ -18,18 +18,6 @@
     </head>
     <body>
         <%= render :partial => "partials/header" %>
-        <!-- <p class="alert"><%= alert %></p> -->
-        <!-- <p class="flash"><%= flash[:error] %></p> -->
-        <!-- <% flash.each do |type, message| %>
-        <div class="flash">
-            <p class="alert alert-<%= type %>">
-            <%= message %>
-            <button class="close-alert">
-            <span class="glyphicon glyphicon-remove"></span>
-            </button>
-            </p>
-        </div>
-        <% end %> -->
         <%= yield %>
         <div class="scroll-top hidden-xs" id="scroll-top" >
             <a id="scroll-link" class="scroll-link" title="Revenir en haut de page">
