@@ -90,6 +90,14 @@ $.fn.imagesLoaded = function( callback ) {
 		if ( $.isFunction( callback ) ) {
 			callback.call( $this, $images, $proper, $broken );
 		}
+
+		$images.each(function() {
+			if( $(this).width() < $(this).height()) {
+				$(this).css("width", "100%");
+			} else {
+				$(this).css("height", "100%");
+			}
+		});
 	}
 
 	function imgLoaded( img, isBroken ) {
@@ -387,7 +395,7 @@ var Grid = (function() {
 
 			this.$title.html( eldata.title );
 			this.$description.html( eldata.description );
-			if(eldata.href == "#") {
+			if(eldata.href == "") {
 				this.$href.text("pas de lien disponible");
 				this.$href.addClass("disabled");
 			} else {
