@@ -181,6 +181,7 @@
               <li class="col-md-2"><%= ff.text_field :company, 'data-parsley-group' => "step3" %></li>
               <li class="col-md-5"><%= ff.text_field :role, 'data-parsley-group' => "step3" %></li>
               <li class="col-md-4"><%= ff.text_field :skill, 'data-parsley-group' => "step3" %></li>
+              <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
             </ul>
           <%end%>
           <%= f.add_nested_fields_link :professional_experiences, 'Ajouter une autre expérience professionnelle' %>

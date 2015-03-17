@@ -40,7 +40,7 @@ class ApplicantController < ApplicationController
                                    cursus_attributes: [ :id, :graduation, :year, :option, :result, :place],
                                    professional_experiences_attributes: [ :id, :year, :company, :role, :skill],
                                    project_applicants_attributes: [ :id, :year, :project_type, :content],
-                                   applicant_attachments_attributes: [:id, :name, :file]
+                                   applicant_attachments_attributes: [:id, :name, :file, :_destroy]
                                ))
     if @applicant.save
       flash["success"] = "Dossier sauvegardé"
@@ -65,7 +65,7 @@ class ApplicantController < ApplicationController
                           cursus_attributes: [ :id, :graduation, :year, :option, :result, :place],
                           professional_experiences_attributes: [ :id, :year, :company, :role, :skill],
                           project_applicants_attributes: [ :id, :year, :project_type, :content],
-                          applicant_attachment_attributes: [:id, :name, :file]
+                          applicant_attachment_attributes: [:id, :name, :file, :_destroy]
                       ))
     #check if applicant send is apply definatly
     if params[:commit] === 'Valider Définitivement'
