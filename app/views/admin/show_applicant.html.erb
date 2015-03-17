@@ -178,10 +178,10 @@
     <div class="col-md-6">
         <h3>Informations générales</h3>
         <p><span class="applicant-label">Connaissait-il des gens dans la licence ? </span>
-            <%= @applicant.address %>, <%= @applicant.zip_code %> <%= @applicant.city %>
+            <%= @applicant.has_connection %>
         </p>
         <p><span class="applicant-label">Connaissait-il des personnes dans son entourage travaillant dans domaine multimédia ? </span>
-            <%= @applicant.has_connection %>
+            <%= @applicant.connection_desc %>
         </p>
         <p><span class="applicant-label">Comment a-t-il connu la formation :</span>
             <%= @applicant.know_formation %>
