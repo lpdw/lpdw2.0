@@ -3,6 +3,7 @@
       <p>Postuler</p>
     </div>
 </section>
+<%= @applicant.inspect %>
 <% if @applicant.applicant_status.is_finish %>
      <div class="alert alert-orange"><%= flash[:error] = 'Votre dossier est en cours de validation pars l\'équipe pédagogique' %></div>
 <%else%>
@@ -12,6 +13,7 @@
   <% else %>
     <div class="alert alert-green"><%= flash[:success] %></div>
   <% end %>
+  <div class="step_positon hidden" data-step-position= "<%= @applicant.step_position %>"></div>
   <div class="form_wrapper hidden-xs">
     <ul class="apply_steps row">
       <li class="apply_step step_1 col-sm-3 active" data-step="1">01 - Informations</li>
