@@ -177,6 +177,7 @@
               <li class="col-md-2"><%= ff.text_field :company %></li>
               <li class="col-md-5"><%= ff.text_field :role %></li>
               <li class="col-md-4"><%= ff.text_field :skill %></li>
+              <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
             </ul>
           <%end%>
           <%= f.add_nested_fields_link :professional_experiences, 'Ajouter une autre expérience professionnelle' %>
