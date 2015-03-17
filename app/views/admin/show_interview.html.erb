@@ -3,7 +3,7 @@
   <div id="interview" class="interview">
     <% status_interview.each do |interview| %>
       <p class="info-interview">
-        <%= ApplicantStatus.getapplicant(interview.id_applicant).name %> à <%= interview.interview_date.to_formatted_s(:time) %>
+        <%= ApplicantStatus.getapplicant(interview.id_applicant).name %> à <%= interview.interview_date.to_time.strftime("%Hh%M") %>
       </p>
     <% end %>
   </div>

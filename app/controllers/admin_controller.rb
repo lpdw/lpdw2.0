@@ -378,12 +378,17 @@ admin_restriction_area
   end
 
   def create_interview
-
+    applicant = Applicant.find(params[:id_applicant])
     status = ApplicantStatus.find_by(id_applicant: params[:id_applicant])
     format = "%m/%d/%Y %H:%M %p"
     date_time = params[:interview_date]
     datetime = DateTime.strptime(date_time, format)
     if status.update(interview_date: datetime)
+      begin
+        Emailer.send_mail_interview(applicant.email,datetime).deliver
+      rescue Exception => e
+        flash["error"] = "Pas cool !!"
+      end
       flash[:info] = "L'entretien a été sauvegardé un mail va être envoyé"
     else
       flash[:error] = "Une erreur s'est produite"

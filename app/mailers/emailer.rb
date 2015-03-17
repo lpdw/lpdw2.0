@@ -7,4 +7,8 @@ class Emailer < ActionMailer::Base
       @message = data["message_contact"]
       mail(to: @recipient, subject: 'Contact')
    end
+   def send_mail_interview(email,date, sent_at = Time.now)
+    @date = date
+    mail(to: email, subject: 'LP : Entretien de motivation')
+   end
 end
