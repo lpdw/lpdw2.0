@@ -235,9 +235,17 @@
           </div>
           <br>
         </fieldset>
-        <%= f.submit "Valider Définitivement", :class => 'button submit gotoend save_entry' %>
+        <%= f.submit "Sauvegarder et continuer", :class => 'next button submit gotoend save_entry', 'data-current' => '5', 'data-next' => '6' %>
       <% end %>
   </div>
+  </div>
+  <div class="send-application">
+    <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', :id => 'send-application-button'} do |f| %>
+      <fieldset>
+        <%= f.hidden_field(:finish, value: 1) %>
+        <%= f.submit "Valider Définitivement", :class => 'button submit gotoend save_entry', data: { confirm: "Vérifiez bien d'avoir sauvegarder toutes les étapes avant d'envoyer votre dossier, vous ne pourrez plus le modifier après cet instant!"} %>
+      </fieldset>
+    <% end %>
   </div>
 </div>
 <%end%>
