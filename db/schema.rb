@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302211237) do
+ActiveRecord::Schema.define(version: 20150317135800) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20150302211237) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "applicant_attachments", force: true do |t|
+    t.string   "name"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "id_applicant"
+  end
+
+  add_index "applicant_attachments", ["id_applicant"], name: "applicant_attachments_id_applicant_fk", using: :btree
 
   create_table "applicant_statuses", force: true do |t|
     t.integer  "id_applicant"
@@ -68,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150302211237) do
     t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "step_position"
   end
 
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true, using: :btree
@@ -84,6 +96,16 @@ ActiveRecord::Schema.define(version: 20150302211237) do
   end
 
   add_index "cursus", ["id_applicant"], name: "cursus_id_applicant_fk", using: :btree
+
+  create_table "images", force: true do |t|
+    t.string   "alt"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "other_applications", force: true do |t|
     t.integer  "id_applicant"
@@ -118,6 +140,7 @@ ActiveRecord::Schema.define(version: 20150302211237) do
   add_index "project_applicants", ["id_applicant"], name: "project_applicants_id_applicant_fk", using: :btree
 
   create_table "projects", force: true do |t|
+    t.string   "photo"
     t.string   "name"
     t.text     "description"
     t.string   "link"
@@ -163,6 +186,8 @@ ActiveRecord::Schema.define(version: 20150302211237) do
   end
 
   add_index "votes", ["id_applicant"], name: "votes_id_applicant_fk", using: :btree
+
+  add_foreign_key "applicant_attachments", "applicants", name: "applicant_attachments_id_applicant_fk", column: "id_applicant"
 
   add_foreign_key "applicant_statuses", "applicants", name: "applicant_statuses_id_applicant_fk", column: "id_applicant"
 

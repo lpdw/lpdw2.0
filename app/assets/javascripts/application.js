@@ -100,7 +100,7 @@ $(document).ready(function() {
         }
     });
 
-    $(".navbar-toggle").click(function(e){
+    $(".navbar-toggle").on('click', function(e){
         e.preventDefault();
 
          if($(".navbar-collapse").hasClass("in")){
@@ -109,6 +109,16 @@ $(document).ready(function() {
             document.documentElement.style.overflow = 'hidden';
         }
      });
+
+    $(".home-creations .article-creation_wrapper").each(function() {
+        $(this).find("img").each(function() {
+            if( $(this).width() < $(this).height()) {
+                $(this).css("width", "100%");
+            } else {
+                $(this).css("height", "100%");
+            }
+        });
+    });
 
 
 });
