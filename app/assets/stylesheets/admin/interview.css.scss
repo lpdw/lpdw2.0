@@ -1,0 +1,170 @@
+.calendar-header {
+    font-size: 28px;
+    height: 50px;
+
+    a {
+        padding: 5px;
+        text-decoration: none;
+    }
+    span {
+        font-weight: bold;
+        color: $color-2;
+        text-transform: capitalize;
+    }
+}
+.has-events {
+    cursor: pointer;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        top: 0;
+        background-color: $color-2;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        top: 0;
+        background-color: $color-2;
+        opacity: 0.2;
+    }
+}
+.info-interview {
+    display: none;
+}
+.interview-table {
+    tr:hover {
+        background: transparent;
+    }
+}
+.valide-date-interview {
+    background-color: transparent;
+    border: none;
+
+    i {
+        color: #3DD17A;
+    }
+}
+.table-interview {
+    background: $color-3;
+    box-shadow: -4px 0px 10px rgba(14, 14, 14, 0.48) inset;
+    margin-top:50px;
+}
+.table-interview-th {
+    color: $color-4;
+    font-size: 18px;
+    padding: 0.5em 1em;
+    text-align: left;
+    border-bottom: 1px solid $color-2 !important;
+}
+
+/*
+.table-interview-td {
+                                color: #fff;
+                                font-weight: 400;
+                                padding: 0.65em 1em;
+                                border-top: none !important;
+}
+
+.disabled .table-interview-td {
+                                color: $color-1;
+}
+.table-interview-tr {
+                                transition: background 0.25s ease;
+}
+.table-interview-tr:hover {
+                                background: $color-2;
+} */
+@media (max-width:$screen-xs-max) {
+    .table-interview {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+    .table-interview-thead {
+        display: none;
+    }
+    .table-interview-tr {
+        border-bottom: 1px solid $color-2 !important;
+    }
+    .table-interview-td {
+        display: block;
+
+        &:first-child {
+            padding-top: .5em;
+        }
+        &:last-child {
+            padding-bottom: .5em;
+        }
+        &:before {
+            content: attr(data-th) ":";
+            font-weight: bold;
+            color: $color-1;
+            width: 4.5em;
+            display: inline-block;
+        }
+    }
+}
+.interview_popup {
+    width: 600px;
+    height: 400px;
+    display: block;
+    z-index: 1051;
+    margin: 50% 0 0 -300px;
+    position: relative;
+    padding-top: 50px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    top: 50%;
+    left: 50%;
+    background: $color-3;
+    box-shadow: -4px 0px 10px rgba(14, 14, 14, 0.48) inset;
+    transition: all 0.5s ease-in-out;
+    margin-top: -200px;
+
+    .head {
+        position: absolute;
+        height: 45px;
+        overflow: hidden;
+        background: $color-2;
+        top: 0;
+        right: 0;
+        left: 0;
+        padding-left: 15px;
+
+        h1 {
+            float: left;
+            margin: 0;
+            color: #FFF;
+        }
+    }
+    .info-interview {
+        display: block;
+        color: #FFF;
+    }
+    .btn-close {
+        width: 32px;
+        height: 32px;
+        display: block;
+        line-height: 45px;
+        float: right;
+        color: #FFF;
+    }
+}
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    background: rgba(0, 0, 0, 0.5);
+}
