@@ -31,6 +31,7 @@
       <li class="apply_step step_2 col-sm-3" data-step="2">02 - Cursus</li>
       <li class="apply_step step_3 col-sm-3" data-step="3">03 - Expériences</li>
       <li class="apply_step step_4 col-sm-3" data-step="4">04 - Projets</li>
+      <li class="apply_step step_5 col-sm-3" data-step="5">05 - Documents</li>
     </ul>
     <div class="step step1">
       <%= form_for (@applicant), url: create_apply_path, :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
@@ -211,6 +212,34 @@
       <% end %>
     </div>
     <div class="step step4">
+      <%= form_for @applicant, method: :patch, url: create_apply_path, :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
+        <fieldset class="centered">
+          <div class="row">
+            <span class="col-sm-12">Projets scolaires</span>
+          </div>
+          <br>
+          <div class="projects_list">
+            <ul class="row">
+              <li class="col-md-1">Année</li>
+              <li class="col-md-2">Formation</li>
+              <li class="col-md-9">Description</li>
+            </ul>
+            <%= f.nested_fields_for :project_applicants, wrapper_tag: :div do |ff| %>
+              <ul class="row">
+                <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step5" %></li>
+                <li class="col-md-2"><%= ff.text_field :project_type, 'data-parsley-group' => "step5", :value => 'scolaire'%></li>
+                <li class="col-md-5"><%= ff.text_field :content, 'data-parsley-group' => "step5" %></li>
+                <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+              </ul>
+            <%end%>
+            <%= f.add_nested_fields_link :project_applicants, 'Ajouter un autre projet scolaire' %>
+          </div>
+        </fieldset>
+        <a class="next" data-current="4" data-next="5" href="#">étape suivante</a>
+        <%= f.submit "Sauvegarder pour reprendre plus tard", :class => 'button submit gotoend save_entry' %>
+      <% end %>
+    </div>
+    <div class="step step5">
       <%= form_for @applicant, method: :patch, url: create_apply_path, :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
         <fieldset class="centered">
           <div class="row">
