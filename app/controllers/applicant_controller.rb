@@ -56,7 +56,7 @@ class ApplicantController < ApplicationController
       redirect_to '/postuler'
     end
     @applicant.update(params[:applicant].permit(:english_skill, :after_school, :other_language,:name, :first_name, :zip_code,
-                                                :city, :home_phone, :private_phone, :email,
+                                                :city, :home_phone, :private_phone, :email, :step_position,
                                                 :birth, :birth_place, :nationality, :assurance, :address, :status, :has_connection,
                                                 :connection_desc, :know_formation, :english_skill, :other_language, :after_school,
                                                 :ip_address, :updated_at,
