@@ -37,9 +37,9 @@ class ApplicantController < ApplicationController
                                    :connection_desc, :know_formation, :english_skill, :other_language, :after_school,
                                    :ip_address, :updated_at,
                                    applicant_status_attributes: [:id, :is_finish, :is_complete, :ok_for_interview, :interview_result, :is_refused],
-                                   cursus_attributes: [ :id, :graduation, :year, :option, :result, :place],
-                                   professional_experiences_attributes: [ :id, :year, :company, :role, :skill],
-                                   project_applicants_attributes: [ :id, :year, :project_type, :content],
+                                   cursus_attributes: [ :id, :graduation, :year, :option, :result, :place, :_destroy],
+                                   professional_experiences_attributes: [ :id, :year, :company, :role, :skill, :_destroy],
+                                   project_applicants_attributes: [ :id, :year, :project_type, :content, :_destroy],
                                    applicant_attachments_attributes: [:id, :name, :file, :_destroy]
                                ))
     if @applicant.save
