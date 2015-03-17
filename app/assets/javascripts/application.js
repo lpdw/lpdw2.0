@@ -17,6 +17,9 @@
 //= require nested_form_fields
 //= require_tree .
 //= require bootstrap-sprockets
+//= require jquery.nicescroll
+//= require moment
+//= require bootstrap-datetimepicker
 
 $(document).ready(function() {
         topScroll();
@@ -108,7 +111,7 @@ $(document).ready(function() {
      });
 
     $(".home-creations .article-creation_wrapper").each(function() {
-        $(this).find("img").each(function() {
+        $(this).find("img").on('load',function() {
             if( $(this).width() < $(this).height()) {
                 $(this).css("width", "100%");
             } else {
