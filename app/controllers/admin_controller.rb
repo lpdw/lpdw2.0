@@ -27,6 +27,7 @@ admin_restriction_area
     @applicants = Applicant.all
     @lasts = Applicant.order('id DESC')
   end
+
   def show_users
 # == Admin restriction == #
 admin_restriction_area
@@ -34,18 +35,25 @@ admin_restriction_area
     @title_admin = "Utilisateurs"
     @users = User.all
   end
-  def edit_user
-# == Admin restriction == #
-admin_restriction_area
 
-    @title_admin = "Utilisateur"
+  def edit_user
+  # == Admin restriction == #
+  @user = current_user
+  if @user.id.to_i != params[:id].to_i
+     admin_restriction_area
+     @title_admin = "Utilisateur numéro " + params[:id].to_str
+  else
+       @title_admin = "Profil"
+  end
+
     @user=User.find(params[:id])
   end
 
   def update_user
-# == Admin restriction == #
-admin_restriction_area
-
+  if @user.id.to_i != params[:id].to_i
+    # == Admin restriction == #
+    admin_restriction_area
+  end
     @title_admin = "Utilisateur"
     @user=User.find(params[:id])
     if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname, :twitter, :description, :photo, :linkin))
@@ -57,6 +65,7 @@ admin_restriction_area
       redirect_to admin_edit_user_path(@user)
     end
   end
+
   def delete_user
 # == Admin restriction == #
 admin_restriction_area
