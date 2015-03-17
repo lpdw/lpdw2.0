@@ -71,3 +71,10 @@ gem 'foreigner', '~> 1.7.2'
 
 #Create dynamic nested_form
 gem 'nested_form_fields'
+
+gem 'nicescroll-rails'
+
+gem "simple_calendar", "~> 1.1.0"
+
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'

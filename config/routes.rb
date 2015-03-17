@@ -63,6 +63,11 @@ root 'pages#home'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
 
 
+  get 'admin/show_interview' => 'admin#show_interview'
+  post 'admin/create_interview' => 'admin#create_interview'
+
+
+
   get '/', :to => 'pages#home'
   get '/actualites', :to => 'pages#news'
   get '/actualites/:id' => 'pages#new'

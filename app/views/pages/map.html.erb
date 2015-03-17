@@ -90,19 +90,19 @@
                     </div>
                     <button type="submit" class="btn btn-default">Envoyer</button>
                 </form> -->
-<%= form_tag({:action => 'sendmail'}, {:method => :post}) do |f| %>
-<div class="form-group">
-    <%= text_field_tag 'name_contact', nil, class: 'form-control', placeholder: 'Votre nom' %>
-</div>
+                <%= form_tag({:action => 'sendmail'}, {:method => :post}) do |f| %>
                     <div class="form-group">
-                    <%= email_field_tag 'email_contact', nil, class: 'form-control',placeholder:"Votre adresse email" %>
+                        <%= text_field_tag 'name_contact', nil, class: 'form-control', placeholder: 'Votre nom', :value => @name_contact %>
                     </div>
                     <div class="form-group">
-                    <%= text_area_tag 'message_contact', nil, class: 'form-control',placeholder:"Votre message ici",rows: 3 %>
+                    <%= email_field_tag 'email_contact', nil, class: 'form-control',placeholder:"Votre adresse email", :value => @email_contact %>
+                    </div>
+                    <div class="form-group">
+                    <%= text_area_tag 'message_contact', nil, class: 'form-control',placeholder:"Votre message ici",rows: 3, :value => @message_contact %>
                     </div>
                     <%= button_tag "Envoyer", class: "btn btn-default" %>
 
-<% end %>
+                <% end %>
             </div>
             <div class="col-md-6">
                 <div class="network col-md-12 licence">
