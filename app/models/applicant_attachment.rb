@@ -11,9 +11,9 @@ class ApplicantAttachment < ActiveRecord::Base
   #Change path and url access to upload file
   private
   def default_path_by_applicant
-    "public/assets/upload/:class/#{id_applicant}/:hash.:filename"
+    "public/assets/upload/:class/#{id_applicant}/:hash.:extension"
   end
   def default_url_by_applicant
-    "/assets/upload/:class/#{id_applicant}/:hash.:filename"
+    "/assets/upload/:class/#{id_applicant}/:hash.:extension"
   end
 end
