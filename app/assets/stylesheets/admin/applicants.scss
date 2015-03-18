@@ -33,8 +33,9 @@
     cursor: pointer;
     display:inline;
     position:relative;
-    .button{
+    .option_admin_setting{
       z-index:200;
+      border: 0px !important;
     }
     i{
       margin:0px;
