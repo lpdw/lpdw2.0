@@ -2,8 +2,20 @@ class AdminController < ApplicationController
   #Before any action just authetificate user
   before_action :authenticate_user!, :is_admin
 
+  # permission restrictions
+  def admin_restriction_area
+    if @user.role != "admin"
+      flash[:error] = "You must be admin to access this section"
+      redirect_to admin_path()
+    end
+  end
+
   #user Controller
+
   def create_user
+# == Admin restriction == #
+admin_restriction_area
+
     @title_admin = "Utilisateur"
     @user = User.new
   end
@@ -13,16 +25,35 @@ class AdminController < ApplicationController
     @projects = Project.all
     @alerts = Alert.all
     @applicants = Applicant.all
+    @lasts = Applicant.order('id DESC')
   end
+
   def show_users
+# == Admin restriction == #
+admin_restriction_area
+
     @title_admin = "Utilisateurs"
     @users = User.all
   end
+
   def edit_user
-    @title_admin = "Utilisateur"
+  # == Admin restriction == #
+  @user = current_user
+  if @user.id.to_i != params[:id].to_i
+     admin_restriction_area
+     @title_admin = "Utilisateur numéro " + params[:id].to_str
+  else
+       @title_admin = "Profil"
+  end
+
     @user=User.find(params[:id])
   end
+
   def update_user
+  if @user.id.to_i != params[:id].to_i
+    # == Admin restriction == #
+    admin_restriction_area
+  end
     @title_admin = "Utilisateur"
     @user=User.find(params[:id])
     if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname, :twitter, :description, :photo, :linkin))
@@ -34,7 +65,11 @@ class AdminController < ApplicationController
       redirect_to admin_edit_user_path(@user)
     end
   end
+
   def delete_user
+# == Admin restriction == #
+admin_restriction_area
+
     @user=User.find(params[:id])
     if @user.destroy
       flash["sucess"] ="SUCESS DELETE"
@@ -46,6 +81,9 @@ class AdminController < ApplicationController
   end
 
   def new
+# == Admin restriction == #
+admin_restriction_area
+
     @user = User.new(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname))
     if @user.save
       flash["success"] ="User created"
@@ -58,9 +96,11 @@ class AdminController < ApplicationController
 
   def is_admin
     @user = current_user
-    if (@user.role != "admin") then
-      flash[:error] = "You must be admin to access this section"
-      redirect_to root_path # halts request cycle
+    if @user.role != "intervenant"
+      if @user.role != "admin"
+        flash[:error] = "You must be admin to access this section"
+        redirect_to root_path # halts request cycle
+      end
     end
   end
 
@@ -80,6 +120,7 @@ class AdminController < ApplicationController
     @projects = @applicant.project_applicants
     @votes = @applicant.votes
     @status = @applicant.applicant_status
+    @attachements = @applicant.applicant_attachment
     @is_voter = Vote.where("id_applicant = #{params[:id]} AND id_voter = #{current_user.id}")
   end
 
@@ -133,6 +174,7 @@ class AdminController < ApplicationController
   end
 
   def show_actualities
+
     @title_admin = "Actualités"
     @actualities = Actuality.all
   end
@@ -192,6 +234,8 @@ class AdminController < ApplicationController
   #alert controller
   before_action :get_this_alert,only: [:edit_alert,:update_alert,:delete_alert]
   def get_this_alert
+  # == Admin restriction == #
+  admin_restriction_area
     @thisAlert = Alert.find(params[:id])
   end
 
@@ -200,6 +244,8 @@ class AdminController < ApplicationController
   end
 
   def new_alert
+  # == Admin restriction == #
+  admin_restriction_area
     @alert = Alert.new(params[:alert].permit(:name,:content,:level,:active))
     if @alert.save
       flash["sucess"] ="Alert created"
@@ -210,15 +256,21 @@ class AdminController < ApplicationController
     end
   end
   def show_alerts
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "Alertes"
     @alerts = Alert.all
   end
 
   def edit_alert
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "Alerte"
     @actuality=@thisAlert
   end
 def update_alert
+# == Admin restriction == #
+admin_restriction_area
     @title_admin = "Alerte"
     if @thisAlert.update_attributes(params[:thisAlert].permit(:name,:content,:level,:active))
       # Handle a successful update.
@@ -229,6 +281,8 @@ def update_alert
     end
   end
   def delete_alert
+  # == Admin restriction == #
+  admin_restriction_area
     if @thisAlert.destroy
       flash["sucess"] ="SUCESS DELETE"
       redirect_to admin_show_alerts_path()
@@ -245,15 +299,21 @@ def update_alert
   end
 
   def show_projects
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "projects"
     @projects = Project.all
   end
+
   def create_project
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "projects"
     @project = Project.new
   end
 
   def create_tinymce_assets
+
     geometry = Paperclip::Geometry.from_file params[:file]
     image    = Image.create params.permit(:file, :alt)
 
@@ -267,6 +327,8 @@ def update_alert
   end
 
   def new_project
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "Project"
     @project = Project.new(params[:project].permit(:photo, :name, :description, :link, :thumbmail))
     if @project.save
@@ -279,10 +341,14 @@ def update_alert
   end
 
   def edit_project
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "Project"
     @project=@this
   end
   def update_project
+  # == Admin restriction == #
+  admin_restriction_area
     @title_admin = "project"
     if @this.update_attributes(params[:this].permit(:photo, :name, :description, :link, :thumbmail))
       # Handle a successful update.
@@ -294,6 +360,8 @@ def update_alert
     end
   end
   def delete_project
+  # == Admin restriction == #
+  admin_restriction_area
     if @this.destroy
       flash["sucess"] ="SUCESS DELETE"
       redirect_to admin_show_projects_path()
@@ -301,6 +369,32 @@ def update_alert
       flash[:error] = @this.messages.errors
       redirect_to admin_show_projects_path()
     end
+  end
+
+  def show_interview
+    @title_admin = "Entretien"
+    @status_interview = ApplicantStatus.all().where.not('applicant_statuses.interview_date' => nil)
+    @status_interview_nil = ApplicantStatus.all().where('applicant_statuses.interview_date' => nil,'applicant_statuses.ok_for_interview' => 1)
+  end
+
+  def create_interview
+    applicant = Applicant.find(params[:id_applicant])
+    status = ApplicantStatus.find_by(id_applicant: params[:id_applicant])
+    format = "%m/%d/%Y %H:%M %p"
+    date_time = params[:interview_date]
+    datetime = DateTime.strptime(date_time, format)
+    if status.update(interview_date: datetime)
+      begin
+        Emailer.send_mail_interview(applicant.email,datetime).deliver
+      rescue Exception => e
+        flash["error"] = "Pas cool !!"
+      end
+      flash[:info] = "L'entretien a été sauvegardé un mail va être envoyé"
+    else
+      flash[:error] = "Une erreur s'est produite"
+    end
+
+    redirect_to admin_show_interview_path()
   end
 
 end

@@ -42,6 +42,24 @@
 	}
 }
 
+.first_apply {
+	.form_wrapper {
+		.apply_steps {
+			.apply_step {
+				width: 100%;
+				float: clear;
+				cursor: initial !important;
+			}
+		}
+	}
+}
+
+.modify_apply {
+	.form_wrapper {
+		margin-top: 100px;
+	}
+}
+
 .form_wrapper {
 	background-color: #f0f0f0;
 	margin-bottom: 50px;
@@ -69,6 +87,9 @@
 			background: $color-2;
 			box-sizing: border-box;
 			color: #fff;
+			width: 20%;
+			float: left;
+			cursor: pointer;
 
 			&.active {
 				background-color: $color-1;
@@ -115,15 +136,6 @@
 				padding: 0;
 			}
 		}
-		.next {
-		  	margin:5px;
-		  	padding:5px;
-		  	background:$color-4;
-		  	color:white;
-		  	float:right;
-		  	text-transform: uppercase;
-			display: inline-block;
-		}
 
 	}
   .submit,.submit_separator {
@@ -141,10 +153,6 @@
 	&:after,&:before{
 	  width:0px;
 	}
-  }
-  .save_entry {
-	float:left;
-	margin:50px auto;
   }
 
 }

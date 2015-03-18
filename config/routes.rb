@@ -75,6 +75,11 @@ root 'pages#home'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
 
 
+  get 'admin/show_interview' => 'admin#show_interview'
+  post 'admin/create_interview' => 'admin#create_interview'
+
+
+
   get '/', :to => 'pages#home'
   get '/actualites', :to => 'pages#news'
   get '/actualites/:id' => 'pages#new'
@@ -84,6 +89,7 @@ root 'pages#home'
   get '/equipe', :to => 'pages#team'
   get '/ucp', :to => 'pages#ucp'
   get '/informations', :to => 'pages#map'
+  post '/informations/sendmail', :to => 'pages#sendmail'
   get '/postuler', :to => 'applicant#apply'
   post '/postuler/login', :to => 'applicant#applicant_login', :as => 'applicant_login'
   #post '/postuler/:assurance', :to => 'applicant#applicant_create_apply'

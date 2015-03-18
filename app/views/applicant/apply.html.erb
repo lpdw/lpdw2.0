@@ -3,7 +3,7 @@
       <p>Postuler</p>
     </div>
 </section>
-<div class="container">
+<div class="container first_apply">
   <% if flash[:error] %>
     <div class="alert alert-orange"><%= flash[:error] %></div>
   <% else %>
@@ -27,14 +27,16 @@
       <% end %>
     </div>
     <ul class="apply_steps row">
-      <li class="apply_step step_1 col-sm-3 active" data-step="1">01 - Informations</li>
-      <li class="apply_step step_2 col-sm-3" data-step="2">02 - Cursus</li>
-      <li class="apply_step step_3 col-sm-3" data-step="3">03 - Expériences</li>
-      <li class="apply_step step_4 col-sm-3" data-step="4">04 - Projets</li>
+      <li class="apply_step step_1 active" data-step="1">01 - Informations</li>
+      <!-- <li class="apply_step step_2" data-step="2">02 - Cursus</li>
+      <li class="apply_step step_3" data-step="3">03 - Expériences</li>
+      <li class="apply_step step_4" data-step="4">04 - Projets</li>
+      <li class="apply_step step_5" data-step="5">05 - Documents</li> -->
     </ul>
     <div class="step step1">
-      <%= form_for (@applicant), url: create_apply_path, :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
+      <%= form_for (@applicant), url: create_apply_path, :html => {:class => 'hidden-xs apply-form', 'data-parsley-validate' => '', :id =>"apply-step1"} do |f| %>
         <%= f.hidden_field(:ip_address, value: request.remote_ip.to_s) %>
+        <%= f.hidden_field(:step_position, value: 1) %>
         <%= f.fields_for :applicant_status, @applicant.build_applicant_status do |ff| %>
           <%= ff.hidden_field(:is_finish, value: false) %>
           <%= ff.hidden_field(:is_complete, value: 0) %>
@@ -46,50 +48,50 @@
           <div class="col-sm-6">
             <div class="row">
               <div class="col-sm-6 input_wrapper">
-                <%= f.text_field :name, 'data-parsley-group' => "step1", 'placeholder' => "Nom*", "maxlength" => "60", "required"=> ''%>
+                <%= f.text_field :name, 'placeholder' => "Nom*", "maxlength" => "60", "required"=> ''%>
               </div>
               <div class="col-sm-6 input_wrapper">
-                <%= f.text_field :first_name, 'data-parsley-group' => "step1", 'placeholder' => "Prenom*", "maxlength" => "60", "required"=> ''%>
+                <%= f.text_field :first_name, 'placeholder' => "Prenom*", "maxlength" => "60", "required"=> ''%>
               </div>
               <div class="col-sm-12 input_wrapper">
-                <%= f.text_area :address, 'data-parsley-group' => "step1", 'placeholder' => "address*", "required"=> ''%>
+                <%= f.text_area :address, 'placeholder' => "address*", "required"=> ''%>
               </div>
               <div class="col-sm-6 input_wrapper">
-                <%= f.text_field :zip_code, 'data-parsley-group' => "step1", 'placeholder' => "Code postal*", "data-parsley-type" => "digits", "required"=> ''%>
+                <%= f.text_field :zip_code, 'placeholder' => "Code postal*", "data-parsley-type" => "digits", "required"=> ''%>
               </div>
               <div class="col-sm-6 input_wrapper">
-                <%= f.text_field :city, 'data-parsley-group' => "step1", 'placeholder' => "Ville*", "required"=> ''%>
+                <%= f.text_field :city, 'placeholder' => "Ville*", "required"=> ''%>
               </div>
               <span class="col-sm-12 input_wrapper">Téléphone</span>
               <div class="col-sm-6 input_wrapper">
-                <%= f.telephone_field :home_phone, 'data-parsley-group' => "step1", 'placeholder' => "Domicile*", "required"=> '', "data-parsley-type" => "digits", "data-parsley-length" => "[10, 10]"%>
+                <%= f.telephone_field :home_phone, 'placeholder' => "Domicile*", "required"=> '', "data-parsley-type" => "digits", "data-parsley-length" => "[10, 10]"%>
               </div>
               <div class="col-sm-6 input_wrapper">
-                <%= f.telephone_field :private_phone, 'data-parsley-group' => "step1", 'placeholder' => "Mobile", "data-parsley-type" => "digits", "data-parsley-length" => "[10, 10]"%>
+                <%= f.telephone_field :private_phone, 'placeholder' => "Mobile", "data-parsley-type" => "digits", "data-parsley-length" => "[10, 10]"%>
               </div>
               <div class="col-sm-12 input_wrapper">
-                <%= f.email_field :email, 'data-parsley-group' => "step1", 'placeholder' => "Email*", "required"=> ''%>
+                <%= f.email_field :email, 'placeholder' => "Email*", "required"=> ''%>
               </div>
               <div class="col-sm-6 input_wrapper">
-                <%= f.date_field :birth, 'data-parsley-group' => "step1", 'placeholder' => "Date de naissance*", "required"=> ''%>
+                <%= f.date_field :birth, 'placeholder' => "Date de naissance*", "required"=> ''%>
               </div>
               <div class="col-sm-6 input_wrapper">
-                <%= f.text_field :birth_place, 'data-parsley-group' => "step1", 'placeholder' => "Lieu de naissance*", "required"=> ''%>
+                <%= f.text_field :birth_place, 'placeholder' => "Lieu de naissance*", "required"=> ''%>
               </div>
               <div class="col-sm-12 input_wrapper">
-                <%= f.text_field :nationality, 'data-parsley-group' => "step1", 'placeholder' => "Nationalité*", "required"=> ''%>
+                <%= f.text_field :nationality, 'placeholder' => "Nationalité*", "required"=> ''%>
               </div>
               <div class="col-sm-12 input_wrapper">
-                <%= f.text_field :assurance, 'data-parsley-group' => "step1", 'placeholder' => "N° de sécurité sociale*", "required"=> '', "data-parsley-type" => "digits", "data-parsley-length" => "[15, 15]"%>
+                <%= f.text_field :assurance, 'placeholder' => "N° de sécurité sociale*", "required"=> '', "data-parsley-type" => "digits", "data-parsley-length" => "[15, 15]"%>
               </div>
               <span class="col-sm-12 input_wrapper">Situation de famille*</span>
               <div class="col-sm-12 input_wrapper">
                 <p>
                   <%= f.label "Célibataire", 'for' => "celibataire", :class =>'radio_left'%>
-                  <%= f.radio_button :status,"true" ,{:class =>'radio_center-left' , 'data-parsley-group' => "step1", "required"=> '', "data-parsley-errors-messages-disabled" => ""}%>
+                  <%= f.radio_button :status,"true" ,{:class =>'radio_center-left' , "required"=> '', "data-parsley-errors-messages-disabled" => ""}%>
 
                   <%= f.label "Marié", 'for' => "marie", :class =>'radio_center-right'%>
-                  <%= f.radio_button :status, "false", {:class =>'radio_right' , 'data-parsley-group' => "step1", "required"=> '', "data-parsley-errors-messages-disabled" => ""}%>
+                  <%= f.radio_button :status, "false", {:class =>'radio_right' , "required"=> '', "data-parsley-errors-messages-disabled" => ""}%>
                 </p>
               </div>
             </div>
@@ -100,10 +102,10 @@
               <div class="col-sm-12 input_wrapper">
                 <p>
                   <%= f.label "Oui", 'for' => "entourage_true", :class =>'radio_left'%>
-                  <%= f.radio_button :has_connection, 'true', {:class =>'radio_center-left' , 'data-parsley-group' => "step1", "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "yes", :id => "entourage_true"}%>
+                  <%= f.radio_button :has_connection, 'true', {:class =>'radio_center-left' , "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "yes", :id => "entourage_true"}%>
 
                   <%= f.label "Non", 'for' => "entourage_false", :class =>'radio_center-right'%>
-                  <%= f.radio_button :has_connection, 'false', {:class =>'radio_right' , 'data-parsley-group' => "step1", "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "no", :id => "entourage_false"}%>
+                  <%= f.radio_button :has_connection, 'false', {:class =>'radio_right' , "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "no", :id => "entourage_false"}%>
                 </p>
               </div>
               <div class="col-sm-12 input_wrapper entourage_wrapper">
@@ -111,139 +113,24 @@
               </div>
               <p class="col-sm-12">Comment avez-vous été informé de l'existence de cette formation? *</p>
               <div class="col-sm-12 input_wrapper">
-                <%= f.text_area :know_formation, 'data-parsley-group' => "step1", :class => "big", 'required' => ''%>
+                <%= f.text_area :know_formation, :class => "big", 'required' => ''%>
               </div>
               <p class="col-sm-12 input_wrapper">AUTRE CANDIDATURES (Universités, écoles, autres établissements) :Indiquer les autres candidatures que vous présentez pour l’année universitaire, par ordre de préférence (en y incluant votre demande concernant la Licence professionnelle Développeur Web et Web Mobile) </p>
               <ul class="col-sm-12 input_wrapper schools_list">
                 <div class="row">
-                  <% @i = 0 %>
+                    <%= f.add_nested_fields_link :other_application, 'Ajouter une autre école' %>
                     <%= f.nested_fields_for :other_application, wrapper_tag: :div do |ff| %>
-                      <% @i = @i +1 %>
-                      <li class="col-sm-6 school_item"><%= ff.label @i.to_s %>
-                        <%= ff.text_field :content, 'data-parsley-group' => "step1", "required"=> ''%>
+                      <li class="col-sm-6 school_item">
+                        <%= ff.text_field :content, "required"=> ''%>
                         <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
                       </li>
                     <%end%>
-                    <%= f.add_nested_fields_link :other_application, 'Ajouter une autre école' %>
                 </div>
               </ul>
             </div>
           </div>
         </fieldset>
-        <a class="next" data-current="1" data-next="2" href="">étape suivante</a>
-        <%= f.submit "Sauvegarder pour reprendre plus tard", :class => 'button submit gotoend save_entry' %>
-      <% end %>
-    </div>
-    <div class="step step2">
-      <%= form_for @applicant, method: :patch, url: create_apply_path, :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
-        <fieldset class="row centered">
-          <div class="cursus_list col-md-12">
-            <ul class="row">
-              <li class="col-md-2">Dîplome</li>
-              <li class="col-md-2">Année</li>
-              <li class="col-md-3">Spécialité</li>
-              <li class="col-md-2">Mention</li>
-              <li class="col-md-3">Lieu</li>
-            </ul>
-            <%= f.fields_for :cursus, @applicant.cursus.new do |ff| %>
-              <ul class="row">
-                <li class="col-md-2"><%= ff.text_field :graduation, 'data-parsley-group' => "step2", "required"=> ''%></li>
-                <li class="col-md-2"><%= ff.text_field :year, 'data-parsley-group' => "step2", "required"=> ''%></li>
-                <li class="col-md-3"><%= ff.text_field :option, 'data-parsley-group' => "step2", "required"=> ''%></li>
-                <li class="col-md-2"><%= ff.text_field :result, 'data-parsley-group' => "step2", "required"=> ''%></li>
-                <li class="col-md-3"><%= ff.text_field :place, 'data-parsley-group' => "step2", "required"=> ''%></li>
-              </ul>
-            <% end %>
-            </ul>
-          </div>
-          <div class="col-sm-6">
-            <span class="col-sm-12 input_wrapper">Niveau d'anglais</span>
-            <p>
-              <%= f.label "Notions"%>
-              <%= f.radio_button :english_skill, '1', { 'data-parsley-group' => "step2", "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "1"}%>
-              <%= f.label "bien"%>
-              <%= f.radio_button :english_skill, '2', { 'data-parsley-group' => "step2", "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "2"}%>
-              <%= f.label "courant"%>
-              <%= f.radio_button :english_skill, '3', { 'data-parsley-group' => "step2", "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "3"}%>
-            </p>
-            <%= f.text_area :other_language, 'data-parsley-group' => "step2", :class => "col-sm-12 input_wrapper", 'placeholder' => 'Autres langues'%>
-          </div>
-          <div class="col-sm-6">
-            <span class="col-sm-12 input_wrapper">Activités extra-scolaires</span>
-            <ul>
-              <li><%= f.text_area :after_school, 'data-parsley-group' => "step2", :class => "input_wrapper", 'placeholder' => 'Activités'%></li>
-            </ul>
-          </div>
-        </fieldset>
-        <a class="next" data-current="2" data-next="3" href="#">étape suivante</a>
-        <%= f.submit "Sauvegarder pour reprendre plus tard", :class => 'button submit gotoend save_entry' %>
-      <% end %>
-    </div>
-    <div class="step step3">
-      <%= form_for @applicant, method: :patch, url: create_apply_path, :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
-        <fieldset class="centered">
-          <div class="experience_list">
-            <ul class="row">
-              <li class="col-md-1">Date</li>
-              <li class="col-md-2">Entreprise</li>
-              <li class="col-md-5">Mission</li>
-              <li class="col-md-4">Compétences mises en oeuvre</li>
-            </ul>
-            <%= f.fields_for :professional_experiences, @applicant.professional_experiences.new do |ff| %>
-              <ul class="row">
-                <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step3" %></li>
-                <li class="col-md-2"><%= ff.text_field :company, 'data-parsley-group' => "step3" %></li>
-                <li class="col-md-5"><%= ff.text_field :role, 'data-parsley-group' => "step3" %></li>
-                <li class="col-md-4"><%= ff.text_field :skill, 'data-parsley-group' => "step3" %></li>
-              </ul>
-            <% end %>
-          </div>
-        </fieldset>
-        <a class="next" data-current="3" data-next="4" href="#">étape suivante</a>
-        <%= f.submit "Sauvegarder pour reprendre plus tard", :class => 'button submit gotoend save_entry' %>
-      <% end %>
-    </div>
-    <div class="step step4">
-      <%= form_for @applicant, method: :patch, url: create_apply_path, :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'edit_applicant'} do |f| %>
-        <fieldset class="centered">
-          <div class="row">
-            <span class="col-sm-12">Projets scolaires</span>
-          </div>
-          <br>
-          <div class="projects_list">
-            <ul class="row">
-              <li class="col-md-1">Année</li>
-              <li class="col-md-2">Formation</li>
-              <li class="col-md-9">Description</li>
-            </ul>
-            <%= f.fields_for :project_applicants, @applicant.project_applicants.new do |ff| %>
-              <ul class="row">
-                <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step5" %></li>
-                <li class="col-md-2"><%= ff.text_field :project_type, 'data-parsley-group' => "step5", :value => 'scolaire'%></li>
-                <li class="col-md-5"><%= ff.text_field :content, 'data-parsley-group' => "step5" %></li>
-              </ul>
-            <% end %>
-          </div>
-          <br>
-          <div class="row">
-            <span class="col-sm-12">Projets personnels</span>
-          </div>
-          <br>
-          <div class="projects_list">
-            <ul class="row">
-              <li class="col-md-1">Année</li>
-              <li class="col-md-11">Description</li>
-            </ul>
-            <%= f.fields_for :project_applicants, @applicant.project_applicants.new do |ff| %>
-              <ul class="row">
-                <li class="col-md-1"><%= ff.text_field :year, 'data-parsley-group' => "step5" %></li>
-                <li class="col-md-2"><%= ff.text_field :project_type, 'data-parsley-group' => "step5", :value => 'personnel' %></li>
-                <li class="col-md-5"><%= ff.text_field :content, 'data-parsley-group' => "step5" %></li>
-              </ul>
-            <% end %>
-          </div>
-        </fieldset>
-        <%= f.submit "Valider Définitivement", :class => 'button submit gotoend save_entry' %>
+        <%= f.submit "Sauvegarder et continuer", :class => 'next button submit gotoend save_entry', 'data-current' => '1', 'data-next' => '2' %>
       <% end %>
     </div>
   </div>

@@ -78,7 +78,7 @@
 
         p {
             margin-top: 20px;
-            
+
             img {
                 display: none;
             }
@@ -290,17 +290,22 @@
              overflow: hidden;
         }
     }
+
+    .image_wrapper {
+        height: 234px;
+        overflow: hidden;
+    }
+
     img {
         margin: 0 auto;
-        height: 234px;
-        width: auto;
         text-align: center;
         position: relative;
         left: 50%;
-        -webkit-transform: translateX(-50%);
-           -moz-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-                transform: translateX(-50%);
+        top: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+           -moz-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
     }
 >>>>>>> dev
     h4 {
@@ -332,7 +337,7 @@
 }
 
 @media (max-width: $screen-sm-max) {
-    
+
     .home-faclab {
 
         article {

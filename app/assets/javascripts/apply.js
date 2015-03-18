@@ -1,5 +1,5 @@
-$(".form_wrapper").hide();
-$(".get_progression_form").hide();
+$(".first_apply .form_wrapper").hide();
+$(".first_apply .get_progression_form").hide();
 
 $("#fill_form").on("click", function (e) {
 	e.preventDefault();
@@ -23,18 +23,24 @@ $("#get_progression").on("click",function(e){
 
 });
 
+if ($(".modify_apply").length > 0) {
+	var step_position = $(".modify_apply").find(".step_position").data("step-position");
+	$(".step"+step_position).show();
+	$(".apply_step.active").removeClass("active");
+	$(".apply_step.step_"+step_position).addClass("active");
+};
+
 $("input[name='applicant[has_connection]']").on("click", function() {
 	if($("#entourage_true").is(':checked')) {
 		$(".entourage_wrapper").show();
-		$("textarea[name='precision_entourage']").attr("required","required").attr("data-parsley-group","step1");
+		$("textarea[name='precision_entourage']").attr("required","required");
 	} else {
 		$(".entourage_wrapper").hide();
-		$("textarea[name='precision_entourage']").removeAttr('required').removeAttr("data-parsley-group");
+		$("textarea[name='precision_entourage']").removeAttr('required');
 	}
 });
 
-$('.next').on('click', function (e) {
-	e.preventDefault();
+$('.next').on('click', function () {
 	var current = $(this).data('current');
 	var next = $(this).data('next');
 
@@ -42,27 +48,15 @@ $('.next').on('click', function (e) {
 	// .parsley().validate() returns validation result AND show errors
 
 	if (next > current) {
-        if ($('#new_applicant').length === 0){
-            if (false === $('#edit_applicant').parsley().validate('step' + current)) {
+            if (false === $('#apply-step' + current).parsley().validate()) {
                 return;
             }
-        }else
-        {
-            if (false === $('#new_applicant').parsley().validate('step' + current)) {
-                return;
-            }
-        }
 
 	}
-	// validation was ok. We can go on next step.
-	$(".apply_step.active").removeClass("active").addClass("clickable");
-	$(".apply_step.step_"+next).addClass("active").css("cursor","pointer").addClass("clickable");
-	$('.step' + current).hide();
-	$('.step' + next).show();
 });
 
 
-$(".apply_steps").on("click", ".clickable", function () {
+$(".apply_step").on("click", function () {
 	var next = $(this).data("step");
 	var current = $(".apply_step.active").data("step");
 	$(".apply_step.active").removeClass("active");

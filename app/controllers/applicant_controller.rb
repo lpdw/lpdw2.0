@@ -31,13 +31,16 @@ class ApplicantController < ApplicationController
   end
   def create_apply
     @applicant = Applicant.new(params[:applicant].permit(
-                                   :deposit_date, :name, :first_name, :zip_code, :city, :home_phone, :private_phone, :email,
+                                   :english_skill, :after_school, :other_language,:name, :first_name, :zip_code,
+                                   :city, :home_phone, :private_phone, :email, :step_position,
                                    :birth, :birth_place, :nationality, :assurance, :address, :status, :has_connection,
                                    :connection_desc, :know_formation, :english_skill, :other_language, :after_school,
-                                   :ip_address, :created_at, :updated_at,
-                                   other_application_attributes: [:content],
-                                   applicant_status_attributes: [:id, :is_finish, :is_complete, :ok_for_interview,
-                                                                 :interview_result, :is_refused]
+                                   :ip_address, :updated_at,
+                                   applicant_status_attributes: [:id, :is_finish, :is_complete, :ok_for_interview, :interview_result, :is_refused],
+                                   cursus_attributes: [ :id, :graduation, :year, :option, :result, :place, :_destroy],
+                                   professional_experiences_attributes: [ :id, :year, :company, :role, :skill, :_destroy],
+                                   project_applicants_attributes: [ :id, :year, :project_type, :content, :_destroy],
+                                   applicant_attachments_attributes: [:id, :name, :file, :_destroy]
                                ))
     if @applicant.save
       flash["success"] = "Dossier sauvegardé"
@@ -49,12 +52,25 @@ class ApplicantController < ApplicationController
   end
   def update_apply
     @applicant = Applicant.find_by_assurance(params[:assurance].to_s)
-    @applicant.update(params[:applicant].permit(applicant_statuses: [:id, :is_finish, :is_complete, :ok_for_interview, :interview_result, :is_refused]))
-    @applicant.update(params[:applicant].permit(:english_skill, :after_school, :other_language))
-    @applicant.update(params[:applicant].permit(cursus_attributes: [ :id, :graduation, :year, :option, :result, :place]))
-    @applicant.update(params[:applicant].permit(professional_experiences_attributes: [ :id, :year, :company, :role, :skill]))
-    @applicant.update(params[:applicant].permit(project_applicants: [ :id, :year, :project_type, :content]))
-
+    if params[:applicant] === nil
+      flash["error"] = "Erreur d'enregistrement"
+      redirect_to '/postuler'
+    end
+    @applicant.update(params[:applicant].permit(:english_skill, :after_school, :other_language,:name, :first_name, :zip_code,
+                                                :city, :home_phone, :private_phone, :email, :step_position,
+                                                :birth, :birth_place, :nationality, :assurance, :address, :status, :has_connection,
+                                                :connection_desc, :know_formation, :english_skill, :other_language, :after_school,
+                                                :ip_address, :updated_at,
+                          applicant_statuses: [:id, :is_finish, :is_complete, :ok_for_interview, :interview_result, :is_refused],
+                          cursus_attributes: [ :id, :graduation, :year, :option, :result, :place, :_destroy],
+                          professional_experiences_attributes: [ :id, :year, :company, :role, :skill, :_destroy],
+                          project_applicants_attributes: [ :id, :year, :project_type, :content, :_destroy],
+                          applicant_attachment_attributes: [:id, :name, :file, :_destroy]
+                      ))
+    #check if applicant send is apply definatly
+    if params[:commit] === 'Valider Définitivement'
+      @applicant.applicant_status.update_attributes(is_finish: 1, is_complete: 1)
+    end
     if @applicant.save
       flash["success"] = "Dossier sauvegardé"
       redirect_to '/postuler/'+ @applicant.assurance.to_s

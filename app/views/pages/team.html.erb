@@ -10,19 +10,24 @@
             	<article class="col-sm-4 col-md-3">
             	    <div class="team-profile">
             	        <figure>
-            	        	<img src=<%= intervenant.photo%> alt=."Faclab gennevilliers" class="img-responsive">
+            	        	<img src="<%= intervenant.photo %>" alt=."Faclab gennevilliers" class="img-responsive">
             	        </figure>
             	        <h4 class="text-center"><%= intervenant.name%> <%= intervenant.lastname%></h4>
             	        <p class="text-center job-title"><%= intervenant.description%></p>
-                        <ul class="social_section text-center">
-                            <li><a href=<%= intervenant.twitter%>><i class="fa fa-twitter"></i></a></li>
-                            <li><a href=<%= intervenant.linkin%>><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+                        <% if intervenant.twitter.present? or intervenant.linkin.present? %>
+                            <ul class="social_section text-center">
+                                <% if intervenant.twitter.present? %>
+                                    <li><a target="_blank" href=<%= intervenant.twitter%>><i class="fa fa-twitter"></i></a></li>
+                                <% end %>
+                                <% if intervenant.linkin.present? %>
+                                    <li><a target="_blank" href=<%= intervenant.linkin%>><i class="fa fa-linkedin"></i></a></li>
+                                <% end %>
+                            </ul>
+                        <% end %>
             	    </div>
             	</article>
             <% end %>
-
-            <!-- 
+<!--
             <article class="col-sm-4 col-md-3">
                 <div class="team-profile">
                     <figure>
@@ -61,7 +66,8 @@
                         <li><a href="http://fr.linkedin.com/pub/olivier-le-cam/8/125/b43"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div>
-            </article> -->
+            </article>
+            -->
         </div>
     </div>
 </div>
