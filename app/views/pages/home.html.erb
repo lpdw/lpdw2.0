@@ -26,7 +26,6 @@
                             </div>
                         </article>
                         <% end %>
-
                     </div>
                     <%= link_to 'Voir tous les articles', actualites_path() , html_options = {"class" =>"more-article"}%>
                 </section>
@@ -45,7 +44,7 @@
                     <h1 class="text-center">Le faclab: Apprendre, créer, partager</h1>
                     <div class="row">
                         <article class="col-md-12">
-                            <img src="/assets/img_4974_0.jpg" alt=."Faclab gennevilliers" class="img-circle">
+                            <img src="/assets/img_4974_0.jpg" alt="Faclab gennevilliers" class="img-circle">
                             <p>Lieu ouvert à tous au sein de l’Université de Cergy-Pontoise, sur le site de Gennevilliers, le FacLab met à votre disposition les machines, l’infrastructure, le soutien nécessaire à la réalisation de votre projet, que ce soit l’accès au « Do It Yourself », s’approprier les nouvelles technologies, ou bien s’inscrire dans une démarche d’apprentissage et de partage.</p>
                             <a class="button faclab" href="http://www.faclab.org/" target="_blank"><span>Voir le site</span> <i class="fa fa-chevron-right"></i></a>
                         </article>
@@ -63,9 +62,11 @@
 
                         <!-- Projets étudiants -->
                         <% @projects.each_with_index do |project, i| %>
-                        <article class="col-md-3">
+                        <article class="col-md-3 article-creation_wrapper">
                             <div class="article-creation">
-                                <img src="<%= project.photo %>" alt="Faclab gennevilliers">
+                                <div class="image_wrapper">
+                                    <img src="<%= project.thumbmail.url %>" alt="Faclab gennevilliers">
+                                </div>
                                 <h4 class="text-center"><%= project.name %></h4>
                             </div>
                         </article>

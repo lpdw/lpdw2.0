@@ -1,0 +1,71 @@
+.applicant {
+  margin-bottom:100px;
+  .badge-alert {
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	color: #a94442;
+  }
+  form {
+	display:inline;
+	max-width:250px;
+	.btn {
+	  display:inline;
+	  margin:10px;
+	}
+  }
+  .admin_option {
+	background:white;
+	padding-bottom: 25px;
+  }
+  .badge {
+	padding:10px;
+  }
+  .badge-success {
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	color: #3c763d;
+  }
+  span {
+	padding:5px;
+  }
+  .applicant-label {
+	font-weight: bold;
+	color:$color-red;
+  }
+
+  .attachments a {
+	display:inline-block;
+	margin:10px;
+	background:white;
+	height:250px;
+	width:250px;
+	overflow: hidden;
+	position:relative;
+	p {
+	  bottom:0px;
+	  width:100%;
+	  line-height:20px;
+	  background:$color-1;
+	  color:white;
+	  position:absolute;
+	  margin:0%;
+	  padding:10px 0px;
+	  opacity:1;
+	  z-index:300;
+	  text-align:center;
+	}
+	img {
+	  position:relative;
+	  z-index:200;
+	  display:block;
+	  height:auto;
+	  width:250px;
+	  opacity:0.5;
+	}
+	&:hover {
+	  img {
+		opacity:1;
+	  }
+	}
+  }
+}

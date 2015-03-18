@@ -76,4 +76,28 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.assets.precompile << "tinymce-jquery.js"
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.perform_deliveries = true
+  # SMTP settings for gmail
+  # config.action_mailer.smtp_settings = {
+  #   :address              => "smtp.gmail.com",
+  #   :port                 => 587,
+  #   :domain               => 'localhost:3000',
+  #   :user_name            => "lpdw2.0@gmail.com",
+  #   :password             => "azerty92",
+  #   :authentication       => "plain",
+  #   :enable_starttls_auto => true,
+  #   :ssl => true
+  # }
+  # SMTP settings for mandrill
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.mandrillapp.com",
+    :port                 => 587,
+    :domain               => 'lpdw.u-cergy.fr',
+    :user_name            => "lpdw2.0@gmail.com",
+    :password             => "Ai3uyjuFNEuLgA3ckNI4Yw"
+  }
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
 end

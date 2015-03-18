@@ -1,4 +1,4 @@
-<h1>Bonjour, <%= current_user.email %> voici un résumé des stats du site actuel :</h1>
+<h1>Bonjour <%= current_user.name %>, voici un résumé des stats du site actuel :</h1>
 </br>
 <table class="table">
     <tbody>
@@ -39,12 +39,12 @@
     </thead>
     <tbody>
     <% @count = 0
-    @applicants.each do |applicant| %>
+    @lasts.each do |last| %>
     <tr>
-        <td data-th="Name" ><%= applicant.name %></td>
-        <td data-th="First_name" ><%= applicant.first_name %></td>
+        <td data-th="Name" ><%= last.name %></td>
+        <td data-th="First_name" ><%= last.first_name %></td>
         <td data-th="Date_depot" >
-        <%= applicant.updated_at.to_time.strftime("%m/%d/%Y") %></td>
+        <%= last.updated_at.to_time.strftime("%m/%d/%Y") %></td>
         <td data-th="Vote" >
             <%
             @positif = 0
@@ -52,7 +52,7 @@
             @negatif = 0
             @your_vote = -1
 
-            applicant.votes.each do |vote|
+            last.votes.each do |vote|
             if vote.id_voter == @user.id
                 @your_vote = vote.value
             end
@@ -81,14 +81,14 @@
             <%  end %>
         </td>
         <td data-th="See">
-            <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
+            <%= link_to(admin_show_applicant_path(last), :class=>'badge badge-blue') do %>
             <i class="fa fa-eye"></i> voir
             <% end %>
 
         </td>
         <td class="important-section-list" data-th="Status">
-            <% if applicant.applicant_status != nil %>
-            <% @status = applicant.applicant_status %>
+            <% if last.applicant_status != nil %>
+            <% @status = last.applicant_status %>
             <%= status_applicant(@status) %>
             <% else %>
             <span class="alert alert-error">Erreur dans la base de donnée : le dossier n'a pas de status lié</span>

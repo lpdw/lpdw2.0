@@ -4,11 +4,13 @@
     padding:0px;
     width:100%;
     line-height:55px;
-
+    color:white;
     text-align: center;
     display:block;
     position:relative;
     z-index:300;
+    font-size:19px;
+    border-radius: 0px !important;
     & a{
         font-size:19px;
         color:white;
