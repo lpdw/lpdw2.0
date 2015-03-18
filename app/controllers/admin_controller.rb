@@ -424,7 +424,8 @@ admin_restriction_area
       begin
         Emailer.send_mail_interview(applicant.email,datetime).deliver
       rescue Exception => e
-        flash["error"] = "Pas cool !!"
+        flash["error"] = "Une erreur s'est produite le mail n'est pas envoyé"
+        redirect_to admin_show_interview_path()
       end
       flash[:info] = "L'entretien a été sauvegardé un mail va être envoyé"
     else
