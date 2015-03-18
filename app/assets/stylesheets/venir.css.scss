@@ -1,0 +1,38 @@
+.map {
+    position: relative;
+    height: 350px;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+    color: white;
+    background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
+    background-size: cover;
+    &:before {
+        content: "";
+        background-color: $color-3;
+        opacity: 0.7;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    div {
+    	 vertical-align:middle;
+
+    }
+    div p {
+        white-space: pre;
+        font-size: 2em;
+        position: relative;
+        z-index: 2;
+
+        small {
+            font-size: 0.5em;
+        }
+    }
+}
+.white-back{
+	background:white;
+}
