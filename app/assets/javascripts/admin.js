@@ -1,12 +1,25 @@
 $(document).ready(function() {
-    $(".option_admin_applicants div").hide(0);
+    $(".option_admin_applicants div").hide();
 
     $(".option_admin_applicants .option_admin_setting").on("click", function() {
         var parent = $(this).parent();
-        $(".option_admin_applicants div").hide(200);
-        if (parent.find('div').is(":hidden")) {
-            parent.find('div').show(100);
+        var self = this;
+        $(".option_admin_applicants").each(function(){
+
+            $(this).find(".option_admin_setting").not(self).removeClass("opened");
+        });
+
+        $(".option_admin_applicants .block_opened").hide();
+
+        if(!$(this).hasClass("opened")) {
+            $(this).addClass("opened");
+            parent.find('.block_opened').show();
+        } else {
+            $(this).removeClass("opened");
+            parent.find('.block_opened').hide();
         }
+
+
     });
 
     var opened = false;
