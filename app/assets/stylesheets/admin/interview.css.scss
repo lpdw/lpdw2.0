@@ -12,6 +12,10 @@
         text-transform: capitalize;
     }
 }
+.today {
+    color: $color-7 !important;
+    font-weight: bold !important;
+}
 .has-events {
     cursor: pointer;
     position: relative;
@@ -55,7 +59,7 @@
 .table-interview {
     background: $color-3;
     box-shadow: -4px 0px 10px rgba(14, 14, 14, 0.48) inset;
-    margin-top:50px;
+    margin-top: 50px;
 }
 .table-interview-th {
     color: $color-4;
@@ -64,24 +68,23 @@
     text-align: left;
     border-bottom: 1px solid $color-2 !important;
 }
-
-/*
 .table-interview-td {
-                                color: #fff;
-                                font-weight: 400;
-                                padding: 0.65em 1em;
-                                border-top: none !important;
+    color: #fff;
+    font-weight: 400;
+    padding: 0.65em 1em;
+    border-top: none !important;
 }
-
-.disabled .table-interview-td {
-                                color: $color-1;
+.table-interview-td-date {
+    font-weight: 400;
+    padding: 0.65em 1em;
+    border-top: none !important;
 }
-.table-interview-tr {
-                                transition: background 0.25s ease;
+.form-create-interview {
+    display: inline-flex;
 }
-.table-interview-tr:hover {
-                                background: $color-2;
-} */
+.date-interview {
+    border-radius: 0;
+}
 @media (max-width:$screen-xs-max) {
     .table-interview {
         width: 90%;
@@ -110,6 +113,12 @@
             width: 4.5em;
             display: inline-block;
         }
+    }
+    .interview_popup {
+        width: 300px !important;
+        margin: 0 auto !important;
+        top: 0 !important;
+        left: 0 !important;
     }
 }
 .interview_popup {
@@ -149,6 +158,16 @@
     .info-interview {
         display: block;
         color: #FFF;
+
+        a {
+            text-decoration: none;
+            color: #FFF;
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+                color: $color-2;
+            }
+        }
     }
     .btn-close {
         width: 32px;
