@@ -54,11 +54,11 @@
     margin-left: 2.5em;
 
     &:hover {
-           *.timeline-new-icon {
-                @include rotate(-45deg);
-                background-color: $color-2;
-            }
+        *.timeline-new-icon {
+            @include rotate(-45deg);
+            background-color: $color-2;
         }
+    }
 
     .timeline-new-icon {
         display: block;

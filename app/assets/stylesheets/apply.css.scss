@@ -58,6 +58,10 @@
 	.form_wrapper {
 		margin-top: 100px;
 	}
+
+	.button.submit {
+		border: none;
+	}
 }
 
 .form_wrapper {
@@ -135,6 +139,28 @@
 			ul {
 				padding: 0;
 			}
+		}
+
+		.file-to-join {
+			font-weight: bold;
+			margin-top: 10px;
+		}
+
+		.add_nested_fields_link {
+			padding: 5px;
+			background: #fff;
+			padding-left: 10px;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+			&:before {
+				content: '+';
+				padding-right: 5px;
+			}
+
 		}
 
 	}

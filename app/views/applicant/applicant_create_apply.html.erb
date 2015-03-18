@@ -4,7 +4,7 @@
     </div>
 </section>
 <% if @applicant.applicant_status.is_finish %>
-     <div class="alert alert-orange"><%= flash[:error] = 'Votre dossier est en cours de validation pars l\'équipe pédagogique' %></div>
+     <div class="alert alert-orange"><%= flash[:error] = 'Votre dossier est en cours de validation par l\'équipe pédagogique' %></div>
 <%else%>
 <div class="container modify_apply">
   <% if flash[:error] %>
@@ -22,7 +22,7 @@
       <li class="apply_step step_5 col-sm-3" data-step="5">05 - Documents</li>
     </ul>
     <div class="step step1">
-      <%= form_for (@applicant), url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-form'} do |f| %>
+      <%= form_for (@applicant), url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-step1'} do |f| %>
         <%= f.hidden_field(:step_position, value: 1) %>
         <fieldset class="row centered">
           <div class="col-sm-6">
@@ -114,7 +114,7 @@
       <% end %>
     </div>
     <div class="step step2">
-      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-form'} do |f| %>
+      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-step2'} do |f| %>
         <%= f.hidden_field(:step_position, value: 2) %>
         <fieldset class="row centered">
           <div class="cursus_list col-md-12">
@@ -161,7 +161,7 @@
       <% end %>
     </div>
     <div class="step step3">
-      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-form'} do |f| %>
+      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-step3'} do |f| %>
         <%= f.hidden_field(:step_position, value: 3) %>
         <fieldset class="centered">
         <div class="experience_list">
@@ -187,7 +187,7 @@
       <% end %>
     </div>
     <div class="step step4">
-      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-form'} do |f| %>
+      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-step4'} do |f| %>
         <%= f.hidden_field(:step_position, value: 4) %>
       <fieldset class="centered">
         <div class="row">
@@ -217,16 +217,19 @@
     </div>
     <div class="step step5">
 
-      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-form'} do |f| %>
+      <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-step5'} do |f| %>
+      <%= f.hidden_field(:step_position, value: 5) %>
         <fieldset class="centered">
           <div class="row">
             <span class="col-sm-12">Fichiers Joints</span>
+            <span class="col-sm-8 col-sm-offset-2 file-to-join">Veuillez joindre les fichiers suivants : CV, lettre de motivation, photo d'identité, photocopies du bac, photocopies des relevés de notes de votre formation bac+2, photocopies de chaque diplôme obtenu après le baccalauréat.</span>
+            <span class="col-sm-8 col-sm-offset-2 file-to-join">Tout dossier incomplet ne sera pas traité.</span>
           </div>
           <br>
           <div class="">
             <%= f.nested_fields_for :applicant_attachment, wrapper_tag: :div do |ff| %>
               <ul class="row">
-                <li class="col-md-5"><%= ff.text_field :name, :placeholder => "Nom de votre pièce jointe (CV / lettre de motivation / etc ... )" %></li>
+                <li class="col-md-5"><%= ff.text_field :name, :placeholder => "Nom de votre pièce jointe (CV / lettre de motivation / etc ... )", 'required' => '' %></li>
                 <li class="col-md-2"><%= ff.file_field :file, :placeholder=>"Pièce jointe" %></li>
                 <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
               </ul>

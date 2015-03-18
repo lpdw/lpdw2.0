@@ -1,3 +1,4 @@
+
 @import "fonts";
 @import "font-awesome";
 @import "bootstrap-sprockets";
@@ -10,15 +11,15 @@ $color-4: #cacaca; /* opacité réduite */
 $color-5: #f0f0f0;  /* opacité réduite */
 
 html, body {
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #ffb7b7; /* WebKit/Blink Browsers */
+    background: #ffb7b7; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: #ffb7b7; /* Gecko Browsers */
+    background: #ffb7b7; /* Gecko Browsers */
 }
 
 body {
