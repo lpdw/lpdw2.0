@@ -180,7 +180,7 @@ admin_restriction_area
 
   def user_destroy
     @applicant = Applicant.find_by(id: params[:applicant_status][:id_applicant])
-    if @applicant.destroy
+    if @applicant.delete
             redirect_to admin_show_applicants_path
     end
   end
