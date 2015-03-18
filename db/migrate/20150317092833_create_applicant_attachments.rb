@@ -5,6 +5,6 @@ class CreateApplicantAttachments < ActiveRecord::Migration
       t.attachment :file
       t.integer :id_applicant
     end
-    add_foreign_key :applicant_attachments, :applicants, :column => 'id_applicant'
+    add_foreign_key :applicant_attachments, :applicants, :column => 'id_applicant', dependent: :delete
   end
 end

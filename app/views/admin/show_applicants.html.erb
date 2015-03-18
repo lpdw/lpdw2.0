@@ -62,8 +62,8 @@
                 <% end %>
                 <% if current_user.role === "admin" %>
                     <div class="option_admin_applicants">
-                        <buton class="option_admin_setting badge badge-blue"><i class="fa fa-cog"></i></buton>
-                        <div>
+                        <button class="option_admin_setting badge badge-blue"><i class="fa fa-cog"></i></button>
+                        <div class="block_opened">
                             <% if applicant.applicant_status != nil %>
                             <% @status = applicant.applicant_status %>
                                 <% if @status.is_refused != true %>

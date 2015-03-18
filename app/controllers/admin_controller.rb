@@ -129,6 +129,19 @@ admin_restriction_area
   def applicant_complete
     @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
     @status.is_complete = params[:applicant_status][:set]
+
+    if @status.save
+      redirect_to admin_show_applicants_path
+    end
+  end
+
+  def applicant_finish
+    @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
+    @status.is_finish = params[:applicant_status][:set]
+    if params[:applicant_status][:set].to_i == 0
+      @status.is_complete = 0
+    end
+
     if @status.save
       redirect_to admin_show_applicants_path
     end
@@ -149,6 +162,30 @@ admin_restriction_area
       redirect_to admin_show_applicants_path
     end
   end
+
+  def is_accepted
+    @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
+    @status.applicant_response = params[:applicant_status][:set]
+    if @status.save
+      redirect_to admin_show_applicants_path
+    end
+  end
+
+  def interview_result
+    @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
+    @status.interview_result = params[:applicant_status][:set]
+    if @status.save
+        redirect_to admin_show_applicants_path
+    end
+  end
+
+  def user_destroy
+    @applicant = Applicant.find_by(id: params[:applicant_status][:id_applicant])
+    if @applicant.delete
+            redirect_to admin_show_applicants_path
+    end
+  end
+
   # Votes
   def user_vote
     @vote = Vote.new(params[:vote].permit(:id_applicant, :id_voter, :value))
