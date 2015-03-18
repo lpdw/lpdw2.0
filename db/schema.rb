@@ -97,16 +97,6 @@ ActiveRecord::Schema.define(version: 20150318155725) do
 
   add_index "cursus", ["id_applicant"], name: "cursus_id_applicant_fk", using: :btree
 
-  create_table "images", force: true do |t|
-    t.string   "alt"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "options", force: true do |t|
     t.string "key"
     t.string "value"
@@ -145,7 +135,6 @@ ActiveRecord::Schema.define(version: 20150318155725) do
   add_index "project_applicants", ["id_applicant"], name: "project_applicants_id_applicant_fk", using: :btree
 
   create_table "projects", force: true do |t|
-    t.string   "photo"
     t.string   "name"
     t.text     "description"
     t.string   "link"
