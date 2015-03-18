@@ -1,0 +1,28 @@
+
+<table class="table table-setting">
+    <thead>
+        <tr>
+            <th>Options</th>
+            <th>Valeur</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @options.each do |option| %>
+        <tr>
+            <td data-th="Options"><%= on_name_option_for_key(option.key) %></td>
+            <td data-th="Valeur">
+            <%= form_tag({:action => 'update_options'}, {:method => :post,:class =>'form-inline form-create-interview'}) do |f| %>
+                    <%= hidden_field_tag :id , option.id %>
+                    <%= hidden_field_tag :key , option.key %>
+                    <%= hidden_field_tag :value , option.value %>
+                    <button class="btn-options-switch <%= on_option_value(option.value) == true ? "on" : "" %>" type="submit">
+                        <span class="track"></span>
+                        <span class="ball green"></span>
+                        <span class="ball red"></span>
+                    </button>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

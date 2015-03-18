@@ -46,7 +46,9 @@ Enjoy :)
             <li><%= link_to "L'ucp", ucp_path(), :"data-hover" => "L'ucp" %></li>
             <li><%= link_to "Live", live_path(), :"data-hover" => "Live" %></li>
             <li><%= link_to 'Plan & contact', informations_path(), :"data-hover" => "Plan & contact" %></li>
+            <% if on_show_route_apply %>
             <li class="right-navbar"><%= link_to 'Postuler', postuler_path(), :"data-hover" => "Postuler" %></li>
+            <% end %>
           </ul>
         </div>
       </div>

@@ -1,4 +1,5 @@
 class AdminController < ApplicationController
+  include AdminHelper
   #Before any action just authetificate user
   before_action :authenticate_user!, :is_admin
 
@@ -396,6 +397,25 @@ admin_restriction_area
     end
 
     redirect_to admin_show_interview_path()
+  end
+
+  def show_options
+    @title_admin = "Paramètre"
+    @options = Option.all
+  end
+  def update_options
+    option = Option.find(params[:id])
+    if on_option_value(params[:value])
+      value="false"
+    else
+      value="true"
+    end
+    if option.update(value: value)
+      flash[:info] = "Option mise à jour"
+    else
+      flash[:error] = "Une erreur s'est produite"
+    end
+    redirect_to admin_show_options_path()
   end
 
 end

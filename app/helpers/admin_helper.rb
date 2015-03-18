@@ -8,6 +8,28 @@ module AdminHelper
         end
     end
 
+    def on_name_option_for_key(key)
+        @on_name_setting_for_key = ""
+
+        case key
+        when "setting_route_apply"
+            @on_name_setting_for_key = "Candidatures ouvertes"
+        end
+
+    end
+
+    def on_option_value(value)
+        @on_option_value
+        case value
+        when "true"
+            @on_name_setting_for_key = true
+        when "false"
+            @on_name_setting_for_key = false
+        else
+            @on_name_setting_for_key = value
+        end
+    end
+
     def status_applicant(status)
         @status_applicant = ""
         if @status.is_refused == true
