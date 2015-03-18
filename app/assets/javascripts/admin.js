@@ -45,7 +45,8 @@ $(document).ready(function() {
         e.stopPropagation();
         var body = $("body");
         var interview = $(this).find('#interview');
-        var html_popup = '<div id="interview_popup" class="interview_popup" ><div class="head"><h1>Entretien avec:</h1><a id="close_interview_popup" class="btn-close" href="javascript:;"><i class="fa fa-close fa-2x"></i></a></div><div id="nice-scroll" class="nice-scroll">' + interview.html() + ' </div></div><div id="overlay" class="overlay"></div>';
+        var title_popup = $(this).find('#title-popup');
+        var html_popup = '<div id="interview_popup" class="interview_popup" ><div class="head"><h1>Entretien le '+ title_popup.html() +' avec:</h1><a id="close_interview_popup" class="btn-close" href="javascript:;"><i class="fa fa-close fa-2x"></i></a></div><div id="nice-scroll" class="nice-scroll">' + interview.html() + ' </div></div><div id="overlay" class="overlay"></div>';
         body.append(html_popup);
     });
     $(document).on('click', "#close_interview_popup,#overlay", function(e) {
