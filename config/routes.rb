@@ -25,6 +25,10 @@ root 'pages#home'
   post 'admin/show_applicants/applicant_complete', :to => 'admin#applicant_complete', :as => 'applicant_complete'
   post 'admin/show_applicants/ok_for_interview', :to => 'admin#ok_for_interview', :as => 'ok_for_interview'
   post 'admin/show_applicants/is_refused', :to => 'admin#is_refused', :as => 'is_refused'
+  post 'admin/show_applicants/is_accepted', :to => 'admin#is_accepted', :as => 'is_accepted'
+  post 'admin/show_applicants/applicant_finish', :to => 'admin#applicant_finish', :as => 'applicant_finish'
+  post 'admin/show_applicants/interview_result', :to => 'admin#interview_result', :as => 'interview_result'
+  post 'admin/show_applicants/user_destroy', :to => 'admin#user_destroy', :as => 'user_destroy'
 
   get 'admin' => 'admin#index'
   #Avoid sign_up by devise

@@ -21,3 +21,4 @@
 config/database.yml
 /.sass-cache
 /public/*
+/config/*
