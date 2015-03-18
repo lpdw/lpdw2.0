@@ -28,10 +28,6 @@
     </div>
     <ul class="apply_steps row">
       <li class="apply_step step_1 active" data-step="1">01 - Informations</li>
-      <!-- <li class="apply_step step_2" data-step="2">02 - Cursus</li>
-      <li class="apply_step step_3" data-step="3">03 - Expériences</li>
-      <li class="apply_step step_4" data-step="4">04 - Projets</li>
-      <li class="apply_step step_5" data-step="5">05 - Documents</li> -->
     </ul>
     <div class="step step1">
       <%= form_for (@applicant), url: create_apply_path, :html => {:class => 'hidden-xs apply-form', 'data-parsley-validate' => '', :id =>"apply-step1"} do |f| %>
