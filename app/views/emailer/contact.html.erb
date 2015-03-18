@@ -3,91 +3,86 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <style type="text/css" media="screen">
-body {
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic&subset=latin,cyrillic);
+    body {
     margin: 0;
     padding: 0;
     mso-line-height-rule: exactly;
     min-width: 100%;
-}
-
-.wrapper {
+    }
+    .wrapper {
     display: table;
     table-layout: fixed;
     width: 100%;
     min-width: 620px;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-}
-
-body, .wrapper {
+    }
+    body, .wrapper {
     background-color: #ffffff;
-}
-
-/* Basic */
-table {
+    }
+    /* Basic */
+    table {
     border-collapse: collapse;
     border-spacing: 0;
-}
-table.center {
+    }
+    table.center {
     margin: 0 auto;
     width: 602px;
-}
-td {
+    }
+    td {
     padding: 0;
     vertical-align: top;
-}
-
-.spacer,
-.border {
+    }
+    .spacer,
+    .border {
     font-size: 1px;
     line-height: 1px;
-}
-.spacer {
+    }
+    .spacer {
     width: 100%;
     line-height: 16px
-}
-.border {
+    }
+    .border {
     background-color: #e0e0e0;
     width: 1px;
-}
-
-.padded {
+    }
+    .padded {
     padding: 0 24px;
-}
-img {
+    }
+    img {
     border: 0;
     -ms-interpolation-mode: bicubic;
-}
-.image {
+    }
+    .image {
     font-size: 12px;
-}
-.image img {
+    }
+    .image img {
     display: block;
-}
-strong, .strong {
+    }
+    strong, .strong {
     font-weight: 700;
-}
-h1,
-h2,
-h3,
-p,
-ol,
-ul,
-li {
+    }
+    h1,
+    h2,
+    h3,
+    p,
+    ol,
+    ul,
+    li {
     margin-top: 0;
-}
-ol,
-ul,
-li {
+    }
+    ol,
+    ul,
+    li {
     padding-left: 0;
-}
-
-a {
+    }
+    a {
     text-decoration: none;
     color: #616161;
-}
-.btn {
+    }
+    .btn {
     background-color:#2196F3;
     border:1px solid #2196F3;
     border-radius:2px;
@@ -108,18 +103,15 @@ a {
     outline-offset: 0;
     -webkit-text-size-adjust:none;
     mso-hide:all;
-}
-
-/* Top panel */
-.title {
+    }
+    /* Top panel */
+    .title {
     text-align: left;
-}
-
-.subject {
+    }
+    .subject {
     text-align: right;
-}
-
-.title, .subject {
+    }
+    .title, .subject {
     width: 300px;
     padding: 8px 0;
     color: #616161;
@@ -127,54 +119,44 @@ a {
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-}
-
-/* Header */
-.logo {
+    }
+    /* Header */
+    .logo {
     padding: 16px 0;
-}
-
-/* Logo */
-.logo-image {
-
-}
-
-/* Main */
-.main {
+    }
+    /* Logo */
+    .logo-image {
+    }
+    /* Main */
+    .main {
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
     -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
-}
-
-/* Content */
-.columns {
+    }
+    /* Content */
+    .columns {
     margin: 0 auto;
     width: 600px;
     background-color: #ffffff;
     font-size: 14px;
-}
-
-.column {
+    }
+    .column {
     text-align: left;
     background-color: #ffffff;
     font-size: 14px;
-}
-
-.column-top {
+    }
+    .column-top {
     font-size: 24px;
     line-height: 24px;
-}
-
-.content {
+    }
+    .content {
     width: 100%;
-}
-
-.column-bottom {
+    }
+    .column-bottom {
     font-size: 8px;
     line-height: 8px;
-}
-
-.content h1 {
+    }
+    .content h1 {
     margin-top: 0;
     margin-bottom: 16px;
     color: #212121;
@@ -182,9 +164,8 @@ a {
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
-}
-
-.content p {
+    }
+    .content p {
     margin-top: 0;
     margin-bottom: 16px;
     color: #212121;
@@ -192,29 +173,26 @@ a {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-}
-.content .caption {
+    }
+    .content .caption {
     color: #616161;
     font-size: 12px;
     line-height: 20px;
-}
-
-/* Footer */
-.signature, .subscription {
+    }
+    /* Footer */
+    .signature, .subscription {
     vertical-align: bottom;
     width: 300px;
     padding-top: 8px;
     margin-bottom: 16px;
-}
-
-.signature {
+    }
+    .signature {
     text-align: left;
-}
-.subscription {
+    }
+    .subscription {
     text-align: right;
-}
-
-.signature p, .subscription p {
+    }
+    .signature p, .subscription p {
     margin-top: 0;
     margin-bottom: 8px;
     color: #616161;
@@ -222,8 +200,46 @@ a {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-}
-  </style>
+    }
+    @media only screen and (min-width: 0) {
+    .wrapper {
+    text-rendering: optimizeLegibility;
+    }
+    }
+    @media only screen and (max-width: 620px) {
+    [class=wrapper] {
+    min-width: 302px !important;
+    width: 100% !important;
+    }
+    [class=wrapper] .block {
+    display: block !important;
+    }
+    [class=wrapper] .hide {
+    display: none !important;
+    }
+    [class=wrapper] .top-panel,
+    [class=wrapper] .header,
+    [class=wrapper] .main,
+    [class=wrapper] .footer {
+    width: 302px !important;
+    }
+    [class=wrapper] .title,
+    [class=wrapper] .subject,
+    [class=wrapper] .signature,
+    [class=wrapper] .subscription {
+    display: block;
+    float: left;
+    width: 300px !important;
+    text-align: center !important;
+    }
+    [class=wrapper] .signature {
+    padding-bottom: 0 !important;
+    }
+    [class=wrapper] .subscription {
+    padding-top: 0 !important;
+    }
+    }
+    </style>
   <body>
 
 <center class="wrapper">
