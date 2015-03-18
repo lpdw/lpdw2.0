@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318141325) do
+ActiveRecord::Schema.define(version: 20150318155725) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -192,18 +192,18 @@ ActiveRecord::Schema.define(version: 20150318141325) do
 
   add_index "votes", ["id_applicant"], name: "votes_id_applicant_fk", using: :btree
 
-  add_foreign_key "applicant_attachments", "applicants", name: "applicant_attachments_id_applicant_fk", column: "id_applicant"
+  add_foreign_key "applicant_attachments", "applicants", name: "applicant_attachments_id_applicant_fk", column: "id_applicant", dependent: :delete
 
-  add_foreign_key "applicant_statuses", "applicants", name: "applicant_statuses_id_applicant_fk", column: "id_applicant"
+  add_foreign_key "applicant_statuses", "applicants", name: "applicant_statuses_id_applicant_fk", column: "id_applicant", dependent: :delete
 
-  add_foreign_key "cursus", "applicants", name: "cursus_id_applicant_fk", column: "id_applicant"
+  add_foreign_key "cursus", "applicants", name: "cursus_id_applicant_fk", column: "id_applicant", dependent: :delete
 
-  add_foreign_key "other_applications", "applicants", name: "other_applications_id_applicant_fk", column: "id_applicant"
+  add_foreign_key "other_applications", "applicants", name: "other_applications_id_applicant_fk", column: "id_applicant", dependent: :delete
 
-  add_foreign_key "professional_experiences", "applicants", name: "professional_experiences_id_applicant_fk", column: "id_applicant"
+  add_foreign_key "professional_experiences", "applicants", name: "professional_experiences_id_applicant_fk", column: "id_applicant", dependent: :delete
 
-  add_foreign_key "project_applicants", "applicants", name: "project_applicants_id_applicant_fk", column: "id_applicant"
+  add_foreign_key "project_applicants", "applicants", name: "project_applicants_id_applicant_fk", column: "id_applicant", dependent: :delete
 
-  add_foreign_key "votes", "applicants", name: "votes_id_applicant_fk", column: "id_applicant"
+  add_foreign_key "votes", "applicants", name: "votes_id_applicant_fk", column: "id_applicant", dependent: :delete
 
 end
