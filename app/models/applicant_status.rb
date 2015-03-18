@@ -1,6 +1,6 @@
 class ApplicantStatus < ActiveRecord::Base
     extend SimpleCalendar
-  belongs_to :applicant
+  belongs_to :applicant, :dependent => :destroy
   has_calendar :attribute => :interview_date
 
 #Return current applicant

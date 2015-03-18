@@ -1,6 +1,6 @@
 class ApplicantAttachment < ActiveRecord::Base
 
-  belongs_to :applicant
+  belongs_to :applicant, :dependent => :destroy
 
   has_attached_file :file, :hash_secret => "yTpjds(zmlp457ez!#r564dsffd", :path => :default_path_by_applicant, :url => :default_url_by_applicant
   validates_attachment_content_type :file, :content_type => ['image/jpeg', 'image/gif', 'image/png', 'application/pdf']

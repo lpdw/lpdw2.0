@@ -12,6 +12,14 @@ module AdminHelper
         @status_applicant = ""
         if @status.is_refused == true
             @status_applicant = '<span class="badge badge-alert">Dossier refusé</span>'.html_safe
+        elsif @status.applicant_response == 1
+            @status_applicant = '<span class="badge badge-success">Admis en licence</span>'.html_safe
+        elsif @status.interview_result == 1
+            @status_applicant = '<span class="badge badge-danger">Entretien positif</span>'.html_safe
+        elsif @status.interview_result == 2
+            @status_applicant = '<span class="badge badge-red"Entretien Négatif</span>'.html_safe
+        elsif @status.interview_result == 3
+            @status_applicant = '<span class="badge badge-yellow">Etudiant absent à l\'entretien</span>'.html_safe
         else
             if @status.is_finish == true
                 if @status.is_complete == 0
@@ -22,18 +30,6 @@ module AdminHelper
                         @status_applicant = "Dossier apte à passer l'entretien, en attente d'une date"
                         if @status.interview_date != nil
                             @status_applicant = '<span class="badge badge-default">Entretien prévu le ' + @status.interview_date.to_time.strftime("%d/%m/%Y à %Hh%M") + '</span>'.html_safe
-                            if @status.interview_result == 1
-                                @status_applicant = "Entretien positif, en attente de la réponse de l'étudiant"
-                                if @status.applicant_response == 1
-                                    @status_applicant = '<span class="badge badge-success">Admis en licence</span>'.html_safe
-                                elsif @status.applicant_response == 2
-                                    @status_applicant = "L'étudiant ne viendra pas dans la licence"
-                                end
-                            elsif @status.interview_result == 2
-                                @status_applicant = "L'entretien à été négatif"
-                            elsif @status.interview_result == 3
-                                @status_applicant = '<span class="badge badge-yellow">Etudiant absent à l\'entretien</span>'.html_safe
-                            end
                         end
                     end
                 end
