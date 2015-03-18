@@ -9,12 +9,15 @@
   <% else %>
     <div class="alert alert-green"><%= flash[:success] %></div>
   <% end %>
+  <% if on_show_route_apply %>
   <div class="button_wrapper row">
     <a href="http://www.lp-dw.com/wp-content/uploads/LPDW-Candidature-2014-15.pdf" class="button">Télécharger le dossier de candidature</a>
     <span class="separator hidden-xs">OU</span>
     <a href="#" id="fill_form" class="button hidden-xs">Remplir le dossier de candidature</a>
     <a href="#" class="button_2" id="get_progression">Déjà commencé à remplir? Reprenez-en là où vous en étiez</a>
+
   </div>
+
   <div class="form_wrapper hidden-xs">
     <div class="get_progression_form hidden-xs">
       <%= form_for (Applicant.new), url: applicant_login_path do |f| %>
@@ -130,4 +133,9 @@
       <% end %>
     </div>
   </div>
+  <% else %>
+  <div class="button_wrapper row">
+    Hihihihih
+  </div>
+  <% end %>
 </div>

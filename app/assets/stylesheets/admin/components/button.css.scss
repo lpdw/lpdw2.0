@@ -10,7 +10,6 @@ $color-blue-soft: #50b1f2;
 $color-blue-dark: #2c3e50;
 $color-blue-dark-soft: #34495e;
 $color-grey-dark: #b6c4cf;
-
 //
 $color-grey-light: #e1eaf1;
 
@@ -42,7 +41,6 @@ $color-grey-light: #e1eaf1;
 }
 
 /*    ----------------------------------------  */
-
 @mixin theme-color-hover($color) {
     @if $color == red {
         &:hover {
@@ -101,7 +99,6 @@ $color-grey-light: #e1eaf1;
 }
 
 /*--------------------------------------------------------*/
-
 .button {
     @include theme-color(default);
     display: inline-block;
@@ -117,6 +114,7 @@ $color-grey-light: #e1eaf1;
     border: 1px solid transparent;
     transition: all 0.15s ease;
     @include theme-color-hover(default);
+
     &:active {
         position: relative;
         top: 1px;
@@ -150,14 +148,13 @@ $color-grey-light: #e1eaf1;
     &.button-lg {
         font-size: 1.4em;
         //18px
-
     }
 }
-
 .badge {
     @include theme-color(default);
     font-size: 0.95em;
     padding: 2px 10px;
+
     &.badge-red {
         @include theme-color(red);
     }
@@ -174,10 +171,64 @@ $color-grey-light: #e1eaf1;
         @include theme-color(inverse);
     }
 }
-
 .disabled {
     pointer-events: none;
     cursor: not-allowed;
     opacity: .65;
     filter: alpha(opacity = 65);
+}
+.btn-options-switch {
+    border: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    background: #252531;
+    width: 80px;
+    height: 35px;
+    clear: both;
+    border-radius: 50px;
+    box-shadow:inset 0px 1px 2px #121117, 0px 1px 1px #3e3d4b;
+
+    &.on {
+        .track {
+            left: 45px;
+        }
+        .ball {
+            &.red {
+                opacity: 0;
+                visibility: hidden;
+            }
+            &.green {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    .ball {
+        width: 12px;
+        height: 12px;
+        border: 1px solid;
+        margin: 11px;
+        border-radius: 50%;
+
+        &.red {
+            float: right;
+            border-color: #E73D3D;
+        }
+        &.green {
+            float: left;
+            opacity: 0;
+            border-color: #6CDA86;
+        }
+    }
+    .track {
+        width: 25px;
+        height: 25px;
+        margin: 5px;
+        position: absolute;
+        left: 0;
+        border-radius: 50%;
+        background: linear-gradient(to top, #323141 0%, #383546 47%, #3c3b4d 100%);
+        box-shadow:0px 1px 2px #121117, inset 0px 1px 2px #444257;
+    }
 }

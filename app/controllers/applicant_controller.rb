@@ -1,4 +1,5 @@
 class ApplicantController < ApplicationController
+  include PagesHelper
 
   #Post method login
   def applicant_login

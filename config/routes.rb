@@ -63,6 +63,9 @@ root 'pages#home'
 
   get 'admin/show_interview' => 'admin#show_interview'
   post 'admin/create_interview' => 'admin#create_interview'
+  get 'admin/show_options' => 'admin#show_options'
+  get 'admin/show_options' => 'admin#show_options'
+  post 'admin/update_options' => 'admin#update_options'
 
 
 
