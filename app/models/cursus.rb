@@ -1,3 +1,3 @@
 class Cursus < ActiveRecord::Base
-  belongs_to :applicant, :dependent => :destroy
+  belongs_to :applicant
 end
