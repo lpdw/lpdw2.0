@@ -39,7 +39,7 @@ module AdminHelper
         elsif @status.interview_result == 1
             @status_applicant = '<span class="badge badge-danger">Entretien positif</span>'.html_safe
         elsif @status.interview_result == 2
-            @status_applicant = '<span class="badge badge-red"Entretien Négatif</span>'.html_safe
+            @status_applicant = '<span class="badge badge-red">Entretien Négatif</span>'.html_safe
         elsif @status.interview_result == 3
             @status_applicant = '<span class="badge badge-yellow">Etudiant absent à l\'entretien</span>'.html_safe
         else
