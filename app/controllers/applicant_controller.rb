@@ -9,7 +9,7 @@ class ApplicantController < ApplicationController
         redirect_to '/postuler/'+ @applicant.assurance.to_s
       else
         @applicant = nil
-        flash["error"] = "Aucune application connue"
+        flash["error"] = "Aucun dossier connue"
         redirect_to :back
       end
   end
@@ -21,13 +21,13 @@ class ApplicantController < ApplicationController
   def applicant_create_apply
     @applicant = Applicant.find_by_assurance(params[:assurance].to_s)
     if @applicant.blank?
-      flash["error"] = "Connectez vous pour modifier votre dossier d'application"
+      flash["error"] = "Connectez vous pour modifier votre dossier de candidature"
       redirect_to '/postuler'
     else
     end
   end
   def redirect_applicant
-    flash["error"] = "Connectez vous pour modifier votre dossier d'application"
+    flash["error"] = "Connectez vous pour modifier votre dossier de candidature"
     redirect_to '/postuler'
   end
   def create_apply
