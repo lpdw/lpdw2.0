@@ -27,10 +27,10 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Generate digests for assets URLs.
-  config.assets.digest = true
+  config.assets.digest = truerake
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -92,11 +92,11 @@ Rails.application.configure do
   # }
   # SMTP settings for mandrill
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.mandrillapp.com",
-    :port                 => 587,
+    :address              => "fourminos.u-cergy.fr",
+    #:port                 => 587,
     :domain               => 'lpdw.u-cergy.fr',
-    :user_name            => "lpdw2.0@gmail.com",
-    :password             => "Ai3uyjuFNEuLgA3ckNI4Yw"
+    #:user_name            => "lpdw2.0@gmail.com",
+    #:password             => "Ai3uyjuFNEuLgA3ckNI4Yw"
   }
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
