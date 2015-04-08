@@ -9,15 +9,8 @@
         <i class="fa fa-lock"></i>
         <%= f.password_field :password, autocomplete: "off", :class=>"admin-input-password",:placeholder=>"Password" %>
     </div>
-    <% if devise_mapping.rememberable? -%>
-    <div class="form-group">
-        <%= f.check_box :remember_me, :class=>"admin-input-check-box" %>
-        <%= f.label :remember_me %>
-    </div>
-    <% end -%>
     <div class="form-group">
         <%= f.submit "Se connecter", :class=>"admin-input-submit" %>
-         <%= render "devise/shared/links" %>
     </div>
     <% end %>
 </div>
