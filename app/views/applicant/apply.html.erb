@@ -24,7 +24,7 @@
           <fieldset class="row centered">
           <h3>Entrez vos informations pour retrouver votre progression</h3>
             <%= f.text_field :email, autofocus: true , :class => 'input' ,:placeholder=>"Email"%>
-            <%= f.text_field :assurance, :class => 'input' ,:placeholder=>"Num Sécurité sociale"%>
+            <%= f.password_field :password, autocomplete: "off", :class=>"input",:placeholder=>"Mot de passe" %>
             <%= f.submit "Se connecter", :class => 'input-btn' %>
           </fieldset>
       <% end %>
