@@ -5,6 +5,7 @@ class Applicant < ActiveRecord::Base
   has_many :project_applicants, :class_name => 'ProjectApplicant', :foreign_key => 'id_applicant', :dependent => :destroy
   has_many :votes, :class_name => 'Vote', :foreign_key => 'id_applicant'
   has_one :applicant_status, :class_name => 'ApplicantStatus', :foreign_key => 'id_applicant'
+  has_one :user, :class_name => 'User', :foreign_key => 'id_applicant'
   has_many :applicant_attachment, :class_name => 'ApplicantAttachment', :foreign_key => 'id_applicant', :dependent => :destroy
 
   accepts_nested_attributes_for :cursus, :reject_if => lambda { |a| a[:place].blank? }, :allow_destroy => true

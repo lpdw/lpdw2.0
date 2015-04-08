@@ -12,4 +12,9 @@ class Emailer < ActionMailer::Base
     @date = date
     mail(to: email, subject: 'LP : Entretien de motivation')
    end
+
+  def welcome_applicant (applicant)
+    @applicant = applicant
+    mail(to: applicant.email, subject: 'LP : Inscription LPDWSIM')
+  end
 end

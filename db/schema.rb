@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318155725) do
+ActiveRecord::Schema.define(version: 20150408080604) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150318155725) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "step_position"
+    t.integer  "id_applicant"
   end
 
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true, using: :btree
@@ -166,9 +167,11 @@ ActiveRecord::Schema.define(version: 20150318155725) do
     t.string   "twitter"
     t.string   "description"
     t.string   "linkin"
+    t.integer  "id_applicant"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["id_applicant"], name: "users_id_applicant_fk", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: true do |t|
@@ -192,6 +195,8 @@ ActiveRecord::Schema.define(version: 20150318155725) do
   add_foreign_key "professional_experiences", "applicants", name: "professional_experiences_id_applicant_fk", column: "id_applicant", dependent: :delete
 
   add_foreign_key "project_applicants", "applicants", name: "project_applicants_id_applicant_fk", column: "id_applicant", dependent: :delete
+
+  add_foreign_key "users", "applicants", name: "users_id_applicant_fk", column: "id_applicant", dependent: :delete
 
   add_foreign_key "votes", "applicants", name: "votes_id_applicant_fk", column: "id_applicant", dependent: :delete
 
