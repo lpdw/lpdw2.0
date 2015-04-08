@@ -44,6 +44,10 @@ class ApplicantController < ApplicationController
                                    project_applicants_attributes: [ :id, :year, :project_type, :content, :_destroy],
                                    applicant_attachments_attributes: [:id, :name, :file, :_destroy]
                                ))
+    @autogeneratepwd = Devise.friendly_token.first(8)
+    @applicant.create_user(:email => @applicant.email,  :password => @autogeneratepwd)
+
+    Emailer.welcome_applicant(@applicant).deliver
     if @applicant.save
       flash["success"] = "Dossier sauvegardé"
       redirect_to '/postuler/'+ @applicant.assurance.to_s
