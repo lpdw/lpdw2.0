@@ -45,7 +45,7 @@ class ApplicantController < ApplicationController
                                    applicant_attachments_attributes: [:id, :name, :file, :_destroy]
                                ))
     @autogeneratepwd = Devise.friendly_token.first(8)
-    @applicant.create_user(:email => @applicant.email,  :password => @autogeneratepwd)
+    @applicant.create_user(:email => @applicant.email,  :password => @autogeneratepwd, :role => :applicant)
 
     Emailer.welcome_applicant(@applicant).deliver
     if @applicant.save
