@@ -3,13 +3,13 @@ class ApplicantController < ApplicationController
 
   #Post method login
   def applicant_login
-      @applicant = Applicant.authenticate(params[:applicant][:email], params[:applicant][:assurance])
+      @applicant = Applicant.authenticate(params[:applicant][:email], params[:applicant][:password])
       if @applicant
         flash["success"] = "Vous pouvez remplir le dossier"
         redirect_to '/postuler/'+ @applicant.assurance.to_s
       else
         @applicant = nil
-        flash["error"] = "Aucun dossier connue"
+        flash["error"] = "Login ou mot de passe incorrec"
         redirect_to :back
       end
   end
