@@ -14,22 +14,11 @@
     <a href="http://www.lp-dw.com/wp-content/uploads/LPDW-Candidature-2014-15.pdf" class="button">Télécharger le dossier de candidature</a>
     <span class="separator hidden-xs">OU</span>
     <a href="#" id="fill_form" class="button hidden-xs">Remplir le dossier de candidature</a>
-    <a href="#" class="button_2" id="get_progression">Déjà commencé à remplir? Reprenez-en là où vous en étiez</a>
+    <%= link_to('Déjà commencé à remplir? Reprenez-en là où vous en étiez', new_user_session_path, class: "button_2")  %>
 
   </div>
 
   <div class="form_wrapper hidden-xs">
-    <div class="get_progression_form hidden-xs">
-      <!-- TODO : change destination form path -->
-      <%= form_for (Applicant.new), url: applicant_login_path do |f| %>
-          <fieldset class="row centered">
-          <h3>Entrez vos informations pour retrouver votre progression</h3>
-            <%= f.text_field :email, autofocus: true , :class => 'input' ,:placeholder=>"Email"%>
-            <%= f.password_field :password, autocomplete: "off", :class=>"input",:placeholder=>"Mot de passe" %>
-            <%= f.submit "Se connecter", :class => 'input-btn' %>
-          </fieldset>
-      <% end %>
-    </div>
     <ul class="apply_steps row">
       <li class="apply_step step_1 active" data-step="1">01 - Informations</li>
     </ul>
