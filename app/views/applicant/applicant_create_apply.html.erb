@@ -250,7 +250,7 @@
             <%= f.submit "Valider Définitivement", :class => 'button submit gotoend save_entry', data: { confirm: "Vérifiez bien d'avoir sauvegarder toutes les étapes avant d'envoyer votre dossier, vous ne pourrez plus le modifier après cet instant!"} %>
           </fieldset>
         <% end %>
-        <%= link_to 'Se déconnecter', destroy_user_session_path(),:method => 'delete' %>
+        <%= link_to 'Se déconnecter', destroy_user_session_path(),:method => 'delete', :class => 'applicant_logout' %>
       </div>
     </div>
   <%end%>

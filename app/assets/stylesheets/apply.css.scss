@@ -248,3 +248,20 @@ p.parsley-success {
 .radio_center-right {
 	margin-left: 10% !important;
 }
+
+.applicant_logout {
+	display: block;
+	text-align: center;
+	color: white;
+	text-transform: uppercase;
+	padding: 20px;
+	background: #ea483e;
+	width: 300px;
+	margin: 20px auto;
+
+	&:hover {
+		background: #7b83a1;
+		color: white;
+		text-decoration: none;
+	}
+}
