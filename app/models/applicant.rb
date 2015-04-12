@@ -15,12 +15,8 @@ class Applicant < ActiveRecord::Base
   accepts_nested_attributes_for :project_applicants, :allow_destroy => true
   accepts_nested_attributes_for :applicant_status, :votes
 
-  def self.authenticate(email, assurance)
+  def self.authenticate(email)
     @current = Applicant.find_by(email: email)
-    if @current.assurance === assurance
       return @current
-    else
-      return nil
     end
   end
-end

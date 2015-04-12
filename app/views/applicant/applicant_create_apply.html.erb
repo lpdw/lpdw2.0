@@ -1,0 +1,259 @@
+<section class="banner banner-blue banner-postuler">
+  <div class="container">
+    <p>Postuler</p>
+  </div>
+</section>
+<% if user_signed_in? %>
+  <% if @applicant.applicant_status.is_finish %>
+    <div class="alert alert-orange"><%= flash[:error] = 'Votre dossier est en cours de validation par l\'équipe pédagogique' %></div>
+  <%else%>
+    <div class="container modify_apply">
+      <% if flash[:error] %>
+        <div class="alert alert-orange"><%= flash[:error] %></div>
+      <% else %>
+        <div class="alert alert-green"><%= flash[:success] %></div>
+      <% end %>
+      <div class="step_position hidden" data-step-position= "<%= @applicant.step_position %>"></div>
+      <div class="form_wrapper hidden-xs">
+        <ul class="apply_steps row">
+          <li class="apply_step step_1 col-sm-3 active" data-step="1">01 - Informations</li>
+          <li class="apply_step step_2 col-sm-3" data-step="2">02 - Cursus</li>
+          <li class="apply_step step_3 col-sm-3" data-step="3">03 - Expériences</li>
+          <li class="apply_step step_4 col-sm-3" data-step="4">04 - Projets</li>
+          <li class="apply_step step_5 col-sm-3" data-step="5">05 - Documents</li>
+        </ul>
+        <div class="step step1">
+          <%= form_for (@applicant), url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-step1'} do |f| %>
+            <%= f.hidden_field(:step_position, value: 1) %>
+            <fieldset class="row centered">
+              <div class="col-sm-6">
+                <div class="row">
+                  <div class="col-sm-6 input_wrapper">
+                    <%= f.text_field :name, 'placeholder' => "Nom*", "maxlength" => "60", "required"=> ''%>
+                  </div>
+                  <div class="col-sm-6 input_wrapper">
+                    <%= f.text_field :first_name, 'placeholder' => "Prenom*", "maxlength" => "60", "required"=> ''%>
+                  </div>
+                  <div class="col-sm-12 input_wrapper">
+                    <%= f.text_area :address, 'placeholder' => "address*", "required"=> ''%>
+                  </div>
+                  <div class="col-sm-6 input_wrapper">
+                    <%= f.text_field :zip_code, 'placeholder' => "Code postal*", "data-parsley-type" => "digits", "required"=> ''%>
+                  </div>
+                  <div class="col-sm-6 input_wrapper">
+                    <%= f.text_field :city, 'placeholder' => "Ville*", "required"=> ''%>
+                  </div>
+                  <span class="col-sm-12 input_wrapper">Téléphone</span>
+                  <div class="col-sm-6 input_wrapper">
+                    <%= f.telephone_field :home_phone, 'placeholder' => "Domicile*", "required"=> '', "data-parsley-type" => "digits", "data-parsley-length" => "[10, 10]"%>
+                  </div>
+                  <div class="col-sm-6 input_wrapper">
+                    <%= f.telephone_field :private_phone, 'placeholder' => "Mobile", "data-parsley-type" => "digits", "data-parsley-length" => "[10, 10]"%>
+                  </div>
+                  <div class="col-sm-12 input_wrapper">
+                    <%= f.email_field :email, 'placeholder' => "Email*", "required"=> ''%>
+                  </div>
+                  <div class="col-sm-6 input_wrapper">
+                    <%= f.date_field :birth, 'placeholder' => "Date de naissance*", "required"=> ''%>
+                  </div>
+                  <div class="col-sm-6 input_wrapper">
+                    <%= f.text_field :birth_place, 'placeholder' => "Lieu de naissance*", "required"=> ''%>
+                  </div>
+                  <div class="col-sm-12 input_wrapper">
+                    <%= f.text_field :nationality, 'placeholder' => "Nationalité*", "required"=> ''%>
+                  </div>
+                  <div class="col-sm-12 input_wrapper">
+                    <%= f.text_field :assurance, 'placeholder' => "N° de sécurité sociale*", "required"=> '', "data-parsley-type" => "digits", "data-parsley-length" => "[15, 15]"%>
+                  </div>
+                  <span class="col-sm-12 input_wrapper">Situation de famille*</span>
+                  <div class="col-sm-12 input_wrapper">
+                    <p>
+                      <%= f.label "Célibataire", 'for' => "celibataire", :class =>'radio_left'%>
+                      <%= f.radio_button :status,"true" ,{:class =>'radio_center-left' , "required"=> '', "data-parsley-errors-messages-disabled" => ""}%>
+
+                      <%= f.label "Marié", 'for' => "marie", :class =>'radio_center-right'%>
+                      <%= f.radio_button :status, "false", {:class =>'radio_right' , "required"=> '', "data-parsley-errors-messages-disabled" => ""}%>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="row">
+                  <p class="col-sm-12">Avez-vous dans votre entourage immédiat une ou plusieurs personnes travaillant dans le domaine du multimédia ? *</p>
+                  <div class="col-sm-12 input_wrapper">
+                    <p>
+                      <%= f.label "Oui", 'for' => "entourage_true", :class =>'radio_left'%>
+                      <%= f.radio_button :has_connection, 'true', {:class =>'radio_center-left' , "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "yes", :id => "entourage_true"}%>
+
+                      <%= f.label "Non", 'for' => "entourage_false", :class =>'radio_center-right'%>
+                      <%= f.radio_button :has_connection, 'false', {:class =>'radio_right' , "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "no", :id => "entourage_false"}%>
+                    </p>
+                  </div>
+                  <div class="col-sm-12 input_wrapper entourage_wrapper">
+                    <%= f.text_area :connection_desc, 'placeholder' => "Précisez*", :class => "big"%>
+                  </div>
+                  <p class="col-sm-12">Comment avez-vous été informé de l'existence de cette formation? *</p>
+                  <div class="col-sm-12 input_wrapper">
+                    <%= f.text_area :know_formation, :class => "big", 'required' => ''%>
+                  </div>
+                  <p class="col-sm-12 input_wrapper">AUTRE CANDIDATURES (Universités, écoles, autres établissements) :Indiquer les autres candidatures que vous présentez pour l’année universitaire, par ordre de préférence (en y incluant votre demande concernant la Licence professionnelle Développeur Web et Web Mobile) </p>
+                  <ul class="col-sm-12 input_wrapper schools_list">
+                    <div class="row">
+                      <%= f.add_nested_fields_link :other_application, 'Ajouter une autre école' %>
+                      <%= f.nested_fields_for :other_application, wrapper_tag: :div do |ff| %>
+                        <li class="col-sm-6 school_item">
+                          <%= ff.text_field :content, "required"=> ''%>
+                          <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                        </li>
+                      <%end%>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </fieldset>
+            <%= f.submit "Sauvegarder et continuer", :class => 'next button submit gotoend save_entry', 'data-current' => '1', 'data-next' => '2' %>
+          <% end %>
+        </div>
+        <div class="step step2">
+          <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-step2'} do |f| %>
+            <%= f.hidden_field(:step_position, value: 2) %>
+            <fieldset class="row centered">
+              <div class="cursus_list col-md-12">
+                <ul class="row">
+                  <li class="col-md-2">Dîplome</li>
+                  <li class="col-md-2">Année</li>
+                  <li class="col-md-3">Spécialité</li>
+                  <li class="col-md-2">Mention</li>
+                  <li class="col-md-3">Lieu</li>
+                </ul>
+                <%= f.nested_fields_for :cursus, wrapper_tag: :div do |ff| %>
+                  <ul class="row">
+                    <li class="col-md-2"><%= ff.text_field :graduation, "required"=> ''%></li>
+                    <li class="col-md-2"><%= ff.text_field :year, "required"=> ''%></li>
+                    <li class="col-md-3"><%= ff.text_field :option, "required"=> ''%></li>
+                    <li class="col-md-2"><%= ff.text_field :result, "required"=> ''%></li>
+                    <li class="col-md-3"><%= ff.text_field :place, "required"=> ''%></li>
+                    <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                  </ul>
+                <%end%>
+                <%= f.add_nested_fields_link :cursus, 'Ajouter un autre diplome' %>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <span class="col-sm-12 input_wrapper">Niveau d'anglais</span>
+                <p>
+                  <%= f.label "Notions"%>
+                  <%= f.radio_button :english_skill, '1', { "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "1"}%>
+                  <%= f.label "bien"%>
+                  <%= f.radio_button :english_skill, '2', { "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "2"}%>
+                  <%= f.label "courant"%>
+                  <%= f.radio_button :english_skill, '3', { "required"=> '', "data-parsley-errors-messages-disabled" => "", 'value' => "3"}%>
+                </p>
+                <%= f.text_area :other_language, :class => "col-sm-12 input_wrapper", 'placeholder' => 'Autres langues'%>
+              </div>
+              <div class="col-sm-6">
+                <span class="col-sm-12 input_wrapper">Activités extra-scolaires</span>
+                <ul>
+                  <li><%= f.text_area :after_school, :class => "input_wrapper", 'placeholder' => 'Activités'%></li>
+                </ul>
+              </div>
+            </fieldset>
+            <%= f.submit "Sauvegarder et continuer", :class => 'next button submit gotoend save_entry', 'data-current' => '2', 'data-next' => '3' %>
+          <% end %>
+        </div>
+        <div class="step step3">
+          <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-step3'} do |f| %>
+            <%= f.hidden_field(:step_position, value: 3) %>
+            <fieldset class="centered">
+              <div class="experience_list">
+                <ul class="row">
+                  <li class="col-md-1">Date</li>
+                  <li class="col-md-2">Entreprise</li>
+                  <li class="col-md-5">Mission</li>
+                  <li class="col-md-4">Compétences mises en oeuvre</li>
+                </ul>
+                <%= f.nested_fields_for :professional_experiences, wrapper_tag: :div do |ff| %>
+                  <ul class="row">
+                    <li class="col-md-1"><%= ff.text_field :year %></li>
+                    <li class="col-md-2"><%= ff.text_field :company %></li>
+                    <li class="col-md-5"><%= ff.text_field :role %></li>
+                    <li class="col-md-4"><%= ff.text_field :skill %></li>
+                    <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                  </ul>
+                <%end%>
+                <%= f.add_nested_fields_link :professional_experiences, 'Ajouter une autre expérience professionnelle' %>
+              </div>
+            </fieldset>
+            <%= f.submit "Sauvegarder et continuer", :class => 'next button submit gotoend save_entry', 'data-current' => '3', 'data-next' => '4' %>
+          <% end %>
+        </div>
+        <div class="step step4">
+          <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-step4'} do |f| %>
+            <%= f.hidden_field(:step_position, value: 4) %>
+            <fieldset class="centered">
+              <div class="row">
+                <span class="col-sm-12">Projets</span>
+              </div>
+              <br>
+              <div class="projects_list">
+                <ul class="row">
+                  <li class="col-md-1">Année</li>
+                  <li class="col-md-2">Type projet</li>
+                  <li class="col-md-9">Description</li>
+                </ul>
+                <%= f.nested_fields_for :project_applicants, wrapper_tag: :div do |ff| %>
+                  <ul class="row">
+                    <li class="col-md-1"><%= ff.text_field :year %></li>
+                    <li class="col-md-2"><%= ff.text_field :project_type, :value => 'scolaire'%></li>
+                    <li class="col-md-5"><%= ff.text_field :content %></li>
+                    <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                  </ul>
+                <%end%>
+                <%= f.add_nested_fields_link :project_applicants, 'Ajouter un autre projet scolaire' %>
+              </div>
+              <br>
+            </fieldset>
+            <%= f.submit "Sauvegarder et continuer", :class => 'next button submit gotoend save_entry', 'data-current' => '4', 'data-next' => '5' %>
+          <% end %>
+        </div>
+        <div class="step step5">
+
+          <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', 'data-parsley-validate' => '', :id => 'apply-step5'} do |f| %>
+            <%= f.hidden_field(:step_position, value: 5) %>
+            <fieldset class="centered">
+              <div class="row">
+                <span class="col-sm-12">Fichiers Joints</span>
+                <span class="col-sm-8 col-sm-offset-2 file-to-join">Veuillez joindre les fichiers suivants : CV, lettre de motivation, photo d'identité, photocopies du bac, photocopies des relevés de notes de votre formation bac+2, photocopies de chaque diplôme obtenu après le baccalauréat.</span>
+                <span class="col-sm-8 col-sm-offset-2 file-to-join">Tout dossier incomplet ne sera pas traité.</span>
+              </div>
+              <br>
+              <div class="">
+                <%= f.nested_fields_for :applicant_attachment, wrapper_tag: :div do |ff| %>
+                  <ul class="row">
+                    <li class="col-md-5"><%= ff.text_field :name, :placeholder => "Nom de votre pièce jointe (CV / lettre de motivation / etc ... )", 'required' => '' %></li>
+                    <li class="col-md-2"><%= ff.file_field :file, :placeholder=>"Pièce jointe" %></li>
+                    <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                  </ul>
+                <%end%>
+                <%= f.add_nested_fields_link :applicant_attachment, 'Ajouter une pièce jointe' %>
+              </div>
+              <br>
+            </fieldset>
+            <%= f.submit "Sauvegarder et continuer", :class => 'next button submit gotoend save_entry', 'data-current' => '5', 'data-next' => '6' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="send-application">
+        <%= form_for @applicant, method: :patch, url: update_apply_path(@applicant.assurance), :html => {:class => 'hidden-xs', :id => 'send-application-button'} do |f| %>
+          <fieldset>
+            <%= f.hidden_field(:finish, value: 1) %>
+            <%= f.submit "Valider Définitivement", :class => 'button submit gotoend save_entry', data: { confirm: "Vérifiez bien d'avoir sauvegarder toutes les étapes avant d'envoyer votre dossier, vous ne pourrez plus le modifier après cet instant!"} %>
+          </fieldset>
+        <% end %>
+        <%= link_to 'Se déconnecter', destroy_user_session_path(),:method => 'delete' %>
+      </div>
+    </div>
+  <%end%>
+<% else %>
+  <div class="alert alert-orange"><%= flash[:error] = 'Vous devez être connecté pour remplir votre dossier' %></div>
+<%end %>

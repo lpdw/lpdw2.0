@@ -3,10 +3,12 @@ class ApplicantController < ApplicationController
 
   #Post method login
   def applicant_login
-      @applicant = Applicant.authenticate(params[:applicant][:email], params[:applicant][:password])
-      if @applicant
+    @applicant = Applicant.authenticate(params[:applicant][:email])
+    @user = User.find_for_database_authentication(email:params[:applicant][:email])
+    self.resource = warden.authenticate!(auth_options)
+      if @user
         flash["success"] = "Vous pouvez remplir le dossier"
-        redirect_to '/postuler/'+ @applicant.assurance.to_s
+        #redirect_to '/postuler/'+ @applicant.assurance.to_s
       else
         @applicant = nil
         flash["error"] = "Login ou mot de passe incorrec"
@@ -46,7 +48,6 @@ class ApplicantController < ApplicationController
                                ))
     @autogeneratepwd = Devise.friendly_token.first(8)
     @applicant.create_user(:email => @applicant.email,  :password => @autogeneratepwd, :role => :applicant)
-
     Emailer.welcome_applicant(@applicant).deliver
     if @applicant.save
       flash["success"] = "Dossier sauvegardé"
