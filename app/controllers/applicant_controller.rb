@@ -1,7 +1,9 @@
 class ApplicantController < ApplicationController
   include PagesHelper
-
-  #Post method login
+  include Devise::Controllers::Helpers 
+  helper_method :current_user
+  
+#Post method login
   def applicant_login
     @applicant = Applicant.authenticate(params[:applicant][:email])
     @user = User.find_for_database_authentication(email:params[:applicant][:email])
@@ -11,25 +13,31 @@ class ApplicantController < ApplicationController
         #redirect_to '/postuler/'+ @applicant.assurance.to_s
       else
         @applicant = nil
-        flash["error"] = "Login ou mot de passe incorrec"
+        flash["error"] = "Login ou mot de passe incorrect"
         redirect_to :back
       end
   end
   #Postuler
   def apply
-    @applicant = Applicant.new
-  end
+	if (current_user)
+    	   @applicant = Applicant.find_by(:id => current_user.id_applicant)
+	   redirect_to '/postuler/'+ @applicant.assurance.to_s
+	else
+	   @applicant = Applicant.new
+	end  
+end
   #Post method apply
   def applicant_create_apply
-    @applicant = Applicant.find_by_assurance(params[:assurance].to_s)
+    @user = current_user
+    @applicant = Applicant.find_by(:id => @user.id_applicant)
     if @applicant.blank?
-      flash["error"] = "Connectez vous pour modifier votre dossier de candidature"
+      flash["error"] = "Connectez-vous pour modifier votre dossier de candidature"
       redirect_to '/postuler'
     else
     end
   end
   def redirect_applicant
-    flash["error"] = "Connectez vous pour modifier votre dossier de candidature"
+    flash["error"] = "Connectez-vous pour modifier votre dossier de candidature"
     redirect_to '/postuler'
   end
   def create_apply
@@ -46,24 +54,24 @@ class ApplicantController < ApplicationController
                                    project_applicants_attributes: [ :id, :year, :project_type, :content, :_destroy],
                                    applicant_attachments_attributes: [:id, :name, :file, :_destroy]
                                ))
-    @autogeneratepwd = Devise.friendly_token.first(8)
-    @applicant.create_user(:email => @applicant.email,  :password => @autogeneratepwd, :role => :applicant)
-    Emailer.welcome_applicant(@applicant).deliver
+      @autogeneratepwd = Devise.friendly_token.first(8)
+      @applicant.create_user(:id => @applicant.id, :email => @applicant.email,  :password => @autogeneratepwd, :role => :applicant)
+      Emailer.welcome_applicant(@applicant).deliver
     if @applicant.save
-      flash["success"] = "Dossier sauvegardé"
-      redirect_to '/postuler/'+ @applicant.assurance.to_s
+      flash["success"] = "Dossier sauvegardé, veuillez vous connecter avec les identifiants reçues par mail"
+      redirect_to '/login/'
     else
       flash["error"] = "Erreur d'enregistrement"
       redirect_to '/postuler'
     end
   end
   def update_apply
-    @applicant = Applicant.find_by_assurance(params[:assurance].to_s)
+    @applicant = Applicant.find_by(:id => current_user.id_applicant)
     if params[:applicant] === nil
       flash["error"] = "Erreur d'enregistrement"
       redirect_to '/postuler'
     end
-    @applicant.update(params[:applicant].permit(:english_skill, :after_school, :other_language,:name, :first_name, :zip_code,
+   @applicant.update(params[:applicant].permit(:english_skill, :after_school, :other_language,:name, :first_name, :zip_code,
                                                 :city, :home_phone, :private_phone, :email, :step_position,
                                                 :birth, :birth_place, :nationality, :assurance, :address, :status, :has_connection,
                                                 :connection_desc, :know_formation, :english_skill, :other_language, :after_school,
@@ -76,7 +84,7 @@ class ApplicantController < ApplicationController
                           applicant_attachment_attributes: [:id, :name, :file, :_destroy]
                       ))
     #check if applicant send is apply definatly
-    if params[:commit] === 'Valider Définitivement'
+    if params[:commit] === 'Valider définitivement'
       @applicant.applicant_status.update_attributes(is_finish: 1, is_complete: 1)
     end
     if @applicant.save
@@ -88,7 +96,7 @@ class ApplicantController < ApplicationController
     end
   end
   def update_cursus_apply
-    @applicant = Applicant.find_by_assurance(params[:assurance].to_s)
+    @applicant = Applicant.find_by(:id => current_user.id_applicant)
     @cursus = @applicant.cursus.where(id_applicant: @applicant.id, option: params[:applicant][:cursus][], result: @applicant.cursus.year, year: @applicant.cursus.year, place: @applicant.cursus.year).first_or_create
   end
 end
