@@ -19,7 +19,7 @@ class ApplicantController < ApplicationController
   end
   #Postuler
   def apply
-	if (current_user)
+	if (current_user && current_user.role === 'Admin')
     	   @applicant = Applicant.find_by(:id => current_user.id_applicant)
 	   redirect_to '/postuler/'+ @applicant.assurance.to_s
 	else
@@ -52,17 +52,21 @@ end
                                    cursus_attributes: [ :id, :graduation, :year, :option, :result, :place, :_destroy],
                                    professional_experiences_attributes: [ :id, :year, :company, :role, :skill, :_destroy],
                                    project_applicants_attributes: [ :id, :year, :project_type, :content, :_destroy],
-                                   applicant_attachments_attributes: [:id, :name, :file, :_destroy]
                                ))
+    if Applicant.exists?(:assurance => @applicant.assurance)
+       flash["error"] = "Le numéro de sécurité sociale est déjà présent"
+       redirect_to '/postuler'
+    else
       @autogeneratepwd = Devise.friendly_token.first(8)
       @applicant.create_user(:id => @applicant.id, :email => @applicant.email,  :password => @autogeneratepwd, :role => :applicant)
       Emailer.welcome_applicant(@applicant).deliver
-    if @applicant.save
-      flash["success"] = "Dossier sauvegardé, veuillez vous connecter avec les identifiants reçues par mail"
-      redirect_to '/login/'
-    else
-      flash["error"] = "Erreur d'enregistrement"
-      redirect_to '/postuler'
+    	if @applicant.save
+      		flash["success"] = "Dossier sauvegardé, veuillez vous connecter avec les identifiants reçues par mail"
+      		redirect_to '/login/'
+    	else
+      		flash["error"] = "Erreur d'enregistrement"
+      		redirect_to '/postuler'
+    	end
     end
   end
   def update_apply
