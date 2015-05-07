@@ -26,7 +26,7 @@ admin_restriction_area
     @projects = Project.all
     @alerts = Alert.all
     @applicants = Applicant.all
-    @lasts = Applicant.order('id DESC')
+    @lasts = Applicant.last(5).reverse
   end
 
   def show_users
