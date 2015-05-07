@@ -66,6 +66,10 @@
                                     <%= f.submit "Ne plus accepter pour l'entretien", :class => 'btn btn-default' %>
                                     <%  end %>
                                 <%  end %>
+				<%= form_for(@applicant, url:  send_remind_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                                    <%= f.hidden_field :id , :value => @applicant.id %>
+                                    <%= f.submit "Envoyer un rappel", :class => 'btn btn-default' %>
+                                    <%  end %>
                     </div>
                     <div class="col-md-3" style="margin:5px;background:#F5F5F5">
                         <h4>Résultat de l'entretien</h4>
