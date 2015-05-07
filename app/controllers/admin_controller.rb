@@ -34,7 +34,7 @@ admin_restriction_area
 admin_restriction_area
 
     @title_admin = "Utilisateurs"
-    @users = User.all
+    @users = User.where("role = 'admin' OR role = 'intervenant'")
   end
 
   def edit_user
