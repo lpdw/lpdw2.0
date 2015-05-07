@@ -27,13 +27,13 @@
                                     <%= form_for(@status, url:  applicant_finish_path, html: {class: "applicant_finish" }, method: :post) do |f| %>
                                     <%= f.hidden_field :id_applicant , :value => @applicant.id %>
                                     <%= f.hidden_field :set , :value => "1" %>
-                                    <%= f.submit "Dossier finit", :class => 'btn btn-info' %>
+                                    <%= f.submit "Dossier fini", :class => 'btn btn-info' %>
                                     <%  end
                                 else %>
                                     <%= form_for(@status, url:  applicant_finish_path, html: {class: "applicant_finish" }, method: :post) do |f| %>
                                     <%= f.hidden_field :id_applicant , :value => @applicant.id %>
                                     <%= f.hidden_field :set , :value => "0" %>
-                                    <%= f.submit "Définir le dossier non finit", :class => 'btn btn-default' %>
+                                    <%= f.submit "Définir le dossier non fini", :class => 'btn btn-default' %>
                                     <%  end %>
                                 <%  end %>
 
