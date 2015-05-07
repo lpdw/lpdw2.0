@@ -56,7 +56,7 @@ module AdminHelper
                     end
                 end
             else
-                @status_applicant = "Dossier non finit par l'étudiant"
+                @status_applicant = "Dossier non fini par l'étudiant"
             end
         end
 
