@@ -134,7 +134,11 @@ admin_restriction_area
       redirect_to admin_show_applicants_path
     end
   end
-
+  
+  def send_remind
+    Emailer.reminder(Applicant.find(params[:applicant][:id])).deliver
+    redirect_to admin_show_applicants_path    
+  end
   def applicant_finish
     @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
     @status.is_finish = params[:applicant_status][:set]

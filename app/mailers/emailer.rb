@@ -1,5 +1,5 @@
 class Emailer < ActionMailer::Base
-   default from: "no-reply@lpdw.u-cergy.fr"
+   default from: "no-reply@lp-dw.com"
 
    def contact(data, sent_at = Time.now)
       @name = data["name_contact"]
@@ -16,5 +16,9 @@ class Emailer < ActionMailer::Base
   def welcome_applicant (applicant)
     @applicant = applicant
     mail(to: applicant.email, subject: 'LP : Inscription LPDWSIM')
+  end
+
+  def reminder (applicant)
+    mail( to: applicant.email, subject: '[LPDW] Candidature en cours')
   end
 end
