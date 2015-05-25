@@ -3,6 +3,7 @@ class Emailer < ActionMailer::Base
 
    def contact(data, sent_at = Time.now)
       @name = data["name_contact"]
+      @email = data["email_contact"]
       @recipient = "l.ricard@faclab.org"
       @message = data["message_contact"]
       mail(to: @recipient, subject: 'Site LP: Contact')
