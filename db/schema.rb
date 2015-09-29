@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 20150408080604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "step_position"
-    t.integer  "id_applicant"
   end
 
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true, using: :btree
