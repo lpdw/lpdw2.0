@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
     ROLES = %w[admin default intervenant applicant]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def admin?
+    role == 'admin'
+  end
 end

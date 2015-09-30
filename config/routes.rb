@@ -14,6 +14,10 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  namespace :admin_v2 do
+    #resources :tips
+  end
+
 root 'pages#home'
 
   get 'admin/show_applicants' => 'admin#show_applicants'
