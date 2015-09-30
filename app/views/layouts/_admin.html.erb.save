@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lpdw - 2.0 Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+http://lpdw.u-cergy.fr/admin
+        <script src="/assets/modernizr.custom.js"></script>
+        <%= csrf_meta_tags %>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <%= render :partial => "partials/admin_header" %>
+        <div class="container-fluid">
+            <div class="row">
+                <% if user_signed_in? %>
+                <div class="col-sm-2 sidebar">
+                    <button class="visible-xs menu-toggle">MENU</button>
+                    <div id="nice-scroll" class="nice-scroll">
+                    <ul id="nav-admin" class="nav nav-sidebar">
+                        <li><%= link_to root_path(), :class=>'first' do %><i class="fa fa-reply"></i> Retour au site <% end %> </li>
+                        <li><%= link_to admin_path() do %><i class="fa fa-home"></i> Accueil <% end %> </li>
+                        <% if current_user.role === "intervenant" %>
+                            <li><%= link_to(admin_edit_user_path(current_user.id)) do %><i class="fa fa-pencil"></i> Mon profil<% end %></li>
+                        <% end %>
+                        <li><%= link_to admin_show_applicants_path() do %> <i class="fa fa-mortar-board"> </i>Candidatures<% end %></i> </li>
+                        <li><%= link_to admin_show_actualities_path() do %><i class="fa fa-newspaper-o"></i> Actualités <% end %></li>
+                        <% if current_user.role === "admin" %>
+                            <li><%= link_to admin_show_users_path() do %><i class="fa fa-user"></i> Utilisateurs <% end %></li>
+                            <li><%= link_to admin_show_alerts_path() do%><i class="fa fa-bell"></i> Alertes <% end %> </li>
+                            <li><%= link_to admin_show_projects_path() do %><i class="fa fa-file-text"></i>  Projets <% end %></li>
+                            <li><%= link_to admin_show_interview_path() do %><i class="fa fa-calendar"></i>  Entretien <% end %></li>
+                        <% end %>
+                        <li class="visible-xs-block"><%= link_to 'Se déconnecter', destroy_user_session_path(),:method => 'delete' %></li>
+                    </ul>
+                    </div>
+                </div>
+                <% end %>
+                <% if user_signed_in? %>
+                <div class="col-sm-9 col-sm-offset-2 main">
+                    <% else %>
+                    <div >
+                        <% end %>
+                        <div class="row">
+                            <%= yield %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%= javascript_include_tag 'application', 'admin', 'data-turbolinks-track' => true %>
+            <%= tinymce_assets %>
+            <%= tinymce %>
+        </body>
+    </html>

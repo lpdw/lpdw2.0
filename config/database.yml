@@ -14,9 +14,10 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-development:
+production:
   adapter: mysql2
   encoding: utf8
   pool: 5
   username: root
-  database: lpdw2_0_development
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: lpdwDB
