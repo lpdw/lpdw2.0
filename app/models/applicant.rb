@@ -8,6 +8,8 @@ class Applicant < ActiveRecord::Base
   has_one :user, :class_name => 'User', :foreign_key => 'id_applicant'
   has_many :applicant_attachment, :class_name => 'ApplicantAttachment', :foreign_key => 'id_applicant', :dependent => :destroy
 
+  validates_uniqueness_of :assurance, :message => "Ce numéro de sécurité sociale est déjà utilisé"
+
   accepts_nested_attributes_for :cursus, :reject_if => lambda { |a| a[:place].blank? }, :allow_destroy => true
   accepts_nested_attributes_for :applicant_attachment, :allow_destroy => true
   accepts_nested_attributes_for :other_application, :allow_destroy => true

@@ -63,7 +63,7 @@ root 'pages#home'
   post 'admin/edit_project/:id' => 'admin#update_project'
   get 'admin/delete_project/:id' => 'admin#delete_project', :as => 'admin_delete_project'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
-
+  post 'admin/show_applicants/send_remind', :to => 'admin#send_remind', :as => 'send_remind'
 
   get 'admin/show_interview' => 'admin#show_interview'
   post 'admin/create_interview' => 'admin#create_interview'
