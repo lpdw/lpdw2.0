@@ -90,6 +90,6 @@ root 'pages#home'
   patch '/postuler/:assurance', :to => 'applicant#update_apply', :as => 'update_apply'
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
-  get '/studentsbook', :to => 'student#show'
+  get '/studentsbook', :to => 'students#show'
   get '/studentprofil', :to => 'student#profil'
 end
