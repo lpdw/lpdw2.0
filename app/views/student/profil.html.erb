@@ -1,0 +1,10 @@
+STUDENT PROFIL HERE
+<ul>
+  <li>Nom: <%= @student.user.lastname %></li>
+  <li>Prenom <%= @student.user.name %></li>
+  <li>Age: (voir 'birth' table applicants)</li>
+  <li>Promo: (voir 'deposit date' table applicants)</li>
+  <li>Poste actuel: <%= @student.current_job_title%></li>
+</ul>
+
+<%= debug @student %>
