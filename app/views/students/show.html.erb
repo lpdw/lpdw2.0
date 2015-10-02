@@ -1,0 +1,42 @@
+<section class="banner banner-blue banner-team">
+  <div class="container">
+    <p>Annuaire des anciens</p>
+  </div>
+</section>
+<div class="team-profiles">
+  <div class="container">
+    <div class="row">
+      <% @user.each do |student| %>
+          <% if student.name? %>
+          <article class="col-sm-4 col-md-3">
+            <div class="team-profile">
+              <figure>
+                <% if student.photo? %>
+                    <img src="<%= student.photo %>" alt=."Faclab gennevilliers" class="img-responsive">
+                <% else %>
+                    <img src="/assets/default_user.jpg" alt=."Faclab gennevilliers" class="img-responsive">
+                <% end %>
+              </figure>
+              <h4 class="text-center"><%= student.name%> <%= student.lastname%></h4>
+              <p class="text-center job-title"><%= student.description%></p>
+              <% if student.twitter.present? or student.linkin.present? %>
+                  <ul class="social_section text-center">
+                    <% if student.twitter.present? %>
+                        <li><a target="_blank" href=<%= student.twitter%>><i class="fa fa-twitter"></i></a></li>
+                    <% end %>
+                    <% if student.linkin.present? %>
+                        <li><a target="_blank" href=<%= student.linkin%>><i class="fa fa-linkedin"></i></a></li>
+                    <% end %>
+                  </ul>
+              <% end %>
+            </div>
+          </article>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<ul>
+
+<%= debug @user %>
+
