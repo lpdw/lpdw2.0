@@ -18,13 +18,11 @@
               <article class="col-sm-4 col-md-3">
                 <div class="team-profile">
                   <figure>
-                    <%= link_to(student) do %>
                         <% if student.photo? %>
                             <img src="<%= student.photo %>" alt=."" class="img-responsive">
                         <% else %>
                             <img src="/assets/default_user.jpg" alt=."" class="img-responsive">
                         <% end %>
-                    <% end %>
                   </figure>
                   <h4 class="text-center"><%= student.name%> <%= student.lastname%></h4>
                   <p class="text-center job-title"><%= student.description%></p>
