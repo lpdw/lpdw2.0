@@ -1,7 +1,6 @@
 class StudentController < ApplicationController
   def show
-    @title_admin = "Utilisateurs"
-    @student = Student.joins(:user).select("*")
+    @student = Student.joins("LEFT JOIN users ON users.id = users_infos.user_id").select("*")
   end
 
   def profil
