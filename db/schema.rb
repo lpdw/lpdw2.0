@@ -76,14 +76,19 @@ ActiveRecord::Schema.define(version: 20150408080604) do
     t.integer  "english_skill"
     t.string   "other_language"
     t.text     "after_school"
-    t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ip_address"
     t.integer  "step_position"
-    t.integer  "id_applicant"
   end
 
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true, using: :btree
+
+  create_table "average_salary", force: true do |t|
+    t.string "value"
+  end
+
+  add_index "average_salary", ["id"], name: "index_average_salary_on_id", unique: true, using: :btree
 
   create_table "cursus", force: true do |t|
     t.integer  "id_applicant"
@@ -97,6 +102,13 @@ ActiveRecord::Schema.define(version: 20150408080604) do
   end
 
   add_index "cursus", ["id_applicant"], name: "cursus_id_applicant_fk", using: :btree
+
+  create_table "images", force: true do |t|
+    t.string   "alt"
+    t.string   "attachment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "options", force: true do |t|
     t.string "key"
@@ -136,6 +148,7 @@ ActiveRecord::Schema.define(version: 20150408080604) do
   add_index "project_applicants", ["id_applicant"], name: "project_applicants_id_applicant_fk", using: :btree
 
   create_table "projects", force: true do |t|
+    t.string   "photo"
     t.string   "name"
     t.text     "description"
     t.string   "link"
@@ -174,6 +187,24 @@ ActiveRecord::Schema.define(version: 20150408080604) do
   add_index "users", ["id_applicant"], name: "users_id_applicant_fk", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "users_infos", force: true do |t|
+    t.integer "user_id"
+    t.string  "github"
+    t.integer "average_salary"
+    t.string  "current_job_title"
+    t.text    "current_job_desc",  limit: 2147483647
+    t.string  "lp_job_title"
+    t.text    "lp_job_desc",       limit: 2147483647
+    t.string  "cv"
+    t.string  "googleplus"
+    t.string  "facebook"
+    t.string  "viadeo"
+  end
+
+  add_index "users_infos", ["average_salary"], name: "users_infos_average_salary_fk", using: :btree
+  add_index "users_infos", ["id"], name: "index_users_infos_on_id", unique: true, using: :btree
+  add_index "users_infos", ["user_id"], name: "users_infos_user_id_fk", using: :btree
+
   create_table "votes", force: true do |t|
     t.integer  "id_applicant"
     t.integer  "id_voter"
@@ -197,6 +228,9 @@ ActiveRecord::Schema.define(version: 20150408080604) do
   add_foreign_key "project_applicants", "applicants", name: "project_applicants_id_applicant_fk", column: "id_applicant", dependent: :delete
 
   add_foreign_key "users", "applicants", name: "users_id_applicant_fk", column: "id_applicant", dependent: :delete
+
+  add_foreign_key "users_infos", "average_salary", name: "users_infos_average_salary_fk", column: "average_salary", dependent: :delete
+  add_foreign_key "users_infos", "users", name: "users_infos_user_id_fk", dependent: :delete
 
   add_foreign_key "votes", "applicants", name: "votes_id_applicant_fk", column: "id_applicant", dependent: :delete
 
