@@ -5,6 +5,17 @@ STUDENT PROFIL HERE
   <li>Age: (voir 'birth' table applicants)</li>
   <li>Promo: (voir 'deposit date' table applicants)</li>
   <li>Poste actuel: <%= @student.current_job_title%></li>
+  <li>Fourchette salaire: (voir jointure table average salary</li>
+  <li>Description: <%= @student.current_job_desc%></li>
+  <li>Poste en LP: <%= @student.lp_job_desc%></li>
+  <li>Description: <%= @student.lp_job_desc%></li>
+  </br>
+  <li>Google +: <%= link_to 'Lien', @student.googleplus %></li>
+  <li>Facebook: <%= link_to 'Lien', @student.facebook %></li>
+  <li>Viadeo: <%= link_to 'Lien', @student.viadeo %></li>
+  <li>CV: (voir affichage, téléchargement CV)</li>
+  </br>
+  <li>Envoyer un message: (voir envoie message)</li>
 </ul>
 
 <%= debug @student %>
