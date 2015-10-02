@@ -90,6 +90,11 @@ root 'pages#home'
   patch '/postuler/:assurance', :to => 'applicant#update_apply', :as => 'update_apply'
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
+<<<<<<< Updated upstream
   get '/studentsbook', :to => 'student#show'
   get '/studentprofil', :to => 'student#profil'
+=======
+  get '/studentbook', :to => 'student#show'
+  get '/studentprofil', :to => 'student#profil'
+>>>>>>> Stashed changes
 end
