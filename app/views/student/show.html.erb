@@ -3,6 +3,13 @@
     <p>Annuaire des anciens</p>
   </div>
 </section>
+<div class="title-center">
+  <h1>Filtres</h1>
+  <form>
+    <input type="checkbox" name="year"><label for="year">Année de la Promo</label><br>
+    <input type="submit" value="Valider">
+  </form>
+</div>
 <div class="team-profiles">
   <div class="container">
     <div class="row">
@@ -11,10 +18,12 @@
               <article class="col-sm-4 col-md-3">
                 <div class="team-profile">
                   <figure>
-                    <% if student.photo? %>
-                        <img src="<%= student.photo %>" alt=."Faclab gennevilliers" class="img-responsive">
-                    <% else %>
-                        <img src="/assets/default_user.jpg" alt=."Faclab gennevilliers" class="img-responsive">
+                    <%= link_to(student) do %>
+                        <% if student.photo? %>
+                            <img src="<%= student.photo %>" alt=."" class="img-responsive">
+                        <% else %>
+                            <img src="/assets/default_user.jpg" alt=."" class="img-responsive">
+                        <% end %>
                     <% end %>
                   </figure>
                   <h4 class="text-center"><%= student.name%> <%= student.lastname%></h4>
@@ -38,5 +47,5 @@
 </div>
 <ul>
 
-  <%= debug @user %>
+  <%= debug @student %>
 
