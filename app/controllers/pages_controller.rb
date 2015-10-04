@@ -1,26 +1,15 @@
 class PagesController < ApplicationController
   #Accueil
   def home
-     @actualities = Actuality.all().order(id: :desc).limit(3)
-     @projects = Project.all().order(id: :desc).limit(4)
-  end
-  #Actualités
-  def news
-    @actualities = Actuality.all().order(id: :desc)
-  end
-  #Une actualité
-  def new
-    @actuality = Actuality.find(params[:id])
-  end
-  def show_new(id)
-    @actuality = Actuality.find(params[:id])
+     @actualities = Actuality.last(3).reverse
+     @projects = Project.last(4).reverse
   end
   #La formation
   def formation
   end
   #Projets étudiants
   def project
-    @projects = Project.all().order(id: :desc)
+    @projects = Project.order(:id)
   end
   #L'équipe
   def team
@@ -35,13 +24,11 @@ class PagesController < ApplicationController
   #Mentions
   def mentions
   end
+  #réactions et live
+  def live
+  end
 
   #Contactez-nous
-  def contact
-      @name_contact = params["name_contact"]
-      @email_contact = params["email_contact"]
-      @message_contact =params["message_contact"]
-  end
   def sendmail
     if params["name_contact"] != "" and params["email_contact"] != "" and params["message_contact"] != ""
       begin
@@ -53,8 +40,5 @@ class PagesController < ApplicationController
       flash["error"] = "Vous deviez remplir les champs"
     end
     redirect_to informations_path
-  end
-  #réactions et live
-  def live
   end
 end
