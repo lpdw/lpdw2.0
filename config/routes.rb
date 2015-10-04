@@ -14,7 +14,8 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-root 'pages#home'
+  root 'pages#home'
+  resources :actualities, only: [:index, :show]
 
   get 'admin/show_applicants' => 'admin#show_applicants'
   get 'admin/show_applicant/:id' => 'admin#show_applicant', :as => 'admin_show_applicant'
@@ -74,9 +75,6 @@ root 'pages#home'
 
 
   get '/', :to => 'pages#home'
-  get '/actualites', :to => 'pages#news'
-  get '/actualites/:id' => 'pages#new'
-  get '/actualites/:id' => 'pages#new', :as => 'actuality_show'
   get '/formation', :to => 'pages#formation'
   get '/projets', :to => 'pages#project'
   get '/equipe', :to => 'pages#team'
