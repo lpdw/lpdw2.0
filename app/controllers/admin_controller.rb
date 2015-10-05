@@ -109,7 +109,7 @@ admin_restriction_area
   # applicants controller
   def show_applicants
     @title_admin = "Candidatures"
-    @applicants = Applicant.all
+    @applicants = Applicant.by_year(year_params || Time.now.year)
   end
 
   def show_applicant
@@ -459,4 +459,10 @@ admin_restriction_area
     redirect_to admin_show_options_path()
   end
 
+  private
+
+  def year_params
+    year = params[:year].to_i
+    year unless year.zero?
+  end
 end

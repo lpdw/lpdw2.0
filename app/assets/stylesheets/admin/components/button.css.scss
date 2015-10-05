@@ -52,7 +52,7 @@ $color-grey-light: #e1eaf1;
         }
     }
     @else if $color == blue {
-        &:hover {
+        &:hover, &:hover .button{
             text-decoration: none;
             background-color: $color-blue;
         }
