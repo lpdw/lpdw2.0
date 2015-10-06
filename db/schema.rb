@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408080604) do
+ActiveRecord::Schema.define(version: 20151005214752) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.string   "author"
     t.datetime "created_at"
+    t.integer  "user_id"
   end
+
+  add_index "actualities", ["user_id"], name: "index_actualities_on_user_id"
 
   create_table "alerts", force: true do |t|
     t.string   "name"

@@ -11,7 +11,11 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-    ROLES = %w[admin default intervenant applicant]
+  ROLES = %w[admin default intervenant applicant]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def admin?
+    role == 'admin'
+  end
 end
