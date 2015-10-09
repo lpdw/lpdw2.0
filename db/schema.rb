@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408080604) do
+ActiveRecord::Schema.define(version: 20151009195608) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -76,14 +76,31 @@ ActiveRecord::Schema.define(version: 20150408080604) do
     t.integer  "english_skill"
     t.string   "other_language"
     t.text     "after_school"
-    t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ip_address"
     t.integer  "step_position"
-    t.integer  "id_applicant"
   end
 
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true, using: :btree
+
+  create_table "companies", force: true do |t|
+    t.integer  "id_company"
+    t.string   "name"
+    t.text     "description",  limit: 2147483647
+    t.string   "address"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "phone_number"
+    t.string   "website"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "logo_url"
+    t.date     "founded_at"
+    t.integer  "posted_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cursus", force: true do |t|
     t.integer  "id_applicant"
@@ -97,6 +114,31 @@ ActiveRecord::Schema.define(version: 20150408080604) do
   end
 
   add_index "cursus", ["id_applicant"], name: "cursus_id_applicant_fk", using: :btree
+
+  create_table "images", force: true do |t|
+    t.string   "alt"
+    t.string   "attachment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", force: true do |t|
+    t.integer  "id_job"
+    t.string   "job_name"
+    t.string   "job_number"
+    t.text     "job_description", limit: 2147483647
+    t.string   "start_at"
+    t.string   "duration"
+    t.text     "profil",          limit: 2147483647
+    t.string   "contact"
+    t.string   "location"
+    t.text     "skills",          limit: 2147483647
+    t.integer  "status"
+    t.date     "founded_at"
+    t.integer  "posted_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "options", force: true do |t|
     t.string "key"
@@ -136,6 +178,7 @@ ActiveRecord::Schema.define(version: 20150408080604) do
   add_index "project_applicants", ["id_applicant"], name: "project_applicants_id_applicant_fk", using: :btree
 
   create_table "projects", force: true do |t|
+    t.string   "photo"
     t.string   "name"
     t.text     "description"
     t.string   "link"
