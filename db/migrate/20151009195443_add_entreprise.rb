@@ -1,7 +1,6 @@
 class AddEntreprise < ActiveRecord::Migration
   def change
     create_table :companies do |t|
-      t.column :id_company, :integer
       t.column :name, :string
       t.column :description, :text, :limit => 4294967295
       t.column :address, :string

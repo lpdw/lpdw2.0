@@ -1,7 +1,6 @@
 class AddOffre < ActiveRecord::Migration
   def change
     create_table :jobs do |t|
-      t.column :id_job, :integer
       t.column :job_name, :string
       t.column :job_number, :string
       t.column :job_description, :text, :limit => 4294967295
