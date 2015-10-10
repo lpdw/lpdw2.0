@@ -35,7 +35,31 @@ class PagesController < ApplicationController
   #Mentions
   def mentions
   end
-
+  #Annuaire
+  def annuary
+  end
+  #Entreprise
+  def company
+     @companies = Companies.find(params["id"])
+  end
+  def show_company(id)
+      @companies = Companies.find(params["id"])
+  end
+  #Offre
+  def job
+      @njob = Jobs.find(params["id"])
+  end
+  def show_job(id)
+      @job = Jobs.find(params["id"])
+  end
+  #Les Entreprises
+  def companies
+   @companies = Companies.all().order(id: :desc)
+  end
+  #Les offres
+  def jobs
+   @jobs = Jobs.all().order(id: :desc)
+  end
   #Contactez-nous
   def contact
       @name_contact = params["name_contact"]
