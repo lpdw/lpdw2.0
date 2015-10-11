@@ -14,6 +14,8 @@
   <div class="container">
     <div class="row">
       <% @student.each do |student| %>
+          <%= debug student.id %>
+          <%= debug student_profil_path(student) %>
           <% if student.name? %>
               <article class="col-sm-4 col-md-3">
                 <div class="team-profile">
@@ -24,12 +26,20 @@
                             <img src="/assets/default_user.jpg" alt=."" class="img-responsive">
                         <% end %>
                   </figure>
-                  <h4 class="text-center"><%= student.name%> <%= student.lastname%></h4>
+                  <%= link_to student_profil_path(student) do %>
+                    <h4 class="text-center"><%= student.name%> <%= student.lastname%></h4>
+                  <% end %>
                   <p class="text-center job-title"><%= student.description%></p>
                   <% if student.twitter.present? or student.linkin.present? %>
                       <ul class="social_section text-center">
                         <% if student.twitter.present? %>
                             <li><a target="_blank" href=<%= student.twitter%>><i class="fa fa-twitter"></i></a></li>
+                        <% end %>
+                        <% if student.googleplus.present? %>
+                            <li><a target="_blank" href=<%= student.googleplus%>><i class="fa fa-google-plus"></i></a></li>
+                        <% end %>
+                        <% if student.viadeo.present? %>
+                            <li><a target="_blank" href=<%= student.viadeo%>><i class="fa fa-google-plus"></i></a></li>
                         <% end %>
                         <% if student.linkin.present? %>
                             <li><a target="_blank" href=<%= student.linkin%>><i class="fa fa-linkedin"></i></a></li>
