@@ -91,5 +91,5 @@ root 'pages#home'
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
   get '/studentsbook', :to => 'student#show'
-  get '/studentprofil', :to => 'student#profil'
+  get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
 end
