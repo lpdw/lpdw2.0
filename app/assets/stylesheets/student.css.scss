@@ -1,0 +1,56 @@
+.student-profile {
+  padding: 80px 0;
+}
+
+.team-profile {
+  border: 1px solid $color-4;
+  padding: 30px 10px;
+  min-height: 400px;
+  position: relative;
+  margin-bottom: 15px;
+  figure {
+    display: block;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .job-title {
+    padding: 0 10px;
+  }
+  h4 {
+    margin-top: 20px;
+  }
+
+  .social_section {
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    left: 0;
+    font-size: 16px;
+    li {
+      display: inline-block;
+      padding: 10px;
+      a {
+        color: $color-2;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .team-profiles {
+
+    .col-md-3 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+  }
+
+  .team-profile {
+    margin: 0 -1px -1px 0;
+  }
+}

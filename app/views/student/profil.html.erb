@@ -1,5 +1,54 @@
-STUDENT PROFIL HERE
+<section class="banner banner-blue banner-team">
+  <div class="container">
+    <p>Annuaire des anciens</p>
+  </div>
+</section>
+<div class="student-profile">
+  <div class="container">
+
+    <div class="row">
+      <div class="student-infos">
+        <img src="/assets/1.jpg" class="block col-md-3">
+        <div class="col-md-offset-1 col-md-8">
+          <div class="row block">
+            <ul>
+              <li>Google +: <%= link_to 'Lien', @student.googleplus %></li>
+              <li>Facebook: <%= link_to 'Lien', @student.facebook %></li>
+              <li>Viadeo: <%= link_to 'Lien', @student.viadeo %></li>
+            </ul>
+          </div>
+          <div class="row block">
+            <ul>
+              <li>Nom: <%= @student.user.lastname %></li>
+              <li>Prenom <%= @student.user.name %></li>
+              <li>Age: (voir 'birth' table applicants)</li>
+              <li>Promo: (voir 'deposit date' table applicants)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block row">
+      <div class="student-jobs">
+        <div class="current-job">
+            <p>Poste Actuel : <h2>Poste</h2></p>
+            <p>Salaire : <span>Fourchette salaire: (voir jointure table average salary</span></p>
+        </div>
+        <div class="lp-job">
+            <p>Poste en Licence Pro: <h2>Poste</h2></p>
+            <p>Salaire : <span>Fourchette salaire: (voir jointure table average salary</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <ul>
+
+  <%= debug @student %>
+
+
+  <ul>
   <li>Nom: <%= @student.user.lastname %></li>
   <li>Prenom <%= @student.user.name %></li>
   <li>Age: (voir 'birth' table applicants)</li>
@@ -7,15 +56,14 @@ STUDENT PROFIL HERE
   <li>Poste actuel: <%= @student.current_job_title%></li>
   <li>Fourchette salaire: (voir jointure table average salary</li>
   <li>Description: <%= @student.current_job_desc%></li>
-  <li>Poste en LP: <%= @student.lp_job_desc%></li>
+  <li>Poste en LP: </li>
   <li>Description: <%= @student.lp_job_desc%></li>
   </br>
-  <li>Google +: <%= link_to 'Lien', @student.googleplus %></li>
-  <li>Facebook: <%= link_to 'Lien', @student.facebook %></li>
-  <li>Viadeo: <%= link_to 'Lien', @student.viadeo %></li>
+
   <li>CV: (voir affichage, téléchargement CV)</li>
   </br>
   <li>Envoyer un message: (voir envoie message)</li>
 </ul>
 
 <%= debug @student %>
+<%= debug @student.user %>
