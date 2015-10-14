@@ -19,6 +19,7 @@ devise_for :users, :controllers => {:sessions => "sessions"},
 
   namespace :admin_v2 do
     resources :actualities, except: [:show]
+    resources :users, except: [:show]
   end
 
   get 'admin/show_applicants' => 'admin#show_applicants'

@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
-	validates :password, length: {
-    minimum: 8,
-    maximum: 20,
-    too_short: "must have at least %{count} words",
-    too_long: "must have at most %{count} words"
-  }, confirmation: true
+	# validates :password, length: {
+ #    minimum: 8,
+ #    maximum: 20,
+ #    too_short: "must have at least %{count} words",
+ #    too_long: "must have at most %{count} words"
+ #  }, confirmation: true
   #Link model to Admin
 	has_many :actuality
   has_one :applicant
