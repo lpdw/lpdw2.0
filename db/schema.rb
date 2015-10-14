@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.integer  "user_id"
   end
 
-  add_index "actualities", ["user_id"], name: "index_actualities_on_user_id", using: :btree
+  add_index "actualities", ["user_id"], name: "index_actualities_on_user_id"
 
   create_table "alerts", force: true do |t|
     t.string   "name"
@@ -40,8 +40,6 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.integer  "id_applicant"
   end
 
-  add_index "applicant_attachments", ["id_applicant"], name: "applicant_attachments_id_applicant_fk", using: :btree
-
   create_table "applicant_statuses", force: true do |t|
     t.integer  "id_applicant"
     t.boolean  "is_finish"
@@ -54,8 +52,6 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "applicant_statuses", ["id_applicant"], name: "applicant_statuses_id_applicant_fk", using: :btree
 
   create_table "applicants", force: true do |t|
     t.datetime "deposit_date"
@@ -85,7 +81,7 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.boolean  "graduation",      default: false
   end
 
-  add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true, using: :btree
+  add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true
 
   create_table "average_salary", force: true do |t|
     t.string "value"
@@ -104,7 +100,12 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.datetime "updated_at"
   end
 
-  add_index "cursus", ["id_applicant"], name: "cursus_id_applicant_fk", using: :btree
+  create_table "images", force: true do |t|
+    t.string   "alt"
+    t.string   "attachment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "options", force: true do |t|
     t.string "key"
@@ -118,8 +119,6 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.datetime "updated_at"
   end
 
-  add_index "other_applications", ["id_applicant"], name: "other_applications_id_applicant_fk", using: :btree
-
   create_table "professional_experiences", force: true do |t|
     t.integer  "id_applicant"
     t.integer  "year"
@@ -130,8 +129,6 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.datetime "updated_at"
   end
 
-  add_index "professional_experiences", ["id_applicant"], name: "professional_experiences_id_applicant_fk", using: :btree
-
   create_table "project_applicants", force: true do |t|
     t.integer  "id_applicant"
     t.string   "project_type"
@@ -140,8 +137,6 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "project_applicants", ["id_applicant"], name: "project_applicants_id_applicant_fk", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -176,16 +171,15 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.string   "description"
     t.string   "linkin"
     t.integer  "id_applicant"
-    t.datetime "birth"
     t.string   "facebook"
     t.string   "github"
     t.string   "googleplus"
     t.string   "viadeo"
+    t.datetime "birth"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["id_applicant"], name: "users_id_applicant_fk", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "users_infos", force: true do |t|
     t.integer "user_id"
@@ -195,7 +189,7 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.string  "lp_job_title"
     t.text    "lp_job_desc",       limit: 4294967295
     t.string  "cv"
-    t.integer "graduation_year"
+    t.integer "graduation_year",   limit: 4
   end
 
   add_index "users_infos", ["id"], name: "index_users_infos_on_id", unique: true
@@ -207,26 +201,5 @@ ActiveRecord::Schema.define(version: 20151014100128) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "votes", ["id_applicant"], name: "votes_id_applicant_fk", using: :btree
-
-  add_foreign_key "applicant_attachments", "applicants", name: "applicant_attachments_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "applicant_statuses", "applicants", name: "applicant_statuses_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "cursus", "applicants", name: "cursus_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "other_applications", "applicants", name: "other_applications_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "professional_experiences", "applicants", name: "professional_experiences_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "project_applicants", "applicants", name: "project_applicants_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "users", "applicants", name: "users_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "users_infos", "average_salary", name: "users_infos_average_salary_fk", column: "average_salary", dependent: :delete
-  add_foreign_key "users_infos", "users", name: "users_infos_user_id_fk", dependent: :delete
-
-  add_foreign_key "votes", "applicants", name: "votes_id_applicant_fk", column: "id_applicant", dependent: :delete
 
 end
