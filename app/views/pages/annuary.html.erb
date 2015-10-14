@@ -8,14 +8,21 @@
 <!-- ANNUAIRE ENTREPRISES ET OFFRES -->
 <div class="gray-bg wrapper">
 
-    <div class="container">
+   <!-----  <div class="container">
 	<div class="row">
 	    <section class="col-md-10 col-md-offset-1">
 		<h3 class="content-title">Rechercher entreprise ou une offre d'emploi ?</h3><br />
 	   </section>
-	
+		<div class="col-md-10 col-md-offset-1">
+                <%= form_tag({:action => 'sendmail'}, {:method => :post}) do |f| %>
+                    <div class="form-group">
+                        <%= text_field_tag 'search', nil, class: 'form-control', size:5,  placeholder: 'Tapez votre recherche...', :value => @search %>
+                    <%= button_tag "Envoyer", class: "btn btn-default" %>
+                    </div>
+                <% end %>
+		</div>
 	</div>
-   </div>
+   </div>  ---->
 
 
     <div class="container">
@@ -27,7 +34,11 @@
                         <div class="article-new">
                             <h3>Entreprises</h3>
 				<p>Vous pouvez accéder à toutes les entreprises qui collaborent avec l'université de Cergy-Pontoise et y découvrir de nombreuses informations(Coordonnées, sites, descriptions, etc).
-				<span><%= link_to 'Voir les entreprises',companies_path(), :class=>"button"%></span></a>
+                      		</p>   
+				   <%= link_to(companies_path(),:class=>'button') do %>
+                      		   <span>Voir les entreprises</span> <i class="fa fa-chevron-right"></i>
+                    		   <% end %>
+			<!---	<span><%= link_to 'Voir les entreprises',companies_path(), :class=>"button"%></span></a> --->
                         </div>
                     </article>
                     <article class="col-md-6">
