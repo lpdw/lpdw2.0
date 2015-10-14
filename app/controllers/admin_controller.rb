@@ -109,7 +109,8 @@ admin_restriction_area
   # applicants controller
   def show_applicants
     @title_admin = "Candidatures"
-    @applicants = Applicant.by_year(year_params || Time.now.year)
+    @year = year_params || Time.now.year
+    @applicants = Applicant.by_year(@year)
   end
 
   def show_applicant
