@@ -123,5 +123,13 @@ margin-bottom: 10%;
 .search{
 position:relative;
 left:83%;
+}
 
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  background-color: #ea483e;
+  border-color: #ea483e;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: #ea483e;
 }
