@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009195608) do
+ActiveRecord::Schema.define(version: 20151014084617) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 20151009195608) do
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true, using: :btree
 
   create_table "companies", force: true do |t|
-    t.integer  "id_company"
     t.string   "name"
     t.text     "description",  limit: 2147483647
     t.string   "address"
@@ -123,7 +122,6 @@ ActiveRecord::Schema.define(version: 20151009195608) do
   end
 
   create_table "jobs", force: true do |t|
-    t.integer  "id_job"
     t.string   "job_name"
     t.string   "job_number"
     t.text     "job_description", limit: 2147483647
@@ -138,7 +136,10 @@ ActiveRecord::Schema.define(version: 20151009195608) do
     t.integer  "posted_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id"
   end
+
+  add_index "jobs", ["company_id"], name: "jobs_company_id_fk", using: :btree
 
   create_table "options", force: true do |t|
     t.string "key"
@@ -232,6 +233,8 @@ ActiveRecord::Schema.define(version: 20151009195608) do
   add_foreign_key "applicant_statuses", "applicants", name: "applicant_statuses_id_applicant_fk", column: "id_applicant", dependent: :delete
 
   add_foreign_key "cursus", "applicants", name: "cursus_id_applicant_fk", column: "id_applicant", dependent: :delete
+
+  add_foreign_key "jobs", "companies", name: "jobs_company_id_fk"
 
   add_foreign_key "other_applications", "applicants", name: "other_applications_id_applicant_fk", column: "id_applicant", dependent: :delete
 
