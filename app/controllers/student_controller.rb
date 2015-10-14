@@ -1,6 +1,6 @@
 class StudentController < ApplicationController
   def show
-    @graduationYears = Student.select("graduation_year").all
+    @graduationYears = Student.select("graduation_year").order("graduation_year").all
 
     if(params[:user_id] == nil)
       @student = User.students.where("graduation_year=0")
