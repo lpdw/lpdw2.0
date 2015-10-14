@@ -5,7 +5,7 @@ class TipsController < ApplicationController
   end
 
   def index
-    @tip = Tip.all
+    @tips = Tips.all
   end
 
 end
