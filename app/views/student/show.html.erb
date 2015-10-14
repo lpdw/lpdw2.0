@@ -6,14 +6,12 @@
 <div class="title-center">
   <h1>Filtres</h1>
   <form class="row">
-    <div>
         <label>Année de promo :</label>
         <select>
-          <% @student.each do |student| %>
-
+          <% @graduationYears.each do |year| %>
+            <option><%= year.graduation_year %></option>
           <% end %>
         </select>
-    </div>
     <input type="submit" value="Valider">
   </form>
 </div>
@@ -21,7 +19,7 @@
   <div class="container">
     <div class="row">
       <% @student.each do |student| %>
-          <%= debug student.id %>
+          <%= debug student %>
           <%= debug student_profil_path(student) %>
           <% if student.name? %>
               <article class="col-sm-4 col-md-3">
@@ -63,4 +61,5 @@
 <ul>
 
   <%= debug @student %>
+  <%= debug @graduationYears %>
 
