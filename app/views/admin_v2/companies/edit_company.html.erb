@@ -1,5 +1,5 @@
 <h2>Ajouter une entreprise</h2>
-<%= form_for(:company, url:  admin_edit_company_path, html: {class: "form" }) do |f| %>
+<%= form_for(:company, url:  admin_v2_admin_edit_company_path, html: {class: "form" }) do |f| %>
 <div class="form-group">
  <div class="col-sm-10">
    <%= f.text_field :name, autofocus: true , :class => 'input' ,:placeholder=>"Nom" %>

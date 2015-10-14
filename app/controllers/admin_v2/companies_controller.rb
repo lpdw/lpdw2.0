@@ -1,4 +1,4 @@
-class CompaniesController < ApplicationController
+class AdminV2::CompaniesController < AdminV2Controller
   before_action :is_admin
   layout "_admin"
 
@@ -25,10 +25,10 @@ class CompaniesController < ApplicationController
     @company = Company.new(params[:company].permit(:name, :description, :address, :zip_code, :city, :phone_number, :website, :twitter, :linkedin))
     if @company.save
       flash["sucess"] = "Company created"
-      redirect_to admin_show_companies_path()
+      redirect_to admin_v2_admin_show_companies_path()
     else
       flash["fail"] = "Company not created"
-      redirect_to admin_create_company_path()
+      redirect_to admin_v2_admin_create_company_path()
     end
   end
 
@@ -43,9 +43,9 @@ class CompaniesController < ApplicationController
 
     if @company.update_attributes(params[:company].permit(:name, :description, :address, :zip_code, :city, :phone_number, :website, :twitter, :linkedin))
       flash["sucess"] = "Company edited"
-      redirect_to admin_show_companies_path
+      redirect_to admin_v2_admin_show_companies_path
     else
-      redirect_to admin_edit_company_path(company)
+      redirect_to admin_v2_admin_edit_company_path(company)
     end
   end
 
@@ -53,10 +53,10 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     if @company.destroy
       flash["sucess"] = "Company deleted"
-      redirect_to admin_show_companies_path()
+      redirect_to admin_v2_admin_show_companies_path()
     else
       flash[:error] = "Company not deleted"
-      redirect_to admin_show_companies_path()
+      redirect_to admin_v2_admin_show_companies_path()
     end    
   end
 

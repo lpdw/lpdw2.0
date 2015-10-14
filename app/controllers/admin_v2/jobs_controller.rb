@@ -1,4 +1,4 @@
-class JobsController < ApplicationController
+class AdminV2::JobsController < AdminV2Controller
   before_action :is_admin
   layout "_admin"
 
@@ -28,10 +28,10 @@ class JobsController < ApplicationController
 
     if @job.save
       flash["sucess"] = "Job created"
-      redirect_to admin_show_jobs_path
+      redirect_to admin_v2_admin_show_jobs_path
     else
       flash["fail"] = "Job not created"
-      redirect_to admin_create_jobs_path
+      redirect_to admin_v2_admin_create_jobs_path
     end
   end
 
@@ -47,9 +47,9 @@ class JobsController < ApplicationController
 
     if @job.update_attributes(params[:job].permit(:job_name, :job_number, :job_description, :start_at, :duration, :profil, :contact, :location, :skills))
       flash["sucess"] = "Job updated"
-      redirect_to admin_show_jobs_path
+      redirect_to admin_v2_admin_show_jobs_path
     else
-      redirect_to admin_edit_jobs_path(job)
+      redirect_to admin_v2_admin_edit_jobs_path(job)
     end
   end
 
@@ -57,10 +57,10 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     if @job.destroy
       flash["sucess"] = "Job deleted"
-      redirect_to admin_show_jobs_path
+      redirect_to admin_v2_admin_show_jobs_path
     else
       flash[:error] = "Job not deleted"
-      redirect_to admin_show_jobs_path
+      redirect_to admin_v2_admin_show_jobs_path
     end
   end
 

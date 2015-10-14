@@ -1,5 +1,5 @@
-<h2>Modifierr une offre</h2>
-<%= form_for(@job, url:  admin_edit_job_path, html: {class: "form" }) do |f| %>
+<h2>Ajouter une offre</h2>
+<%= form_for(@job, url:  admin_v2_admin_create_job_path, html: {class: "form" }) do |f| %>
 <div class="form-group">
  <div class="col-sm-10">
    <%= f.text_field :job_name, autofocus: true , :class => 'input' ,:placeholder=>"Nom" %>
@@ -52,15 +52,8 @@
 
 <div class="form-group">
   <select class="form-control" name="company_id">
-  <% @companies.each do |company| %>
-    <option value="<%=company.id %>"
-	<%= 
-        @selected = ""
-	if @job.company.id == company.id
-  	  @selected = "selected"
-	end
-	@selected %>
-    ><%= company.name %></option>
+  <% @companies.each do |company| %> 
+    <option value="<%= company.id  %>"><%= company.name %></option>
   <% end %>
   </select>
 </div>
