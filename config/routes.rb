@@ -20,6 +20,7 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   namespace :admin_v2 do
     resources :actualities, except: [:show]
     resources :users, except: [:show]
+    resources :tips, only: [:new ,:create ,:edit ,:update, :delete]
   end
 
   get 'admin/show_applicants' => 'admin#show_applicants'
@@ -97,6 +98,9 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   #GESTION DES ERREURS ET ENVOIE PAR MAIL
   get 'erreur_page' => 'pages#erreur_page'
 
+  #CREATION DE TIPS
+  #Route (à modifier) à mettre dans admin -v2
+  #get 'admin/create_tips' => 'admin#create_tips'
 
   #ROUTES FOR TIPS
   resources :tips, only: [:new,:show, :edit, :create]
