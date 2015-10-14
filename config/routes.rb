@@ -94,5 +94,6 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
   get '/studentsbook', :to => 'student#show'
+  get '/studentsbook/:user_id' , :to => 'student#show'
   get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
 end

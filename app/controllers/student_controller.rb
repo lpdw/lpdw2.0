@@ -1,6 +1,10 @@
 class StudentController < ApplicationController
   def show
-    @student = Student.joins("LEFT JOIN users ON users.id = users_infos.user_id").select("*")
+    if(params[:user_id] == nil)
+      @student = Student.joins("LEFT JOIN users ON users.id = users_infos.user_id").select("*").where("role='student' AND graduation_year=0")
+    else
+      @student = Student.joins("LEFT JOIN users ON users.id = users_infos.user_id").select("*").where("role='student' AND graduation_year=%s", params[:user_id])
+    end
   end
 
   def profil

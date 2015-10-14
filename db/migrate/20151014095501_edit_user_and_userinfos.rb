@@ -11,6 +11,5 @@ class EditUserAndUserinfos < ActiveRecord::Migration
     add_column :users, :googleplus, :string,  :limit => 255
     add_column :users, :viadeo, :string, :limit => 255
     add_column :applicants, :graduation, :boolean, :default => false
-
   end
 end
