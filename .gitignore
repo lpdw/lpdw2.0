@@ -18,7 +18,6 @@
 *.DS_Store
 **/.DS_Store
 /.idea
-config/database.yml
 /.sass-cache
 /public/*
 /config/*

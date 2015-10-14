@@ -14,7 +14,13 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-root 'pages#home'
+  root 'pages#home'
+  resources :actualities, only: [:index, :show]
+
+  namespace :admin_v2 do
+    resources :actualities, except: [:show]
+    resources :users, except: [:show]
+  end
 
   get 'admin/show_applicants' => 'admin#show_applicants'
   get 'admin/show_applicant/:id' => 'admin#show_applicant', :as => 'admin_show_applicant'
@@ -41,12 +47,12 @@ root 'pages#home'
   get 'admin/delete_user/:id' => 'admin#delete_user', :as => 'admin_delete_user'
 
 
-  get 'admin/create_actuality' => 'admin#create_actuality'
-  post 'admin/create_actuality' => 'admin#new_actuality'
-  get 'admin/edit_actuality/:id' => 'admin#edit_actuality', :as => 'admin_edit_actuality'
-  get 'admin/show_actualities' => 'admin#show_actualities'
-  post 'admin/edit_actuality/:id' => 'admin#update_actuality'
-  get 'admin/delete_actuality/:id' => 'admin#delete_actuality', :as => 'admin_delete_actuality'
+  #get 'admin/create_actuality' => 'admin#create_actuality'
+  #post 'admin/create_actuality' => 'admin#new_actuality'
+  #get 'admin/edit_actuality/:id' => 'admin#edit_actuality', :as => 'admin_edit_actuality'
+  #get 'admin/show_actualities' => 'admin#show_actualities'
+  #post 'admin/edit_actuality/:id' => 'admin#update_actuality'
+  #get 'admin/delete_actuality/:id' => 'admin#delete_actuality', :as => 'admin_delete_actuality'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
 
   get 'admin/create_alert' => 'admin#create_alert'
@@ -74,9 +80,6 @@ root 'pages#home'
 
 
   get '/', :to => 'pages#home'
-  get '/actualites', :to => 'pages#news'
-  get '/actualites/:id' => 'pages#new'
-  get '/actualites/:id' => 'pages#new', :as => 'actuality_show'
   get '/formation', :to => 'pages#formation'
   get '/projets', :to => 'pages#project'
   get '/equipe', :to => 'pages#team'

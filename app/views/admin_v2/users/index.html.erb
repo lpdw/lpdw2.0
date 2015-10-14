@@ -1,0 +1,36 @@
+<% provide :title_admin, 'Utilisateurs' %>
+<h1>Gérer les comptes utilisateurs</h1>
+<%= link_to(new_admin_v2_user_path,:class=>'button button-blue float-right') do %>
+    <span>Créer un utilisateur</span> <i class="fa fa-user"></i>
+<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Last name</th>
+            <th>Rôle</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+            <td data-th="ID"><%= user.id %></td>
+            <td data-th="Email"><%= user.email %></td>
+            <td data-th="Name"><%= user.name %></td>
+            <td data-th="Last name"><%= user.lastname %></td>
+            <td data-th="Rôle"><%= user.role %></td>
+            <td data-th="Action">
+                <%= link_to(edit_admin_v2_user_path(user)) do %>
+                <i class="fa fa-pencil"></i> Modifier
+                <% end %>
+                <%= link_to(admin_v2_user_path(user), method: :delete) do %>
+                <i class="fa fa-trash-o"></i> Supprimer
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
