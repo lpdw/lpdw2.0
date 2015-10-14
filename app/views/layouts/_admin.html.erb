@@ -31,9 +31,9 @@
                             <li><%= link_to(admin_edit_user_path(current_user.id)) do %><i class="fa fa-pencil"></i> Mon profil<% end %></li>
                         <% end %>
                         <li><%= link_to admin_show_applicants_path() do %> <i class="fa fa-mortar-board"> </i>Candidatures<% end %></i> </li>
-                        <li><%= link_to admin_show_actualities_path() do %><i class="fa fa-newspaper-o"></i> Actualités <% end %></li>
+                        <li><%= link_to admin_v2_actualities_path() do %><i class="fa fa-newspaper-o"></i> Actualités <% end %></li>
                         <% if current_user.role === "admin" %>
-                            <li><%= link_to admin_show_users_path() do %><i class="fa fa-user"></i> Utilisateurs <% end %></li>
+                            <li><%= link_to admin_v2_users_path do %><i class="fa fa-user"></i> Utilisateurs <% end %></li>
                             <li><%= link_to admin_show_alerts_path() do%><i class="fa fa-bell"></i> Alertes <% end %> </li>
                             <li><%= link_to admin_show_projects_path() do %><i class="fa fa-file-text"></i>  Projets <% end %></li>
                             <li><%= link_to admin_show_interview_path() do %><i class="fa fa-calendar"></i>  Entretien <% end %></li>

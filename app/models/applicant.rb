@@ -17,8 +17,20 @@ class Applicant < ActiveRecord::Base
   accepts_nested_attributes_for :project_applicants, :allow_destroy => true
   accepts_nested_attributes_for :applicant_status, :votes
 
+  scope :by_year, lambda { |year| where("strftime('%Y', created_at) = ?", year.to_s) }
+
   def self.authenticate(email)
     @current = Applicant.find_by(email: email)
       return @current
-    end
   end
+
+  def school_year
+    first_year = created_at.year
+    "#{first_year}/#{first_year+1}"
+  end
+
+
+  def self.all_years
+    Applicant.pluck(:created_at).map {|created_at| created_at.year}.uniq.sort
+  end
+end

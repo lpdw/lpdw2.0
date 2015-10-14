@@ -23,9 +23,13 @@ production:
   database: lpdwDB
 
 development:
-  adapter: mysql2
-  encoding: utf8
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
-  username: lpdw
-  password: lpdw
-  database: lpdwDB
+  timeout: 5000
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
