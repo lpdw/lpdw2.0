@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014100128) do
+ActiveRecord::Schema.define(version: 20151014135917) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -83,11 +83,11 @@ ActiveRecord::Schema.define(version: 20151014100128) do
 
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true
 
-  create_table "average_salary", force: true do |t|
+  create_table "average_salaries", force: true do |t|
     t.string "value"
   end
 
-  add_index "average_salary", ["id"], name: "index_average_salary_on_id", unique: true
+  add_index "average_salaries", ["id"], name: "index_average_salaries_on_id", unique: true
 
   create_table "cursus", force: true do |t|
     t.integer  "id_applicant"
@@ -183,7 +183,7 @@ ActiveRecord::Schema.define(version: 20151014100128) do
 
   create_table "users_infos", force: true do |t|
     t.integer "user_id"
-    t.integer "average_salary"
+    t.integer "average_salary_id"
     t.string  "current_job_title"
     t.text    "current_job_desc",  limit: 4294967295
     t.string  "lp_job_title"
