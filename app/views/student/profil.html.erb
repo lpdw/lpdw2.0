@@ -12,18 +12,24 @@
         <div class="col-md-offset-1 col-md-8">
           <div class="row block">
             <ul>
-              <li>Google +: <%= link_to 'Lien', @student.googleplus %></li>
-              <li>Facebook: <%= link_to 'Lien', @student.facebook %></li>
-              <li>Viadeo: <%= link_to 'Lien', @student.viadeo %></li>
+              <% if @student.user.twitter.present? %>
+                  <li><a target="_blank" href=<%= @student.user.twitter%>><i class="fa fa-twitter"></i></a></li>
+              <% end %>
+              <% if @student.googleplus.present? %>
+                  <li><a target="_blank" href=<%= @student.googleplus%>><i class="fa fa-google-plus"></i></a></li>
+              <% end %>
+              <% if @student.viadeo.present? %>
+                  <li><a target="_blank" href=<%= @student.viadeo%>><i class="fa fa-google-plus"></i></a></li>
+              <% end %>
+              <% if @student.user.linkin.present? %>
+                  <li><a target="_blank" href=<%= @student.user.linkin%>><i class="fa fa-linkedin"></i></a></li>
+              <% end %>
             </ul>
           </div>
           <div class="row block">
-            <ul>
-              <li>Nom: <%= @student.user.lastname %></li>
-              <li>Prenom <%= @student.user.name %></li>
-              <li>Age: (voir 'birth' table applicants)</li>
-              <li>Promo: (voir 'deposit date' table applicants)</li>
-            </ul>
+              <h1><%= @student.user.lastname %>  <%= @student.user.name %></h1>
+              <p clas="promo">Promo: (voir 'deposit date' table applicants)</p>
+              <p>Age: (voir 'birth' table applicants)</p>
           </div>
         </div>
       </div>

@@ -1,13 +1,32 @@
+
+/*STUDENT List*/
+.title-center{
+  form{
+    div{
+      float:left;
+    }
+    input[type="submit"]{
+      float:right;
+    }
+  }
+}
+
+/*STUDENT Profile*/
+
 .student-profile {
   padding: 80px 0;
 }
 
-.team-profile {
+img.block{
+  padding: 0 !important;
+}
+
+.block {
   border: 1px solid $color-4;
   padding: 30px 10px;
-  min-height: 400px;
   position: relative;
   margin-bottom: 15px;
+
   figure {
     display: block;
     margin: auto;
