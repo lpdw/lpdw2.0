@@ -4,6 +4,6 @@ class StudentController < ApplicationController
   end
 
   def profil
-    @student = Student.joins(:user).where("users.id=%s", params[:user_id])
+      @student = Student.joins(:user).joins("LEFT JOIN average_salaries ON average_salaries.id = users_infos.average_salary_id").where("users.id=%s", params[:user_id])
   end
 end
