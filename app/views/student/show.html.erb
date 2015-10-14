@@ -19,8 +19,6 @@
   <div class="container">
     <div class="row">
       <% @student.each do |student| %>
-          <%= debug student %>
-          <%= debug student_profil_path(student) %>
           <% if student.name? %>
               <article class="col-sm-4 col-md-3">
                 <div class="team-profile">
@@ -58,8 +56,3 @@
     </div>
   </div>
 </div>
-<ul>
-
-  <%= debug @student %>
-  <%= debug @graduationYears %>
-
