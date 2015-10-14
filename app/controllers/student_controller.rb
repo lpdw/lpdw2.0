@@ -4,6 +4,6 @@ class StudentController < ApplicationController
   end
 
   def profil
-    @student = Student.joins(:user).find(params[:user_id])
+    @student = Student.joins(:user).where("users.id=%s", params[:user_id])
   end
 end
