@@ -94,7 +94,7 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   get '/live', :to => 'pages#live'
 
   #GESTION DES ERREURS ET ENVOIE PAR MAIL
-  get 'erreur_page' => 'pages#erreur_page'
+  get 'error_page' => 'pages#error_page'
 
   #CREATION DE TIPS
   #Route (à modifier) à mettre dans admin -v2
