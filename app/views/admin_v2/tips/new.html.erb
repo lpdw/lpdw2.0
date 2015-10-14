@@ -1,6 +1,6 @@
 <div class="container">
 <h2>Ajouter un bon plan</h2>
-<%= form_for @tips, url: admin_create_tips_path do |f| %>
+<%= form_for ([:admin_v2, @tip]) do |f| %>
 <br />
     <form class="row row-offcanvas row-offcanvas-left">
         
@@ -34,4 +34,5 @@
 			     <div id="map"> <!-- GoogleMap here -->
         </div><!-- /.col-xs-12 main -->
     </form><!--/.row-->
-</div><!--/.container-->
+  </div><!--/.container-->
+<% end %>

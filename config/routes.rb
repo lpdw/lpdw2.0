@@ -78,8 +78,6 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   get 'admin/show_options' => 'admin#show_options'
   post 'admin/update_options' => 'admin#update_options'
 
-
-
   get '/', :to => 'pages#home'
   get '/formation', :to => 'pages#formation'
   get '/projets', :to => 'pages#project'
