@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005214752) do
+ActiveRecord::Schema.define(version: 20151014100128) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.integer  "english_skill"
     t.string   "other_language"
     t.text     "after_school"
+    t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "ip_address"
     t.integer  "step_position"
   end
 
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.string "value"
   end
 
-  add_index "average_salary", ["id"], name: "index_average_salary_on_id", unique: true, using: :btree
+  add_index "average_salary", ["id"], name: "index_average_salary_on_id", unique: true
 
   create_table "cursus", force: true do |t|
     t.integer  "id_applicant"
@@ -95,13 +95,6 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.string   "option"
     t.string   "result"
     t.string   "place"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "images", force: true do |t|
-    t.string   "alt"
-    t.string   "attachment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -145,7 +138,6 @@ ActiveRecord::Schema.define(version: 20151005214752) do
   end
 
   create_table "projects", force: true do |t|
-    t.string   "photo"
     t.string   "name"
     t.text     "description"
     t.string   "link"
@@ -178,6 +170,7 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.string   "description"
     t.string   "linkin"
     t.integer  "id_applicant"
+    t.datetime "birth"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -188,18 +181,17 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.string  "github"
     t.integer "average_salary"
     t.string  "current_job_title"
-    t.text    "current_job_desc",  limit: 2147483647
+    t.text    "current_job_desc",  limit: 4294967295
     t.string  "lp_job_title"
-    t.text    "lp_job_desc",       limit: 2147483647
+    t.text    "lp_job_desc",       limit: 4294967295
     t.string  "cv"
     t.string  "googleplus"
     t.string  "facebook"
     t.string  "viadeo"
+    t.integer "graduation_year",   limit: 4
   end
 
-  add_index "users_infos", ["average_salary"], name: "users_infos_average_salary_fk", using: :btree
-  add_index "users_infos", ["id"], name: "index_users_infos_on_id", unique: true, using: :btree
-  add_index "users_infos", ["user_id"], name: "users_infos_user_id_fk", using: :btree
+  add_index "users_infos", ["id"], name: "index_users_infos_on_id", unique: true
 
   create_table "votes", force: true do |t|
     t.integer  "id_applicant"
@@ -208,23 +200,5 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "votes", ["id_applicant"], name: "votes_id_applicant_fk", using: :btree
-
-  add_foreign_key "applicant_attachments", "applicants", name: "applicant_attachments_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "applicant_statuses", "applicants", name: "applicant_statuses_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "cursus", "applicants", name: "cursus_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "other_applications", "applicants", name: "other_applications_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "professional_experiences", "applicants", name: "professional_experiences_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "project_applicants", "applicants", name: "project_applicants_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "users", "applicants", name: "users_id_applicant_fk", column: "id_applicant", dependent: :delete
-
-  add_foreign_key "votes", "applicants", name: "votes_id_applicant_fk", column: "id_applicant", dependent: :delete
 
 end
