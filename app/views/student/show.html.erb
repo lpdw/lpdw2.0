@@ -5,8 +5,15 @@
 </section>
 <div class="title-center">
   <h1>Filtres</h1>
-  <form>
-    <input type="checkbox" name="year"><label for="year">Année de la Promo</label><br>
+  <form class="row">
+    <div>
+        <label>Année de promo :</label>
+        <select>
+          <% @student.each do |student| %>
+
+          <% end %>
+        </select>
+    </div>
     <input type="submit" value="Valider">
   </form>
 </div>
