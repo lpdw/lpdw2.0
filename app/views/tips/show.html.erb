@@ -93,7 +93,9 @@
                 <% if @tip.updated_at? %>
                     <span>Modifié le : <%= @tip.updated_at.strftime("%d %B %Y") %></span>
                 <% end %>
-                <span id="limit-date">Valable jusqu'au : <%= @tip.end_at.strftime("%d %B %Y") %></span>
+                <% if @tip.updated_at? %>
+                  <span id="limit-date">Valable jusqu'au : <%= @tip.end_at.strftime("%d %B %Y") %></span>
+                <% end %>
               </header>
               <div class="content">
                 <p><%= @tip.description%></p>
