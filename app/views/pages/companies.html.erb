@@ -1,0 +1,33 @@
+<section class="banner banner-detailed">
+    <p class="text-center">
+    Annuaire d'entreprises
+    </p>
+</section>
+<!-- RECHERCHE -->
+
+<!-- LISTE ENTREPRISES -->
+<div class="gray-bg wrapper">
+   <input class="search" type="textarea" name="recherche" value=""> 
+   <button class="search" type="button">Rechercher</button>  
+     <div class="work_list">
+    <div class="container">
+ <table class="s_comp">
+   <tr>
+	<td class="ent" id="s_ent"> ENTREPRISES</td>
+   </tr>
+ </table>
+
+<table class="s_comp">
+<% @companies.each do |company| %>
+   <tr>
+       <td class="ent"><%= company.name %></td>
+       <td class="ent"><%= company.description %></td>
+       <td class="ent"><button type="button">Voir</button></td>
+   </tr>
+<% end %>       
+</table>   
+    </div>
+</div>
+</div>
+<!-- PAGINATION -->
+

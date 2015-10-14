@@ -77,7 +77,27 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   get 'admin/show_options' => 'admin#show_options'
   post 'admin/update_options' => 'admin#update_options'
 
+  # routes annuaires admin
+  get 'admin/create_company' => 'companies#create_company', :as => 'admin_create_company'
+  post 'admin/create_company' => 'companies#new_company', :as => 'admin_new_company'
+  get 'admin/show_companies' => 'companies#show_companies', :as => 'admin_show_companies'
+  get 'admin/edit_company/:id' => 'companies#edit_company', :as => 'admin_edit_company'
+  post 'admin/edit_company/:id' => 'companies#update_company', :as => 'admin_update_company'
+  get 'admin/delete_company/:id' => 'companies#delete_company', :as => 'admin_delete_company'
 
+  get 'admin/create_job' => 'jobs#create_job', :as => 'admin_create_job'
+  post 'admin/create_job' => 'jobs#new_job', :as => 'admin_new_job'
+  get 'admin/show_jobs' => 'jobs#show_jobs', :as => 'admin_show_jobs'
+  get 'admin/edit_job/:id' => 'jobs#edit_job', :as => 'admin_edit_job'
+  patch 'admin/edit_job/:id' => 'jobs#update_job', :as => 'admin_update_job'
+  get 'admin/delete_job/:id' => 'jobs#delete_job', :as => 'admin_delete_job'
+
+  # routes annuaire etudiant
+  get '/annuaire' => 'pages#annuary', :as => 'annuary'
+  get '/entreprises' => 'pages#companies', :as => "companies"
+  get '/entreprises/:id' => 'pages#company', :as => "company"
+  get '/offres' => 'pages#jobs', :as => 'jobs'
+  get '/offres/:id' => 'pages#job', :as => 'job'
 
   get '/', :to => 'pages#home'
   get '/formation', :to => 'pages#formation'

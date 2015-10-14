@@ -1,0 +1,33 @@
+<h1>Liste des offres d'emplois</h1>
+<%= link_to(admin_create_job_path(),:class=>'button button-blue float-right') do %>
+    <span>Créer une offre d'emploi</span> <i class="fa fa-newspaper-o"></i>
+<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Entreprise</th>
+            <!-------- <th>Statut</th> ----->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @jobs.each do |job| %>
+        <tr>
+            <td data-th="ID" ><%= job.id %></td>
+            <td data-th="Nom" ><%= job.job_name %></td>
+            <td data-th="Entreprise" ><%= job.company.name %></td>
+           <!-----  <td data-th="Statut" ><%= job.status %></td> ------->
+            <td data-th="Action" >
+                <%= link_to(admin_edit_job_path(job)) do %>
+                <i class="fa fa-pencil"></i> Modifier
+                <% end %>
+                <%= link_to(admin_delete_job_path(job)) do %>
+                <i class="fa fa-trash-o"></i> Supprimer
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

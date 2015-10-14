@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   #Link model to Admin
 	has_many :actuality
   has_one :applicant
+  belongs_to :company
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

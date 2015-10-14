@@ -1,0 +1,35 @@
+<section class="banner banner-detailed">
+    <p class="text-center">
+    Annuaire d'entreprises
+    </p>
+</section>
+<!-- RECHERCHE -->
+<input type="submit" name="recherche" value="rechercher"/>
+<button type="button">Valider</button>
+<!-- OFFRE -->
+<div class="gray-bg wrapper">
+   <div class="work_list">
+    <div class="container">
+        <p><%=@job.job_name %></p>
+
+        <h1>Description</h1>
+        <p><%=@job.job_description %></p>
+
+        <h1>Profil</h1>
+        <p><%=@job.profil %></p>
+
+        <h1>Compétences</h1>
+        <p><%= @job.skills%></p>
+       
+    </div>
+    <div>
+        <%=@job.company.logo_url %>
+        <%=@job.location %>
+        <%=@job.contact %>
+        <%=@job.company.website %>
+    </div>  
+</div>
+</div>
+
+
+
