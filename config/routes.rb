@@ -16,6 +16,7 @@ devise_for :users, :controllers => {:sessions => "sessions"},
 
   root 'pages#home'
   resources :actualities, only: [:index, :show]
+  resources :tips, only: [:index, :show]
 
   namespace :admin_v2 do
     resources :actualities, except: [:show]
