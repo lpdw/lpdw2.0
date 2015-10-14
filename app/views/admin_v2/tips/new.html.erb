@@ -3,32 +3,29 @@
 <%= form_for ([:admin_v2, @tip]) do |f| %>
 <br />
     <form class="row row-offcanvas row-offcanvas-left">
-        
-        <!-- sidebar -->
+
         <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" >
             <ul class="nav">
-              <% f.collection_select :type, Tips::TYPE %>
                 <% f.hidden_field :created_at %>
-                <% f.date_field :end_at, placeholder =>'Date de fin du bon plan' %>
-                <% f.url_field :url, placeholder => 'Lien' %>
-                <% f.telephone_field :phone, :class =>'input', :placeholder =>'Téléphone' %>
-                <% f.text_field :adress, :class =>'input', :placeholder =>'Adresse du bon plan' %>
+                <%= f.date_field :end_at, :placeholder =>'Date de fin du bon plan' %>
+                <br /><br />
+                <%= f.url_field :url, :placeholder => 'Lien' %>
+                <br /><br />
+                <%= f.telephone_field :phone, :class =>'input', :placeholder =>'Téléphone' %>
+                <%= f.text_field :address, :class =>'input', :placeholder =>'Adresse du bon plan' %>
               	<p>*: champs requis</p>
             </ul>
         </div>
-  	     
-        <%= f.text_field :title, :class => 'input', :placeholder => 'Titre' %>
-
-        <!-- main area -->
-        <div class="col-xs-12 col-sm-10">
-          	<h4>Description du bon plan*</h4>
-            <%= f.text_area :Description, :class =>'input textarea', :rows => 10, :cols => 120, :placeholder => 'Description du bon plan' %>
+  	    
+        <div class="col-xs-12 col-sm-10"> 
+            <h4>Titre du bon plan*</h4>
+            <%= f.text_field :title, :class => 'input' %>
+            <h4>Description du bon plan*</h4>
+            <%= f.text_area :description, :class =>'input textarea', :rows => 10, :cols => 120 %>
+            </div>
             <div class="row">
-              <div class="col-md-6">
-                <%= f.reset "Effacer", :class => 'input-btn', :value => 'reset' %>
-              </div>
                <div class="col-md-1">
-                <% f.submit "Créer", :class => 'input-btn'%>
+                <%= f.submit "Créer", :class => 'input-btn'%>
               </div>
               </div>
 			     <div id="map"> <!-- GoogleMap here -->
