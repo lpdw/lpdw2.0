@@ -93,6 +93,13 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.datetime "updated_at"
   end
 
+  create_table "images", force: true do |t|
+    t.string   "alt"
+    t.string   "attachment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "options", force: true do |t|
     t.string "key"
     t.string "value"
