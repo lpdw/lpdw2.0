@@ -15,11 +15,11 @@
               <% if @student.user.twitter.present? %>
                   <li><a target="_blank" href=<%= @student.user.twitter%>><i class="fa fa-twitter"></i></a></li>
               <% end %>
-              <% if @student.googleplus.present? %>
-                  <li><a target="_blank" href=<%= @student.googleplus%>><i class="fa fa-google-plus"></i></a></li>
+              <% if @student.user.googleplus.present? %>
+                  <li><a target="_blank" href=<%= @student.user.googleplus%>><i class="fa fa-google-plus"></i></a></li>
               <% end %>
-              <% if @student.viadeo.present? %>
-                  <li><a target="_blank" href=<%= @student.viadeo%>><i class="fa fa-google-plus"></i></a></li>
+              <% if @student.user.viadeo.present? %>
+                  <li><a target="_blank" href=<%= @student.user.viadeo%>><i class="fa fa-google-plus"></i></a></li>
               <% end %>
               <% if @student.user.linkin.present? %>
                   <li><a target="_blank" href=<%= @student.user.linkin%>><i class="fa fa-linkedin"></i></a></li>
@@ -28,8 +28,13 @@
           </div>
           <div class="row block">
               <h1><%= @student.user.lastname %>  <%= @student.user.name %></h1>
-              <p clas="promo">Promo: (voir 'deposit date' table applicants)</p>
-              <p>Age: (voir 'birth' table applicants)</p>
+            <% if !@student.user.birth.blank? %>
+                <% age = ((Time.new) - (@student.user.birth))/60/60/24/365,25 %>
+                <li>Age: <%= age[0].to_i %></li>
+            <% else %>
+                <li>Age: Non renseigné</li>
+            <% end %>
+            <li>Promo: <%= @student.graduation_year %></li>
           </div>
         </div>
       </div>
@@ -38,38 +43,17 @@
     <div class="block row">
       <div class="student-jobs">
         <div class="current-job">
-            <p>Poste Actuel : <h2>Poste</h2></p>
-            <p>Salaire : <span>Fourchette salaire: (voir jointure table average salary</span></p>
+            <p>Poste Actuel : <h2><%= @student.current_job_title %></h2></p>
+            <p>Salaire : <span><%= @student.average_salary.value %></span></p>
         </div>
         <div class="lp-job">
-            <p>Poste en Licence Pro: <h2>Poste</h2></p>
-            <p>Salaire : <span>Fourchette salaire: (voir jointure table average salary</span></p>
+            <p>Poste en Licence Pro: <h2><%= @student.lp_job_title %></h2></p>
         </div>
       </div>
     </div>
   </div>
 </div>
 <ul>
-
-  <%= debug @student %>
-
-
-  <ul>
-  <li>Nom: <%= @student.user.lastname %></li>
-  <li>Prenom <%= @student.user.name %></li>
-  <li>Age: (voir 'birth' table applicants)</li>
-  <li>Promo: (voir 'deposit date' table applicants)</li>
-  <li>Poste actuel: <%= @student.current_job_title%></li>
-  <li>Fourchette salaire: (voir jointure table average salary</li>
-  <li>Description: <%= @student.current_job_desc%></li>
-  <li>Poste en LP: </li>
-  <li>Description: <%= @student.lp_job_desc%></li>
-  </br>
-
-  <li>CV: (voir affichage, téléchargement CV)</li>
-  </br>
-  <li>Envoyer un message: (voir envoie message)</li>
-</ul>
 
 <%= debug @student %>
 <%= debug @student.user %>
