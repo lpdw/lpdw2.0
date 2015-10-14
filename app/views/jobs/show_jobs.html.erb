@@ -17,7 +17,7 @@
         <tr>
             <td data-th="ID" ><%= job.id %></td>
             <td data-th="Nom" ><%= job.job_name %></td>
-            <td data-th="Entreprise" ><%= job.company %></td>
+            <td data-th="Entreprise" ><%= job.company.name %></td>
            <!-----  <td data-th="Statut" ><%= job.status %></td> ------->
             <td data-th="Action" >
                 <%= link_to(admin_edit_job_path(job)) do %>

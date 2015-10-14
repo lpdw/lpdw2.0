@@ -83,7 +83,7 @@ root 'pages#home'
   post 'admin/create_job' => 'jobs#new_job', :as => 'admin_new_job'
   get 'admin/show_jobs' => 'jobs#show_jobs', :as => 'admin_show_jobs'
   get 'admin/edit_job/:id' => 'jobs#edit_job', :as => 'admin_edit_job'
-  post 'admin/edit_jobs/:id' => 'jobs#update_job', :as => 'admin_update_job'
+  patch 'admin/edit_job/:id' => 'jobs#update_job', :as => 'admin_update_job'
   get 'admin/delete_job/:id' => 'jobs#delete_job', :as => 'admin_delete_job'
 
   # routes annuaire etudiant

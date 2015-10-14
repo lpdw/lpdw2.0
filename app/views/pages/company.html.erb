@@ -1,0 +1,60 @@
+<section class="banner banner-detailed">
+    <p class="text-center">
+    Annuaire d'entreprises
+    </p>
+</section>
+<!-- RECHERCHE -->
+<button type="button">Valider</button>
+<!-- ENTREPRISE -->
+<div class="gray-bg wrapper">
+<input type="text" name="recherche" value=""/>
+   <div class="work_list">
+    <div class="container">
+        <div>
+        <div>
+        <p><%=@company.name %></p>
+    </div>
+<div>
+    <%=@company.logo_url %>
+</div>
+<div>
+    <p><%=@company.address %></p>
+    <a href="<%= @company.website %>" alt="website" target="blank"><%= @company.website %></a>
+    <p><%=@company.address %></p>
+    <p><%=@company.phone_number %></p>
+</div>
+<div>
+    <!-- GOOGLE MAP -->
+    Ceci est une google map
+</div>
+ </div>  
+ <div>
+<h1>Description</h1>
+<p><%= raw @company.description %></p>
+<hr>
+<div>
+    <%=@company.twitter %>
+    <%=@company.linkedin %>
+</div>
+</div> 
+<div>
+<table id="og-grid" class="og-grid">
+   <tr>
+       <th>Offres d'emplois disponibles</th>
+       
+   </tr>
+<% @company.jobs.each do |job| %>
+   <tr>
+       <td><%= job.job_name %></td>
+       <td><%= job.job_description %></td>
+       <td><button type="button">Voir</button></td>
+   </tr>
+<% end %>  
+</table> 
+</div>
+       
+    </div>
+     
+</div>
+</div>
+
