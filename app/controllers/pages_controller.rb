@@ -27,6 +27,7 @@ class PagesController < ApplicationController
   #réactions et live
   def live
   end
+ 
 
   #Contactez-nous
   def sendmail

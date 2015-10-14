@@ -1,11 +1,11 @@
 class TipsController < ApplicationController
 
   def show
-
+    @tip = Tip.find_by(params[:id])
   end
 
   def index
-    @tip = Tip.all
+    @tips = Tip.all
   end
 
 end
