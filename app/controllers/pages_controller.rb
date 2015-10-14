@@ -28,30 +28,6 @@ class PagesController < ApplicationController
   def live
   end
 
-  #Annuaire
-  def annuary
-  end
-
-  #Entreprise
-  def company
-    @company = Company.find(params["id"])
-  end
-
-  #Offre
-  def job
-    @job = Job.find(params["id"])
-  end
-
-  #Les Entreprises
-  def companies
-    @companies = Company.all().order(id: :desc)
-  end
-
-  #Les offres
-  def jobs
-    @jobs = Job.all().order(id: :desc)
-  end 
-
   #Contactez-nous
   def sendmail
     if params["name_contact"] != "" and params["email_contact"] != "" and params["message_contact"] != ""

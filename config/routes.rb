@@ -94,11 +94,11 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   post 'admin/update_options' => 'admin#update_options'
 
   # routes annuaire etudiant
-  get '/annuaire' => 'pages#annuary', :as => 'annuary'
-  get '/entreprises' => 'pages#companies', :as => "companies"
-  get '/entreprises/:id' => 'pages#company', :as => "company"
-  get '/offres' => 'pages#jobs', :as => 'jobs'
-  get '/offres/:id' => 'pages#job', :as => 'job'
+  get '/annuaire' => 'companies#annuary', :as => 'annuary'
+  get '/entreprises/:page' => 'companies#companies', :as => "companies", defaults: { page: 1 }
+  get '/entreprise/:id' => 'companies#company', :as => "company"
+  get '/offres/:page' => 'jobs#jobs', :as => 'jobs', defaults: {page: 1}
+  get '/offre/:id' => 'jobs#job', :as => 'job'
 
   get '/', :to => 'pages#home'
   get '/formation', :to => 'pages#formation'

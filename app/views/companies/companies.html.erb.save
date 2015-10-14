@@ -22,7 +22,9 @@
    <tr>
        <td class="ent"><%= company.name %></td>
        <td class="ent"><%= company.description %></td>
-       <td class="ent"><button type="button">Voir</button></td>
+<%= link_to 'Voir', companies_path() , html_options = {"class" =>"more-creations"}%>
+      
+ <td class="ent"><button type="button">Voir</button></td>
    </tr>
 <% end %>       
 </table>   

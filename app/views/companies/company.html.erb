@@ -1,0 +1,42 @@
+
+
+<section class="banner banner-detailed">
+    <p class="text-center">
+    Annuaire d'entreprises
+    </p>
+</section>
+<!-- ENTREPRISE -->
+<div class="gray-bg wrapper">
+  <div class="container">
+    <div class="row">
+     <article class="col-md-offset-1 col-md-10">
+	<h1 class="text-center"> <%= @company.name %>  </h1>
+	<div>
+	<h2> Description </h2>
+	<p> <%= raw  @company.description %> </p>
+	<h2> Adresse </h2>
+	<p> <%= @company.address %> </p>
+        <p> <%= @company.zip_code %> <%= @company.city %> </p>
+	</div>
+	<div>
+	<h2> Contact </h2>
+	<p> <%= @company.website %> </p>
+	<p> <%= @company.phone_number %> </p>
+	<p> <%= @company.linkedin %> </p>
+	<p> <%= @company.twitter %> </p>
+	</div>
+       <h2>Offres d'emplois disponibles</h2>
+<table id="og-grid" class="og-grid">
+<% @company.jobs.each do |job| %>
+   <tr>
+       <td><%= job.job_name %></td>
+       <td><%= job.location %></td>
+       <td><button type="button">Voir</button></td>
+   </tr>
+<% end %>  
+</table>	
+	
+     </article>
+    </div>
+  </div>
+</div>
