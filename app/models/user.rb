@@ -8,12 +8,14 @@ class User < ActiveRecord::Base
   #Link model to Admin
 	has_many :actuality
   has_one :applicant
+  has_one :users_info
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   ROLES = %w[admin default intervenant applicant]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  scope :students, -> {where(role: "student")}
 
   def admin?
     role == 'admin'
