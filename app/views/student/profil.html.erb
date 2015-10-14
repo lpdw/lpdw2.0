@@ -15,10 +15,10 @@
               <% if @student.user.twitter.present? %>
                   <li><a target="_blank" href=<%= @student.user.twitter%>><i class="fa fa-twitter"></i></a></li>
               <% end %>
-              <% if @student.googleplus.present? %>
+              <% if @student.user.googleplus.present? %>
                   <li><a target="_blank" href=<%= @student.googleplus%>><i class="fa fa-google-plus"></i></a></li>
               <% end %>
-              <% if @student.viadeo.present? %>
+              <% if @student.user.viadeo.present? %>
                   <li><a target="_blank" href=<%= @student.viadeo%>><i class="fa fa-google-plus"></i></a></li>
               <% end %>
               <% if @student.user.linkin.present? %>
