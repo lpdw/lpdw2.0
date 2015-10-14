@@ -1,0 +1,47 @@
+<% provide :title_admin, 'Bons plans' %>
+<h1>Gérer les bons plans</h1>
+<%= link_to(new_admin_v2_tips_path,:class=>'button button-blue float-right') do %>
+    <span>Créer bon plan</span> <i class="fa fa-newspaper-o"></i>
+<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Adresse</th>
+            <th>Lien</th>
+            <th>Téléphone</th>
+            <th>MaJ</th>
+            <th>Création</th>
+            <th>Termine</th>
+            <th>Statut</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @tips.each.with_index(1) do |tip, index| %>
+        <tr>
+            <td data-th="ID" ><%= index %></td>
+            <td data-th="Titre" ><%= tip.title %></td>
+            <td data-th="Auteur" ><%= tip.description %></td>
+            <td data-th="Auteur" ><%= tip.address %></td>
+            <td data-th="Auteur" ><%= tip.url %></td>
+            <td data-th="Auteur" ><%= tip.phone %></td>
+            <td data-th="Auteur" ><%= tip.update_at %></td>
+            <td data-th="Auteur" ><%= tip.created_at.to_time.strftime("%m/%d/%Y") %></td>
+            <td data-th="Auteur" ><%= tip.end_at %></td>
+            <td data-th="Auteur" ><%= tip.status %></td>
+            <td data-th="Auteur" ><%= tip.type %></td>
+            <td data-th="Action" >
+                <%= link_to(edit_admin_v2_tip_path(tip)) do %>
+                <i class="fa fa-pencil"></i> Modifier
+                <% end %>
+                <%= link_to(admin_v2_tip_path(tip), method: :delete) do %>
+                <i class="fa fa-trash-o"></i> Supprimer
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
