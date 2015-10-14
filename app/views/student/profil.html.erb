@@ -43,10 +43,12 @@
     <div class="block row">
       <div class="student-jobs">
         <div class="current-job">
-            <p>Poste Actuel : <h2><%= @student.users_info.current_job_title %></h2></p>
+            <p>Poste Actuel: <h2><%= @student.users_info.current_job_title %></h2></p>
+            <p>Salaire: <%= @student.users_info.current_average_salary %></p>
         </div>
         <div class="lp-job">
             <p>Poste en Licence Pro: <h2><%= @student.users_info.lp_job_title %></h2></p>
+            <p>Salaire: <%= @student.users_info.lp_average_salary %></p>
         </div>
       </div>
     </div>
