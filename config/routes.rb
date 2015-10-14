@@ -94,4 +94,11 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
 
+  #GESTION DES ERREURS ET ENVOIE PAR MAIL
+  get 'erreur_page' => 'pages#erreur_page'
+
+
+  #ROUTES FOR TIPS
+  resources :tips, only: [:new,:show, :edit, :create]
+
 end
