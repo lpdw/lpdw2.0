@@ -89,11 +89,11 @@
             <div class="col-md-6 tip-container">
               <header class="header-tip">
                 <h1><%= @tip.title %></h1>
-                <span>Posté le : <%= @tip.created_at %></span>
+                <span>Posté le : <%= @tip.created_at.strftime("%d %B %Y") %></span>
                 <% if @tip.updated_at? %>
-                    <span>Modifié le : <%= @tip.updated_at %></span>
+                    <span>Modifié le : <%= @tip.updated_at.strftime("%d %B %Y") %></span>
                 <% end %>
-                <span id="limit-date">Valable jusqu'au : <%= @tip.end_at %></span>
+                <span id="limit-date">Valable jusqu'au : <%= @tip.end_at.strftime("%d %B %Y") %></span>
               </header>
               <div class="content">
                 <p><%= @tip.description%></p>
@@ -132,4 +132,3 @@
     </div>
   </div>
 </div>
-
