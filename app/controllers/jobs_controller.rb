@@ -12,17 +12,20 @@ class JobsController < ApplicationController
 
   def show_jobs
     @title_admin = "Offre d'emploi"
-    @jobs = Jobs.all
+    @jobs = Job.all
   end
 
   def create_job
     @title_admin = "Offre d'emploi"
-    @job = Jobs.new
+    @job = Job.new
+    @companies = Company.all
   end
 
   def new_job
     @title_admin = "Offre d'emploi"
-    @job = Jobs.new(params[:jobs].permit(:job_name, :job_number, :job_description, :start_at, :duration, :profil, :contact, :location, :skills))
+    @job = Job.new(params[:job].permit(:job_name, :job_number, :job_description, :start_at, :duration, :profil, :contact, :location, :skills))
+    @job.company_id = params[:company_id]
+
     if @job.save
       flash["sucess"] = "Job created"
       redirect_to admin_show_jobs_path
@@ -34,12 +37,13 @@ class JobsController < ApplicationController
 
   def edit_job
    @title_admin = "Offre d'emploi"
-   @job = Jobs.find(params[:id]) 
+   @job = Job.find(params[:id]) 
+   @companies = Company.all
   end
 
   def update_job
     @title_admin = "Offre d'emploi"
-    @job = Jobs.find(params[:id])
+    @job = Job.find(params[:id])
 
     if @job.update_attributes(params[:job].permit(:job_name, :job_number, :job_description, :start_at, :duration, :profil, :contact, :location, :skills))
       flash["sucess"] = "Job updated"
@@ -50,7 +54,7 @@ class JobsController < ApplicationController
   end
 
   def delete_job
-    @job = Jobs.find(params[:id])
+    @job = Job.find(params[:id])
     if @job.destroy
       flash["sucess"] = "Job deleted"
       redirect_to admin_show_jobs_path

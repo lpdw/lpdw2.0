@@ -12,17 +12,17 @@ class CompaniesController < ApplicationController
 
   def show_companies
     @title_admin = "Entreprises"
-    @companies = Companies.all
+    @companies = Company.all
   end
 
   def create_company
     @title_admin = "Entreprise"
-    @company = Companies.new
+    @company = Company.new
   end
 
   def new_company
     @title_admin = "Entreprise"
-    @company = Companies.new(params[:companies].permit(:name, :description, :address, :zip_code, :city, :phone_number, :website, :twitter, :linkedin))
+    @company = Company.new(params[:company].permit(:name, :description, :address, :zip_code, :city, :phone_number, :website, :twitter, :linkedin))
     if @company.save
       flash["sucess"] = "Company created"
       redirect_to admin_show_companies_path()
@@ -34,12 +34,12 @@ class CompaniesController < ApplicationController
 
   def edit_company
     @title_admin = "Entreprise"    
-    @company = Companies.find(params[:id])
+    @company = Company.find(params[:id])
   end
 
   def update_company
     @title_admin = "Entreprise"
-    @company = Companies.find(params[:id])
+    @company = Company.find(params[:id])
 
     if @company.update_attributes(params[:company].permit(:name, :description, :address, :zip_code, :city, :phone_number, :website, :twitter, :linkedin))
       flash["sucess"] = "Company edited"
@@ -50,7 +50,7 @@ class CompaniesController < ApplicationController
   end
 
   def delete_company
-    @company = Companies.find(params[:id])
+    @company = Company.find(params[:id])
     if @company.destroy
       flash["sucess"] = "Company deleted"
       redirect_to admin_show_companies_path()
