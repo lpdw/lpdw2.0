@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   #Link model to Admin
 	has_many :actuality
   has_one :applicant
-  has_one :users_info, class_name:'UsersInfo', primary_key: 'user_id', foreign_key: 'id'
+  has_one :users_info, class_name:'UsersInfo', primary_key: 'id', foreign_key: 'user_id'
   has_one :applicant, class_name: 'Applicant', primary_key: 'id_applicant', foreign_key: 'id'
 
   # Include default devise modules. Others available are:
