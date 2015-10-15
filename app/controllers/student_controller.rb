@@ -11,4 +11,8 @@ class StudentController < ApplicationController
   def profil
       @student = User.students.find(params[:user_id])
   end
+
+  def edit
+    @student = User.students.find(params[:user_id])
+  end
 end
