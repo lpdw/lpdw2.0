@@ -99,4 +99,5 @@ path: '/',
   get '/studentsbook', :to => 'student#show'
   get '/studentsbook/:graduation_years' , :to => 'student#show'
   get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
+  get '/studentprofil/edit/:user_id', :to => 'student#edit'
 end

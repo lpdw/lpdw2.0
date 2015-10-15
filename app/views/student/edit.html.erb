@@ -1,0 +1,105 @@
+<section class="banner banner-blue banner-team">
+  <div class="container">
+    <p>Annuaire des anciens</p>
+  </div>
+</section>
+<div class="student-profile">
+  <form>
+      <div class="container">
+        <div class="row">
+          <div class="student-infos">
+            <img src="/assets/1.jpg" class="col-md-3 block">
+            <div class="col-md-offset-1 col-md-8">
+              <div class="row block">
+                <h1 class="col-md-10"><%= @student.lastname %>  <%= @student.name %></h1>
+                <p class="col-md-2">Promo: <%= @student.users_info.graduation_year %></p>
+
+                <% if !@student.birth.blank? %>
+                    <% age = ((Time.new) - (@student.birth))/60/60/24/365,25 %>
+                    <p class="birthday col-md-12">Age: <%= age[0].to_i %></p>
+                <% else %>
+                    <p class="birthday col-md-12">Age: Non renseigné</p>
+                <% end %>
+              </div>
+              <div class="row social">
+                <ul>
+                  <% if @student.users_info.cv.present? %>
+                      <li class="cv">CV
+                      <input type="text" value ="cv" placeholder=""></li>
+                  <% end %>
+                  <% if @student.twitter.present? %>
+                      <li><i class="fa fa-twitter fa-2x"></i>
+                      <input type="text" value ="twitter" placeholder=""></li>
+                  <% end %>
+                  <% if @student.googleplus.present? %>
+                      <li><i class="fa fa-google-plus fa-2x"></i>
+                      <input type="text" value ="googleplus" placeholder=""></li>
+
+                  <% end %>
+                  <% if @student.linkin.present? %>
+                      <li><i class="fa fa-linkedin fa-2x"></i>
+                      <input type="text" value ="linkin" placeholder=""></li>
+
+                  <% end %>
+                  <% if @student.email.present? %>
+                      <li><i class="fa fa-envelope fa-2x"></i>
+                      <input type="text" value ="email" placeholder=""></li>
+
+                  <% end %>
+
+
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="block row">
+          <div class="student-jobs">
+            <div class="current-job">
+              <div class="row">
+                <p class="col-md-2">Poste Actuel :</p> <input type="text" value="<%= @student.users_info.current_job_title %>">
+                <div class="salary col-md-12">
+                  <p class="col-md-2">Salaire:</p>
+                  <select class="col-md-2">
+                    <option value="10_15k">10 - 15 K</option>
+                    <option value="15_20k">15 - 20 K</option>
+                    <option value="20_25k">20 - 25 K</option>
+                    <option value="25_30k">25 - 30 K</option>
+                    <option value="30_35k">30 - 35 K</option>
+                    <option value="35_40k">35 - 40 K</option>
+                    <option value="40_+k">40 ou plus K</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <p class="col-md-2">Description :</p> <textarea class="col-md-9"><%= @student.users_info.current_job_desc %></textarea>
+              </div>
+            </div>
+
+            <div class="lp-job">
+              <div class="row">
+                <p class="col-md-2">Poste en Licence Pro:</p> <input type="text" value="<%= @student.users_info.lp_job_title %>">
+                <div class="salary col-md-12">
+                  <p class="col-md-2">Salaire:</p>
+                  <select class="col-md-2">
+                    <option value="10_15k">10 - 15 K</option>
+                    <option value="15_20k">15 - 20 K</option>
+                    <option value="20_25k">20 - 25 K</option>
+                    <option value="25_30k">25 - 30 K</option>
+                    <option value="30_35k">30 - 35 K</option>
+                    <option value="35_40k">35 - 40 K</option>
+                    <option value="40_+k">40 ou plus K</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <p class="col-md-2">Description :</p> <textarea class="col-md-9"><%= @student.users_info.lp_job_desc %></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </form>
+</div>
