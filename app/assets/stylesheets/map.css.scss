@@ -111,6 +111,54 @@ div .address-2 {
     }
 }
 
+.ucp
+{
+
+  width:100%;
+  height:auto;
+  position:relative;
+  margin:0px;
+  padding:25px 0px;
+  background: url("/assets/map.png") no-repeat center center;
+  background-size: cover;
+
+  /*
+      &:before {
+          content: "";
+          background:black;
+          opacity: 0.5;
+          margin:0px;
+          position: absolute;
+          width:100%;
+             top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          display:block;
+      }
+  */
+
+  background:$color-5;
+}
+
+.ucp .infoUCP
+{
+  background: white;
+  border-bottom: 2px solid #D5D5D5;
+  font-size: 1.2em;
+  display: block;
+  width: 50%;
+  height: 100%;
+  line-height: 50px;
+  color: black;
+  text-decoration: none;
+
+}
+.ucp .infoUCP a
+{
+  text-decoration:none;
+}
+
 @media (min-width: $screen-sm-min) {
 
     .map {
