@@ -43,11 +43,33 @@ Enjoy :)
             <li><%= link_to 'La formation', formation_path(), :"data-hover" => "La formation" %></li>
             <li><%= link_to 'Projets étudiants', projets_path(), :"data-hover" => "Projets étudiants" %></li>
             <li><%= link_to "L'équipe", equipe_path(), :"data-hover" => "L'équipe" %></li>
-            <li><%= link_to "L'ucp", ucp_path(), :"data-hover" => "L'ucp" %></li>
-            <li><%= link_to "Live", live_path(), :"data-hover" => "Live" %></li>
             <li><%= link_to 'Plan & contact', informations_path(), :"data-hover" => "Plan & contact" %></li>
-            <% if on_show_route_apply %>
-            <li class="right-navbar"><%= link_to 'Postuler', postuler_path(), :"data-hover" => "Postuler" %></li>
+            <% unless current_user %>
+              <li><%= link_to 'Connexion', new_user_session_path, :"data-hover" => 'Connexion' %></li>
+            <% end %>
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <% if current_user %>
+              <li class="dropdown right-navbar">
+                <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i>  <%= current_user.email.split('@').first %> <span class="caret"></span></a>
+                <ul id="g-account-menu" class="dropdown-menu" role="menu">
+
+                  <% unless current_user.admin? %>
+                    <li><%= link_to edit_applicant_path do %><i class="fa fa-folder"></i>  Candidature <% end %></li>
+                  <% else %>
+                    <li><%= link_to admin_path do %><i class="fa fa-gears"></i>  Administration <% end %></li>
+                  <% end %>
+
+                  <li>
+                    <%= link_to(destroy_user_session_path(),:method => 'delete') do %>
+                    <i class="fa fa-sign-out fa-fw"></i> Se déconnecter
+                    <% end %>
+                  </li>
+                </ul>
+              </li>
+
+            <% elsif on_show_route_apply %>
+              <li class="right-navbar"><%= link_to 'Postuler', :applicant, :"data-hover" => "Postuler" %></li>
             <% end %>
           </ul>
         </div>

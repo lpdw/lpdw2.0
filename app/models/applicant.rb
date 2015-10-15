@@ -8,7 +8,9 @@ class Applicant < ActiveRecord::Base
   has_one :user, :class_name => 'User', :foreign_key => 'id_applicant'
   has_many :applicant_attachment, :class_name => 'ApplicantAttachment', :foreign_key => 'id_applicant', :dependent => :destroy
 
-  validates_uniqueness_of :assurance, :message => "Ce numéro de sécurité sociale est déjà utilisé"
+  #validates_uniqueness_of :assurance, :message => "Ce numéro de sécurité sociale est déjà utilisé"
+  validates_length_of :assurance, is: 15
+  validates :name, :first_name, presence: true
 
   accepts_nested_attributes_for :cursus, :reject_if => lambda { |a| a[:place].blank? }, :allow_destroy => true
   accepts_nested_attributes_for :applicant_attachment, :allow_destroy => true
@@ -18,6 +20,12 @@ class Applicant < ActiveRecord::Base
   accepts_nested_attributes_for :applicant_status, :votes
 
   scope :by_year, lambda { |year| where("strftime('%Y', created_at) = ?", year.to_s) }
+
+  after_create :set_applicant_status
+
+  def set_applicant_status
+    self.create_applicant_status
+  end
 
   def self.authenticate(email)
     @current = Applicant.find_by(email: email)

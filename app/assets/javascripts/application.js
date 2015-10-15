@@ -51,7 +51,7 @@ $(document).ready(function() {
      });
 
     var tw_url = "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?lang=fr&screen_names=";
-    var fb_url = "https://graph.facebook.com/";
+    var fb_url = "http://api.facebook.com/restserver.php?format=json&method=links.getStats&urls=https://www.facebook.com/";
 
     var fb_site = "https://facebook.com/";
     var tw_site = "https://twitter.com/";
@@ -73,7 +73,7 @@ $(document).ready(function() {
         crossDomain: true,
         dataType: 'jsonp',
         success: function(data) {
-            $(".licence .fb-retour").html('<i class="fa fa-facebook"></i>'+data.likes);
+            $(".licence .fb-retour").html('<i class="fa fa-facebook"></i>'+data[0].like_count);
             $(".licence .fb-retour").attr("href", fb_site+"lpdwm");
         }
     });
@@ -95,8 +95,29 @@ $(document).ready(function() {
         crossDomain: true,
         dataType: 'jsonp',
         success: function(data) {
-            $(".faclab .fb-retour").html('<i class="fa fa-facebook"></i>'+data.likes);
+            $(".faclab .fb-retour").html('<i class="fa fa-facebook"></i>'+data[0].like_count);
             $(".faclab .fb-retour").attr("href", fb_site+"faclab");
+        }
+    });
+    $.ajax({
+        url: tw_url+"UniversiteCergy",
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(data) {
+            $(".universite .tw-retour").html('<i class="fa fa-twitter"></i>'+data[0].followers_count);
+            $(".universite .tw-retour").attr("href",tw_site+"UniversiteCergy");
+
+        }
+    });
+    $.ajax({
+        url: fb_url+"279510485409212/likes",
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(data) {
+            $(".universite .fb-retour").html('<i class="fa fa-facebook"></i>'+data[0].like_count);
+            $(".universite .fb-retour").attr("href", fb_site+"UniversiteCergyPontoise");
         }
     });
 
