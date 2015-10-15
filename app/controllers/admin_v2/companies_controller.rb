@@ -14,10 +14,10 @@ class AdminV2::CompaniesController < AdminV2Controller
     @title_admin = "Entreprise"
     @company = Company.new(params[:company].permit(:name, :description, :address, :zip_code, :city, :phone_number, :website, :twitter, :linkedin))
     if @company.save
-      flash["sucess"] = "Company created"
+      flash["sucess"] = "Entreprise créée"
       redirect_to admin_v2_admin_show_companies_path()
     else
-      flash["fail"] = "Company not created"
+      flash["fail"] = "Erreur de création d'entreprise"
       redirect_to admin_v2_admin_create_company_path()
     end
   end
@@ -32,7 +32,7 @@ class AdminV2::CompaniesController < AdminV2Controller
     @company = Company.find(params[:id])
 
     if @company.update_attributes(params[:company].permit(:name, :description, :address, :zip_code, :city, :phone_number, :website, :twitter, :linkedin))
-      flash["sucess"] = "Company edited"
+      flash["sucess"] = "Entreprise mise à jour"
       redirect_to admin_v2_admin_show_companies_path
     else
       redirect_to admin_v2_admin_edit_company_path(company)
@@ -42,10 +42,10 @@ class AdminV2::CompaniesController < AdminV2Controller
   def delete_company
     @company = Company.find(params[:id])
     if @company.destroy
-      flash["sucess"] = "Company deleted"
+      flash["sucess"] = "Entreprise supprimée"
       redirect_to admin_v2_admin_show_companies_path()
     else
-      flash[:error] = "Company not deleted"
+      flash[:error] = "Erreur de suppression d'entreprise"
       redirect_to admin_v2_admin_show_companies_path()
     end    
   end

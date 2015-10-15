@@ -7,23 +7,23 @@
 </div>
 <div class="form-group">
   <div class="col-sm-10">
-    <%= f.text_field :name, autofocus: true , :class => 'input' ,:placeholder=>"Name" %>
+    <%= f.text_field :name, autofocus: true , :class => 'input' ,:placeholder=>"Prénom" %>
   </div>
 </div>
 <div class="form-group">
   <div class="col-sm-10">
-    <%= f.text_field :lastname, autofocus: true , :class => 'input' ,:placeholder=>"Last name" %>
+    <%= f.text_field :lastname, autofocus: true , :class => 'input' ,:placeholder=>"Nom" %>
   </div>
 </div>
 <div class="form-group">
   <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %>
   <div class="col-sm-10">
-    <%= f.password_field :password, autocomplete: "off", :class => 'input' ,:placeholder=>"Password" %>
+    <%= f.password_field :password, autocomplete: "off", :class => 'input' ,:placeholder=>"Mot de passe" %>
   </div>
 </div>
 <div class="form-group">
   <div class="col-sm-10">
-    <%= f.password_field :password_confirmation, autocomplete: "off" , :class => 'input' ,:placeholder=>"Password confirmation" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" , :class => 'input' ,:placeholder=>"Confirmer le mot de passe" %>
   </div>
 </div>
 <div class="form-group">

@@ -3,20 +3,20 @@
 <table class="table">
     <tbody>
         <tr>
-            <td data-th="Nom" >Utilisateurs</td>
-            <td data-th="count" ><%= @users.count %></td>
+            <td data-th="Utilisateurs" >Utilisateurs</td>
+            <td data-th="Nombre d'utilisateurs" ><%= @users.count %></td>
         </tr>
         <tr>
-       		<td data-th="Nom" >Projets</td>
-            <td data-th="count" ><%= @projects.count %></td>
+       		<td data-th="Projets" >Projets</td>
+            <td data-th="Nombre de projets" ><%= @projects.count %></td>
         </tr>
         <tr>
-       		<td data-th="Nom" >Alertes</td>
-            <td data-th="count" ><%= @alerts.count %></td>
+       		<td data-th="Alertes" >Alertes</td>
+            <td data-th="Nombre d'alertes" ><%= @alerts.count %></td>
         </tr>
         <tr>
-            <td data-th="Nom" >Candidatures entrées</td>
-            <td data-th="count" ><%= @applicants.count %></td>
+            <td data-th="Candidatures" >Candidatures entrées</td>
+            <td data-th="Nombre de candidatures" ><%= @applicants.count %></td>
         </tr>
     </tbody>
 </table>
@@ -41,8 +41,8 @@
     <% @count = 0
     @lasts.each do |last| %>
     <tr>
-        <td data-th="Name" ><%= last.name %></td>
-        <td data-th="First_name" ><%= last.first_name %></td>
+        <td data-th="Nom" ><%= last.name %></td>
+        <td data-th="Prénom" ><%= last.first_name %></td>
         <td data-th="Date_depot" >
         <%= last.updated_at.to_time.strftime("%d/%m/%Y") %></td>
         <td data-th="Vote" >
@@ -80,7 +80,7 @@
             <span class="badge badge-green">Positif</span>
             <%  end %>
         </td>
-        <td data-th="See">
+        <td data-th="Voir">
             <%= link_to(admin_show_applicant_path(last), :class=>'badge badge-blue') do %>
             <i class="fa fa-eye"></i> voir
             <% end %>
@@ -136,10 +136,10 @@ end
                 if @status.applicant_response == 1%>
                 <tr>
                     <td data-th="ID" ><%= applicant.id %></td>
-                    <td data-th="Name" ><%= applicant.name %></td>
-                    <td data-th="First_name" ><%= applicant.first_name %></td>
+                    <td data-th="Nom" ><%= applicant.name %></td>
+                    <td data-th="Prénom" ><%= applicant.first_name %></td>
                     <td data-th="Date_depot" ><%= applicant.updated_at.to_time.strftime("%d/%m/%Y") %></td>
-                    <td data-th="See">
+                    <td data-th="Voir">
                         <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
                         <i class="fa fa-eye"></i> voir
                         <% end %>

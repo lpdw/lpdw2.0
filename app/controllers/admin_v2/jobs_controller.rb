@@ -17,10 +17,10 @@ class AdminV2::JobsController < AdminV2Controller
     @job.company_id = params[:company_id]
 
     if @job.save
-      flash["sucess"] = "Job created"
+      flash["sucess"] = "Offre d'emploi créée"
       redirect_to admin_v2_admin_show_jobs_path
     else
-      flash["fail"] = "Job not created"
+      flash["fail"] = "Erreur de création d'offre d'emploi"
       redirect_to admin_v2_admin_create_jobs_path
     end
   end
@@ -36,7 +36,7 @@ class AdminV2::JobsController < AdminV2Controller
     @job = Job.find(params[:id])
 
     if @job.update_attributes(params[:job].permit(:job_name, :job_number, :job_description, :start_at, :duration, :profil, :contact, :location, :skills))
-      flash["sucess"] = "Job updated"
+      flash["sucess"] = "Offre d'emploi mise à jour"
       redirect_to admin_v2_admin_show_jobs_path
     else
       redirect_to admin_v2_admin_edit_jobs_path(job)
@@ -46,10 +46,10 @@ class AdminV2::JobsController < AdminV2Controller
   def delete_job
     @job = Job.find(params[:id])
     if @job.destroy
-      flash["sucess"] = "Job deleted"
+      flash["sucess"] = "Offre d'emploi supprimée"
       redirect_to admin_v2_admin_show_jobs_path
     else
-      flash[:error] = "Job not deleted"
+      flash[:error] = "Erreur de suppression d'offre d'emploi"
       redirect_to admin_v2_admin_show_jobs_path
     end
   end
