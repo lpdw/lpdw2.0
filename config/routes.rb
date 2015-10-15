@@ -12,7 +12,7 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   }
 
   # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # See how all your routes lay out with "rake routes".SSS
 
   root 'pages#home'
   resources :actualities, only: [:index, :show]
@@ -21,7 +21,7 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   namespace :admin_v2 do
     resources :actualities, except: [:show]
     resources :users, except: [:show]
-    resources :tips, only: [:new ,:create ,:edit ,:update, :delete ,:index]
+    resources :tips, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
   end
 
   get 'admin/show_applicants' => 'admin#show_applicants'
