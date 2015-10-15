@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014155821) do
+ActiveRecord::Schema.define(version: 20151015130316) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -168,7 +168,6 @@ ActiveRecord::Schema.define(version: 20151014155821) do
     t.string   "facebook"
     t.string   "github"
     t.string   "googleplus"
-    t.string   "viadeo"
     t.datetime "birth"
   end
 
@@ -181,10 +180,10 @@ ActiveRecord::Schema.define(version: 20151014155821) do
     t.text    "current_job_desc",       limit: 4294967295
     t.string  "lp_job_title"
     t.text    "lp_job_desc",            limit: 4294967295
-    t.string  "cv"
     t.integer "graduation_year",        limit: 4
     t.string  "current_average_salary"
     t.string  "lp_average_salary"
+    t.binary  "cv"
   end
 
   add_index "users_infos", ["id"], name: "index_users_infos_on_id", unique: true
