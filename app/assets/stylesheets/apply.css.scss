@@ -114,7 +114,8 @@
 		& input[type= "text"],
 		& input[type= "email"],
 		& input[type= "date"],
-		& input[type= "tel"] {
+		& input[type= "tel"],
+		& input[type= "password"]{
 			width: 100%;
 			height: 30px;
 			border: 1px solid transparent;
