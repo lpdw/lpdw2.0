@@ -7,10 +7,10 @@ class TipsController < ApplicationController
 
     def index
         #Permet de récupérer tous les différents types de Tip
-        @diff_category = Tip.uniq.pluck(:type)
+        @diff_category = Tip.uniq.pluck(:category)
         @category = params[:category]
         if @category 
-            @tips = Tip.where(type: @category)
+            @tips = Tip.where(category: @category)
         else
             @tips = Tip.all
         end
