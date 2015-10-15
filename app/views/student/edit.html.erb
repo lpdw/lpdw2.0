@@ -14,12 +14,7 @@
                 <h1 class="col-md-10"><%= @student.lastname %>  <%= @student.name %></h1>
                 <p class="col-md-2">Promo: <%= @student.users_info.graduation_year %></p>
 
-                <% if !@student.birth.blank? %>
-                    <% age = ((Time.new) - (@student.birth))/60/60/24/365,25 %>
-                    <p class="birthday col-md-12">Age: <%= age[0].to_i %></p>
-                <% else %>
-                    <p class="birthday col-md-12">Age: Non renseigné</p>
-                <% end %>
+                    <p class="birthday col-md-12">Age: <%= @student.calcAge %></p>
               </div>
               <div class="row social">
                 <ul>
