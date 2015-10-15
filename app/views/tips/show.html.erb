@@ -139,7 +139,7 @@
                   <p>E-mail : <span class="info-tips"><%= @tip.email %></span></p>
                 <% end%>
               </div>
-              <button class="report btn btn-danger">Signaler une erreur</button>
+                <%= link_to 'Signaler une erreur', new_tip_errors_tip_path(@tip), class: 'report btn btn-danger' %>
             <% else %>
                 <h2>Le bon plan que vous cherchez n'existe pas.</h2>
             <% end %>

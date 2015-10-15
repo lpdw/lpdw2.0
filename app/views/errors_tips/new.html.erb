@@ -6,22 +6,26 @@
 <div class="work_list">
     <div class="container" style>
       <div>
+        <%= form_tag({:action => 'create'}, {:method => :post}) do |f| %>
         <section style="background-color: #EBEBEB;" class="col-md-12">
             <h1>Signaler une erreur sur le bon plan : <span style="color:#999999;">Lorem Ipsum</span></h1>
             <div class="row"><br>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <input type="text" class="form-control noraduis" id="usr" placeholder="Nom ">
+                        <%= text_field_tag 'name_contact', nil, class: 'form-control', placeholder: 'Votre nom', :value => @name_contact %>
+                        <!-- <input type="text" class="form-control noraduis" id="usr" placeholder="Nom "> -->
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control noraduis" id="pwd" placeholder="adresse mail *">
+                        <%= email_field_tag 'email_contact', nil, class: 'form-control',placeholder:"Votre adresse email", :value => @email_contact %>
+                        <!-- <input type="email" class="form-control noraduis" id="pwd" placeholder="adresse mail *"> -->
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-7">
                     <div class="form-group">
-                        <textarea class="form-control" rows="5" id="comment noraduis" placeholder="Érreur remarquées... *"></textarea>
+                        <%= text_area_tag 'message_contact', nil, class: 'form-control',placeholder:"Votre message ici",rows: 3, :value => @message_contact %>
+                        <!<textarea class="form-control" rows="5" id="comment noraduis" placeholder="Érreur remarquées... *"></textarea>
                     </div>
                 </div>
             </div>
@@ -36,6 +40,7 @@
             </div>
           </div>
         </section>
+            <% end %>
       </div>
     </div>
 </div>

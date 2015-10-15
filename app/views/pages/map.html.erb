@@ -113,10 +113,10 @@
                         <%= text_field_tag 'name_contact', nil, class: 'form-control', placeholder: 'Votre nom', :value => @name_contact %>
                     </div>
                     <div class="form-group">
-                    <%= email_field_tag 'email_contact', nil, class: 'form-control',placeholder:"Votre adresse email", :value => @email_contact %>
+                        <%= email_field_tag 'email_contact', nil, class: 'form-control',placeholder:"Votre adresse email", :value => @email_contact %>
                     </div>
                     <div class="form-group">
-                    <%= text_area_tag 'message_contact', nil, class: 'form-control',placeholder:"Votre message ici",rows: 3, :value => @message_contact %>
+                        <%= text_area_tag 'message_contact', nil, class: 'form-control',placeholder:"Votre message ici",rows: 3, :value => @message_contact %>
                     </div>
                     <%= button_tag "Envoyer", class: "btn btn-default" %>
 
