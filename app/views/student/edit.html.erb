@@ -54,15 +54,7 @@
                 <p class="col-md-2">Poste Actuel :</p><%= text_field_tag 'student_current_title', nil, placeholder: 'Poste Actuel', :value => @student_current_title %></li>
                 <div class="salary col-md-12">
                   <p class="col-md-2">Salaire:</p>
-                  <select class="col-md-2">
-                    <option value="10_15k">10 - 15 K</option>
-                    <option value="15_20k">15 - 20 K</option>
-                    <option value="20_25k">20 - 25 K</option>
-                    <option value="25_30k">25 - 30 K</option>
-                    <option value="30_35k">30 - 35 K</option>
-                    <option value="35_40k">35 - 40 K</option>
-                    <option value="40_+k">40 ou plus K</option>
-                  </select>
+                  <%= select_tag(:student_current_salary, options_for_select([['10 - 15 K', 1], ['15 - 20 K', 2], ['20 - 25 K', 3], ['20 - 25 K', 4], ['25 - 30 K', 5], ['30 - 35 K', 6], ['35 - 40 K', 7]])) %>
                 </div>
               </div>
               <div class="row">
@@ -75,15 +67,7 @@
                 <p class="col-md-2">Poste en Licence Pro:</p><%= text_field_tag 'student_lp_title', nil, placeholder: 'Poste LP', :value => @student_lp_title %></li>
                 <div class="salary col-md-12">
                   <p class="col-md-2">Salaire:</p>
-                  <select class="col-md-2">
-                    <option value="10_15k">10 - 15 K</option>
-                    <option value="15_20k">15 - 20 K</option>
-                    <option value="20_25k">20 - 25 K</option>
-                    <option value="25_30k">25 - 30 K</option>
-                    <option value="30_35k">30 - 35 K</option>
-                    <option value="35_40k">35 - 40 K</option>
-                    <option value="40_+k">40 ou plus K</option>
-                  </select>
+                  <%= select_tag(:student_current_salary, options_for_select([['10 - 15 K', 1], ['15 - 20 K', 2], ['20 - 25 K', 3], ['20 - 25 K', 4], ['25 - 30 K', 5], ['30 - 35 K', 6], ['35 - 40 K', 7]])) %>
                 </div>
               </div>
               <div class="row">
@@ -92,6 +76,8 @@
             </div>
           </div>
         </div>
+        <%= submit_tag("Enregistrer") %>
+
       </div>
   <% end %>
 </div>
