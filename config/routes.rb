@@ -101,4 +101,5 @@ path: '/',
   get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
   post '/studentprofil/sendmail', :to => 'student#sendmail'
   get '/studentprofil/edit/:user_id', :to => 'student#edit'
+  post '/studentprofil/update_user/:user_id', :to => 'student#update_user'
 end
