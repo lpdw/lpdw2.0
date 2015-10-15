@@ -19,8 +19,9 @@ class AdminV2::TipsController <  AdminV2Controller
     	end
 	end
 
-	def edit
-	end
+  def edit
+    @tip = Tip.find(params[:id])
+  end
 
 	def delete
 	end
@@ -28,6 +29,6 @@ class AdminV2::TipsController <  AdminV2Controller
 	private
 
 	def tip_params
-	  	params[:tip].permit(:title, :description)
+	  	params[:tip].permit(:title, :description, :category)
   	end
 end
