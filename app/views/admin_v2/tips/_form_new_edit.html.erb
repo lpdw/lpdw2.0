@@ -15,7 +15,7 @@
                                                       ['Transports', 3],
                                                       ['Loisirs', 4],
                                                       ['Autres', 5]] ))%>
-            <% f.hidden_field :created_at %>
+
             <%= f.date_field :end_at, :placeholder =>'Date de fin du bon plan' %>
             <br /><br />
             <%= f.url_field :url, :placeholder => 'Lien' %>
@@ -34,7 +34,7 @@
         </div>
         <div class="row">
           <div class="col-md-1">
-            <%= f.submit "Créer", :class => 'input-btn'%>
+            <%= f.submit "Valider", :class => 'input-btn'%>
           </div>
         </div>
         <div id="map"> <!-- GoogleMap here -->
