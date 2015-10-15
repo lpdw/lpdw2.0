@@ -15,11 +15,11 @@
 //= require jquery_ujs
 //= require parsley.min.js
 //= require nested_form_fields
-//= require_tree .
 //= require bootstrap-sprockets
 //= require jquery.nicescroll
 //= require moment
 //= require bootstrap-datetimepicker
+//= require_tree .
 
 $(document).ready(function() {
     topScroll();
