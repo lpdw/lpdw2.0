@@ -49,7 +49,8 @@
         <div class="current-job">
             <div class="row">
                 <p class="col-md-2">Poste Actuel :</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_title %></h2>
-                <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.current_average_salary %> €</p></div>
+                <% current_salary = (@student.users_info.current_average_salary.present? ? @student.users_info.current_average_salary+' €' : 'Non renseigné') %>
+                <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= current_salary %></p></div>
             </div>
             <div class="row">
                 <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_desc %></p>
@@ -59,7 +60,8 @@
         <div class="lp-job">
             <div class="row">
                 <p class="col-md-2">Poste en Licence Pro:</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_title %></h2>
-                <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_average_salary %> €</p></div>
+                <% lp_salary = (@student.users_info.lp_average_salary.present? ? @student.users_info.lp_average_salary+' €' : 'Non renseigné') %>
+                <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= lp_salary %></p></div>
             </div>
             <div class="row">
                 <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_desc %></p>
@@ -71,9 +73,34 @@
 </div>
 
   <div class="modal fade" id="contact_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
-        CONTACT
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Formulaire de contact</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputtext1">Objet</label>
+              <input type="text" class="form-control" id="exampleInputText1" placeholder="Text">
+            </div>
+            <div class="form-group">
+              <label for="comment">Message</label>
+              <textarea class="form-control" rows="5" id="comment" placeholder="Text"></textarea>
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Envoyer</button>
+        </div>
       </div>
     </div>
   </div>
