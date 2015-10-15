@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015090932) do
+ActiveRecord::Schema.define(version: 20151015122402) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 20151015090932) do
     t.string   "status"
     t.string   "category"
     t.string   "email"
-    t.string   "map"
+    t.text     "map",         limit: 255
   end
 
   create_table "users", force: true do |t|
