@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   #devise_for :users, :path => '', :path_names => {sign_in: 'admin/login', sign_out:  'logout', sign_up: 'create'}
 
 devise_for :users, :controllers => {:sessions => "sessions"},
-:path => '',
+path: '/',
 :path_names => {
     :sign_in  => 'login',
-    :sign_out => 'logout',
-    :sign_up => 'login'
+    :sign_up  => 'sign_up',
+    :sign_out => 'logout'
   }
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -21,6 +21,8 @@ devise_for :users, :controllers => {:sessions => "sessions"},
     resources :actualities, except: [:show]
     resources :users, except: [:show]
   end
+
+  resource :applicant, only: [:new, :create, :edit, :update, :show]
 
   get 'admin/show_applicants' => 'admin#show_applicants'
   get 'admin/show_applicant/:id' => 'admin#show_applicant', :as => 'admin_show_applicant'
@@ -87,7 +89,7 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   get '/ucp', :to => 'pages#ucp'
   get '/informations', :to => 'pages#map'
   post '/informations/sendmail', :to => 'pages#sendmail'
-  get '/postuler', :to => 'applicant#apply'
+  get '/postuler', :to => 'applicants#new'
   post '/postuler/login', :to => 'applicant#applicant_login', :as => 'applicant_login'
   get '/postuler/:assurance', :to => 'applicant#applicant_create_apply', :as => 'applicant_create_apply'
   post '/postuler/new', :to => 'applicant#create_apply', :as => 'create_apply'

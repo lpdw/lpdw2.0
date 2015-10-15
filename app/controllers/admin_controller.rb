@@ -109,7 +109,8 @@ admin_restriction_area
   # applicants controller
   def show_applicants
     @title_admin = "Candidatures"
-    @applicants = Applicant.by_year(year_params || Time.now.year)
+    @year = year_params || Time.now.year
+    @applicants = Applicant.by_year(@year)
   end
 
   def show_applicant
@@ -170,7 +171,13 @@ admin_restriction_area
   def is_accepted
     @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
     @status.applicant_response = params[:applicant_status][:set]
+
     if @status.save
+      if @status.applicant_response.zero?
+        @status.applicant.user.update_attributes!(role: 'applicant')
+      else
+        @status.applicant.user.update_attributes!(role: 'student')
+      end
       redirect_to admin_show_applicants_path
     end
   end

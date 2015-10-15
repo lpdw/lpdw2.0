@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-	# validates :password, length: {
+ # Include default devise modules. Others available are:
+ # :confirmable, :lockable, :timeoutable and :omniauthable
+ # validates :password, length: {
  #    minimum: 8,
  #    maximum: 20,
  #    too_short: "must have at least %{count} words",
@@ -8,11 +10,12 @@ class User < ActiveRecord::Base
   #Link model to Admin
 	has_many :actuality
   has_one :applicant
-  has_one :users_info
+  has_one :users_info, class_name:'UsersInfo', primary_key: 'user_id', foreign_key: 'id'
+  has_one :applicant, class_name: 'Applicant', primary_key: 'id_applicant', foreign_key: 'id'
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  ROLES = %w[admin default intervenant applicant]
+  ROLES = %w[admin default intervenant applicant student]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   scope :students, -> {where(role: "student")}
