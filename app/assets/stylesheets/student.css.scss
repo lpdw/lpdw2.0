@@ -50,6 +50,31 @@ img.block{
       }
     }
   }
+  .student-jobs{
+    div{
+      display: block;
+    }
+    p, h2{
+      display: inline-block;
+    }
+
+    p{
+      margin: 0;
+    }
+
+    h2{
+      margin:0;
+      font-size: 24px;
+    }
+
+    .row{
+      margin-bottom: 20px;
+    }
+
+    .current-job{
+      margin-bottom: 40px;
+    }
+  }
 }
 
 @media (min-width: $screen-sm-min) {

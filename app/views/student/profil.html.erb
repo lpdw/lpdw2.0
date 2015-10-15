@@ -9,8 +9,18 @@
     <div class="row">
       <div class="student-infos">
         <img src="/assets/1.jpg" class="block col-md-3">
-        <div class="col-md-offset-1 col-md-8">
-          <div class="row block">
+        <div class="col-md-offset-1 col-md-8 block">
+          <div class="col-md-8 row">
+              <h1><%= @student.lastname %>  <%= @student.name %></h1>
+            <% if !@student.birth.blank? %>
+                <% age = ((Time.new) - (@student.birth))/60/60/24/365,25 %>
+                <li>Age: <%= age[0].to_i %></li>
+            <% else %>
+                <li>Age: Non renseigné</li>
+            <% end %>
+            <li>Promo: <%= @student.users_info.graduation_year %></li>
+          </div>
+          <div class="col-md-4 row">
             <ul>
               <% if @student.twitter.present? %>
                   <li><a target="_blank" href=<%= @student.twitter%>><i class="fa fa-twitter"></i></a></li>
@@ -26,16 +36,6 @@
               <% end %>
             </ul>
           </div>
-          <div class="row block">
-              <h1><%= @student.lastname %>  <%= @student.name %></h1>
-            <% if !@student.birth.blank? %>
-                <% age = ((Time.new) - (@student.birth))/60/60/24/365,25 %>
-                <li>Age: <%= age[0].to_i %></li>
-            <% else %>
-                <li>Age: Non renseigné</li>
-            <% end %>
-            <li>Promo: <%= @student.users_info.graduation_year %></li>
-          </div>
         </div>
       </div>
     </div>
@@ -43,12 +43,23 @@
     <div class="block row">
       <div class="student-jobs">
         <div class="current-job">
-            <p>Poste Actuel: <h2><%= @student.users_info.current_job_title %></h2></p>
-            <p>Salaire: <%= @student.users_info.current_average_salary %></p>
+            <div class="row">
+                <p class="col-md-2">Poste Actuel :</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_title %></h2>
+                <p>Salaire: <%= @student.users_info.current_average_salary %></p>
+            </div>
+            <div class="row">
+                <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_desc %></p>
+            </div>
         </div>
+
         <div class="lp-job">
-            <p>Poste en Licence Pro: <h2><%= @student.users_info.lp_job_title %></h2></p>
-            <p>Salaire: <%= @student.users_info.lp_average_salary %></p>
+            <div class="row">
+                <p class="col-md-2">Poste en Licence Pro:</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_title %></h2>
+                <p>Salaire: <%= @student.users_info.lp_average_salary %></p>
+            </div>
+            <div class="row">
+                <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_desc %></p>
+            </div>
         </div>
       </div>
     </div>
