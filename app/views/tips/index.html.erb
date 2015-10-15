@@ -29,7 +29,7 @@
                 </div>
             </nav>
             <% for tip in @tips %>
-            <article class="col-md-12" data-filter-type="<%= tip.type %>">
+            <article class="col-md-12" data-filter-type="<%= tip.category %>">
                 <div class="article-new">
                     <a href="/tips/<%= tip.id %>"> <h3> <%= tip.title %> </h3>
                     </a>
