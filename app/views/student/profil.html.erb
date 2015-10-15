@@ -24,7 +24,7 @@
           <div class="row social">
             <ul>
               <% if @student.users_info.cv.present? %>
-                  <li class="cv"><a target="_blank" href=<%= @student.users_info.cv%>>CV</i></a></li>
+                  <li class="cv"><a target="_blank" href=<%= @student.users_info.cv%>>CV</a></li>
               <% end %>
               <% if @student.twitter.present? %>
                   <li><a target="_blank" href=<%= @student.twitter%>><i class="fa fa-twitter fa-2x"></i></a></li>
@@ -69,7 +69,6 @@
     </div>
   </div>
 </div>
-<ul>
 
   <div class="modal fade" id="contact_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg">
