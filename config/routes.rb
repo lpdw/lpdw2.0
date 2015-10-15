@@ -105,7 +105,7 @@ path: '/',
 
   #ROUTES FOR TIPS
 
-  resources :tips, only: [:show,:index ] do
+  resources :tips, only: [:show,:index] do
     resources :errors_tips
   end
 

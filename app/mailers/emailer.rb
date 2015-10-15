@@ -26,7 +26,11 @@ class Emailer < ActionMailer::Base
    def error_tips(params)
      @admin_mail = "jdmangubu@gmail.com"
      @params = params
-     mail( to: @admin_mail, subject: '[LPDW] Erreur bon plans')
+     if @params[:email].empty? || @params[:description].empty?
+       false
+     else
+       mail( to: @admin_mail, subject: '[LPDW] Erreur bon plans')
+     end
    end
 
 end
