@@ -101,8 +101,9 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   #get 'admin/create_tips' => 'admin#create_tips'
 
   #ROUTES FOR TIPS
-  resources :tips, only: [:new,:show, :edit, :create] do
+  resources :tips, only: [:show,:index ] do
     resources :errors_tips
   end
+
 
 end

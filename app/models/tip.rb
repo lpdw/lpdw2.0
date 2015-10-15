@@ -1,4 +1,6 @@
 class Tip < ActiveRecord::Base
 	belongs_to :user
- 	validates :title, :decription, :type, presence: true
-endgit
+
+ 	validates :title, :description, :type, presence: true
+end
+
