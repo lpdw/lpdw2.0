@@ -8,31 +8,35 @@
 
     <div class="row">
       <div class="student-infos">
-        <img src="/assets/1.jpg" class="block col-md-3">
-        <div class="col-md-offset-1 col-md-8 block">
-          <div class="col-md-8 row">
-              <h1><%= @student.lastname %>  <%= @student.name %></h1>
+        <img src="/assets/1.jpg" class="col-md-3 block">
+        <div class="col-md-offset-1 col-md-8">
+          <div class="row block">
+                <h1 class="col-md-10"><%= @student.lastname %>  <%= @student.name %></h1>
+                <p class="col-md-2">Promo: <%= @student.users_info.graduation_year %></p>
+
             <% if !@student.birth.blank? %>
                 <% age = ((Time.new) - (@student.birth))/60/60/24/365,25 %>
-                <li>Age: <%= age[0].to_i %></li>
+                <p class="birthday col-md-12">Age: <%= age[0].to_i %></p>
             <% else %>
-                <li>Age: Non renseigné</li>
+                <p class="birthday col-md-12">Age: Non renseigné</p>
             <% end %>
-            <li>Promo: <%= @student.users_info.graduation_year %></li>
           </div>
-          <div class="col-md-4 row">
+          <div class="row social">
             <ul>
+              <% if @student.users_info.cv.present? %>
+                  <li class="cv"><a target="_blank" href=<%= @student.users_info.cv%>>CV</i></a></li>
+              <% end %>
               <% if @student.twitter.present? %>
-                  <li><a target="_blank" href=<%= @student.twitter%>><i class="fa fa-twitter"></i></a></li>
+                  <li><a target="_blank" href=<%= @student.twitter%>><i class="fa fa-twitter fa-2x"></i></a></li>
               <% end %>
               <% if @student.googleplus.present? %>
-                  <li><a target="_blank" href=<%= @student.googleplus%>><i class="fa fa-google-plus"></i></a></li>
-              <% end %>
-              <% if @student.viadeo.present? %>
-                  <li><a target="_blank" href=<%= @student.viadeo%>><i class="fa fa-google-plus"></i></a></li>
+                  <li><a target="_blank" href=<%= @student.googleplus%>><i class="fa fa-google-plus fa-2x"></i></a></li>
               <% end %>
               <% if @student.linkin.present? %>
-                  <li><a target="_blank" href=<%= @student.linkin%>><i class="fa fa-linkedin"></i></a></li>
+                  <li><a target="_blank" href=<%= @student.linkin%>><i class="fa fa-linkedin fa-2x"></i></a></li>
+              <% end %>
+              <% if @student.email.present? %>
+                  <li><a data-toggle="modal" data-target="#contact_modal" href="#contact_modal"><i class="fa fa-envelope fa-2x"></i></a></li>
               <% end %>
             </ul>
           </div>
@@ -45,7 +49,7 @@
         <div class="current-job">
             <div class="row">
                 <p class="col-md-2">Poste Actuel :</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_title %></h2>
-                <p>Salaire: <%= @student.users_info.current_average_salary %></p>
+                <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.current_average_salary %> €</p></div>
             </div>
             <div class="row">
                 <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_desc %></p>
@@ -55,7 +59,7 @@
         <div class="lp-job">
             <div class="row">
                 <p class="col-md-2">Poste en Licence Pro:</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_title %></h2>
-                <p>Salaire: <%= @student.users_info.lp_average_salary %></p>
+                <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_average_salary %> €</p></div>
             </div>
             <div class="row">
                 <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_desc %></p>
@@ -66,3 +70,11 @@
   </div>
 </div>
 <ul>
+
+  <div class="modal fade" id="contact_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        CONTACT
+      </div>
+    </div>
+  </div>
