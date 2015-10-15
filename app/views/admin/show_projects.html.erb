@@ -14,7 +14,7 @@
     <% @projects.each do |project| %>
         <tr>
             <td data-th="ID"><%= project.id %></td>
-            <td data-th="Title"><%= project.name %></td>
+            <td data-th="Nom du projet"><%= project.name %></td>
             <td data-th="Action">
                 <%= link_to(admin_edit_project_path(project)) do %>
                 <i class="fa fa-pencil"></i> Modifier
