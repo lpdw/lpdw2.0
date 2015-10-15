@@ -8,8 +8,8 @@
         <tr>
             <th>ID</th>
             <th>Email</th>
-            <th>Name</th>
-            <th>Last name</th>
+            <th>Prénom</th>
+            <th>Nom</th>
             <th>Rôle</th>
             <th>Action</th>
         </tr>
@@ -19,8 +19,8 @@
         <tr>
             <td data-th="ID"><%= user.id %></td>
             <td data-th="Email"><%= user.email %></td>
-            <td data-th="Name"><%= user.name %></td>
-            <td data-th="Last name"><%= user.lastname %></td>
+            <td data-th="Prénom"><%= user.name %></td>
+            <td data-th="Nom"><%= user.lastname %></td>
             <td data-th="Rôle"><%= user.role %></td>
             <td data-th="Action">
                 <%= link_to(edit_admin_v2_user_path(user)) do %>
