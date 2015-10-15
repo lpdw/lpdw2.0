@@ -10,7 +10,7 @@
             <th>Nom</th>
             <th>Contenu</th>
             <th>Niveau</th>
-            <th>Active</th>
+            <th>Actif</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -21,7 +21,7 @@
             <td data-th="Nom"><%= alert.name %></td>
             <td data-th="Contenu"><%= alert.content %></td>
             <td data-th="Niveau"><%= alert.level %></td>
-            <td data-th="Active"><%= alert.active %></td>
+            <td data-th="Actif"><%= alert.active %></td>
             <td data-th="Actions">
                 <%= link_to(admin_edit_alert_path(alert)) do %>
                 <i class="fa fa-pencil"></i> Modifier

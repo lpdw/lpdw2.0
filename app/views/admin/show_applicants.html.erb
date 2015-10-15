@@ -15,7 +15,7 @@
 <table class="table applicants">
     <thead>
         <tr>
-            <th>Num</th>
+            <th>ID</th>
             <th>Prénom</th>
             <th>Nom</th>
             <th>Mis à jour</th>
@@ -29,8 +29,8 @@
     <% @applicants.each.with_index(1) do |applicant, index| %>
         <tr>
             <td data-th="ID" ><%= index %></td>
-            <td data-th="Name" ><%= applicant.name %></td>
-            <td data-th="First_name" ><%= applicant.first_name %></td>
+            <td data-th="Nom" ><%= applicant.name %></td>
+            <td data-th="Prénom" ><%= applicant.first_name %></td>
             <td data-th="Date_depot" ><%= applicant.updated_at.to_time.strftime("%d/%m/%Y") %></td>
 
             <td data-th="Vote" >
@@ -68,7 +68,7 @@
                 <span class="badge badge-green">Positif</span>
             <%  end %>
             </td>
-            <td data-th="See">
+            <td data-th="Voir">
                 <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
                 <i class="fa fa-eye"></i> voir
                 <% end %>
