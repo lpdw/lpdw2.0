@@ -5,17 +5,13 @@
       <form class="row row-offcanvas row-offcanvas-left">
         <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" >
           <ul class="nav">
-            <%= f.select(:category,
-                    options_for_select([
-                          ['-- Sélectionner * --', false],
-                          ['Non défini', 'Non défini'],
+            <%= f.select(:category,[['Autres', 'Autres'],
                           ['Nourriture', 'Nourriture'],
                           ['Transports', 'Transports'],
                           ['Loisirs', 'Loisirs'],
-                          ['Logement', 'Logement'],
-                          ['Autres', 'Autres']
-                    ]))
-                %>
+                          ['Logement', 'Logement']
+                    ],{:prompt => "Selectionner *"}
+                ) %>
             <%= f.date_field :end_at, :class =>'input' ,:placeholder =>'Date de fin du bon plan'  %>
             <br />
             <%= f.url_field :url, :class =>'input' ,:placeholder => 'Lien' %>
