@@ -120,24 +120,22 @@ $(document).ready(function() {
         });
     });
 
-    $('.bp nav.type a').on('click',function(){
-         $('.bp nav.type a').each(function(){ $(this).removeClass() });
-        $(this).addClass('active');
 
-        if ($(this).attr('data-filter-type')){
-            var type = $(this).attr('data-filter-type');
-            $('.bp article').each(function() {
-                $(this).removeClass('hidden');
-                if( $(this).attr('data-filter-type') != type ) {
-                    $(this).addClass('hidden');
-                };
-            });
-        } else {
-            $('.bp article').each(function() {
-                $(this).removeClass('hidden');
-            }); 
-        };
+    //Jquery menu color
+    if( $('#categ_currant').attr('value') ) {
+        
+        $('.bp nav.type a').each(function() {
+            if( $(this).attr('data-filter-type') == $('#categ_currant').attr('value') ) {
+                $(this).addClass('active');
+            }
+        });
 
-    });
-
+    } else {
+        $('.bp nav.type a').each(function() {
+            if( $(this).attr('data-filter-type') == 'all') {
+                $(this).addClass('active');
+            }
+        });
+    };
+    
 });
