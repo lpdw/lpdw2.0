@@ -412,7 +412,7 @@ admin_restriction_area
   # == Admin restriction == #
   admin_restriction_area
     if @this.destroy
-      flash["sucess"] ="SUCESS DELETE"
+      flash["sucess"] ="Projet supprimé"
       redirect_to admin_show_projects_path()
     else
       flash[:error] = @this.messages.errors
