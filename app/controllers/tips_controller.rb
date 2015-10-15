@@ -1,8 +1,9 @@
 class TipsController < ApplicationController
 
-    def show
-        @tip = Tip.find_by(params[:id])
-    end
+
+  def show
+    @tip = Tip.find(params[:id])
+  end
 
     def index
         #Permet de récupérer tous les différents types de Tip
