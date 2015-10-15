@@ -75,3 +75,22 @@ function add_fields(link, association, content) {
     var regexp = new RegExp("new_" + association, "g");
     $(link).parent().before(content.replace(regexp, new_id));
 }
+
+$("#get_progression").on("click",function(e){
+	e.preventDefault();
+	$(".step").hide();
+	$(".apply_steps").hide();
+	$(".get_progression_form").show();
+	$(".form_wrapper").show();
+
+});
+
+$('.file-upload').each(function(index,elem){
+	var url = $(elem).attr('data-url');
+	if(url != '/files/original/missing.png'){
+		var parent = $(elem).parent();
+		$(elem).addClass('hidden');
+		window.papa = parent;
+		$(parent).find('.button-file').removeClass('hidden');
+	}
+});
