@@ -11,15 +11,10 @@
         <img src="/assets/1.jpg" class="col-md-3 block">
         <div class="col-md-offset-1 col-md-8">
           <div class="row block">
-                <h1 class="col-md-10"><%= @student.lastname %>  <%= @student.name %></h1>
-                <p class="col-md-2">Promo: <%= @student.users_info.graduation_year %></p>
-
-            <% if !@student.birth.blank? %>
-                <% age = ((Time.new) - (@student.birth))/60/60/24/365,25 %>
-                <p class="birthday col-md-12">Age: <%= age[0].to_i %></p>
-            <% else %>
-                <p class="birthday col-md-12">Age: Non renseigné</p>
-            <% end %>
+            <h1 class="col-md-10"><%= @student.lastname %>  <%= @student.name %></h1>
+            <% promo = (!@student.users_info.graduation_year.present?||@student.users_info.graduation_year == 0 ? 'Année en cours' : @student.users_info.graduation_year) %>
+            <p class="col-md-2">Promo: <%= promo %></p>
+            <p class="birthday col-md-12">Age: <%= @student.calcAge %></p>
           </div>
           <div class="row social">
             <ul>
@@ -49,7 +44,7 @@
         <div class="current-job">
             <div class="row">
                 <p class="col-md-2">Poste Actuel :</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_title %></h2>
-                <% current_salary = (@student.users_info.current_average_salary.present? ? @student.users_info.current_average_salary+' €' : 'Non renseigné') %>
+                <% current_salary = (@student.users_info.current_average_salary.present? ? @student.users_info.current_average_salary+' €' : '') %>
                 <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= current_salary %></p></div>
             </div>
             <div class="row">
@@ -60,7 +55,7 @@
         <div class="lp-job">
             <div class="row">
                 <p class="col-md-2">Poste en Licence Pro:</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_title %></h2>
-                <% lp_salary = (@student.users_info.lp_average_salary.present? ? @student.users_info.lp_average_salary+' €' : 'Non renseigné') %>
+                <% lp_salary = (@student.users_info.lp_average_salary.present? ? @student.users_info.lp_average_salary+' €' : '') %>
                 <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= lp_salary %></p></div>
             </div>
             <div class="row">
