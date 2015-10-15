@@ -29,7 +29,10 @@ L’installation de MySQL et HomeBrew sur Mac est indispensable.
 
 **4) Installer toutes les dépendances** :
 
-       bundle install
+    bundle install
+
+    #Pour l'envoi de mail en local
+    gem install mailcatcher
 
 **5) Faire la migration** de la base de données :
    
@@ -61,7 +64,10 @@ L’installation de MySQL et HomeBrew sur Mac est indispensable.
     git fetch upstream 
     
     # Rebase des commits
-    git rebase upstream/development 
+    git rebase upstream/development
+
+    # Push des mises à jour sur le fork
+    git push origin development
 
 
 ###Tu as découvert un bug ?
