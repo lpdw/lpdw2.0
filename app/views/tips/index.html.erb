@@ -1,0 +1,93 @@
+<section class="banner banner-formation">
+    <div class="container">
+        <p class="tips-title">Les bons plans étudiants</p>
+    </div>
+</section>
+
+<div class="gray-bg wrapper">
+    <div class="container bp">
+
+
+
+
+
+        <nav class="col-md-3 type">
+            <!-- Span de categorie courante  -->
+            <span style="display:none" id="categ_currant" value="<%= @category %>"></span>
+            <div class="bpbutton row">
+                <a href="/tips" data-filter-type="all">
+                    <span> Tous </span>
+                </a>
+            </div>
+            <% for diff_category in @diff_category %>
+            <div class="bpbutton row">
+                <a href="/tips?category=<%= diff_category %>" data-filter-type="<%= diff_category %>">
+                    <span> <%= diff_category.capitalize %> </span>
+                </a>
+            </div>
+            <% end %>
+        </nav>
+
+        <section class="col-md-8 col-md-offset-1 home-news">
+            <nav class="row">
+                <form class="col-md-4 tios-search" accept-charset="UTF-8" action="/tips" method="get">
+                    <input class="col-md-9 col-xs-11"  id="search" name="search" placeholder="Recherche" type="text">
+                    <button class="btn btn-default glyphicon glyphicon-search" type="submit"></button>
+                </form>
+
+<!--
+                <div class="bpbutton col-xs-12 col-md-5 col-md-offset-3">
+                    <a class="active" href="#">
+                        <span> Proposer un bon plan </span>
+                    </a>
+                </div>
+-->
+
+            </nav>
+            <% if @tips.count() > 0 %>
+            <% for tip in @tips %>
+            <article class="row" data-filter-type="<%= tip.category %>">
+                <div class="article-new">
+                    <a href="/tips/<%= tip.id %>"> <h3> <%= tip.title %> </h3>
+                    </a>
+                    <p>
+                        <%= tip.description.truncate(500) %>
+                    </p>
+                    <div class="row">
+
+                        <a href="/tips/<%= tip.id %>" class="col-md-4"> <h3>En savoir +</h3> </a>
+                        <!--                        <div class="col-md-4 vote">
+<a href="#" class="glyphicon glyphicon-thumbs-up"> +1 </a>
+<a href="#" class="glyphicon glyphicon-thumbs-down"> -1 </a>
+</div>-->
+                    </div>
+                </div>
+            </article>
+            <% end %>
+            <% else %>
+            <article class="row">
+                <div class="article-new">
+                    <h3> Aucun bon plan trouvé </h3>
+                    <p>
+                        <% if @type_error == "category" %>
+                        Il semblerait que la catégorie que vous recherchiez n'existe pas.
+
+                    </p> 
+                    <p>
+                        PS: La prochaine fois, passe quand même par le panneaux latéral et évite de taper directement dans l'URL.
+                        <% elsif @type_error == "search" %>
+                        Aucun bon plan ne correspond à ta recherche, désolé. 
+                        <% end %>
+                    </p>
+                </div>
+            </article>
+            <% end %>
+
+
+        </section>
+
+
+    </div>
+
+</div>
+

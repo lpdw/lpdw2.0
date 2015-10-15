@@ -22,4 +22,15 @@ class Emailer < ActionMailer::Base
   def reminder (applicant)
     mail( to: applicant.email, subject: '[LPDW] Candidature en cours')
   end
+
+   def error_tips(params)
+     @admin_mail = "jdmangubu@gmail.com"
+     @params = params
+     if @params[:email].empty? || @params[:description].empty?
+       false
+     else
+       mail( to: @admin_mail, subject: '[LPDW] Erreur bon plans')
+     end
+   end
+
 end

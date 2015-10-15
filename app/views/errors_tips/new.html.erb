@@ -1,0 +1,54 @@
+<section class="banner banner-work">
+	<div class="container">
+    	<p>bon plans</p>
+    </div>
+</section>
+<div class="work_list">
+    <div class="container" style>
+      <% if flash[:error] %>
+          <div class="alert alert-orange"><%= flash[:error] %></div>
+      <% elsif flash[:success] %>
+          <div class="alert alert-green"><%= flash[:success] %></div>
+      <% end %>
+      <div>
+        <%= form_tag(tip_errors_tips_path(@tip)) do |f| %>
+        <section style="background-color: #EBEBEB;" class="col-md-12">
+            <h1>Signaler une erreur sur le bon plan :
+              <span style="color:#999999;">
+</span></h1>
+            <div class="row"><br>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Votre nom', :value => @name %>
+                        <!-- <input type="text" class="form-control noraduis" id="usr" placeholder="Nom "> -->
+                    </div>
+                    <div class="form-group">
+                        <%= email_field_tag 'email', nil, class: 'form-control',placeholder:"Votre adresse email", :value => @emai %>
+                        <!-- <input type="email" class="form-control noraduis" id="pwd" placeholder="adresse mail *"> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <%= text_area_tag 'description', nil, class: 'form-control',placeholder:"Votre message ici",rows: 3, :value => @description %>
+                        <!--<textarea class="form-control" rows="5" id="comment noraduis" placeholder="Érreur remarquées... *"></textarea>-->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                    <%= button_tag "Envoyer", class: "btn btn-default" %>
+                    <!--<button type="button" class="btn btn-danger"><span class="custom-btn">Valider</span></button>-->
+              </div>
+            </div>
+          <div class="row">
+            <div class="col-md-5">
+             <div style="margin-bottom: 15px;">* Veuillez renseigner le champs</div>
+            </div>
+          </div>
+        </section>
+            <% end %>
+      </div>
+    </div>
+</div>
