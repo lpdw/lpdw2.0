@@ -10,7 +10,7 @@ class CreateTips < ActiveRecord::Migration
       t.date :updated_at
       t.date :end_at
       t.string :status
-      t.string :type
+      t.string :category
 
       t.timestamps
     end

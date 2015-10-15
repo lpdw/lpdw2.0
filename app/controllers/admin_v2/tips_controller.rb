@@ -24,7 +24,8 @@ class AdminV2::TipsController <  AdminV2Controller
   end
 
   def update
-    @tip = Tip.update_attributes(tip_params)
+    @tip = Tip.find(params[:id])
+    @tip.update_attributes(tip_params)
     if @tip.save
       flash['sucess'] = 'Tip updated'
       redirect_to url_for(:controler => :TipsController, :action => :index)
@@ -34,8 +35,16 @@ class AdminV2::TipsController <  AdminV2Controller
     end
   end
 
-	def delete
-	end
+	def destroy
+		@tip = Tip.find(params[:id])
+    	if @tip.destroy
+      		flash['sucess'] = 'Tip delete'
+      		redirect_to admin_v2_tips_path
+    	else
+      		flash['fail'] = 'Tip not deleted'
+      		redirect_to admin_v2_tips_path
+    	end
+  	end
 
 	private
 
