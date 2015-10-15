@@ -9,12 +9,12 @@
             </select>
             <%= f.select(:category,
                            options_for_select([
-                                                      ['Sélectionner*', 'test'],
-                                                      ['Logement', 1],
-                                                      ['Nourriture', 2],
-                                                      ['Transports', 3],
-                                                      ['Loisirs', 4],
-                                                      ['Autres', 5]] ))%>
+                                                      ['Sélectionner*', 'Non défini'],
+                                                      ['Logement', 'Logement'],
+                                                      ['Nourriture', 'Nourriture'],
+                                                      ['Transports', 'Transports'],
+                                                      ['Loisirs', 'Loisirs'],
+                                                      ['Autres', 'Autres']] ))%>
 
             <%= f.date_field :end_at, :placeholder =>'Date de fin du bon plan' %>
             <br /><br />
