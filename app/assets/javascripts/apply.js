@@ -1,4 +1,4 @@
-$(".first_apply .form_wrapper").hide();
+//$(".first_apply .form_wrapper").hide();
 $(".first_apply .get_progression_form").hide();
 
 $("#fill_form").on("click", function (e) {
@@ -23,12 +23,12 @@ $("#get_progression").on("click",function(e){
 
 });
 
-if ($(".modify_apply").length > 0) {
-	var step_position = $(".modify_apply").find(".step_position").data("step-position");
-	$(".step"+step_position).show();
-	$(".apply_step.active").removeClass("active");
-	$(".apply_step.step_"+step_position).addClass("active");
-};
+// if ($(".modify_apply").length > 0) {
+// 	//var step_position = $(".modify_apply").find(".step_position").data("step-position");
+// 	//$(".step1").show();
+// 	//$(".apply_step.active").removeClass("active");
+// 	//$(".apply_step.step_"+step_position).addClass("active");
+// };
 
 $("input[name='applicant[has_connection]']").on("click", function() {
 	if($("#entourage_true").is(':checked')) {
