@@ -45,6 +45,7 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   post 'admin/edit_user/:id' => 'admin#update_user'
   post 'admin/create_user' => 'admin#new'
   get 'admin/delete_user/:id' => 'admin#delete_user', :as => 'admin_delete_user'
+  get 'admin/student_old/:id/graduate_student' => 'admin#graduate_student', :as => 'admin_graduate_student'
 
 
   #get 'admin/create_actuality' => 'admin#create_actuality'

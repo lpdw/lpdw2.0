@@ -2,7 +2,7 @@ class AdminV2::UsersController < AdminV2Controller
   before_action :set_user, only: [:edit, :update, :delete, :destroy]
 
   def index
-    @users = User.where(role: ['admin','intervenant'])
+    @users = User.where(role: ['admin','intervenant', 'student'])
   end
 
   def new
