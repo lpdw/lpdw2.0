@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   def admin?
     role == 'admin'
   end
+
+  def display_name
+  	name || applicant.first_name
+  end
 end
