@@ -31,7 +31,7 @@
                         <% if current_user.role === "intervenant" %>
                             <li><%= link_to(admin_edit_user_path(current_user.id)) do %><i class="fa fa-pencil"></i> Mon profil<% end %></li>
                         <% end %>
-                        <li><%= link_to admin_show_applicants_path() do %> <i class="fa fa-mortar-board"> </i>Candidatures<% end %></i> </li>
+                        <li><%= link_to admin_show_applicants_path() do %> <i class="fa fa-mortar-board"> </i>Candidatures<% end %></li>
                         <li><%= link_to admin_v2_actualities_path() do %><i class="fa fa-newspaper-o"></i> Actualités <% end %></li>
                         <% if current_user.role === "admin" %>
                             <li><%= link_to admin_v2_users_path do %><i class="fa fa-user"></i> Utilisateurs <% end %></li>
@@ -55,8 +55,9 @@
                     </div>
                 </div>
             </div>
-            <%= javascript_include_tag 'application' %>
-            <%= tinymce_assets %>
-            <%= tinymce %>
+        </div>
+        <%= javascript_include_tag 'application' %>
+        <%= tinymce_assets %>
+        <%= tinymce %>
         </body>
     </html>
