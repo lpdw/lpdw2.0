@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014093053) do
+ActiveRecord::Schema.define(version: 20151014204618) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -154,6 +154,8 @@ ActiveRecord::Schema.define(version: 20151014093053) do
     t.date     "end_at"
     t.string   "status"
     t.string   "type"
+    t.string   "email"
+    t.string   "map"
   end
 
   create_table "users", force: true do |t|
