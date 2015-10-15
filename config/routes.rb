@@ -96,8 +96,9 @@ path: '/',
   patch '/postuler/:assurance', :to => 'applicant#update_apply', :as => 'update_apply'
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
-  get '/studentsbook', :to => 'student#show'
+  get '/studentsbook', :to => 'student#show', :as => 'students_list'
   get '/studentsbook/:graduation_years' , :to => 'student#show'
   get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
+  post '/studentprofil/sendmail', :to => 'student#sendmail'
   get '/studentprofil/edit/:user_id', :to => 'student#edit'
 end
