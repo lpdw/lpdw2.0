@@ -16,11 +16,12 @@ devise_for :users, :controllers => {:sessions => "sessions"},
 
   root 'pages#home'
   resources :actualities, only: [:index, :show]
+  resources :tips, only: [:index, :show]
 
   namespace :admin_v2 do
     resources :actualities, except: [:show]
     resources :users, except: [:show]
-    resources :tips, only: [:new ,:create ,:edit ,:update, :delete]
+    resources :tips, only: [:new ,:create ,:edit ,:update, :delete ,:indexgit]
   end
 
   get 'admin/show_applicants' => 'admin#show_applicants'
@@ -101,9 +102,12 @@ devise_for :users, :controllers => {:sessions => "sessions"},
   #get 'admin/create_tips' => 'admin#create_tips'
 
   #ROUTES FOR TIPS
+
   resources :tips, only: [:show,:index ] do
     resources :errors_tips
   end
 
+    #get '/tips/:id', to: 'tips#show'
+    #resources :tips, only: [:new,:show, :edit, :create, :index]
 
 end
