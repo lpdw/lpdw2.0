@@ -9,6 +9,6 @@ class StudentController < ApplicationController
   end
 
   def profil
-      @student = User.students.find_by(params[:user_id])
+      @student = User.students.find(params[:user_id])
   end
 end
