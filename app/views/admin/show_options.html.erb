@@ -17,7 +17,7 @@
                     <%= hidden_field_tag :value , option.value %>
                     <button class="btn-options-switch <%= on_option_value(option.value) == true ? "on" : "" %>" type="submit">
                         <span class="track"></span>
-                        <span class="ball green"></span>
+                        <span class="ball green">|</span>
                         <span class="ball red"></span>
                     </button>
                 <% end %>
