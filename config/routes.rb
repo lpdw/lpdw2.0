@@ -107,7 +107,4 @@ devise_for :users, :controllers => {:sessions => "sessions"},
     resources :errors_tips
   end
 
-    #get '/tips/:id', to: 'tips#show'
-    #resources :tips, only: [:new,:show, :edit, :create, :index]
-
 end
