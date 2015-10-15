@@ -12,14 +12,16 @@ path: '/',
   }
 
   # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # See how all your routes lay out with "rake routes".SSS
 
   root 'pages#home'
   resources :actualities, only: [:index, :show]
+  resources :tips, only: [:index, :show]
 
   namespace :admin_v2 do
     resources :actualities, except: [:show]
     resources :users, except: [:show]
+    resources :tips, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
 
     # Route company
     get 'create_company' => 'companies#create_company', :as => 'admin_create_company'
@@ -117,4 +119,8 @@ path: '/',
   patch '/postuler/:assurance', :to => 'applicant#update_apply', :as => 'update_apply'
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
+
+  resources :tips, only: [:show,:index] do
+    resources :errors_tips
+  end
 end

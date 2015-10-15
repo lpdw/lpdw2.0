@@ -22,19 +22,19 @@
 //= require bootstrap-datetimepicker
 
 $(document).ready(function() {
+    topScroll();
+
+    $(window).scroll(function(){
         topScroll();
+    });
 
-        $(window).scroll(function(){
-            topScroll();
-        });
-
-        function topScroll(){
-            if($(window).scrollTop() == 0){
-                $(".scroll-top").hide();
-            } else{
-                $(".scroll-top").show();
-            }
+    function topScroll(){
+        if($(window).scrollTop() == 0){
+            $(".scroll-top").hide();
+        } else{
+            $(".scroll-top").show();
         }
+    }
 
     $(".scroll-top").click(function(){
         var body = $("html, body");
@@ -48,7 +48,7 @@ $(document).ready(function() {
         var body = $("html, body");
         $(this).parent().slideUp();
         return false;
-     });
+    });
 
     var tw_url = "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?lang=fr&screen_names=";
     var fb_url = "http://api.facebook.com/restserver.php?format=json&method=links.getStats&urls=https://www.facebook.com/";
@@ -78,7 +78,7 @@ $(document).ready(function() {
         }
     });
 
-        $.ajax({
+    $.ajax({
         url: tw_url+"FacLabUcp",
         type: 'GET',
         crossDomain: true,
@@ -124,12 +124,12 @@ $(document).ready(function() {
     $(".navbar-toggle").on('click', function(e){
         e.preventDefault();
 
-         if($(".navbar-collapse").hasClass("in")){
+        if($(".navbar-collapse").hasClass("in")){
             document.documentElement.style.overflow = 'auto';
         }else{
             document.documentElement.style.overflow = 'hidden';
         }
-     });
+    });
 
     $(".home-creations .article-creation_wrapper").each(function() {
         $(this).find("img").on('load',function() {
@@ -142,4 +142,21 @@ $(document).ready(function() {
     });
 
 
+    //Jquery menu color
+    if( $('#categ_currant').attr('value') ) {
+        
+        $('.bp nav.type a').each(function() {
+            if( $(this).attr('data-filter-type') == $('#categ_currant').attr('value') ) {
+                $(this).addClass('active');
+            }
+        });
+
+    } else {
+        $('.bp nav.type a').each(function() {
+            if( $(this).attr('data-filter-type') == 'all') {
+                $(this).addClass('active');
+            }
+        });
+    };
+    
 });

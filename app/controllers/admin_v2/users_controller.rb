@@ -1,4 +1,4 @@
-class AdminV2::UsersController < AdminV2Controller
+AdminV2::UsersController < AdminV2Controller
   before_action :set_user, only: [:edit, :update, :delete, :destroy]
 
   def index

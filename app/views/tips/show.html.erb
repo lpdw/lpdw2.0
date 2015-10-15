@@ -1,0 +1,74 @@
+<section class="banner banner-formation">
+  <div class="container">
+    <p class="tips-title">Les bons plans étudiants</p>
+  </div>
+</section>
+
+<hr class="horizontal-line gray-bg">
+<div class="bg-white new">
+  <div class="container">
+    <div class="row">
+      <article class="col-md-10 col-md-offset-1">
+        <div class="row">
+          <button class="back btn btn-danger"><a href="<%= tips_url %>">Retour aux bons plans</a></button>
+          <div class="col-md-12 tip-container">
+            <% if @tip %>
+                <div class="col-md-6 tip-container">
+                  <header class="header-tip">
+                    <h1><%= @tip.title %></h1>
+                    <span>Posté le : <%= @tip.created_at.strftime("%d %B %Y") %></span>
+                    <% if @tip.updated_at? %>
+                        <span>Modifié le : <%= @tip.updated_at.strftime("%d %B %Y") %></span>
+                    <% end %>
+                    <% if @tip.end_at? %>
+                        <span id="limit-date">Valable jusqu'au : <%= @tip.end_at.strftime("%d %B %Y") %></span>
+                    <% end %>
+                  </header>
+                  <div class="content">
+                    <p><%= @tip.description%></p>
+                  </div>
+                </div>
+                <% if @tip.map? %>
+                    <div class="col-md-6 tip-container plan">
+                      <%= raw @tip.map %>
+                    </div>
+                <% end %>
+                <!--<div class="col-md-6 tip-container share">
+                  <div class="vote-tip"><span class="up">+</span>150</div>
+                  <div class="vote-tip"><span class="down">-</span>42</div>
+                  <div class="network">
+                    <div data-href="https://developers.facebook.com/docs/plugins/" data-layout="icon_link"></div>
+                    <span><img src="/assets/tips/facebook-logo.png" alt="Logo Facebook"></span>
+                    <span><img src="/assets/tips/twitter-logo.png" alt="Logo Twitter"></span>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-dnt="true">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    <span><img src="/assets/tips/google-plus-logo.png" alt="Logo Google Plus"></span>
+                  </div>
+                </div>-->
+                <div class="info col-md-6 tip-container">
+                  <% if @tip.address? %>
+                      <p>Adresse : <span class="info-tips"><%= @tip.address%></span></p>
+                  <% end%>
+                  <% if @tip.url? %>
+                      <p>Lien du bon plan : <a href="<%= @tip.url %>" class="info-tips"><%= @tip.url%></a></p>
+                  <% end%>
+                  <% if @tip.phone? %>
+                      <p>Téléphone : <span class="info-tips"><%= @tip.phone%></span></p>
+                  <% end%>
+                  <% if @tip.email? %>
+                      <p>E-mail : <span class="info-tips"><%= @tip.email %></span></p>
+                  <% end%>
+                </div>
+                <div class="col-md-12">
+                    <button class="report btn btn-danger"><%= link_to 'Signaler une erreur', new_tip_errors_tip_path(@tip)%></button>
+                </div>
+            <% else %>
+                <h2>Le bon plan que vous cherchez n'existe pas.</h2>
+            <% end %>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
