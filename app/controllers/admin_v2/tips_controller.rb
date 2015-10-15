@@ -12,7 +12,7 @@ class AdminV2::TipsController <  AdminV2Controller
 		@tip = Tip.new(tip_params)
 	    if @tip.save
 	      flash['sucess'] = 'Tip created'
-	      redirect_to @tip
+        redirect_to url_for(:controler => :TipsController, :action => :new)
 	    else
 	      flash['fail'] = 'Tip not created'
 	      redirect_to url_for(:controler => :TipsController, :action => :new)
