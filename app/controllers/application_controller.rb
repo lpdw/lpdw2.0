@@ -32,11 +32,11 @@ class ApplicationController < ActionController::Base
     @user = current_user
     if @user
       if @user.role != "admin" and @user.role != "student"
-        flash[:error] = "You must be student to access this section"
+        flash[:error] = "Vous devez être (ancien) étudiant pouvoir accéder à cette section"
         redirect_to root_path
       end
     else
-      flash[:error] = "You must be connect to access this section"
+      flash[:error] = "Vous devez vous connecter pour accéder à cette section"
       redirect_to root_path
     end
   end
