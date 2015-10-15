@@ -48,6 +48,6 @@ class AdminV2::TipsController < AdminV2Controller
   end
 
   def tip_params
-    params[:tip].permit(:title, :description, :category, :end_at, :url, :phone, :address)
+    params[:tip].permit(:title, :description, :category, :end_at, :url, :phone, :address, :map, :email)
   end
 end
