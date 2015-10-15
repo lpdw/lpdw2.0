@@ -12,10 +12,10 @@ class AdminV2::ActualitiesController < AdminV2Controller
   def create
     @actuality = current_user.actuality.new(actuality_params)
     if @actuality.save
-      flash['sucess'] = 'Actuality created'
+      flash['sucess'] = "Actualité créée"
       redirect_to @actuality
     else
-      flash['fail'] = 'Actuality not created'
+      flash['fail'] = "Erreur de création d'actualité"
       redirect_to new_admin_v2_actuality_path(@actuality)
     end
   end
@@ -25,20 +25,20 @@ class AdminV2::ActualitiesController < AdminV2Controller
 
   def update
     if @actuality.update_attributes(actuality_params)
-      flash['sucess'] = 'Actuality updated'
+      flash['sucess'] = "Actualité mise à jour"
       redirect_to @actuality
     else
-      flash['sucess'] = 'Actuality not updated'
+      flash['sucess'] = "Erreur de mise à jour d'actualité"
       redirect_to edit_admin_v2_actuality_path(@actuality)
     end
   end
 
   def destroy
     if @actuality.destroy
-      flash['sucess'] = 'Actuality delete'
+      flash['sucess'] = "Actualité supprimée"
       redirect_to admin_v2_actualities_path
     else
-      flash['fail'] = 'Actuality not deleted'
+      flash['fail'] = "Erreur de suppression d'actualité"
       redirect_to admin_v2_actualities_path
     end
   end
