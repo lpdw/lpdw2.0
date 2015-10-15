@@ -1,7 +1,7 @@
 <%    	if @actuality.save %>
     <%= @actuality.inspect %>
-    <%=		flash["sucess"] ="SUCESS" %>
+    <%=		flash["sucess"] ="Succès" %>
     <%	else %>
-    <%=		flash["deny"] ="FAIL" %>
+    <%=		flash["deny"] ="Erreur" %>
     <%= @actuality.inspect %>
     <%	end %>
