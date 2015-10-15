@@ -51,9 +51,9 @@ Enjoy :)
             <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
               <li class="dropdown right-navbar">
-                <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i>  <%= current_user.email.split('@').first %> <span class="caret"></span></a>
+                <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i>  <%= current_user.display_name %> <span class="caret"></span></a>
                 <ul id="g-account-menu" class="dropdown-menu" role="menu">
-
+                  <li><%= link_to edit_user_path do %><i class="fa fa-user"></i>  Profil <% end %></li>
                   <% unless current_user.admin? %>
                     <li><%= link_to edit_applicant_path do %><i class="fa fa-folder"></i>  Candidature <% end %></li>
                   <% else %>

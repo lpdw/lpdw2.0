@@ -6,7 +6,7 @@
 <div class="container first_apply">
   <% if flash[:error] %>
     <div class="alert alert-orange"><%= flash[:error] %></div>
-  <% else %>
+  <% elsif flash[:success] %>
     <div class="alert alert-green"><%= flash[:success] %></div>
   <% end %>
   <% if on_show_route_apply %>

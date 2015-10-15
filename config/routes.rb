@@ -23,6 +23,7 @@ path: '/',
   end
 
   resource :applicant, only: [:new, :create, :edit, :update, :show]
+  resource :user, only: [:edit,:update]
 
   get 'admin/show_applicants' => 'admin#show_applicants'
   get 'admin/show_applicant/:id' => 'admin#show_applicant', :as => 'admin_show_applicant'
