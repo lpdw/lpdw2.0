@@ -19,12 +19,20 @@ class AdminV2::TipsController <  AdminV2Controller
     	end
 	end
 
-  def edit
-    @tip = Tip.find(params[:id])
-  end
-
-	def delete
+	def edit
+	    @tip = Tip.find(params[:id])
 	end
+
+	def destroy
+		@tip = Tip.find(params[:id])
+    	if @tip.destroy
+      		flash['sucess'] = 'Tip delete'
+      		redirect_to admin_v2_tips_path
+    	else
+      		flash['fail'] = 'Tip not deleted'
+      		redirect_to admin_v2_tips_path
+    	end
+  	end
 
 	private
 
