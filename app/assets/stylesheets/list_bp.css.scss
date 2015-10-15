@@ -1,0 +1,75 @@
+.bp .bpbutton span {
+    height: 100%;   
+}
+
+.bp .bpbutton a {
+    border-bottom: 2px solid #D5D5D5;
+    background: #FFF;
+    display: block;
+    height: 50px;
+    text-decoration: none;
+    line-height: 50px;
+    font-size: 1.2em;  
+    float: right; 
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #555;
+    width:100%;
+    text-align: center;
+}
+
+.bp nav .bpbutton {
+    margin-bottom: 20px;
+}
+
+.bp nav .bpbutton a.active {
+    background: #EA483E none repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+.bp .home-news nav {
+    margin-bottom: 20px;   
+}
+
+.bp .tios-search {
+    height: 50px;
+    font-size: 14px;
+    line-height: 50px;
+    color: #555;
+    background-color: #FFF;
+    background-image: none;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;   
+}
+
+.bp .tios-search * {
+    display: block;
+    vertical-align: middle;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.bp .tios-search button {
+    line-height: 50px;
+    float: right;   
+}
+
+.vote {
+    float: right;  
+    height: 100%;
+}
+
+.vote a {
+    height: 100%;
+    width: 49%;
+    font-size: 20px;
+}
+
+.vote .glyphicon-thumbs-up {
+    color: green;
+}
+
+.vote .glyphicon-thumbs-down {
+    color: red;
+}
