@@ -4,7 +4,7 @@
 
 .bp .bpbutton a {
     border-bottom: 2px solid #D5D5D5;
-    background: #EA483E none repeat scroll 0% 0%;
+    background: #FFF;
     display: block;
     height: 50px;
     text-decoration: none;
@@ -13,18 +13,16 @@
     float: right; 
     padding-left: 5px;
     padding-right: 5px;
-    color: #FFF;
-}
-
-.bp nav.type .bpbutton a {
+    color: #555;
     width:100%;
     text-align: center;
-    margin-bottom: 20px;
-    background: #FFF;
-    color: #555;
 }
 
-.bp nav.type .bpbutton a.active {
+.bp nav .bpbutton {
+    margin-bottom: 20px;
+}
+
+.bp nav .bpbutton a.active {
     background: #EA483E none repeat scroll 0% 0%;
     color: #FFF;
 }
