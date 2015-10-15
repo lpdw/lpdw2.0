@@ -100,4 +100,5 @@ path: '/',
   get '/studentsbook/:graduation_years' , :to => 'student#show'
   get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
   post '/studentprofil/sendmail', :to => 'student#sendmail'
+  get '/studentprofil/edit/:user_id', :to => 'student#edit'
 end

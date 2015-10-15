@@ -26,4 +26,8 @@ class StudentController < ApplicationController
     flash["success"] = "Message envoyé"
     redirect_to students_list_path
   end
+
+  def edit
+    @student = User.students.find(params[:user_id])
+  end
 end

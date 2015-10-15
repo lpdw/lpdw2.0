@@ -1,0 +1,98 @@
+<section class="banner banner-blue banner-team">
+  <div class="container">
+    <p>Annuaire des anciens</p>
+  </div>
+</section>
+<div class="student-profile">
+  <%= form_tag({:method => :post}) do |f| %>
+      <div class="container">
+        <div class="row">
+          <div class="student-infos">
+            <img src="/assets/1.jpg" class="col-md-3 block">
+            <div class="col-md-offset-1 col-md-8">
+              <div class="row block">
+                <h1 class="col-md-10"><%= @student.lastname %>  <%= @student.name %></h1>
+                <% promo = (!@student.users_info.graduation_year.present?||@student.users_info.graduation_year == 0 ? 'Année en cours' : @student.users_info.graduation_year) %>
+                <p class="col-md-2">Promo: <%= promo %></p>
+
+                    <p class="birthday col-md-12">Age: <%= @student.calcAge %></p>
+              </div>
+              <div class="row social">
+                <ul class="nav nav-tabs" role="tablist">
+                      <li role="presentation" class="active cv"><a href="#cv" aria-controls="cv" role="tab" data-toggle="tab">CV</a></li>
+                  <% if @student.twitter.present? %>
+                      <li role="presentation"><a href="#twitter" aria-controls="twitter" role="tab" data-toggle="tab"><i class="fa fa-twitter fa-2x"></i></a></li>
+                  <% end %>
+                  <% if @student.googleplus.present? %>
+                      <li role="presentation"><a href="#googleplus" aria-controls="googleplus" role="tab" data-toggle="tab"><i class="fa fa-google-plus fa-2x"></i></a></li>
+
+                  <% end %>
+                  <% if @student.linkin.present? %>
+                      <li role="presentation"><a href="#linkin" aria-controls="linkin" role="tab" data-toggle="tab"><i class="fa fa-linkedin fa-2x"></i></a></li>
+
+                  <% end %>
+                  <% if @student.email.present? %>
+                      <li role="presentation"><a href="#email" aria-controls="email" role="tab" data-toggle="tab"><i class="fa fa-envelope fa-2x"></i></a></li>
+                  <% end %>
+
+                </ul>
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="cv"><%= text_field_tag 'student_cv', nil, class:"col-md-10", placeholder: 'Lien CV', :value => @student_cv %></div>
+                  <div role="tabpanel" class="tab-pane" id="twitter"><%= text_field_tag 'student_twitter', nil, class:"col-md-10", placeholder: 'Lien Twitter', :value => @student_twitter %></div>
+                  <div role="tabpanel" class="tab-pane" id="googleplus"><%= text_field_tag 'student_googleplus', nil, class:"col-md-10", placeholder: 'Lien Google Plus', :value => @student_googleplus %></div>
+                  <div role="tabpanel" class="tab-pane" id="linkin"><%= text_field_tag 'student_linkin', nil, class:"col-md-10", placeholder: 'Lien LinkedIn', :value => @student_linkin %></div>
+                  <div role="tabpanel" class="tab-pane" id="email"><%= text_field_tag 'student_email', nil, class:"col-md-10", placeholder: 'Adresse Mail', :value => @student_email %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="block row">
+          <div class="student-jobs">
+            <div class="current-job">
+              <div class="row">
+                <p class="col-md-2">Poste Actuel :</p><%= text_field_tag 'student_current_title', nil, placeholder: 'Poste Actuel', :value => @student_current_title %></li>
+                <div class="salary col-md-12">
+                  <p class="col-md-2">Salaire:</p>
+                  <select class="col-md-2">
+                    <option value="10_15k">10 - 15 K</option>
+                    <option value="15_20k">15 - 20 K</option>
+                    <option value="20_25k">20 - 25 K</option>
+                    <option value="25_30k">25 - 30 K</option>
+                    <option value="30_35k">30 - 35 K</option>
+                    <option value="35_40k">35 - 40 K</option>
+                    <option value="40_+k">40 ou plus K</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <p class="col-md-2">Description :</p><%= text_area_tag 'student_current_desc', nil, class: 'col-md-9',placeholder:"Votre message ici",rows: 3, :value => @student_current_desc %>
+              </div>
+            </div>
+
+            <div class="lp-job">
+              <div class="row">
+                <p class="col-md-2">Poste en Licence Pro:</p><%= text_field_tag 'student_lp_title', nil, placeholder: 'Poste LP', :value => @student_lp_title %></li>
+                <div class="salary col-md-12">
+                  <p class="col-md-2">Salaire:</p>
+                  <select class="col-md-2">
+                    <option value="10_15k">10 - 15 K</option>
+                    <option value="15_20k">15 - 20 K</option>
+                    <option value="20_25k">20 - 25 K</option>
+                    <option value="25_30k">25 - 30 K</option>
+                    <option value="30_35k">30 - 35 K</option>
+                    <option value="35_40k">35 - 40 K</option>
+                    <option value="40_+k">40 ou plus K</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <p class="col-md-2">Description :</p><%= text_area_tag 'student_lp_desc', nil, class: 'col-md-9',placeholder:"Votre message ici",rows: 3, :value => @student_lp_desc %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
