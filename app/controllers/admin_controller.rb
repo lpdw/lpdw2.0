@@ -459,6 +459,27 @@ admin_restriction_area
     redirect_to admin_show_options_path()
   end
 
+  def graduate_student
+    # == Admin restriction == #
+    admin_restriction_area
+    @user=User.find(params[:id])
+    if @user.users_info.graduation_year == 0
+      if @user.users_info.update_column(:graduation_year, Date.today.strftime('%Y'))
+        flash["sucess"] ='Mise à jour effectuée'
+      else
+        flash["sucess"] ='Erreur de mise à jour'
+      end
+    else
+      if @user.users_info.update_column(:graduation_year, 0)
+        flash["sucess"] ='Mise à jour effectuée'
+      else
+        flash["sucess"] ='Erreur de mise à jour'
+      end
+    end
+    redirect_to admin_v2_users_path()
+  end
+
+
   private
 
   def year_params
