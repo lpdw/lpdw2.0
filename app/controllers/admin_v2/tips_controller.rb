@@ -19,9 +19,21 @@ class AdminV2::TipsController <  AdminV2Controller
     	end
 	end
 
-	def edit
-	    @tip = Tip.find(params[:id])
-	end
+  def edit
+    @tip = Tip.find(params[:id])
+  end
+
+  def update
+    @tip = Tip.find(params[:id])
+    @tip.update_attributes(tip_params)
+    if @tip.save
+      flash['sucess'] = 'Tip updated'
+      redirect_to url_for(:controler => :TipsController, :action => :index)
+    else
+      flash['fail'] = 'Tip not updated'
+      redirect_to url_for(:controler => :TipsController, :action => :index)
+    end
+  end
 
 	def destroy
 		@tip = Tip.find(params[:id])
@@ -37,6 +49,6 @@ class AdminV2::TipsController <  AdminV2Controller
 	private
 
 	def tip_params
-	  	params[:tip].permit(:title, :description, :category)
+	  	params[:tip].permit(:title, :description, :category, :end_at, :url, :phone, :address)
   	end
 end
