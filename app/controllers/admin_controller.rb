@@ -6,7 +6,7 @@ class AdminController < ApplicationController
   # permission restrictions
   def admin_restriction_area
     if @user.role != "admin"
-      flash[:error] = "You must be admin to access this section"
+      flash[:error] = "Vous devez être admin pour accéder à cette section"
       redirect_to admin_path()
     end
   end
@@ -73,7 +73,7 @@ admin_restriction_area
 
     @user=User.find(params[:id])
     if @user.destroy
-      flash["sucess"] ="SUCESS DELETE"
+      flash["sucess"] ="Utilisateur supprimé"
       redirect_to admin_show_users_path()
     else
       flash[:error] =  @user.errors.messages[:email] + @user.errors.messages[:password] +  @user.errors.messages[:password_confirmation] + @user.errors.messages[:photo]
@@ -87,7 +87,7 @@ admin_restriction_area
 
     @user = User.new(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname))
     if @user.save
-      flash["success"] ="User created"
+      flash["success"] ="Utilisateur créé"
       redirect_to admin_show_users_path()
     else
       flash[:error] =  @user.errors.messages[:email].to_s + @user.errors.messages[:password].to_s +  @user.errors.messages[:password_confirmation].to_s + @user.errors.messages[:photo].to_s
@@ -99,7 +99,7 @@ admin_restriction_area
     @user = current_user
     if @user.role != "intervenant"
       if @user.role != "admin"
-        flash[:error] = "You must be admin to access this section"
+        flash[:error] = "Vous devez être admin pour accéder à cette section"
         redirect_to root_path # halts request cycle
       end
     end
@@ -171,7 +171,13 @@ admin_restriction_area
   def is_accepted
     @status = ApplicantStatus.find_by(id_applicant: params[:applicant_status][:id_applicant])
     @status.applicant_response = params[:applicant_status][:set]
+
     if @status.save
+      if @status.applicant_response.zero?
+        @status.applicant.user.update_attributes!(role: 'applicant')
+      else
+        @status.applicant.user.update_attributes!(role: 'student')
+      end
       redirect_to admin_show_applicants_path
     end
   end
@@ -243,10 +249,10 @@ admin_restriction_area
     @title_admin = "Actualité"
     @actuality = Actuality.new(params[:actuality].permit(:title, :content, :author))
     if @actuality.save
-      flash["sucess"] = "Actuality created"
+      flash["sucess"] = "Actualité créée"
       redirect_to admin_show_actualities_path() # halts request cycle
     else
-      flash["fail"] = "Actuality not created"
+      flash["fail"] = "Erreur de création d'actualité"
       redirect_to admin_create_actuality_path() # halts request cycle
     end
   end
@@ -266,10 +272,10 @@ admin_restriction_area
   end
   def delete_actuality
     if @thisActuality.destroy
-      flash["sucess"] ="SUCESS DELETE"
+      flash["sucess"] ="Actualité supprimée"
       redirect_to admin_show_actualities_path()
     else
-      flash["fail"] = "Delete Fail"
+      flash["fail"] = "Erreur de suppression d'actualité"
       redirect_to admin_show_actualities_path()
     end
   end
@@ -291,10 +297,10 @@ admin_restriction_area
   admin_restriction_area
     @alert = Alert.new(params[:alert].permit(:name,:content,:level,:active))
     if @alert.save
-      flash["sucess"] ="Alert created"
+      flash["sucess"] ="Alerte créée"
       redirect_to admin_show_alerts_path()
     else
-      flash["fail"] = "Fail to create alert"
+      flash["fail"] = "Erreur de création d'alerte"
       redirect_to admin_create_alert_path()
     end
   end
@@ -327,10 +333,10 @@ admin_restriction_area
   # == Admin restriction == #
   admin_restriction_area
     if @thisAlert.destroy
-      flash["sucess"] ="SUCESS DELETE"
+      flash["sucess"] ="Alerte supprimée"
       redirect_to admin_show_alerts_path()
     else
-      flash["fail"] = "Delete Fail"
+      flash["fail"] = "Erreur de suppression d'alerte"
       redirect_to admin_show_alerts_path()
     end
   end
@@ -344,14 +350,14 @@ admin_restriction_area
   def show_projects
   # == Admin restriction == #
   admin_restriction_area
-    @title_admin = "projects"
+    @title_admin = "projets"
     @projects = Project.all
   end
 
   def create_project
   # == Admin restriction == #
   admin_restriction_area
-    @title_admin = "projects"
+    @title_admin = "projets"
     @project = Project.new
   end
 
@@ -372,13 +378,13 @@ admin_restriction_area
   def new_project
   # == Admin restriction == #
   admin_restriction_area
-    @title_admin = "Project"
+    @title_admin = "Projet"
     @project = Project.new(params[:project].permit(:photo, :name, :description, :link, :thumbmail))
     if @project.save
-      flash[:info] = "Project created"
+      flash[:info] = "Projet créé"
       redirect_to admin_show_projects_path() # halts request cycle
     else
-      flash[:error] = "Project not created"
+      flash[:error] = "Erreur de création du projet"
       redirect_to admin_create_project_path() # halts request cycle
     end
   end
@@ -386,13 +392,13 @@ admin_restriction_area
   def edit_project
   # == Admin restriction == #
   admin_restriction_area
-    @title_admin = "Project"
+    @title_admin = "Projet"
     @project=@this
   end
   def update_project
   # == Admin restriction == #
   admin_restriction_area
-    @title_admin = "project"
+    @title_admin = "projet"
     if @this.update_attributes(params[:this].permit(:photo, :name, :description, :link, :thumbmail))
       # Handle a successful update.
       flash[:info] ="Mis a jour avec succès"
@@ -430,10 +436,10 @@ admin_restriction_area
       begin
         Emailer.send_mail_interview(applicant.email,datetime).deliver
       rescue Exception => e
-        flash["error"] = "Une erreur s'est produite le mail n'est pas envoyé"
+        flash["error"] = "Une erreur s'est produite : le mail n'est pas envoyé"
         redirect_to admin_show_interview_path()  and return
       end
-      flash[:info] = "L'entretien a été sauvegardé un mail va être envoyé"
+      flash[:info] = "L'entretien a été sauvegardé : un mail va être envoyé"
     else
       flash[:error] = "Une erreur s'est produite"
     end
