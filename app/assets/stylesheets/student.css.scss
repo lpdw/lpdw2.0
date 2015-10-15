@@ -8,71 +8,109 @@
 
 .student-profile {
   padding: 80px 0;
-}
-
-img.block{
-  padding: 0 !important;
-}
-
-.block {
-  border: 1px solid $color-4;
-  padding: 30px 10px;
-  position: relative;
-  margin-bottom: 15px;
-
-  figure {
-    display: block;
-    margin: auto;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  .job-title {
-    padding: 0 10px;
-  }
-  h4 {
-    margin-top: 20px;
+  img.block{
+    padding: 0 !important;
   }
 
-  .social_section {
-    padding: 0;
-    position: absolute;
-    width: 100%;
-    bottom: 15px;
-    left: 0;
-    font-size: 16px;
-    li {
+  .social{
+    float: right;
+    padding:25px 10px;
+    ul{
       display: inline-block;
-      padding: 10px;
-      a {
-        color: $color-2;
+      width: 100%;
+      margin: 0 auto;
+      li{
+        display: inline-block;
+        float: left;
+        list-style: none;
+        margin-right: 30px;
+        &.cv{
+          font-size: 24px;
+          line-height: 24px;
+        }
       }
     }
   }
-  .student-jobs{
-    div{
-      display: block;
-    }
-    p, h2{
-      display: inline-block;
-    }
 
-    p{
+  .student-infos{
+    h1,p{
       margin: 0;
     }
 
-    h2{
-      margin:0;
-      font-size: 24px;
+    p{
+      font-size: 16px;
     }
 
-    .row{
-      margin-bottom: 20px;
+    .birthday{
+      margin-top: 10px;
+    }
+  }
+
+  .block {
+    border: 1px solid $color-4;
+    padding: 25px 10px;
+    position: relative;
+    margin-bottom: 15px;
+
+    figure {
+      display: block;
+      margin: auto;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .job-title {
+      padding: 0 10px;
+    }
+    h4 {
+      margin-top: 20px;
     }
 
-    .current-job{
-      margin-bottom: 40px;
+    .social_section {
+      padding: 0;
+      position: absolute;
+      width: 100%;
+      bottom: 15px;
+      left: 0;
+      font-size: 16px;
+      li {
+        display: inline-block;
+        padding: 10px;
+        a {
+          color: $color-2;
+        }
+      }
+    }
+
+    .student-jobs{
+      div{
+        display: block;
+      }
+      p, h2{
+        display: inline-block;
+      }
+
+      p{
+        margin: 0;
+      }
+
+      h2{
+        margin:0;
+        font-size: 24px;
+      }
+
+      .row{
+        margin-bottom: 20px;
+      }
+
+      .current-job{
+        margin-bottom: 40px;
+        .salary{
+          margin-top: 10px;
+          display: inline-block;
+        }
+      }
     }
   }
 }
