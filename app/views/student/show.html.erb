@@ -10,7 +10,8 @@
       <%= select_tag(:student_current_salary, options_for_select([['10 - 15 K', 1], ['15 - 20 K', 2]])) %>
         <select>
           <% @graduationYears.each do |year| %>
-            <option><%= year.graduation_year %></option>
+              <% promo = (year.graduation_year == 0||!year.graduation_year.present? ? 'Année en cours' : year.graduation_year) %>
+              <option><%= promo %></option>
           <% end %>
         </select>
       <%= submit_tag("Valider") %>
