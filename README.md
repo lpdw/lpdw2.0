@@ -1,4 +1,4 @@
-Site de la LP-DW
+Site de la LP-DW [![Build Status](https://travis-ci.org/lpdw/lpdw2.0.svg)](https://travis-ci.org/lpdw/lpdw2.0)
 ================
 
 Le site de la LP-DW présente la formation “Licence Professionelle Developpeur Web”, il permet également de pouvoir candidater, de s’informer et de se tenir au courant des différentes actualités.
