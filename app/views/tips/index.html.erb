@@ -1,15 +1,21 @@
 <div class="gray-bg wrapper">
     <div class="container bp">
 
+        
+        
+        
+         
         <nav class="col-md-3 type">
+            <!-- Span de categorie courante  -->
+            <span style="display:none" id="categ_currant" value="<%= @category %>"></span>
             <div class="bpbutton row">
-                <a class="active" href="#">
+                <a href="/tips" data-filter-type="all">
                     <span> Tous </span>
                 </a>
             </div>
             <% for diff_category in @diff_category %>
             <div class="bpbutton row">
-                <a href="#<%= diff_category %>" data-filter-type="<%= diff_category %>">
+                <a href="/tips?category=<%= diff_category %>" data-filter-type="<%= diff_category %>">
                     <span> <%= diff_category.capitalize %> </span>
                 </a>
             </div>
@@ -34,7 +40,7 @@
                     <a href="/tips/<%= tip.id %>"> <h3> <%= tip.title %> </h3>
                     </a>
                     <p>
-                        <%= tip.description %>
+                        <%= tip.description.truncate(500) %>
                     </p>
                     <div class="row">
 
