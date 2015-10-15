@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def admin?
     role == 'admin'
   end
+
+  def student?
+    role == 'student'
+  end
 end

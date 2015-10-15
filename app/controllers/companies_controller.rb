@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   def is_student
     @user = current_user
     if @user
-      if @user.role != "admin" and @user.role != "applicant"
+      if @user.role != "admin" and @user.role != "student"
         flash[:error] = "You must be student to access this section"
         redirect_to root_path
       end
