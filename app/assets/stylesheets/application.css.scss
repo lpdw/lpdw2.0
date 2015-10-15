@@ -43,6 +43,18 @@ body {
     color: #ea483e;
     text-transform: uppercase;
 }
+
+
+
+.fa {
+font-size:x-large;
+}
+
+#company_t{
+
+margin-top:20px;
+}
+
 .scroll-top {
     height: 40px;
     padding: 0;
@@ -92,3 +104,4 @@ body {
 @import "mentions";
 @import "live";
 @import "users";
+@import "companies";

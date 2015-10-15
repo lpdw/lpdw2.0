@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
  #    too_long: "must have at most %{count} words"
  #  }, confirmation: true
   #Link model to Admin
+	has_many :actuality
+  has_one :applicant
+  belongs_to :company
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
   ROLES = %w[admin default intervenant applicant student]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -19,6 +25,16 @@ class User < ActiveRecord::Base
   end
 
   def display_name
-  	name || applicant.first_name
+  	if name
+      name
+    elsif applicant
+      applicant.first_name
+    else
+      email.split('@').first
+    end
+  end
+
+  def student?
+    role == 'student'
   end
 end

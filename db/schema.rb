@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005214752) do
+ActiveRecord::Schema.define(version: 20151014084617) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -82,6 +82,23 @@ ActiveRecord::Schema.define(version: 20151005214752) do
 
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true
 
+  create_table "companies", force: true do |t|
+    t.string   "name"
+    t.text     "description",  limit: 4294967295
+    t.string   "address"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "phone_number"
+    t.string   "website"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "logo_url"
+    t.date     "founded_at"
+    t.integer  "posted_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "cursus", force: true do |t|
     t.integer  "id_applicant"
     t.string   "graduation"
@@ -98,6 +115,24 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.string   "attachment"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "jobs", force: true do |t|
+    t.string   "job_name"
+    t.string   "job_number"
+    t.text     "job_description", limit: 4294967295
+    t.string   "start_at"
+    t.string   "duration"
+    t.text     "profil",          limit: 4294967295
+    t.string   "contact"
+    t.string   "location"
+    t.text     "skills",          limit: 4294967295
+    t.integer  "status"
+    t.date     "founded_at"
+    t.integer  "posted_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "company_id"
   end
 
   create_table "options", force: true do |t|
