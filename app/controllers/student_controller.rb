@@ -30,4 +30,10 @@ class StudentController < ApplicationController
   def edit
     @student = User.students.find(params[:user_id])
   end
+
+  def update_user
+    sql = "UPDATE users SET twitter ='"+params[:student_twitter]+"' WHERE id ="+params[:user_id]
+    ActiveRecord::Base.connection.execute(sql)
+    redirect_to action: 'edit'
+  end
 end
