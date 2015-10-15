@@ -5,7 +5,16 @@
     <form class="row row-offcanvas row-offcanvas-left">
 
         <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" >
-            <ul class="nav">
+            <ul class="nav">e="Autres">Autres</option>
+                </select>-->
+                  <%= select_tag(:type,
+                  options_for_select([
+                    ['Sélectionner*', 0], 
+                    ['Logement', 1], 
+                    ['Nourriture', 2], 
+                    ['Transports', 3], 
+                    ['Loisirs', 4], 
+                    ['Autres', 5]] ))%>
                 <% f.hidden_field :created_at %>
                 <%= f.date_field :end_at, :placeholder =>'Date de fin du bon plan' %>
                 <br /><br />
@@ -33,3 +42,5 @@
     </form><!--/.row-->
   </div><!--/.container-->
 <% end %>
+
+
