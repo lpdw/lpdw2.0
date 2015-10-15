@@ -7,4 +7,8 @@ class ApplicantStatus < ActiveRecord::Base
   def self.getapplicant(id)
     return Applicant.find_by(id: id)
   end
+
+  def finish!
+  	update_attributes(is_finish: true, is_complete: true)
+  end
 end
