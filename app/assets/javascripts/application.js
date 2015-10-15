@@ -22,19 +22,19 @@
 //= require bootstrap-datetimepicker
 
 $(document).ready(function() {
+    topScroll();
+
+    $(window).scroll(function(){
         topScroll();
+    });
 
-        $(window).scroll(function(){
-            topScroll();
-        });
-
-        function topScroll(){
-            if($(window).scrollTop() == 0){
-                $(".scroll-top").hide();
-            } else{
-                $(".scroll-top").show();
-            }
+    function topScroll(){
+        if($(window).scrollTop() == 0){
+            $(".scroll-top").hide();
+        } else{
+            $(".scroll-top").show();
         }
+    }
 
     $(".scroll-top").click(function(){
         var body = $("html, body");
@@ -48,7 +48,7 @@ $(document).ready(function() {
         var body = $("html, body");
         $(this).parent().slideUp();
         return false;
-     });
+    });
 
     var tw_url = "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?lang=fr&screen_names=";
     var fb_url = "https://graph.facebook.com/";
@@ -78,7 +78,7 @@ $(document).ready(function() {
         }
     });
 
-        $.ajax({
+    $.ajax({
         url: tw_url+"FacLabUcp",
         type: 'GET',
         crossDomain: true,
@@ -103,12 +103,12 @@ $(document).ready(function() {
     $(".navbar-toggle").on('click', function(e){
         e.preventDefault();
 
-         if($(".navbar-collapse").hasClass("in")){
+        if($(".navbar-collapse").hasClass("in")){
             document.documentElement.style.overflow = 'auto';
         }else{
             document.documentElement.style.overflow = 'hidden';
         }
-     });
+    });
 
     $(".home-creations .article-creation_wrapper").each(function() {
         $(this).find("img").on('load',function() {
@@ -120,5 +120,24 @@ $(document).ready(function() {
         });
     });
 
+    $('.bp nav.type a').on('click',function(){
+         $('.bp nav.type a').each(function(){ $(this).removeClass() });
+        $(this).addClass('active');
+
+        if ($(this).attr('data-filter-type')){
+            var type = $(this).attr('data-filter-type');
+            $('.bp article').each(function() {
+                $(this).removeClass('hidden');
+                if( $(this).attr('data-filter-type') != type ) {
+                    $(this).addClass('hidden');
+                };
+            });
+        } else {
+            $('.bp article').each(function() {
+                $(this).removeClass('hidden');
+            }); 
+        };
+
+    });
 
 });

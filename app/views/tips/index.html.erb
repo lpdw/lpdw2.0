@@ -7,26 +7,13 @@
                     <span> Tous </span>
                 </a>
             </div>
+            <% for diff_category in @diff_category %>
             <div class="bpbutton row">
-                <a href="#">
-                    <span> Logement </span>
+                <a href="#<%= diff_category %>" data-filter-type="<%= diff_category %>">
+                    <span> <%= diff_category.capitalize %> </span>
                 </a>
             </div>
-            <div class="bpbutton row">
-                <a href="#">
-                    <span> Nourriture </span>
-                </a>
-            </div>
-            <div class="bpbutton row">
-                <a href="#">
-                    <span> Transport </span>
-                </a>
-            </div>
-            <div class="bpbutton row">
-                <a href="#">
-                    <span> Loisirs </span>
-                </a>
-            </div>
+            <% end %>
         </nav>
 
         <section class="col-md-8 col-md-offset-1 home-news">
@@ -41,24 +28,25 @@
                     </a>
                 </div>
             </nav>
-            <article class="col-md-12">
+            <% for tip in @tips %>
+            <article class="col-md-12" data-filter-type="<%= tip.category %>">
                 <div class="article-new">
-                    <h3>
-                        Lorem ipsum dolor
-                    </h3>
+                    <a href="/tips/<%= tip.id %>"> <h3> <%= tip.title %> </h3>
+                    </a>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, 
+                        <%= tip.description %>
                     </p>
                     <div class="row">
 
-                        <a href="#" class="col-md-4"> <h3>En savoir +</h3> </a>
-                        <div class="col-md-4 vote">
+                        <a href="/tips/<%= tip.id %>" class="col-md-4"> <h3>En savoir +</h3> </a>
+<!--                        <div class="col-md-4 vote">
                             <a href="#" class="glyphicon glyphicon-thumbs-up"> +1 </a>
                             <a href="#" class="glyphicon glyphicon-thumbs-down"> -1 </a>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </article>
+            <% end %>
 
 
         </section>
