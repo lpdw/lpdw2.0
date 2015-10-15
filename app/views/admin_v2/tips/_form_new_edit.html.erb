@@ -1,11 +1,10 @@
 <div class="container">
-  <h2>Ajouter un bon plan</h2>
+  <h2>Gestion d'un bon plan</h2>
   <%= form_for ([:admin_v2, @tip]) do |f| %>
       <br />
       <form class="row row-offcanvas row-offcanvas-left">
         <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" >
           <ul class="nav">
-
             <%= f.select(:category,
                     options_for_select([
                           ['-- Sélectionner --', false],
