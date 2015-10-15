@@ -1,5 +1,4 @@
-<!--
-Greetings summoner,
+<!--Summoner,
 here's a unicorn for you.
 Enjoy :)
 
@@ -59,6 +58,9 @@ Enjoy :)
                   <% else %>
                     <li><%= link_to admin_path do %><i class="fa fa-gears"></i>  Administration <% end %></li>
                   <% end %>
+		  <% if current_user.admin? or current_user.student? %>
+		    <li><%= link_to annuary_path do %><i class="fa fa-list"></i>  Annuaire<% end %></li>
+		  <% end %>
 
                   <li>
                     <%= link_to(destroy_user_session_path(),:method => 'delete') do %>

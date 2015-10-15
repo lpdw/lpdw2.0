@@ -19,17 +19,13 @@ production:
   encoding: utf8
   pool: 5
   username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: ""
   database: lpdwDB
 
 development:
   adapter: sqlite3
   database: db/development.sqlite3
   pool: 5
-  timeout: 5000
+  username: root
+  database: lpdwDB
 
-test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000

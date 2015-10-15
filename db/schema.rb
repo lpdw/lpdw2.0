@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005214752) do
+ActiveRecord::Schema.define(version: 20151014084617) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.integer  "user_id"
   end
 
-  add_index "actualities", ["user_id"], name: "index_actualities_on_user_id"
+  add_index "actualities", ["user_id"], name: "index_actualities_on_user_id", using: :btree
 
   create_table "alerts", force: true do |t|
     t.string   "name"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.integer  "id_applicant"
   end
 
+  add_index "applicant_attachments", ["id_applicant"], name: "applicant_attachments_id_applicant_fk", using: :btree
+
   create_table "applicant_statuses", force: true do |t|
     t.integer  "id_applicant"
     t.boolean  "is_finish"
@@ -52,6 +54,8 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "applicant_statuses", ["id_applicant"], name: "applicant_statuses_id_applicant_fk", using: :btree
 
   create_table "applicants", force: true do |t|
     t.datetime "deposit_date"
@@ -74,13 +78,30 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.integer  "english_skill"
     t.string   "other_language"
     t.text     "after_school"
-    t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ip_address"
     t.integer  "step_position"
   end
 
-  add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true
+  add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true, using: :btree
+
+  create_table "companies", force: true do |t|
+    t.string   "name"
+    t.text     "description",  limit: 2147483647
+    t.string   "address"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "phone_number"
+    t.string   "website"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "logo_url"
+    t.date     "founded_at"
+    t.integer  "posted_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cursus", force: true do |t|
     t.integer  "id_applicant"
@@ -93,12 +114,34 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.datetime "updated_at"
   end
 
+  add_index "cursus", ["id_applicant"], name: "cursus_id_applicant_fk", using: :btree
+
   create_table "images", force: true do |t|
     t.string   "alt"
     t.string   "attachment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "jobs", force: true do |t|
+    t.string   "job_name"
+    t.string   "job_number"
+    t.text     "job_description", limit: 2147483647
+    t.string   "start_at"
+    t.string   "duration"
+    t.text     "profil",          limit: 2147483647
+    t.string   "contact"
+    t.string   "location"
+    t.text     "skills",          limit: 2147483647
+    t.integer  "status"
+    t.date     "founded_at"
+    t.integer  "posted_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "company_id"
+  end
+
+  add_index "jobs", ["company_id"], name: "jobs_company_id_fk", using: :btree
 
   create_table "options", force: true do |t|
     t.string "key"
@@ -112,6 +155,8 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.datetime "updated_at"
   end
 
+  add_index "other_applications", ["id_applicant"], name: "other_applications_id_applicant_fk", using: :btree
+
   create_table "professional_experiences", force: true do |t|
     t.integer  "id_applicant"
     t.integer  "year"
@@ -122,6 +167,8 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.datetime "updated_at"
   end
 
+  add_index "professional_experiences", ["id_applicant"], name: "professional_experiences_id_applicant_fk", using: :btree
+
   create_table "project_applicants", force: true do |t|
     t.integer  "id_applicant"
     t.string   "project_type"
@@ -131,7 +178,10 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.datetime "updated_at"
   end
 
+  add_index "project_applicants", ["id_applicant"], name: "project_applicants_id_applicant_fk", using: :btree
+
   create_table "projects", force: true do |t|
+    t.string   "photo"
     t.string   "name"
     t.text     "description"
     t.string   "link"
@@ -166,8 +216,9 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.integer  "id_applicant"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["id_applicant"], name: "users_id_applicant_fk", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: true do |t|
     t.integer  "id_applicant"
@@ -176,5 +227,25 @@ ActiveRecord::Schema.define(version: 20151005214752) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "votes", ["id_applicant"], name: "votes_id_applicant_fk", using: :btree
+
+  add_foreign_key "applicant_attachments", "applicants", name: "applicant_attachments_id_applicant_fk", column: "id_applicant", dependent: :delete
+
+  add_foreign_key "applicant_statuses", "applicants", name: "applicant_statuses_id_applicant_fk", column: "id_applicant", dependent: :delete
+
+  add_foreign_key "cursus", "applicants", name: "cursus_id_applicant_fk", column: "id_applicant", dependent: :delete
+
+  add_foreign_key "jobs", "companies", name: "jobs_company_id_fk"
+
+  add_foreign_key "other_applications", "applicants", name: "other_applications_id_applicant_fk", column: "id_applicant", dependent: :delete
+
+  add_foreign_key "professional_experiences", "applicants", name: "professional_experiences_id_applicant_fk", column: "id_applicant", dependent: :delete
+
+  add_foreign_key "project_applicants", "applicants", name: "project_applicants_id_applicant_fk", column: "id_applicant", dependent: :delete
+
+  add_foreign_key "users", "applicants", name: "users_id_applicant_fk", column: "id_applicant", dependent: :delete
+
+  add_foreign_key "votes", "applicants", name: "votes_id_applicant_fk", column: "id_applicant", dependent: :delete
 
 end
