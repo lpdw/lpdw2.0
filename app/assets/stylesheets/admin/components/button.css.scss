@@ -214,11 +214,15 @@ $color-grey-light: #e1eaf1;
         &.red {
             float: right;
             border-color: #E73D3D;
+            margin-top: 11px;
         }
         &.green {
             float: left;
             opacity: 0;
-            border-color: #6CDA86;
+            color: #6CDA86;
+            border-radius: 0;
+            border: 0;
+            margin-top: 6px;
         }
     }
     .track {

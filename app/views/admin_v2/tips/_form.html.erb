@@ -7,7 +7,7 @@
           <ul class="nav">
             <%= f.select(:category,
                     options_for_select([
-                          ['-- Sélectionner --', false],
+                          ['-- Sélectionner * --', false],
                           ['Non défini', 'Non défini'],
                           ['Nourriture', 'Nourriture'],
                           ['Transports', 'Transports'],
@@ -22,16 +22,16 @@
             <br />
             <%= f.telephone_field :phone, :class =>'input', :placeholder =>'Téléphone' %>
             <%= f.text_field :address, :class =>'input', :placeholder =>'Adresse du bon plan' %>
-            <%= f.text_field :email, :class =>'input', :placeholder =>'E-mail   ' %>
+            <%= f.email_field :email, :class =>'input', :placeholder =>'E-mail   ' %>
           </ul>
         </div>
         <div class="col-xs-12 col-sm-10">
           <h4>Titre du bon plan*</h4>
           <%= f.text_field :title, :class => 'input' ,:placeholder =>'Titre du bon plan', required: 'required'%>
           <h4>Description du bon plan*</h4>
-          <%= f.text_area :description, :class =>'input textarea', :rows => 10, :cols => 120, :placeholder =>'Description du bon plan', required: 'required' %>
-          <h4>Récuperation de l'iframe sur google map *</h4>
-          <h6>Explication pour google map size</h6>
+          <%= f.text_area :description, :class =>'input textarea', :rows => 10, :cols => 120, :placeholder =>'Description du bon plan'%>
+          <h4>Récuperation de l'iframe sur google map</h4>
+          <h6>Pour afficher correctement l'iframe, modifier les valeurs de 'width' et de 'height' pour les mettre à 100% et 350.<br/> Ex : width="100%" height="350"</h6>
           <%= f.text_field :map, :class =>'input', :placeholder => 'Iframe de la map' %>
         </div>
         <div class="row">
