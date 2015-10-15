@@ -10,7 +10,7 @@
         <div class="col-md-12 admin_option">
             <div class="row">
                 <div class="col-md-12"><h2>Outils d'administration</h2></div>
-                    <div class="col-md-3">
+                    <div class="col-sm-5 col-md-4">
                         <div class="panel" style="background:#F5F5F5;padding:10px;">
                             <h4>Statut du dossier</h4>
                         <% if @status != nil %>
@@ -66,7 +66,7 @@
                                         <%  end %>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-sm-7 col-md-8">
                         <div class="panel" style="background:#F5F5F5;padding:10px;">
                             <h4>Résultat de l'entretien</h4>
 
@@ -100,7 +100,7 @@
                                     <% end %>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-sm-7 col-md-8">
                         <div class="panel" style="background:#F5F5F5;padding:10px;">
                             <h4>Statut définitif</h4>
                                     <!-- Accepter l'étudiant -->
@@ -131,13 +131,17 @@
                             <% end %>
                         <% end %>
                         </div>
-                        <% if current_user.role === "admin" %>
-                            <%= form_for(@status, url:  user_destroy_path, html: {class: "destroy" }, method: :post) do |f| %>
-                              <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                              <%= f.submit "SUPPRIMER LE DOSSIER DEFINITIVEMENT", :class => 'btn btn-danger', data: {confirm: "Etez vous sûr de supprimer le dossier de candidature de #{@applicant.first_name} #{@applicant.name.upcase} ?"} %>
-                        <% end %>
                     </div>
                 <% end %>
+            </div>
+            <div class="row">
+                <div class="pull-right">
+                <% if current_user.role === "admin" %>
+                    <%= form_for(@status, url:  user_destroy_path, html: {class: "destroy" }, method: :post) do |f| %>
+                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                        <%= f.submit "SUPPRIMER LE DOSSIER DEFINITIVEMENT", :class => 'btn btn-danger', data: {confirm: "Etez vous sûr de supprimer le dossier de candidature de #{@applicant.first_name} #{@applicant.name.upcase} ?"} %>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>
