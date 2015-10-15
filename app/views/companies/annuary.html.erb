@@ -21,14 +21,16 @@
 				   <%= link_to(companies_path(),:class=>'button') do %>
                       		   <span>Voir les entreprises</span> <i class="fa fa-chevron-right"></i>
                     		   <% end %>
-			<!---	<span><%= link_to 'Voir les entreprises',companies_path(), :class=>"button"%></span></a> --->
                         </div>
                     </article>
+
                     <article class="col-md-6">
                  	<div class="article-new">
                             <h3>Les offres d'emplois</h3>
 			    Pour faciliter vos recherches, vous pouvez accéder à de nombreuses offres d'emplois pour mener à bien votre licence professionelle. A vous de contacter directement celles qui vous intéressent !
-			   <span><%= link_to 'Voir les offres',jobs_path(), :class=>"button"%></span></a>
+                                   <%= link_to(jobs_path(),:class=>'button') do %>
+                                   <span>Voir les offres</span> <i class="fa fa-chevron-right"></i>
+                                   <% end %>
                         </div>
                     </article>
                 </div>

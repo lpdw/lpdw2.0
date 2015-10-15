@@ -1,4 +1,5 @@
-<h2>Ajouter une entreprise</h2>
+
+<h2>Modifier une entreprise</h2>
 <%= form_for(:company, url:  admin_v2_admin_edit_company_path, html: {class: "form" }) do |f| %>
 <div class="form-group">
  <div class="col-sm-10">
@@ -43,13 +44,13 @@
 </div>
 <div class="form-group">
  <div class="col-sm-10">
-   <%= f.text_field :linkedin ,:class => 'input' ,:placeholder=>"Lien de Linkedin"  %>
+   <%= f.text_field :linkedin ,:class => 'input' ,:placeholder=>"Lien de Linkedin"%>
  </div>
 </div>
 
 <div class="form-group">
  <div class="col-sm-10">
-   <%= f.submit "Modifier une entreprise", :class => 'input-btn' %>
+   <%= f.submit "Modifier une entreprise", :id => 'modif', :class => 'input-btn' %>
  </div>
 </div>
 <% end %>
