@@ -44,6 +44,7 @@
 
 .first_apply {
 	.form_wrapper {
+		margin-top: 30px;
 		.apply_steps {
 			.apply_step {
 				width: 100%;
@@ -56,7 +57,7 @@
 
 .modify_apply {
 	.form_wrapper {
-		margin-top: 100px;
+		margin-top: 30px;
 	}
 
 	.button.submit {
@@ -99,6 +100,9 @@
 				background-color: $color-1;
 			}
 
+		}
+		.apply_step_main {
+			width: 100%;
 		}
 	}
 
@@ -164,6 +168,9 @@
 		}
 
 	}
+  .step1 {
+  	display: block;
+  }
   .submit,.submit_separator {
 	border:none;
 	float:right;
