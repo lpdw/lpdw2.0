@@ -8,7 +8,7 @@ class Applicant < ActiveRecord::Base
   has_one :user, :class_name => 'User', :foreign_key => 'id_applicant'
   has_many :applicant_attachment, :class_name => 'ApplicantAttachment', :foreign_key => 'id_applicant', :dependent => :destroy
 
-  #validates_uniqueness_of :assurance, :message => "Ce numéro de sécurité sociale est déjà utilisé"
+  validates_uniqueness_of :assurance, :message => "Ce numéro de sécurité sociale est déjà utilisé"
   validates_length_of :assurance, is: 15
   validates :name, :first_name, presence: true
 
