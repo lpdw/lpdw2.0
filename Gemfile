@@ -83,5 +83,6 @@ gem 'dotenv-rails'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'mailcatcher'
 end
 
