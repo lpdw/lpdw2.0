@@ -23,4 +23,13 @@ class User < ActiveRecord::Base
   def admin?
     role == 'admin'
   end
+
+  def calcAge
+    if self.birth.present?
+      res = ((Time.new) - (self.birth))/60/60/24/365,25
+      @age = (res[0].to_i).to_s+' ans'
+    else
+      @age = 'Non renseigné'
+    end
+  end
 end
