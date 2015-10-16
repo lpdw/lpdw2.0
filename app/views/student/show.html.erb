@@ -7,7 +7,6 @@
   <h1>Filtres</h1>
   <%= form_tag({:method => :post}) do |f| %>
       <%= label_tag(:q, "Année de Promo:") %>
-      <%= select_tag(:student_current_salary, options_for_select([['10 - 15 K', 1], ['15 - 20 K', 2]])) %>
         <select>
           <% @graduationYears.each do |year| %>
               <% promo = (year.graduation_year == 0||!year.graduation_year.present? ? 'Année en cours' : year.graduation_year) %>
