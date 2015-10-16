@@ -16,9 +16,11 @@ class SessionsController < Devise::SessionsController
 				redirect_to root_path
 			when 'applicant'
 				redirect_to edit_applicant_path
+			when 'student'
+				redirect_to root_path
 			end
 		else
-			flash["error"] = "You must be admin or intervenant to access this section"
+			flash["error"] = "Vous devez être admin ou intervenant pour accéder à cette section"
 			redirect_to :back # halts request cycle
 		end
   end

@@ -8,13 +8,10 @@ class User < ActiveRecord::Base
  #    too_long: "must have at most %{count} words"
  #  }, confirmation: true
   #Link model to Admin
-	has_many :actuality
-  has_one :applicant
+  has_many :actuality
   has_one :users_info, class_name:'UsersInfo', primary_key: 'id', foreign_key: 'user_id', dependent: :destroy
   has_one :applicant, class_name: 'Applicant', primary_key: 'id_applicant', foreign_key: 'id'
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  belongs_to :company
   ROLES = %w[admin default intervenant applicant student]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -27,8 +24,9 @@ class User < ActiveRecord::Base
 
   def calcAge
     if self.birth.present?
-      res = ((Time.new) - (self.birth))/60/60/24/365,25
-      @age = (res[0].to_i).to_s+' ans'
+      today = (Time.new).to_s.split[0]
+      res = (today.to_date - (self.birth))/365,25
+      @age = res[0].to_i.to_s+' ans'
     else
       @age = 'Non renseigné'
     end
@@ -37,5 +35,19 @@ class User < ActiveRecord::Base
 
   def generate_users_info
     create_users_info
+  end
+
+  def display_name
+  	if name
+      name
+    elsif applicant
+      applicant.first_name
+    else
+      email.split('@').first
+    end
+  end
+
+  def student?
+    role == 'student'
   end
 end

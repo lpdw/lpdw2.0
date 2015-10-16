@@ -1,0 +1,99 @@
+input, textarea, button{
+  border-radius: 0px!important;
+
+}
+
+textarea{
+  width:100%!important;
+  height: 100px;
+
+}
+
+.btn{
+  margin-bottom: 10px!important;
+
+}
+
+.tip-container{
+  padding: 0;
+}
+
+.header-tip{
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
+}
+
+.header-tip>span{
+  margin-right: 10px;
+}
+
+#limit-date{
+  margin-left: 55px;
+}
+
+.content{
+  margin-top: 20px;
+}
+
+.plan{
+  height: 350px;
+}
+
+.plan, .info{
+  padding-left: 15px;
+}
+
+
+.info.tip-container{
+  margin-top: 30px;
+  font-size: 15px;
+}
+
+.btn-danger.btn{
+  padding: 10;
+}
+
+.btn.btn-danger a, .btn.btn-danger span.custom-btn{
+  color: white;
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 10px
+}
+
+.btn.btn-danger a:hover{
+  text-decoration: none;
+}
+
+.info.tip-container .info-tips{
+  font-weight: 600;
+}
+
+.share .network{
+  margin: 30px auto;
+}
+
+.share .network span{
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+}
+
+.count-o.enabled {
+  visibility: hidden;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1999px){
+  .banner p.tips-title{
+    font-size: 80px;
+  }
+
+  .share{
+    float: none;
+    margin-top: 30px;
+  }
+
+  .report.btn-danger{
+    float: right;
+  }
+}

@@ -8,7 +8,7 @@ class Applicant < ActiveRecord::Base
   has_one :user, :class_name => 'User', :foreign_key => 'id_applicant'
   has_many :applicant_attachment, :class_name => 'ApplicantAttachment', :foreign_key => 'id_applicant', :dependent => :destroy
 
-  #validates_uniqueness_of :assurance, :message => "Ce numéro de sécurité sociale est déjà utilisé"
+  validates_uniqueness_of :assurance, :message => "Ce numéro de sécurité sociale est déjà utilisé"
   validates_length_of :assurance, is: 15
   validates :name, :first_name, presence: true
 
@@ -19,7 +19,16 @@ class Applicant < ActiveRecord::Base
   accepts_nested_attributes_for :project_applicants, :allow_destroy => true
   accepts_nested_attributes_for :applicant_status, :votes
 
-  scope :by_year, lambda { |year| where("strftime('%Y', created_at) = ?", year.to_s) }
+  #scope :by_year, lambda { |year| where("strftime('%Y', created_at) = ?", year.to_s) }
+  scope :by_year, lambda { |year|
+    adapter_type = connection.adapter_name.downcase.to_sym
+    case adapter_type
+    when :mysql
+      where('extract(year from created_at) = ?', year)
+    when :sqlite
+      where("strftime('%Y', created_at) = ?", year.to_s)
+    end
+  }
 
   after_create :set_applicant_status
 
