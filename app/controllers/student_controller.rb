@@ -1,5 +1,5 @@
 class StudentController < ApplicationController
-   before_action :authenticate_user!, only: [:profil, :sendmail, :edit, :update_user]
+   #before_action :authenticate_user!, only: [:profil, :sendmail, :edit, :update_user]
 
   def show
     @graduationYears = UsersInfo.select("DISTINCT graduation_year").order("graduation_year").all
