@@ -27,8 +27,9 @@ class User < ActiveRecord::Base
 
   def calcAge
     if self.birth.present?
-      res = ((Time.new) - (self.birth))/60/60/24/365,25
-      @age = (res[0].to_i).to_s+' ans'
+      today = (Time.new).to_s.split[0]
+      res = (today.to_date - (self.birth))/365,25
+      @age = res[0].to_i.to_s+' ans'
     else
       @age = 'Non renseigné'
     end

@@ -27,7 +27,7 @@
                         <% if student.photo? %>
                             <img src="<%= student.photo %>" alt=."" class="img-responsive">
                         <% else %>
-                        <img src="<%= @student.photo %>" class="col-md-3 block">
+                        <img src="/assets/default_user.jpg" class="img-responsive">
                         <% end %>
                   </figure>
                   <%= link_to student_profil_path(student) do %>
