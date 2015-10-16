@@ -22,7 +22,9 @@ Pour cela, il y a un guide écrit par Github qui explique très simplement la pr
 Maintenant il suffit d’attendre qu’un administrateur vérifie ta Pull request, il peut y avoir 3 possibilités :
 
 **Accepté :** Votre fonctionnalité est parfaitement intègre et correspond au projet. Elle est directement incorporée à l’application, bravo !
+
 **A revoir:** La fonctionnalité correspond au projet mais n’est pas correctement intégrée. Dommage ! Mais quelques conseils vous seront donnés afin d’améliorer votre code pour qu’il s'intègre parfaitement à l’application.
+
 **Refusé :** La fonctionnalité ne correspond pas au projet.
 
 ----------
