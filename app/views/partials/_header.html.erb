@@ -47,8 +47,9 @@ Enjoy :)
             <% unless current_user %>
               <li><%= link_to 'Connexion', new_user_session_path, :"data-hover" => 'Connexion' %></li>
             <% end %>
+            <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Postuler', :applicant, :"data-hover" => "Postuler" %></li>
           </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right hidden-xs">
             <% if current_user %>
               <li class="dropdown right-navbar">
                 <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i>  <%= current_user.display_name %> <span class="caret"></span></a>
