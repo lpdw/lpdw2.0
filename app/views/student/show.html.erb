@@ -32,7 +32,7 @@
                         <% end %>
                   </figure>
                   <%= link_to student_profil_path(student) do %>
-                    <h4 class="text-center"><%= student.name%> <%= student.lastname%></h4>
+                    <h4 class="text-center"><%= student.name%> <%= student.lastname.upcase%></h4>
                   <% end %>
                   <p class="text-center job-title"><%= student.description%></p>
                   <% if student.twitter.present? or student.linkin.present? %>
