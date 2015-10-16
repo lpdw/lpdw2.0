@@ -98,7 +98,7 @@
                 <p class="col-md-2">Description:</p>
 
                 <div class="col-md-8">
-                  <%= text_area('student_current_job_desc', nil, class: 'form-control', placeholder: (@student.users_info.current_job_desc.present? ? @student.users_info.current_job_desc : 'Décrivez votre poste actuel'), rows: 4, :value => @student.users_info.current_job_desc) %>
+                  <%= text_area_tag('student_current_job_desc', nil, class: 'form-control', placeholder: (@student.users_info.current_job_desc.present? ? @student.users_info.current_job_desc : 'Décrivez votre poste actuel'), rows: 4, :value => @student.users_info.current_job_desc) %>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@
                 <p class="col-md-2">Description:</p>
 
                 <div class="col-md-8">
-                  <%= text_area('student_lp_desc', nil, class: 'form-control', placeholder: (@student.users_info.lp_job_desc.present? ? @student.users_info.lp_job_desc : 'Décrivez le poste occupé durant le LP'), rows: 4, :value => @student.users_info.lp_job_desc) %>
+                  <%= text_area_tag('student_lp_desc', nil, class: 'form-control', placeholder: (@student.users_info.lp_job_desc.present? ? @student.users_info.lp_job_desc : 'Décrivez le poste occupé durant le LP'), rows: 4, :value => @student.users_info.lp_job_desc) %>
                 </div>
               </div>
             </div>
