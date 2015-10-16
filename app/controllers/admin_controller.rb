@@ -176,7 +176,7 @@ admin_restriction_area
       if @status.applicant_response.zero?
         @status.applicant.user.update_attributes!(role: 'applicant')
       else
-        @status.applicant.user.update_attributes!(role: 'student')
+        @status.applicant.user.update_attributes!(role: 'student', name: @status.applicant.first_name, lastname: @status.applicant.name)
       end
       redirect_to admin_show_applicants_path
     end
