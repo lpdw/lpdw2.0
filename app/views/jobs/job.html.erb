@@ -1,0 +1,60 @@
+<section class="banner banner-red">
+	<div class="container">
+		<p>Offre d'emploi</p>
+	</div>
+</section>
+
+<div class="bg-white new">
+	<div class="container">
+		<div class="row">
+
+			<article class="col-md-12">
+				<%= link_to(jobs_path,:class=>'more-article') do %>
+					<i class="fa fa-chevron-left"></i><span>Revenir à la liste des offres</span>
+				<% end %>
+
+				<h1 class="new-title text-center"><%= @job.job_name %></h1>
+
+				<div class="row date-job">
+					<div class="col-md-4 text-center"><strong>Date d'apparition :</strong> <%= @job.start_at %></div>
+					<div class="col-md-4 text-center"><strong>Date de début :</strong> <%= @job.start_at %></div>
+					<div class="col-md-4 text-center"><strong>Durée du contrat :</strong> <%= @job.duration %></div>
+				</div>
+
+				<div class="container formation">
+					<div class="col-md-offset-2 col-md-8">
+
+						<blockquote>
+							<h2><%= link_to @job.company.name, company_path(@job.company.id) %></h2>
+							<strong>Contact :</strong> <%= @job.company.phone_number %> - <%= @job.contact %>
+						</blockquote>
+
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<h2>Description de l'offre N° <%= @job.job_number %></h2>			
+					<%= raw @job.job_description %>
+				</div>
+
+				<div class="col-md-4 text-center">
+					<h2>Profil recommandé</h2>	
+					<%= @job.profil %>
+				</div>
+
+				<div class="col-md-4 text-center">
+					<h2>Compétences requises</h2>
+					<%= @job.skills %>
+				</div>
+
+				<div class="col-md-4 text-center">
+					<h2>Lieu du contrat</h2>
+					<%= @job.location %>
+				</div>
+
+			</article>
+
+		</div>
+	</div>
+</div>
+

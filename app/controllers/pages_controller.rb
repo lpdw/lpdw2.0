@@ -27,6 +27,7 @@ class PagesController < ApplicationController
   #réactions et live
   def live
   end
+ 
 
   #Contactez-nous
   def sendmail
@@ -34,7 +35,7 @@ class PagesController < ApplicationController
       begin
         Emailer.contact(params).deliver
       rescue Exception => e
-        flash["error"] = "Pas cool !!"
+        flash["error"] = "Erreur d'envoi du message"
       end
     else
       flash["error"] = "Vous deviez remplir les champs"

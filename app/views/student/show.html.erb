@@ -5,7 +5,7 @@
 </section>
 <div class="title-center">
   <h1>Filtres</h1>
-  <%= form_tag({:method => :post}) do |f| %>
+  <%= form_tag({:action => 'show'}, {:method => :post})  do |f| %>
       <%= label_tag(:q, "Année de Promo:") %>
         <select>
           <% @graduationYears.each do |year| %>

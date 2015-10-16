@@ -1,9 +1,8 @@
 class StudentController < ApplicationController
-   #before_action :authenticate_user!, only: [:profil, :sendmail, :edit, :update_user]
-   #before_action :authenticate_user!, only: [:edit],
+   before_action :authenticate_user!, only: [:profil, :sendmail, :edit, :update_user]
 
   def show
-    @graduationYears = UsersInfo.select("graduation_year").order("graduation_year").all
+    @graduationYears = UsersInfo.select("DISTINCT graduation_year").order("graduation_year").all
     if(params[:graduation_years] == nil)
       @student = User.students.select {|student| student.users_info.graduation_year == 0}
     else
@@ -31,7 +30,7 @@ class StudentController < ApplicationController
   end
 
   def edit
-    @student = User.students.find(params[:user_id])
+    @student = current_user
   end
 
   def update_user
