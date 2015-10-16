@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   scope :students, -> {where(role: "student")}
+  before_create :generate_users_info
 
   def admin?
     role == 'admin'
@@ -31,5 +32,10 @@ class User < ActiveRecord::Base
     else
       @age = 'Non renseigné'
     end
+  end
+
+
+  def generate_users_info
+    create_users_info
   end
 end
