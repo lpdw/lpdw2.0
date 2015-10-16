@@ -38,33 +38,32 @@
 
 				<article class="col-md-7">
 					<div class="article-new">
-					<h2 class="text-center"> Contact </h2>
-				</article>
-				
-				<article class="col-md-6 text-center">
-					<p>
-						<a href="<%= @company.website %>"><%= @company.website %></a>
-					</p>
-	
-					<p><%= @company.phone_number %></p>
-				</article>
+						<h2 class="text-center"> Contact </h2>
+			
+						<div class="row">
 
-				<article class="col-md-6 text-center">
-					<% if @company.twitter.present? or @company.linkedin.present? %>
-						<p class="social_section">
-							<% if @company.linkedin.present? %>
-								<p>
-									<a target="_blank" href=<%= @company.linkedin%>><i class="fa fa-linkedin"></i></a>
-								</p>
-							<% end %>
+							<div class="col-md-6 text-center">	
+								<p><a href="<%= @company.website %>"><%= @company.website %></a></p>
+								<p><%= @company.phone_number %></p>
+							</div>
 
-							<% if @company.twitter.present? %>
-								<p>
-									<a target="_blank" href=<%= @company.twitter%>><i class="fa fa-twitter"></i></a>
-								</p>
-							<% end %>
-						</p>
-					<% end %>
+							<div class="col-md-6 text-center">
+								<% if @company.twitter.present? or @company.linkedin.present? %>
+									<p class="social_section">
+										<% if @company.linkedin.present? %>
+											<p><a target="_blank" href=<%= @company.linkedin%>><i class="fa fa-linkedin"></i></a></p>
+										<% end %>
+
+										<% if @company.twitter.present? %>
+											<p><a target="_blank" href=<%= @company.twitter%>><i class="fa fa-twitter"></i></a></p>
+										<% end %>
+									</p>
+								<% end %>
+							</div>
+
+						</div>
+
+					</div>
 				</article>
 
 				<% if @company.jobs.empty? === false  %>
