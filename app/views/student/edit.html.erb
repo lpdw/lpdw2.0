@@ -8,7 +8,11 @@
       <div class="container">
         <div class="row">
           <div class="student-infos">
-            <img src="<%= @student.photo %>" class="col-md-3 block">
+            <% if @student.photo? %>
+                <img src="<%= @student.photo %>" alt=."" class="col-md-3 block img-responsive">
+            <% else %>
+                <img src="/assets/default_user.jpg" class="col-md-3 block img-responsive">
+            <% end %>
             <div class="col-md-offset-1 col-md-8">
               <div class="row block">
                 <h1 class="col-md-10"><%= @student.lastname.upcase %>  <%= @student.name %></h1>
