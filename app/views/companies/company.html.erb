@@ -1,72 +1,105 @@
-
 <section class="banner banner-red">
-    <div class="container">
-        <p>Annuaire d'entreprises</p>
-    </div>
+	<div class="container">
+		<p>Annuaire d'entreprises</p>
+	</div>
 </section>
 
 <!-- ENTREPRISE -->
 <div class="gray-bg wrapper">
-  <div class="container">
-    <div class="row">
-     <%= link_to(companies_path,:class=>'more-article') do %>
-           <i class="fa fa-chevron-left"></i><span>Revenir à la liste des entreprises</span>
-           <% end %> 
-     <section id="company_t" class="col-md-10 col-md-offset-1 home-news">
-	<article class="no-height"  class="col-md-12">
-	<div id="comp_content" class="article-new">
-	<h1 id="comp_title" class="text-center"> <%= @company.name %>  </h1>
+	<div class="container">
+		<div class="row">
+
+			<%= link_to(companies_path,:class=>'more-article') do %>
+				<i class="fa fa-chevron-left"></i><span>Revenir à la liste des entreprises</span>
+			<% end %> 
+
+			<section id="company_t" class="col-md-10 col-md-offset-1 home-news">
+
+				<article class="no-height"  class="col-md-12">
+					<div id="comp_content" class="article-new">
+						<h1 id="comp_title" class="text-center"><%= @company.name %></h1>
+					</div>
+				</article>
+
+				<article class="no-height" class="col-md-12">
+					<div class="article-new">
+						<h2 class="text-center">Description</h2>
+						<p class="comp_desc"> <%= raw  @company.description %> </p>
+					</div>
+				</article>
+
+				<article class="col-md-5">
+					<div class="article-new">
+						<h2 class="text-center"> Adresse </h2>
+						<p><%= @company.address %></p>
+						<p><%= @company.zip_code %> <%= @company.city %></p>
+					</div>
+				</article>
+
+				<article class="col-md-7">
+					<div class="article-new">
+					<h2 class="text-center"> Contact </h2>
+				</article>
+				
+				<article class="col-md-6 text-center">
+					<p>
+						<a href="<%= @company.website %>"><%= @company.website %></a>
+					</p>
+	
+					<p><%= @company.phone_number %></p>
+				</article>
+
+				<article class="col-md-6 text-center">
+					<% if @company.twitter.present? or @company.linkedin.present? %>
+						<p class="social_section">
+							<% if @company.linkedin.present? %>
+								<p>
+									<a target="_blank" href=<%= @company.linkedin%>><i class="fa fa-linkedin"></i></a>
+								</p>
+							<% end %>
+
+							<% if @company.twitter.present? %>
+								<p>
+									<a target="_blank" href=<%= @company.twitter%>><i class="fa fa-twitter"></i></a>
+								</p>
+							<% end %>
+						</p>
+					<% end %>
+				</article>
+
+				<% if @company.jobs.empty? === false  %>
+					<article class="col-md-12 no-height">
+						<div class="article-new">
+							<h2 class="text-center">Offres d'emplois disponibles</h2>
+
+							<table class="og-grid table-offers">
+								<thead>
+									<tr>
+										<td>Poste</td>
+										<td>Ville</td>
+										<td>Lien</td>
+									</tr>
+								</thead>
+	
+								<% @company.jobs.each do |job| %>
+									<tr>
+										<td><%= job.job_name %></td>
+										<td><%= job.location %></td>
+										<td>
+											<%= link_to job_path(job.id) , html_options = {"class" =>""} do %> 
+												<span class="fa fa-eye"></span>
+											<% end %>
+										</td>
+									</tr>
+								<% end %>  
+							</table>	
+
+						</div>
+					</article>
+				<% end %>
+
+			</section>
+		</div>
 	</div>
-	</article>
-	<article class="no-height" class="col-md-12">
-	<div class="article-new">
-	<h2 class="text-center"> Description </h2>
-	<p class="comp_desc"> <%= raw  @company.description %> </p>
-	</div>
-	</article>
-	<article class="col-md-5">
-	<div class="article-new">
-	<h2 class="text-center"> Adresse </h2>
-	<p> <%= @company.address %> </p>
-        <p> <%= @company.zip_code %> <%= @company.city %> </p>
-	</div>
-	</article>
-	<article class="col-md-7">
-	<div class="article-new">
-	<h2 class="text-center"> Contact </h2>
-	<article class="col-md-3">
-	<p> <%= @company.website %> </p>
-	<p> <%= @company.phone_number %> </p>
-	</article>
-	<article class="col-md-3 col-md-offset-1">
-	<% if @company.twitter.present? or @company.linkedin.present? %>
-                            <p class="social_section">
-                                <% if @company.linkedin.present? %>
-                                  <p>  <a target="_blank" href=<%= @company.linkedin%>><i class="fa fa-linkedin"></i></a></p>
-                                <% end %>
-                                <% if @company.twitter.present? %>
-                                   <p> <a target="_blank" href=<%= @company.twitter%>><i class="fa fa-twitter"></i></a></p>
-                                <% end %>
-                            </p>
-                        <% end %>
-	</article>
-	</div>
-         </article>
-	<article class="col-md-12">
-	<div class="article-new">
-       <h2 class="text-center">Offres d'emplois disponibles</h2>
-	<table id="og-grid" class="og-grid">
-	<% @company.jobs.each do |job| %>
-   	<tr>
-       	<td><%= job.job_name %></td>
-       	<td><%= job.location %></td>
-       	<td>  <%= link_to 'Voir', job_path(job.id) , html_options = {"class" =>""}%> </td>
-   	</tr>
-	<% end %>  
-	</table>	
-	</div>
-	</article>
-     </section>
-    </div>
-  </div>
 </div>
+

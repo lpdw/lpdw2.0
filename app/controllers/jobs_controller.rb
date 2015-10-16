@@ -1,25 +1,22 @@
 class JobsController < ApplicationController
-  before_action :is_student_or_admin
+	before_action :is_student_or_admin
   
-  def job
-    @job = Job.find(params["id"])
-  end
+	def job
+		@job = Job.find(params["id"])
+	end
 
-  def jobs
-    @page = params["page"].to_i
-    @hasNext = false
-    max = Job.count
-    limit = 5
+	def jobs
+		@pageCurrent = params["page"].to_i
+		max = Job.count
+		limit = 5
+		@pageMax = (max.to_f / limit.to_f).ceil
 
-    if max > (@page - 1) * limit + limit
-      @hasNext = true
-    end
+		@jobs = Job.limit(limit).offset((@pageCurrent - 1) * limit).order(id: :desc)
 
-    @jobs = Job.limit(limit).offset((@page - 1) * limit).order(created_at: :asc)
-    if @jobs.count === 0 and @page > 2
-      redirect_to jobs_path(1)
-    end
-  end
+		if @jobs.count === 0 and @pageCurrent > 1
+			redirect_to jobs_path(1)
+		end
+	end
 
 end
 
