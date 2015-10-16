@@ -19,49 +19,71 @@
                 <% promo = (!@student.users_info.graduation_year.present?||@student.users_info.graduation_year == 0 ? 'Année en cours' : @student.users_info.graduation_year) %>
                 <p class="col-md-2">Promo: <%= promo %></p>
 
-                <p class="birthday col-md-12">Date de naissance : <%= date_field(:user, :born_on, value: @student.birth) %></p>
+                <p class="birthday col-md-12">Date de naissance : <%= date_field(:user, :born_on, value: @student.birth, class:"form-control") %></p>
               </div>
               <div class="row social">
-                <ul class="nav nav-tabs" role="tablist">
-                  <li role="presentation" class="active img"><a href="#img" aria-controls="img" role="tab" data-toggle="tab">Image</a></li>
-                  <li role="presentation" class="cv"><a href="#cv" aria-controls="cv" role="tab" data-toggle="tab">CV</a></li>
-                  <li role="presentation"><a href="#twitter" aria-controls="twitter" role="tab" data-toggle="tab"><i class="fa fa-twitter fa-2x"></i></a></li>
-                  <li role="presentation"><a href="#googleplus" aria-controls="googleplus" role="tab" data-toggle="tab"><i class="fa fa-google-plus fa-2x"></i></a></li>
-                  <li role="presentation"><a href="#linkin" aria-controls="linkin" role="tab" data-toggle="tab"><i class="fa fa-linkedin fa-2x"></i></a></li>
-                  <li role="presentation"><a href="#email" aria-controls="email" role="tab" data-toggle="tab"><i class="fa fa-envelope fa-2x"></i></a></li>
+                <ul class="nav">
+                  <li class="img">
+                    <label>Image</label>
+                  <%= url_field_tag 'student_photo', nil,:required => false, class: "form-control", placeholder: (@student.photo.present? ? @student.photo : 'Lien Photo'), :value => @student.photo %></li>
+                  <li class="cv">
+                    <label>CV</label>
+                  <%= url_field_tag 'student_cv', nil, :required => false,class: "form-control", placeholder: (@student.users_info.cv.present? ? @student.users_info.cv : 'Lien CV'), :value => @student.users_info.cv %></li>
+                  <li>
+                    <label><i class="fa fa-twitter fa-2x"></i></label>
+                    <%= url_field_tag 'student_twitter', nil, :required => false, class: "form-control", placeholder: (@student.twitter.present? ? @student.twitter : 'Lien Twitter'), :value => @student.twitter %>
+                  </li>
+                  <li>
+                    <label><i class="fa fa-google-plus fa-2x"></i></label>
+                    <%= url_field_tag 'student_googleplus', nil, :required => false, class: "form-control", placeholder: (@student.googleplus.present? ? @student.googleplus : 'Lien Google Plus'), :value => @student.googleplus %>
+                  </li>
+                  <li>
+                    <label><i class="fa fa-linkedin fa-2x"></i></label>
+                    <%= url_field_tag 'student_linkin', nil, :required => false, class: "form-control", placeholder: (@student.linkin.present? ? @student.linkin : 'Lien LinkedIn'), :value => @student.linkin %>
+                  </li>
+                  <li>
+                    <label><i class="fa fa-envelope fa-2x"></i></label>
+                    <%= email_field_tag 'student_email', nil, :required => false, class: "form-control", placeholder: (@student.email.present? ? @student.email : 'Lien Google Plus'), :value => @student.email %>
+                  </li>
                 </ul>
                 <div class="tab-content">
                   <div role="tabpanel" class="tab-pane active" id="img">
-                    <%= url_field_tag 'student_photo', nil, class:"col-md-10", placeholder: (@student.photo.present? ? @student.photo : 'Lien Photo'), :value => @student.photo %>
+
                   </div>
                   <div role="tabpanel" class="tab-pane" id="cv">
-                    <%= url_field_tag 'student_cv', nil, class:"col-md-10", placeholder: (@student.users_info.cv.present? ? @student.users_info.cv : 'Lien CV'), :value => @student.users_info.cv %>
+
                   </div>
                   <div role="tabpanel" class="tab-pane" id="twitter">
-                    <%= url_field_tag 'student_twitter', nil, class:"col-md-10", placeholder: (@student.twitter.present? ? @student.twitter : 'Lien Twitter'), :value => @student.twitter %>
+
                   </div>
                   <div role="tabpanel" class="tab-pane" id="googleplus">
-                    <%= url_field_tag 'student_googleplus', nil, class:"col-md-10", placeholder: (@student.googleplus.present? ? @student.googleplus : 'Lien Google Plus'), :value => @student.googleplus %>
+
                   </div>
                   <div role="tabpanel" class="tab-pane" id="linkin">
-                    <%= url_field_tag 'student_linkin', nil, class:"col-md-10", placeholder: (@student.linkin.present? ? @student.linkin : 'Lien LinkedIn'), :value => @student.linkin %>
+
                   </div>
                   <div role="tabpanel" class="tab-pane" id="email">
-                    <%= url_field_tag 'student_email', nil, class:"col-md-10", placeholder: (@student.email.present? ? @student.email : 'Lien Google Plus'), :value => @student.email %>
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="block row">
           <div class="student-jobs">
             <div class="current-job">
               <div class="row">
-                <p class="col-md-2">Poste Actuel :</p><%= text_field_tag 'student_current_title', nil, placeholder: (@student.users_info.current_job_title.present? ? @student.users_info.current_job_title : 'Poste actuel'), :value => @student.users_info.current_job_title %>
-                <div class="salary row col-md-12">
-                  <p class="col-md-2">Salaire:</p>
+                <p class="col-md-2">Poste Actuel:</p>
+
+                <div class="col-md-8">
+                  <%= text_field_tag 'student_current_title', nil, class: "form-control", placeholder: (@student.users_info.current_job_title.present? ? @student.users_info.current_job_title : 'Poste actuel'), :value => @student.users_info.current_job_title %>
+                </div>
+              </div>
+              <div class="row">
+                <p class="col-md-2">Salaire:</p>
+
+                <div class="col-md-8">
                   <%= select_tag(:student_current_salary, options_for_select([['10.000 - 15.000 €', '10.000 - 15.000 €'],
                                                                               ['15.000 - 20.000 €', '15.000 - 20.000 €'],
                                                                               ['20.000 - 25.000 €', '20.000 - 25.000 €'],
@@ -69,19 +91,29 @@
                                                                               ['30.000 - 35.000 €', '30.000 - 35.000 €'],
                                                                               ['35.000 - 40.000 €', '35.000 - 40.000 €'],
                                                                               ['40.000 - 50.000 €', '40.000 - 50.000 €']],
-                                                                             @student.users_info.current_average_salary))%>
+                                                                             @student.users_info.current_average_salary), class: "form-control") %>
                 </div>
               </div>
               <div class="row">
-                <p class="col-md-2">Description :</p><%= text_area('student_current_job_desc', nil, class: 'col-md-9',placeholder: (@student.users_info.current_job_desc.present? ? @student.users_info.current_job_desc : 'Décrivez votre poste actuel'),rows: 4, :value => @student.users_info.current_job_desc) %>
+                <p class="col-md-2">Description:</p>
+
+                <div class="col-md-8">
+                  <%= text_area_tag('student_current_job_desc', nil, class: 'form-control', placeholder: (@student.users_info.current_job_desc.present? ? @student.users_info.current_job_desc : 'Décrivez votre poste actuel'), rows: 4, :value => @student.users_info.current_job_desc) %>
+                </div>
               </div>
             </div>
-
             <div class="lp-job">
               <div class="row">
-                <p class="col-md-2">Poste en Licence Pro:</p><%= text_field_tag 'student_lp_title', nil, placeholder: (@student.users_info.lp_job_title.present? ? @student.users_info.lp_job_title : 'Poste occupé durant la LP'), :value => @student.users_info.lp_job_title %>
-                <div class="salary row col-md-12">
-                  <p class="col-md-2">Salaire:</p>
+                <p class="col-md-2">Poste en Licence pro:</p>
+
+                <div class="col-md-8">
+                  <%= text_field_tag 'student_lp_title', nil, class: "form-control", placeholder: (@student.users_info.lp_job_title.present? ? @student.users_info.lp_job_title : 'Poste occupé durant la LP'), :value => @student.users_info.lp_job_title %>
+                </div>
+              </div>
+              <div class="row">
+                <p class="col-md-2">Salaire:</p>
+
+                <div class="col-md-8">
                   <%= select_tag(:student_lp_salary, options_for_select([['10.000 - 15.000 €', '10.000 - 15.000 €'],
                                                                          ['15.000 - 20.000 €', '15.000 - 20.000 €'],
                                                                          ['20.000 - 25.000 €', '20.000 - 25.000 €'],
@@ -89,17 +121,20 @@
                                                                          ['30.000 - 35.000 €', '30.000 - 35.000 €'],
                                                                          ['35.000 - 40.000 €', '35.000 - 40.000 €'],
                                                                          ['40.000 - 50.000 €', '40.000 - 50.000 €']],
-                                                                        @student.users_info.lp_average_salary)) %>
+                                                                        @student.users_info.lp_average_salary), class: "form-control") %>
                 </div>
               </div>
               <div class="row">
-                <p class="col-md-2">Description :</p><%= text_area('student_lp_desc', nil, class: 'col-md-9',placeholder: (@student.users_info.lp_job_desc.present? ? @student.users_info.lp_job_desc : 'Décrivez le poste occupé durant le LP'),rows: 4, :value => @student.users_info.lp_job_desc) %>
+                <p class="col-md-2">Description:</p>
+
+                <div class="col-md-8">
+                  <%= text_area_tag('student_lp_desc', nil, class: 'form-control', placeholder: (@student.users_info.lp_job_desc.present? ? @student.users_info.lp_job_desc : 'Décrivez le poste occupé durant le LP'), rows: 4, :value => @student.users_info.lp_job_desc) %>
+                </div>
               </div>
             </div>
           </div>
+          <%= submit_tag("Enregistrer") %>
         </div>
-        <%= submit_tag("Enregistrer") %>
-
       </div>
   <% end %>
-</div>
+  </div>
