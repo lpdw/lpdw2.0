@@ -71,5 +71,12 @@ $(document).ready(function() {
         overlay.remove();
     });
 
-
+    $(document).ready( function () {
+        $('#myTable').dataTable( {
+            'bAutoWidth': false,
+            "columnDefs": [
+                { "orderable": false, "targets": 6 }
+            ]
+        });
+    });
 });
