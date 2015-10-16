@@ -7,10 +7,14 @@
   <h1>Filtres</h1>
   <%= form_tag({:action => 'show'}, {:method => :post})  do |f| %>
       <%= label_tag(:q, "Année de Promo:") %>
-        <select>
+        <select name="filter">
           <% @graduationYears.each do |year| %>
               <% promo = (year.graduation_year == 0||!year.graduation_year.present? ? 'Année en cours' : year.graduation_year) %>
-              <option><%= promo %></option>
+              <% if params[:graduation_years].to_i == year.graduation_year %>
+                  <option selected="selected"><%= promo %></option>
+              <% else %>
+                  <option><%= promo %></option>
+              <% end %>
           <% end %>
         </select>
       <%= submit_tag("Valider") %>
