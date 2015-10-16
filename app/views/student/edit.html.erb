@@ -22,42 +22,48 @@
                 <p class="birthday col-md-12">Date de naissance : <%= date_field(:user, :born_on, value: @student.birth, class:"form-control") %></p>
               </div>
               <div class="row social">
-                <ul class="nav nav-tabs" role="tablist">
-                  <li role="presentation" class="active img">
-                    <a href="#img" aria-controls="img" role="tab" data-toggle="tab">Image</a></li>
-                  <li role="presentation" class="cv">
-                    <a href="#cv" aria-controls="cv" role="tab" data-toggle="tab">CV</a></li>
-                  <li role="presentation">
-                    <a href="#twitter" aria-controls="twitter" role="tab" data-toggle="tab"><i class="fa fa-twitter fa-2x"></i></a>
+                <ul class="nav">
+                  <li class="img">
+                    <label>Image</label>
+                  <%= url_field_tag 'student_photo', nil,:required => false, class: "form-control", placeholder: (@student.photo.present? ? @student.photo : 'Lien Photo'), :value => @student.photo %></li>
+                  <li class="cv">
+                    <label>CV</label>
+                  <%= url_field_tag 'student_cv', nil, :required => false,class: "form-control", placeholder: (@student.users_info.cv.present? ? @student.users_info.cv : 'Lien CV'), :value => @student.users_info.cv %></li>
+                  <li>
+                    <label><i class="fa fa-twitter fa-2x"></i></label>
+                    <%= url_field_tag 'student_twitter', nil, :required => false, class: "form-control", placeholder: (@student.twitter.present? ? @student.twitter : 'Lien Twitter'), :value => @student.twitter %>
                   </li>
-                  <li role="presentation">
-                    <a href="#googleplus" aria-controls="googleplus" role="tab" data-toggle="tab"><i class="fa fa-google-plus fa-2x"></i></a>
+                  <li>
+                    <label><i class="fa fa-google-plus fa-2x"></i></label>
+                    <%= url_field_tag 'student_googleplus', nil, :required => false, class: "form-control", placeholder: (@student.googleplus.present? ? @student.googleplus : 'Lien Google Plus'), :value => @student.googleplus %>
                   </li>
-                  <li role="presentation">
-                    <a href="#linkin" aria-controls="linkin" role="tab" data-toggle="tab"><i class="fa fa-linkedin fa-2x"></i></a>
+                  <li>
+                    <label><i class="fa fa-linkedin fa-2x"></i></label>
+                    <%= url_field_tag 'student_linkin', nil, :required => false, class: "form-control", placeholder: (@student.linkin.present? ? @student.linkin : 'Lien LinkedIn'), :value => @student.linkin %>
                   </li>
-                  <li role="presentation">
-                    <a href="#email" aria-controls="email" role="tab" data-toggle="tab"><i class="fa fa-envelope fa-2x"></i></a>
+                  <li>
+                    <label><i class="fa fa-envelope fa-2x"></i></label>
+                    <%= email_field_tag 'student_email', nil, :required => false, class: "form-control", placeholder: (@student.email.present? ? @student.email : 'Lien Google Plus'), :value => @student.email %>
                   </li>
                 </ul>
                 <div class="tab-content">
                   <div role="tabpanel" class="tab-pane active" id="img">
-                    <%= url_field_tag 'student_photo', nil,:required => false, class: "form-control", placeholder: (@student.photo.present? ? @student.photo : 'Lien Photo'), :value => @student.photo %>
+
                   </div>
                   <div role="tabpanel" class="tab-pane" id="cv">
-                    <%= url_field_tag 'student_cv', nil, :required => false,class: "form-control", placeholder: (@student.users_info.cv.present? ? @student.users_info.cv : 'Lien CV'), :value => @student.users_info.cv %>
+
                   </div>
                   <div role="tabpanel" class="tab-pane" id="twitter">
-                    <%= url_field_tag 'student_twitter', nil, :required => false, class: "form-control", placeholder: (@student.twitter.present? ? @student.twitter : 'Lien Twitter'), :value => @student.twitter %>
+
                   </div>
                   <div role="tabpanel" class="tab-pane" id="googleplus">
-                    <%= url_field_tag 'student_googleplus', nil, :required => false, class: "form-control", placeholder: (@student.googleplus.present? ? @student.googleplus : 'Lien Google Plus'), :value => @student.googleplus %>
+
                   </div>
                   <div role="tabpanel" class="tab-pane" id="linkin">
-                    <%= url_field_tag 'student_linkin', nil, :required => false, class: "form-control", placeholder: (@student.linkin.present? ? @student.linkin : 'Lien LinkedIn'), :value => @student.linkin %>
+
                   </div>
                   <div role="tabpanel" class="tab-pane" id="email">
-                    <%= email_field_tag 'student_email', nil, :required => false, class: "form-control", placeholder: (@student.email.present? ? @student.email : 'Lien Google Plus'), :value => @student.email %>
+
                   </div>
                 </div>
               </div>
