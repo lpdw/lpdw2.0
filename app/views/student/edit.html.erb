@@ -8,14 +8,18 @@
       <div class="container">
         <div class="row">
           <div class="student-infos">
-            <img src="<%= @student.photo %>" class="col-md-3 block">
+            <% if @student.photo? %>
+                <img src="<%= @student.photo %>" alt=."" class="col-md-3 block img-responsive">
+            <% else %>
+                <img src="/assets/default_user.jpg" class="col-md-3 block img-responsive">
+            <% end %>
             <div class="col-md-offset-1 col-md-8">
               <div class="row block">
                 <h1 class="col-md-10"><%= @student.lastname.upcase %>  <%= @student.name %></h1>
                 <% promo = (!@student.users_info.graduation_year.present?||@student.users_info.graduation_year == 0 ? 'Année en cours' : @student.users_info.graduation_year) %>
                 <p class="col-md-2">Promo: <%= promo %></p>
 
-                <p class="birthday col-md-12">Date de naissance : <%= date_field(:user, :born_on) %></p>
+                <p class="birthday col-md-12">Date de naissance : <%= date_field(:user, :born_on, value: @student.birth) %></p>
               </div>
               <div class="row social">
                 <ul class="nav nav-tabs" role="tablist">
