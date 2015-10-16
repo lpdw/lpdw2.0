@@ -1,63 +1,70 @@
 <section class="banner banner-red">
-    <div class="container">
-        <p>Annuaire d'entreprises</p>
-    </div>
+	<div class="container">
+		<p>Annuaire d'entreprises</p>
+	</div>
 </section>
 
 <!-- LISTE ENTREPRISES -->
 <div class="gray-bg wrapper">
-    <div class="container">
+	<div class="container">
+		<div class="row">
 
-      <div class="row">
-        <%= link_to(annuary_path,:class=>'more-article') do %>
-        <i class="fa fa-chevron-left"></i><span>Revenir à l'accueil annuaire</span>
-        <% end %>
-        <section class="col-md-10 col-md-offset-1 home-news">
-          <h1>Entreprises</h1>
-          
-          <div class="row">
-            <% @companies.each_with_index do |company, i| %>
+			<%= link_to(annuary_path,:class=>'more-article') do %>
+				<i class="fa fa-chevron-left"></i><span>Revenir à l'accueil annuaire</span>
+			<% end %>
 
-              <% if i%3===2  %>
-                <article class="col-md-12">
-              <% else %>
-                <article class="col-md-6">
-              <% end %>
+			<section class="col-md-10 col-md-offset-1 home-news">
+				<h1>Entreprises</h1>
+         
+				<div class="row">
+					<% @companies.each_with_index do |company, i| %>
 
-                <div class="article-new">
-                  <h3><%= company.name %></h3>
-           
+						<% if i%3===2  %>
+							<article class="col-md-12">
+							<% word = 40 %>
+						<% else %>
+							<article class="col-md-6">
+							<% word = 20 %>
+						<% end %>
 
+							<div class="article-new">
+								<h3><%= company.name %></h3>
+	
+								<div class="article-excerpt">
+									<%= HTML_Truncator.truncate((company.description), word).html_safe %>
+								</div>
+					
+								<%= link_to(company,:class=>'button') do %>
+									<span>Voir</span> <i class="fa fa-chevron-right"></i>
+								<% end %>
+							</div>
+						</article>
+					<% end %>
+				</div>
+			</section>
 
-                    <div class="article-excerpt"><%= HTML_Truncator.truncate((company.description),30).html_safe %></div>
-                      <%= link_to(company,:class=>'button') do %>
-                      <span>Voir</span> <i class="fa fa-chevron-right"></i>
-                    <% end %>
-                  </div>
-                </article>
-              <% end %>
-            </div>
-         </section>
-       </div>
+		</div>
 
-<ul class="pagination pull-right">
-  <% if @page > 1 %>
-  <li>
-  <%= link_to '<', companies_path(@page - 1) %>
-  </li>
-  <li><%= link_to @page - 1, companies_path(@page - 1) %></li>
-  <% end %>
+		<ul class="pagination pull-right">
+			<% if @pageCurrent > 1 %>
+				<li>
+					<%= link_to '<', companies_path(@pageCurrent - 1) %>
+				</li>
+			<% end %>
 
-  <li class="active"><a href="#"><%= @page %></a></li>
+			<% 1.upto(@pageMax) do |i| %>
+				<li <% if i == @pageCurrent %>class="active"<% end %>>
+					<%= link_to(i, companies_path(i)) %>
+				</li>
+			<% end %>
 
-  <% if(@hasNext) %>
-    <li><%= link_to @page + 1, companies_path(@page + 1) %></li>
-    <li>
-      <%= link_to '>', companies_path(@page + 1) %>
-    </li>
-  <% end %>
-</ul>
+			<% if @pageCurrent < @pageMax %>
+				<li>
+					<%= link_to '>', companies_path(@pageCurrent + 1) %>
+				</li>
+			<% end %>
+		</ul>
 
-    </div>
+	</div>
 </div>
 
