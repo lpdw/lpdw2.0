@@ -8,10 +8,10 @@
 
     <div class="row">
       <div class="student-infos">
-        <img src="/assets/1.jpg" class="col-md-3 block">
+        <img src="<%= @student.photo %>" class="col-md-3 block">
         <div class="col-md-offset-1 col-md-8">
           <div class="row block">
-            <h1 class="col-md-10"><%= @student.lastname %>  <%= @student.name %></h1>
+            <h1 class="col-md-10"><%= @student.lastname.upcase %>  <%= @student.name %></h1>
             <% promo = (!@student.users_info.graduation_year.present?||@student.users_info.graduation_year == 0 ? 'Année en cours' : @student.users_info.graduation_year) %>
             <p class="col-md-2">Promo: <%= promo %></p>
             <p class="birthday col-md-12">Age: <%= @student.calcAge %></p>
