@@ -8,10 +8,10 @@
 
     <div class="row">
       <div class="student-infos">
-        <img src="<%= @student.photo %>" class="col-md-3 block">
+        <img src="/assets/1.jpg" class="col-md-3 block">
         <div class="col-md-offset-1 col-md-8">
           <div class="row block">
-            <h1 class="col-md-10"><%= @student.lastname.upcase %>  <%= @student.name %></h1>
+            <h1 class="col-md-10"><%= @student.lastname %>  <%= @student.name %></h1>
             <% promo = (!@student.users_info.graduation_year.present?||@student.users_info.graduation_year == 0 ? 'Année en cours' : @student.users_info.graduation_year) %>
             <p class="col-md-2">Promo: <%= promo %></p>
             <p class="birthday col-md-12">Age: <%= @student.calcAge %></p>
@@ -42,56 +42,60 @@
     <div class="block row">
       <div class="student-jobs">
         <div class="current-job">
-            <div class="row">
-                <p class="col-md-2">Poste Actuel :</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_title %></h2>
-                <% current_salary = (@student.users_info.current_average_salary.present? ? @student.users_info.current_average_salary : '') %>
-                <div class="salary row col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= current_salary %></p></div>
-            </div>
-            <div class="row">
-                <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_desc %></p>
-            </div>
+          <div class="row">
+            <% current_job = (@student.users_info.current_job_title.present? ? @student.users_info.current_job_title : 'Non renseigné') %>
+            <p class="col-md-2">Poste Actuel :</p> <h2 class="col-md-offset-1 col-md-9"><%= current_job %></h2>
+            <% current_salary = (@student.users_info.current_average_salary.present? ? @student.users_info.current_average_salary : 'Non renseigné') %>
+            <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= current_salary %></p></div>
+          </div>
+          <% current_id = (!@student.users_info.current_job_desc.present?||current_job=='Non renseigné' ? 'hiddenDesc' : '') %>
+          <div class="row" id="<%= current_id %>">
+            <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_desc %></p>
+          </div>
         </div>
 
         <div class="lp-job">
-            <div class="row">
-                <p class="col-md-2">Poste en Licence Pro:</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_title %></h2>
-                <% lp_salary = (@student.users_info.lp_average_salary.present? ? @student.users_info.lp_average_salary : '') %>
-                <div class="salary row col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= lp_salary %></p></div>
-            </div>
-            <div class="row">
-                <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_desc %></p>
-            </div>
+          <div class="row">
+            <% lp_job = (@student.users_info.lp_job_title.present? ? @student.users_info.lp_job_title : 'Non renseigné') %>
+            <p class="col-md-2">Poste en Licence Pro:</p> <h2 class="col-md-offset-1 col-md-9"><%= lp_job %></h2>
+            <% lp_salary = (@student.users_info.lp_average_salary.present? ? @student.users_info.lp_average_salary : 'Non renseigné') %>
+            <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= lp_salary %></p></div>
+          </div>
+          <% lp_id = (!@student.users_info.lp_job_desc.present?||lp_job=='Non renseigné' ? 'hiddenDesc' : '') %>
+          <div class="row" id="<%= lp_id %>">
+            <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_desc %></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-  <div class="modal fade" id="contact_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Formulaire de contact</h4>
-        </div>
-        <div class="modal-body">
-              <%= form_tag({:action => 'sendmail'}, {:method => :post}) do |f| %>
-                <div class="form-group">
-                    <label for="name_contact">Email</label>
-                    <%= email_field_tag 'contact_email', nil, class: 'form-control', placeholder: 'Votre adresse email', :value => @contact_email %>
-                    <%= hidden_field_tag 'contact_user_id', nil, class: 'form-control', :value => @student.id %>
-                </div>
-                <div class="form-group">
-                    <label for="email_contact">Objet</label>
-                    <%= text_field_tag 'contact_object', nil, class: 'form-control',placeholder:"L'objet de votre message", :value => @contact_object %>
-                </div>
-                <div class="form-group">
-                    <label for="message_contact">Message</label>
-                    <%= text_area_tag 'contact_message', nil, class: 'form-control',placeholder:"Votre message ici",rows: 3, :value => @contact_message %>
-                </div>
-                <%= button_tag "Envoyer", class: "btn btn-default" %>
-            <% end %>
-        </div>
+<div class="modal fade" id="contact_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Formulaire de contact</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag({:action => 'sendmail'}, {:method => :post}) do |f| %>
+            <div class="form-group">
+              <label for="name_contact">Email</label>
+              <%= email_field_tag 'contact_email', nil, class: 'form-control', placeholder: 'Votre adresse email', :value => @contact_email %>
+              <%= hidden_field_tag 'contact_user_id', nil, class: 'form-control', :value => @student.id %>
+            </div>
+            <div class="form-group">
+              <label for="email_contact">Objet</label>
+              <%= text_field_tag 'contact_object', nil, class: 'form-control',placeholder:"L'objet de votre message", :value => @contact_object %>
+            </div>
+            <div class="form-group">
+              <label for="message_contact">Message</label>
+              <%= text_area_tag 'contact_message', nil, class: 'form-control',placeholder:"Votre message ici",rows: 3, :value => @contact_message %>
+            </div>
+            <%= button_tag "Envoyer", class: "btn btn-default" %>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
