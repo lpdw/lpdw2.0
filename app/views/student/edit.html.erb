@@ -19,7 +19,7 @@
                 <% promo = (!@student.users_info.graduation_year.present?||@student.users_info.graduation_year == 0 ? 'Année en cours' : @student.users_info.graduation_year) %>
                 <p class="col-md-2">Promo: <%= promo %></p>
 
-                <p class="birthday col-md-12">Date de naissance : <%= date_field(:user, :born_on) %></p>
+                <p class="birthday col-md-12">Date de naissance : <%= date_field(:user, :born_on, value: @student.birth) %></p>
               </div>
               <div class="row social">
                 <ul class="nav nav-tabs" role="tablist">
