@@ -1,12 +1,20 @@
 class StudentController < ApplicationController
-   before_action :authenticate_user!, only: [:profil, :sendmail, :edit, :update_user]
+   # before_action :authenticate_user!, only: [:profil, :sendmail, :edit, :update_user]
 
   def show
     @graduationYears = UsersInfo.select("DISTINCT graduation_year").order("graduation_year").all
-    if(params[:graduation_years] == nil)
-      @student = User.students.select {|student| student.users_info.graduation_year == 0}
+    if request.post?
+      if params[:filter] == 'Année en cours'
+        redirect_to students_list_path
+      else
+        redirect_to students_list_by_year_path(params[:filter])
+      end
     else
-      @student = User.students.select {|student| student.users_info.graduation_year == params[:graduation_years].to_i}
+      if(params[:graduation_years] == nil)
+        @student = User.students.select {|student| student.users_info.graduation_year == 0}
+      else
+        @student = User.students.select {|student| student.users_info.graduation_year == params[:graduation_years].to_i}
+      end
     end
   end
 

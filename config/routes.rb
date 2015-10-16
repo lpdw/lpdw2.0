@@ -122,7 +122,9 @@ path: '/',
   get '/live', :to => 'pages#live'
 
   get '/studentsbook', :to => 'student#show', :as => 'students_list'
-  get '/studentsbook/:graduation_years' , :to => 'student#show'
+  get '/studentsbook/:graduation_years' , :to => 'student#show', :as => 'students_list_by_year'
+  post 'studentsbook/', :to => 'student#show'
+  post 'studentsbook/:graduation_years', :to => 'student#show'
   get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
   post '/studentprofil/sendmail', :to => 'student#sendmail'
   get '/studentprofil/edit/:user_id', :to => 'student#edit'
