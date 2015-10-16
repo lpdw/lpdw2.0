@@ -15,7 +15,7 @@
         <% end %>
         <div class="col-md-offset-1 col-md-8">
           <div class="row block">
-            <h1 class="col-md-10"><%= @student.lastname %>  <%= @student.name %></h1>
+            <h1 class="col-md-10"><%= @student.lastname.upcase %>  <%= @student.name %></h1>
             <% promo = (!@student.users_info.graduation_year.present?||@student.users_info.graduation_year == 0 ? 'Année en cours' : @student.users_info.graduation_year) %>
             <p class="col-md-2">Promo: <%= promo %></p>
             <p class="birthday col-md-12">Age: <%= @student.calcAge %></p>
@@ -50,7 +50,7 @@
             <% current_job = (@student.users_info.current_job_title.present? ? @student.users_info.current_job_title : 'Non renseigné') %>
             <p class="col-md-2">Poste Actuel :</p> <h2 class="col-md-offset-1 col-md-9"><%= current_job %></h2>
             <% current_salary = (@student.users_info.current_average_salary.present? ? @student.users_info.current_average_salary : 'Non renseigné') %>
-            <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= current_salary %></p></div>
+            <div class="salary row col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= current_salary %></p></div>
           </div>
           <% current_id = (!@student.users_info.current_job_desc.present?||current_job=='Non renseigné' ? 'hiddenDesc' : '') %>
           <div class="row" id="<%= current_id %>">
@@ -63,7 +63,7 @@
             <% lp_job = (@student.users_info.lp_job_title.present? ? @student.users_info.lp_job_title : 'Non renseigné') %>
             <p class="col-md-2">Poste en Licence Pro:</p> <h2 class="col-md-offset-1 col-md-9"><%= lp_job %></h2>
             <% lp_salary = (@student.users_info.lp_average_salary.present? ? @student.users_info.lp_average_salary : 'Non renseigné') %>
-            <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= lp_salary %></p></div>
+            <div class="salary row col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= lp_salary %></p></div>
           </div>
           <% lp_id = (!@student.users_info.lp_job_desc.present?||lp_job=='Non renseigné' ? 'hiddenDesc' : '') %>
           <div class="row" id="<%= lp_id %>">
