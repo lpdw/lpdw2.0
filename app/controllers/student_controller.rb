@@ -1,4 +1,6 @@
 class StudentController < ApplicationController
+  before_action :create_user_infos_if_not_exist
+
   def show
     @graduationYears = UsersInfo.select("graduation_year").order("graduation_year").all
     if(params[:graduation_years] == nil)
@@ -65,5 +67,13 @@ class StudentController < ApplicationController
         :photo =>student_photo
     )
     redirect_to student_profil_path(user_id)
+  end
+
+  private
+  def create_user_infos_if_not_exist
+    user_id = params[:user_id]
+    if UsersInfo.find_by(user_id: user_id).empty? || UsersInfo.find_by(user_id: user_id).nil?
+      UsersInfo.new(user_id: user_id)
+    end
   end
 end
