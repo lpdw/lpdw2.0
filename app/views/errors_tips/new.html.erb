@@ -20,25 +20,23 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Votre nom', :value => @name %>
-                        <!-- <input type="text" class="form-control noraduis" id="usr" placeholder="Nom "> -->
                     </div>
                     <div class="form-group">
-                        <%= email_field_tag 'email', nil, class: 'form-control',placeholder:"Votre adresse email", :value => @emai %>
-                        <!-- <input type="email" class="form-control noraduis" id="pwd" placeholder="adresse mail *"> -->
+                        <%= email_field_tag 'email', nil, class: 'form-control',placeholder:"Votre adresse email *", :value => @emai %>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-7">
                     <div class="form-group">
-                        <%= text_area_tag 'description', nil, class: 'form-control',placeholder:"Votre message ici",rows: 3, :value => @description %>
+                        <%= text_area_tag 'description', nil, class: 'form-control',placeholder:"Votre message ici *",rows: 3, :value => @description %>
                         <!--<textarea class="form-control" rows="5" id="comment noraduis" placeholder="Érreur remarquées... *"></textarea>-->
                     </div>
                 </div>
             </div>
             <div class="row">
               <div class="col-md-5">
-                    <%= button_tag "Envoyer", class: "btn btn-default" %>
+                    <%= button_tag "Envoyer", class: "btn btn-danger" %>
                     <!--<button type="button" class="btn btn-danger"><span class="custom-btn">Valider</span></button>-->
               </div>
             </div>
