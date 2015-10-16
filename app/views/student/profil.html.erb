@@ -15,9 +15,16 @@
         <% end %>
         <div class="col-md-offset-1 col-md-8">
           <div class="row block">
-            <h1 class="col-md-10"><%= @student.lastname.upcase %>  <%= @student.name %></h1>
+            <h1 class="col-md-8"><%= @student.lastname.upcase %>  <%= @student.name %></h1>
             <% promo = (!@student.users_info.graduation_year.present?||@student.users_info.graduation_year == 0 ? 'Année en cours' : @student.users_info.graduation_year) %>
-            <p class="col-md-2">Promo: <%= promo %></p>
+            <p class="col-md-3">Promo: <%= promo %></p>
+            <p class="col-md-1">
+              <% if current_user == @student %>
+                  <%= link_to(student_profil_edit_path,:user_id => @student.id) do %>
+                      <i class="fa fa-pencil fa-2x"></i>
+                  <% end %>
+            <% end %>
+            </p>
             <p class="birthday col-md-12">Age: <%= @student.calcAge %></p>
           </div>
           <div class="row social">
@@ -38,13 +45,6 @@
                   <li><a data-toggle="modal" data-target="#contact_modal" href="#contact_modal"><i class="fa fa-envelope fa-2x"></i></a></li>
               <% end %>
             </ul>
-            <% if current_user == @student %>
-                <div class="edit_button">
-                  <%= link_to(student_profil_edit_path,:user_id => @student.id) do %>
-                      <i class="fa fa-pencil fa-2x"></i>
-                <% end %>
-                </div>
-            <% end %>
           </div>
 
         </div>
