@@ -125,7 +125,7 @@ path: '/',
   get '/studentsbook/:graduation_years' , :to => 'student#show'
   get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
   post '/studentprofil/sendmail', :to => 'student#sendmail'
-  get '/studentprofil/edit/:user_id', :to => 'student#edit'
+  get '/studentprofil/edit/:user_id', :to => 'student#edit', :as => 'student_profil_edit'
   post '/studentprofil/update_user/:user_id', :to => 'student#update_user'
   resources :tips, only: [:show,:index] do
     resources :errors_tips

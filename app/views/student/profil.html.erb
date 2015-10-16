@@ -38,11 +38,13 @@
                   <li><a data-toggle="modal" data-target="#contact_modal" href="#contact_modal"><i class="fa fa-envelope fa-2x"></i></a></li>
               <% end %>
             </ul>
-            <% if current_user %>
-            <div class="edit_button">
-              <a href="/studentprofil/edit/2"><i class="fa fa-pencil fa-2x"></i></a>
-            </div>
+            <% if current_user == @student %>
+                <div class="edit_button">
+                  <%= link_to(student_profil_edit_path,:user_id => @student.id) do %>
+                      <i class="fa fa-pencil fa-2x"></i>
                 <% end %>
+                </div>
+            <% end %>
           </div>
 
         </div>
