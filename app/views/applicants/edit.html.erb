@@ -40,7 +40,7 @@
                     <%= f.text_field :first_name, 'placeholder' => "Prenom*", "maxlength" => "60", "required"=> ''%>
                   </div>
                   <div class="col-sm-12 input_wrapper">
-                    <%= f.text_area :address, 'placeholder' => "address*", "required"=> ''%>
+                    <%= f.text_area :address, 'placeholder' => "Adresse*", "required"=> ''%>
                   </div>
                   <div class="col-sm-6 input_wrapper">
                     <%= f.text_field :zip_code, 'placeholder' => "Code postal*", "data-parsley-type" => "digits", "required"=> ''%>
@@ -232,11 +232,15 @@
                 <span class="col-sm-8 col-sm-offset-2 file-to-join">Tout dossier incomplet ne sera pas traité.</span>
               </div>
               <br>
-              <div class="">
+              <div class="attachements_list">
                 <%= f.nested_fields_for :applicant_attachment, wrapper_tag: :div do |ff| %>
                   <ul class="row">
                     <li class="col-md-5"><%= ff.text_field :name, :placeholder => "Nom de votre pièce jointe (CV / lettre de motivation / etc ... )", 'required' => '' %></li>
-                    <li class="col-md-2"><%= ff.file_field :file, :placeholder=>"Pièce jointe" %></li>
+                      <li class="col-md-2">
+                        <%= ff.file_field :file, :placeholder=>"Pièce jointe", data: {url: ff.object.file.url}, class: 'file-upload' %>
+                        <%= link_to 'Aperçu de la pièce jointe', ff.object.file.url, class: "button-file hidden", target: '_blank' %>
+                      </li>
+
                     <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
                   </ul>
                 <%end%>
