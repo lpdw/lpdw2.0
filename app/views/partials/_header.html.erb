@@ -39,11 +39,12 @@ Enjoy :)
           <ul class="nav navbar-nav">
             <li><%= link_to 'Accueil' , root_path(), :"data-hover" => "Accueil" %></li>
             <li><%= link_to 'Actualités', actualities_path, :"data-hover" => "Actualités" %></li>
-            <li><%= link_to 'La formation', formation_path(), :"data-hover" => "La formation" %></li>
-            <li><%= link_to 'Projets étudiants', projets_path(), :"data-hover" => "Projets étudiants" %></li>
+            <li><%= link_to 'Formation', formation_path(), :"data-hover" => "Formation" %></li>
+            <!--<li><%= link_to 'Projets étudiants', projets_path(), :"data-hover" => "Projets étudiants" %></li>-->
             <li><%= link_to "L'équipe", equipe_path(), :"data-hover" => "L'équipe" %></li>
             <li><%= link_to "Bons Plans", tips_path(), :"data-hover" => "Bons plans" %></li>
-            <li><%= link_to 'Plan & contact', informations_path(), :"data-hover" => "Plan & contact" %></li>
+            <li><%= link_to 'Contact', informations_path(), :"data-hover" => "Contact" %></li>
+            <li><%= link_to 'Les anciens', students_list_path(), :"data-hover" => "d" %></li>
             <% unless current_user %>
               <li><%= link_to 'Connexion', new_user_session_path, :"data-hover" => 'Connexion' %></li>
             <% end %>
