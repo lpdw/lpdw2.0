@@ -1,5 +1,5 @@
 class StudentController < ApplicationController
-   # before_action :authenticate_user!, only: [:profil, :sendmail, :edit, :update_user]
+   before_action :authenticate_user!, only: [:profil, :sendmail, :edit, :update_user]
 
   def show
     @graduationYears = UsersInfo.select("DISTINCT graduation_year").order("graduation_year").all
@@ -40,7 +40,7 @@ class StudentController < ApplicationController
   def edit
     @student = current_user
     if @student.lastname.empty? || @student.name.empty?
-      flash[:error] = "Veuillez indiiquer votre nom et prénom"
+      flash[:error] = "Veuillez indiquer votre nom et prénom"
       redirect_to edit_user_path
     end
 
