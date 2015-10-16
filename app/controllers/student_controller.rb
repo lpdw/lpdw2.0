@@ -72,8 +72,8 @@ class StudentController < ApplicationController
   private
   def create_user_infos_if_not_exist
     user_id = params[:user_id]
-    if UsersInfo.find_by(user_id: user_id).empty? || UsersInfo.find_by(user_id: user_id).nil?
-      UsersInfo.new(user_id: user_id)
+    if !UsersInfo.exists?(:user_id => user_id)
+      UsersInfo.new(user_id: user_id, graduation_years: 0)
     end
   end
 end
