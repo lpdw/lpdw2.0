@@ -43,7 +43,8 @@ class StudentController < ApplicationController
     student_current_job_desc  = params[:student_current_job_desc]
     student_lp_title          = params[:student_lp_title]
     student_lp_desc           = params[:student_lp_desc]
-    # student_lp_salary         = params[:student_current_salary]
+    student_photo             = params[:student_photo]
+    student_lp_salary         = params[:student_lp_salary]
     user_id                   = params[:user_id]
 
     UsersInfo.find_by(user_id: user_id).update(
@@ -53,7 +54,7 @@ class StudentController < ApplicationController
         :current_average_salary   => student_current_salary,
         :lp_job_title             => student_lp_title,
         :lp_job_desc              => student_lp_desc,
-        # :lp_average_salary        => student_lp_salary
+        :lp_average_salary        => student_lp_salary
     )
 
     User.find(user_id).update(
@@ -61,6 +62,7 @@ class StudentController < ApplicationController
         :googleplus =>student_googleplus,
         :linkin =>student_linkin,
         :email =>student_email,
+        :photo =>student_photo
     )
     redirect_to student_profil_path(user_id)
   end
