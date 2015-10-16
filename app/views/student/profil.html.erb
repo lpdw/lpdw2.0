@@ -45,7 +45,7 @@
             <div class="row">
                 <p class="col-md-2">Poste Actuel :</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_title %></h2>
                 <% current_salary = (@student.users_info.current_average_salary.present? ? @student.users_info.current_average_salary : '') %>
-                <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= current_salary %></p></div>
+                <div class="salary row col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= current_salary %></p></div>
             </div>
             <div class="row">
                 <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_desc %></p>
@@ -56,7 +56,7 @@
             <div class="row">
                 <p class="col-md-2">Poste en Licence Pro:</p> <h2 class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_title %></h2>
                 <% lp_salary = (@student.users_info.lp_average_salary.present? ? @student.users_info.lp_average_salary : '') %>
-                <div class="salary col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= lp_salary %></p></div>
+                <div class="salary row col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= lp_salary %></p></div>
             </div>
             <div class="row">
                 <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_desc %></p>

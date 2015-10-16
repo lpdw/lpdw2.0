@@ -8,7 +8,7 @@
       <div class="container">
         <div class="row">
           <div class="student-infos">
-            <img src="/assets/1.jpg" class="col-md-3 block">
+            <img src="<%= @student.photo %>" class="col-md-3 block">
             <div class="col-md-offset-1 col-md-8">
               <div class="row block">
                 <h1 class="col-md-10"><%= @student.lastname.upcase %>  <%= @student.name %></h1>
@@ -56,7 +56,7 @@
             <div class="current-job">
               <div class="row">
                 <p class="col-md-2">Poste Actuel :</p><%= text_field_tag 'student_current_title', nil, placeholder: (@student.users_info.current_job_title.present? ? @student.users_info.current_job_title : 'Poste actuel'), :value => @student.users_info.current_job_title %>
-                <div class="salary col-md-12">
+                <div class="salary row col-md-12">
                   <p class="col-md-2">Salaire:</p>
                   <%= select_tag(:student_current_salary, options_for_select([['10.000 - 15.000 €', '10.000 - 15.000 €'],
                                                                               ['15.000 - 20.000 €', '15.000 - 20.000 €'],
@@ -65,18 +65,18 @@
                                                                               ['30.000 - 35.000 €', '30.000 - 35.000 €'],
                                                                               ['35.000 - 40.000 €', '35.000 - 40.000 €'],
                                                                               ['40.000 - 50.000 €', '40.000 - 50.000 €']],
-                                                                             @student.users_info.current_average_salary)) %>
+                                                                             @student.users_info.current_average_salary))%>
                 </div>
               </div>
               <div class="row">
-                <p class="col-md-2">Description :</p><%= text_field_tag 'student_current_job_desc', nil, class: 'col-md-9',placeholder: (@student.users_info.current_job_desc.present? ? @student.users_info.current_job_desc : 'Décrivez votre poste actuel'),rows: 3, :value => @student.users_info.current_job_desc %>
+                <p class="col-md-2">Description :</p><%= text_area('student_current_job_desc', nil, class: 'col-md-9',placeholder: (@student.users_info.current_job_desc.present? ? @student.users_info.current_job_desc : 'Décrivez votre poste actuel'),rows: 4, :value => @student.users_info.current_job_desc) %>
               </div>
             </div>
 
             <div class="lp-job">
               <div class="row">
                 <p class="col-md-2">Poste en Licence Pro:</p><%= text_field_tag 'student_lp_title', nil, placeholder: (@student.users_info.lp_job_title.present? ? @student.users_info.lp_job_title : 'Poste occupé durant la LP'), :value => @student.users_info.lp_job_title %>
-                <div class="salary col-md-12">
+                <div class="salary row col-md-12">
                   <p class="col-md-2">Salaire:</p>
                   <%= select_tag(:student_lp_salary, options_for_select([['10.000 - 15.000 €', '10.000 - 15.000 €'],
                                                                          ['15.000 - 20.000 €', '15.000 - 20.000 €'],
@@ -89,7 +89,7 @@
                 </div>
               </div>
               <div class="row">
-                <p class="col-md-2">Description :</p><%= text_field_tag 'student_lp_desc', nil, class: 'col-md-9',placeholder: (@student.users_info.lp_job_desc.present? ? @student.users_info.lp_job_desc : 'Décrivez le poste occupé durant le LP'),rows: 3, :value => @student.users_info.lp_job_desc %>
+                <p class="col-md-2">Description :</p><%= text_area('student_lp_desc', nil, class: 'col-md-9',placeholder: (@student.users_info.lp_job_desc.present? ? @student.users_info.lp_job_desc : 'Décrivez le poste occupé durant le LP'),rows: 4, :value => @student.users_info.lp_job_desc) %>
               </div>
             </div>
           </div>
