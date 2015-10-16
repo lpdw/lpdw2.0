@@ -36,9 +36,6 @@ L’installation de MySQL et HomeBrew sur Mac est indispensable.
 
 **5) Faire la migration** de la base de données :
    
-	# Démarrer MySQL
-    mysql.server start
-	
 	# Créer la base de données et faire les migrations :
     rake db:create db:migrate
     
@@ -50,9 +47,6 @@ L’installation de MySQL et HomeBrew sur Mac est indispensable.
 
 
 ###Démarrage de l’application
-    # Si le service MySql n'est pas démarré
-    mysql.server start
-    
     # Lancer le serveur
     rails server
 ###Mettre à jour mon application
