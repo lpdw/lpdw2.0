@@ -1,4 +1,7 @@
 class StudentController < ApplicationController
+   #before_action :authenticate_user!, only: [:profil, :sendmail, :edit, :update_user]
+   #before_action :authenticate_user!, only: [:edit],
+
   def show
     @graduationYears = UsersInfo.select("graduation_year").order("graduation_year").all
     if(params[:graduation_years] == nil)
@@ -66,4 +69,5 @@ class StudentController < ApplicationController
     )
     redirect_to student_profil_path(user_id)
   end
+
 end
