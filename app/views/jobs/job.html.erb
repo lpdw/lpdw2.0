@@ -16,7 +16,7 @@
 				<h1 class="new-title text-center"><%= @job.job_name %></h1>
 
 				<div class="row date-job">
-					<div class="col-md-4 text-center"><strong>Date d'apparition :</strong> <%= @job.start_at %></div>
+					<div class="col-md-4 text-center"><strong>Date d'apparition :</strong> <%= @job.created_at.strftime("%m/%d/%Y") %></div>
 					<div class="col-md-4 text-center"><strong>Date de début :</strong> <%= @job.start_at %></div>
 					<div class="col-md-4 text-center"><strong>Durée du contrat :</strong> <%= @job.duration %></div>
 				</div>
