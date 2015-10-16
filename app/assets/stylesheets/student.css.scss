@@ -93,6 +93,7 @@
 
       p{
         margin: 0;
+        font-size: 16px;
       }
 
       h2{
@@ -110,6 +111,9 @@
       .salary{
         margin-top: 10px;
         display: inline-block;
+      }
+      div#hiddenDesc{
+        display: none;
       }
     }
   }
