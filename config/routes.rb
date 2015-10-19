@@ -38,6 +38,8 @@ path: '/',
     get 'edit_job/:id' => 'jobs#edit_job', :as => 'admin_edit_job'
     patch 'edit_job/:id' => 'jobs#update_job', :as => 'admin_update_job'
     get 'delete_job/:id' => 'jobs#delete_job', :as => 'admin_delete_job'
+    get 'enable/:id' => 'jobs#enable_job', :as => 'admin_enable_job'
+    get 'disable/:id' => 'jobs#disable_job', :as => 'admin_disable_job'
   end
 
   resource :applicant, only: [:new, :create, :edit, :update, :show]
