@@ -20,32 +20,43 @@
 						<h1 id="comp_title" class="text-center"><%= @company.name %></h1>
 					</div>
 				</article>
-
+				
+				<% if @company.description %>
 				<article class="no-height" class="col-md-12">
 					<div class="article-new">
 						<h2 class="text-center">Description</h2>
 						<p class="comp_desc"> <%= raw  @company.description %> </p>
 					</div>
 				</article>
+				<% end %>
 
+				<% if @company.address or @company.zip_code or @company.city %>
 				<article class="col-md-5">
 					<div class="article-new">
 						<h2 class="text-center"> Adresse </h2>
+						<% if @company.address %>
 						<p><%= @company.address %></p>
+						<% end %>
+						<% if @company.zip_code or @company.city %>
 						<p><%= @company.zip_code %> <%= @company.city %></p>
+						<% end %>
 					</div>
 				</article>
+				<% end %>
 
+				<% if @company.website or @company.phone_number or @company.twitter or @company.linkedin %>
 				<article class="col-md-7">
 					<div class="article-new">
 						<h2 class="text-center"> Contact </h2>
 			
 						<div class="row">
-
+							
+							<% if @company.website or @company.phone_number %>
 							<div class="col-md-6 text-center">	
 								<p><a href="<%= @company.website %>"><%= @company.website %></a></p>
 								<p><%= @company.phone_number %></p>
 							</div>
+							<% end %>
 
 							<div class="col-md-6 text-center">
 								<% if @company.twitter.present? or @company.linkedin.present? %>
@@ -65,6 +76,7 @@
 
 					</div>
 				</article>
+				<% end %>
 
 				<% if @company.jobs.empty? === false  %>
 					<article class="col-md-12 no-height">
