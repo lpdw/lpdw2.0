@@ -35,6 +35,7 @@ class AdminV2::JobsController < AdminV2Controller
 	def update_job
 		@title_admin = "Offre d'emploi"
 		@job = Job.find(params[:id])
+		@job.company_id = (params[:company_id] === "0") ? nil : params[:company_id]
 
 		if @job.update_attributes(params[:job].permit(:job_name, :job_number, :job_description, :start_at, :duration, :profil, :contact, :location, :skills, :status))
 			flash["sucess"] = "Offre d'emploi mise à jour"
