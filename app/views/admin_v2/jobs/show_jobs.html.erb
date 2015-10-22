@@ -30,11 +30,11 @@
 
                 <% if job.status === 1 %>
                   <%= link_to(admin_v2_admin_disable_job_path(job)) do %>
-                  <i class="fa fa-toggle-off"></i> Désactiver
+                  <i class="fa fa-toggle-off"></i> Désactivé
                   <% end %>
                 <% else %>
                   <%= link_to(admin_v2_admin_enable_job_path(job)) do %>
-                  <i class="fa fa-toggle-on"></i> Activer
+                  <i class="fa fa-toggle-on"></i> Activé
                   <% end %>
                 <% end %>
 
