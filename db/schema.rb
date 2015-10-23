@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015122402) do
+ActiveRecord::Schema.define(version: 20151018183108) do
 
   create_table "actualities", force: true do |t|
     t.string   "title"
@@ -176,6 +176,12 @@ ActiveRecord::Schema.define(version: 20151015122402) do
     t.string   "thumbmail_content_type"
     t.integer  "thumbmail_file_size"
     t.datetime "thumbmail_updated_at"
+  end
+
+  create_table "tipcategories", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tips", force: true do |t|
