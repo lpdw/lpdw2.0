@@ -1,0 +1,28 @@
+<% provide :title_admin, 'Bons plans' %>
+<h1>Gérer les bons plans</h1>
+<%= link_to(new_admin_v2_tipcategory_path,:class=>'button button-blue float-right') do %>
+    <span>Créer une catégorie de bon plan</span> <i class="fa fa-newspaper-o"></i>
+<% end %>
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Titre</th>
+    <th>Mise en ligne le</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @categories.each.with_index(1) do |category, index| %>
+      <tr>
+        <td data-th="ID" ><%= index %></td>
+        <td data-th="Titre" ><%= category.title %></td>
+        <td data-th="Auteur" ><%= category.created_at %></td>
+        <td data-th="Action" >
+          <%= link_to(admin_v2_tipcategory_path(category), method: :delete) do %>
+              <i class="fa fa-trash-o"></i> Supprimer
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
