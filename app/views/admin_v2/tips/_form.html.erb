@@ -6,16 +6,17 @@
         <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" >
           <ul class="nav">
 
-
-            <%= f.select "category", options_from_collection_for_select(@categories, "title", "title") %>
-
-
+            <h4>Catégorie*</h4>
+            <%= f.select "category" ,options_from_collection_for_select(@categories, "title", "title") %>
+            <h4>Date de fin</h4>
             <%= f.date_field :end_at, :class =>'input' ,:placeholder =>'Date de fin du bon plan'  %>
-            <br />
+            <h4>Site web</h4>
             <%= f.url_field :url, :class =>'input' ,:placeholder => 'Lien' %>
-            <br />
+            <h4>Téléphone</h4>
             <%= f.telephone_field :phone, :class =>'input', :placeholder =>'Téléphone' %>
+            <h4>Adresse</h4>
             <%= f.text_field :address, :class =>'input', :placeholder =>'Adresse du bon plan' %>
+            <h4>E-mail</h4>
             <%= f.email_field :email, :class =>'input', :placeholder =>'E-mail   ' %>
           </ul>
         </div>
@@ -25,7 +26,6 @@
           <h4>Description du bon plan*</h4>
           <%= f.text_area :description, :class =>'input textarea', :rows => 10, :cols => 120, :placeholder =>'Description du bon plan'%>
           <h4>Récuperation de l'iframe sur google map</h4>
-          <h6>Pour afficher correctement l'iframe, modifier les valeurs de 'width' et de 'height' pour les mettre à 100% et 350.<br/> Ex : width="100%" height="350"</h6>
           <%= f.text_field :map, :class =>'input', :placeholder => 'Iframe de la map' %>
         </div>
         <div class="row">
