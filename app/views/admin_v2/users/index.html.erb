@@ -26,7 +26,7 @@
                 <%= link_to(edit_admin_v2_user_path(user), class: 'button button-blue') do %>
                 <i class="fa fa-pencil"></i> Modifier
                 <% end %>
-                <%= link_to(admin_v2_user_path(user), method: :delete, data: {confirm: "Etes vous sûr de vouloir supprimer cet utilisateur"}, class: 'button button-red user-delete') do %>
+                <%= link_to(admin_v2_user_path(user), method: :delete, data: {confirm: "Êtes-vous sûr de vouloir supprimer cet utilisateur '#{user.email}' ?"}, class: 'button button-red user-delete') do %>
                 <i class="fa fa-trash-o white"></i> Supprimer
                 <% end %>
             </td>
