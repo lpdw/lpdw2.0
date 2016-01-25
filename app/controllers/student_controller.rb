@@ -2,7 +2,7 @@ class StudentController < ApplicationController
    before_action :authenticate_user!, only: [:profil, :sendmail, :edit, :update_user]
 
   def show
-    @graduationYears = UsersInfo.select("DISTINCT graduation_year").order("graduation_year").all
+    @graduationYears = UsersInfo.pluck(:graduation_year).map {|graduation_year| graduation_year}.uniq.compact.sort
     if request.post?
       if params[:filter] == 'Année en cours'
         redirect_to students_list_path
