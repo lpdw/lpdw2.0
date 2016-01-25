@@ -22,7 +22,7 @@
                 <%= link_to(admin_v2_admin_edit_company_path(company)) do %>
                 <i class="fa fa-pencil"></i> Modifier
                 <% end %>
-                <%= link_to(admin_v2_admin_delete_company_path(company)) do %>
+                <%= link_to(admin_v2_admin_delete_company_path(company), data: {confirm: "Êtes-vous sûr de vouloir supprimer l'entreprise '#{company.name}' ?"}) do %>
                 <i class="fa fa-trash-o"></i> Supprimer
                 <% end %>
             </td>

@@ -139,7 +139,7 @@
                 <% if current_user.role === "admin" %>
                     <%= form_for(@status, url:  user_destroy_path, html: {class: "destroy" }, method: :post) do |f| %>
                         <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                        <%= f.submit "SUPPRIMER LE DOSSIER DEFINITIVEMENT", :class => 'btn btn-danger', data: {confirm: "Etez vous sûr de supprimer le dossier de candidature de #{@applicant.first_name} #{@applicant.name.upcase} ?"} %>
+                        <%= f.submit "SUPPRIMER LE DOSSIER DEFINITIVEMENT", :class => 'btn btn-danger', data: {confirm: "Êtes-vous sûr de vouloir supprimer le dossier de candidature de #{@applicant.first_name} #{@applicant.name.upcase} ?"} %>
                     <% end %>
                 </div>
             </div>
