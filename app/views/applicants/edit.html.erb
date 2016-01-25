@@ -108,7 +108,7 @@
                       <%= f.nested_fields_for :other_application, wrapper_tag: :div do |ff| %>
                         <li class="col-sm-6 school_item">
                           <%= ff.text_field :content, "required"=> ''%>
-                          <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                          <%= ff.remove_nested_fields_link 'Supprimer' ,class: 'fa fa-close' %>
                         </li>
                       <%end%>
                     </div>
@@ -138,7 +138,7 @@
                     <li class="col-md-3"><%= ff.text_field :option, "required"=> ''%></li>
                     <li class="col-md-2"><%= ff.text_field :result, "required"=> ''%></li>
                     <li class="col-md-3"><%= ff.text_field :place, "required"=> ''%></li>
-                    <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                    <%= ff.remove_nested_fields_link 'Supprimer' ,class: 'fa fa-close' %>
                   </ul>
                 <%end%>
                 <%= f.add_nested_fields_link :cursus, 'Ajouter un autre diplome' %>
@@ -183,7 +183,7 @@
                     <li class="col-md-2"><%= ff.text_field :company %></li>
                     <li class="col-md-5"><%= ff.text_field :role %></li>
                     <li class="col-md-4"><%= ff.text_field :skill %></li>
-                    <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                    <%= ff.remove_nested_fields_link 'Supprimer' ,class: 'fa fa-close' %>
                   </ul>
                 <%end%>
                 <%= f.add_nested_fields_link :professional_experiences, 'Ajouter une autre expérience professionnelle' %>
@@ -211,7 +211,7 @@
                     <li class="col-md-1"><%= ff.text_field :year %></li>
                     <li class="col-md-2"><%= ff.text_field :project_type, :value => 'scolaire'%></li>
                     <li class="col-md-5"><%= ff.text_field :content %></li>
-                    <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                    <%= ff.remove_nested_fields_link 'Supprimer' ,class: 'fa fa-close' %>
                   </ul>
                 <%end%>
                 <%= f.add_nested_fields_link :project_applicants, 'Ajouter un autre projet scolaire' %>
@@ -241,7 +241,7 @@
                         <%= link_to 'Aperçu de la pièce jointe', ff.object.file.url, class: "button-file hidden", target: '_blank' %>
                       </li>
 
-                    <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                    <%= ff.remove_nested_fields_link 'Supprimer' ,class: 'fa fa-close' %>
                   </ul>
                 <%end%>
                 <%= f.add_nested_fields_link :applicant_attachment, 'Ajouter une pièce jointe' %>
