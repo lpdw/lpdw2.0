@@ -1,5 +1,9 @@
 <% provide :title_admin, 'Bons plans' %>
 <h1>Gérer les bons plans</h1>
+<%= link_to(admin_v2_tipcategories_path,:style=>'margin-left:10px;',:class=>'button button-blue float-right') do %>
+    <span>Gestion catégorie bon plan</span> <i class="fa fa-newspaper-o"></i>
+<% end %>
+
 <%= link_to(new_admin_v2_tip_path,:class=>'button button-blue float-right') do %>
     <span>Créer bon plan</span> <i class="fa fa-newspaper-o"></i>
 <% end %>

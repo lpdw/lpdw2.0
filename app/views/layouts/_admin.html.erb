@@ -31,7 +31,7 @@
                         <% if current_user.role === "intervenant" %>
                             <li><%= link_to(admin_edit_user_path(current_user.id)) do %><i class="fa fa-pencil"></i> Mon profil<% end %></li>
                         <% end %>
-                        <li><%= link_to admin_show_applicants_path() do %> <i class="fa fa-mortar-board"> </i>Candidatures<% end %></i> </li>
+                        <li><%= link_to admin_show_applicants_path() do %> <i class="fa fa-mortar-board"> </i>Candidatures<% end %></li>
                         <li><%= link_to admin_v2_actualities_path() do %><i class="fa fa-newspaper-o"></i> Actualités <% end %></li>
                         <% if current_user.role === "admin" %>
                             <li><%= link_to admin_v2_users_path do %><i class="fa fa-user"></i> Utilisateurs <% end %></li>
@@ -39,7 +39,7 @@
                             <li><%= link_to admin_show_projects_path() do %><i class="fa fa-file-text"></i>  Projets <% end %></li>
                             <li><%= link_to admin_show_interview_path() do %><i class="fa fa-calendar"></i>  Entretien <% end %></li>
                             <li><%= link_to admin_v2_admin_show_companies_path() do %><i class="fa fa-building-o"></i>  Entreprises <% end %></li>
-                            <li><%= link_to admin_v2_admin_show_jobs_path() do %><i class="fa fa-list-alt"></i>  Offres d'emplois <% end %></li>
+                            <li><%= link_to admin_v2_admin_show_jobs_path() do %><i class="fa fa-list-alt"></i>  Offres d'emploi <% end %></li>
                             <li><%= link_to admin_v2_tips_path() do %><i class="fa fa-calendar"></i>  Bons plans <% end %></li>
                         <% end %>
                         <li class="visible-xs-block"><%= link_to 'Se déconnecter', destroy_user_session_path(),:method => 'delete' %></li>

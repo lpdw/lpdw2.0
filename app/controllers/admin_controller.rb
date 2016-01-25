@@ -176,7 +176,7 @@ admin_restriction_area
       if @status.applicant_response.zero?
         @status.applicant.user.update_attributes!(role: 'applicant')
       else
-        @status.applicant.user.update_attributes!(role: 'student')
+        @status.applicant.user.update_attributes!(role: 'student', name: @status.applicant.first_name, lastname: @status.applicant.name)
       end
       redirect_to admin_show_applicants_path
     end
@@ -465,6 +465,27 @@ admin_restriction_area
     end
     redirect_to admin_show_options_path()
   end
+
+  def graduate_student
+    # == Admin restriction == #
+    admin_restriction_area
+    @user=User.find(params[:id])
+    if @user.users_info.graduation_year == 0
+      if @user.users_info.update_column(:graduation_year, Date.today.strftime('%Y'))
+        flash["sucess"] ='Mise à jour effectuée'
+      else
+        flash["sucess"] ='Erreur de mise à jour'
+      end
+    else
+      if @user.users_info.update_column(:graduation_year, 0)
+        flash["sucess"] ='Mise à jour effectuée'
+      else
+        flash["sucess"] ='Erreur de mise à jour'
+      end
+    end
+    redirect_to admin_v2_users_path()
+  end
+
 
   private
 

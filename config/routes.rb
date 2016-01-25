@@ -22,6 +22,7 @@ path: '/',
     resources :actualities, except: [:show]
     resources :users, except: [:show]
     resources :tips, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
+    resources :tipcategories, only: [:new ,:create ,:edit, :destroy ,:index]
 
     # Route company
     get 'create_company' => 'companies#create_company', :as => 'admin_create_company'
@@ -38,6 +39,8 @@ path: '/',
     get 'edit_job/:id' => 'jobs#edit_job', :as => 'admin_edit_job'
     patch 'edit_job/:id' => 'jobs#update_job', :as => 'admin_update_job'
     get 'delete_job/:id' => 'jobs#delete_job', :as => 'admin_delete_job'
+    get 'enable/:id' => 'jobs#enable_job', :as => 'admin_enable_job'
+    get 'disable/:id' => 'jobs#disable_job', :as => 'admin_disable_job'
   end
 
   resource :applicant, only: [:new, :create, :edit, :update, :show]
@@ -66,6 +69,7 @@ path: '/',
   post 'admin/edit_user/:id' => 'admin#update_user'
   post 'admin/create_user' => 'admin#new'
   get 'admin/delete_user/:id' => 'admin#delete_user', :as => 'admin_delete_user'
+  get 'admin/student_old/:id/graduate_student' => 'admin#graduate_student', :as => 'admin_graduate_student'
 
 
   #get 'admin/create_actuality' => 'admin#create_actuality'
@@ -120,6 +124,14 @@ path: '/',
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
 
+  get '/studentsbook', :to => 'student#show', :as => 'students_list'
+  get '/studentsbook/:graduation_years' , :to => 'student#show', :as => 'students_list_by_year'
+  post 'studentsbook/', :to => 'student#show'
+  post 'studentsbook/:graduation_years', :to => 'student#show'
+  get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
+  post '/studentprofil/sendmail', :to => 'student#sendmail'
+  get '/studentprofil/edit/:user_id', :to => 'student#edit', :as => 'student_profil_edit'
+  post '/studentprofil/update_user/:user_id', :to => 'student#update_user'
   resources :tips, only: [:show,:index] do
     resources :errors_tips
   end
