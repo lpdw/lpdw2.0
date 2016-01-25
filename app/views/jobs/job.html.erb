@@ -16,41 +16,57 @@
 				<h1 class="new-title text-center"><%= @job.job_name %></h1>
 
 				<div class="row date-job">
-					<div class="col-md-4 text-center"><strong>Date d'apparition :</strong> <%= @job.start_at %></div>
+					<div class="col-md-4 text-center"><strong>Date d'apparition :</strong> <%= @job.created_at.strftime("%m/%d/%Y") %></div>
+					<% if @job.start_at %>
 					<div class="col-md-4 text-center"><strong>Date de début :</strong> <%= @job.start_at %></div>
+					<% end %>
+					<% if @job.duration %>
 					<div class="col-md-4 text-center"><strong>Durée du contrat :</strong> <%= @job.duration %></div>
+					<% end %>
 				</div>
 
 				<div class="container formation">
 					<div class="col-md-offset-2 col-md-8">
 
 						<blockquote>
+							<% if @job.company %>
 							<h2><%= link_to @job.company.name, company_path(@job.company.id) %></h2>
 							<strong>Contact :</strong> <%= @job.company.phone_number %> - <%= @job.contact %>
+							<% else %>
+							<strong>Contact : </strong> <%= @job.contact %>
+							<% end %>
 						</blockquote>
 
 					</div>
 				</div>
 
+				<% if @job.job_number %>
 				<div class="col-md-12">
 					<h2>Description de l'offre N° <%= @job.job_number %></h2>			
 					<%= raw @job.job_description %>
 				</div>
+				<% end %>
 
+				<% if @job.profil %>
 				<div class="col-md-4 text-center">
 					<h2>Profil recommandé</h2>	
 					<%= @job.profil %>
 				</div>
+				<% end %>
 
+				<% if @job.skills %>
 				<div class="col-md-4 text-center">
 					<h2>Compétences requises</h2>
 					<%= @job.skills %>
 				</div>
+				<% end %>
 
+				<% if @job.location %>
 				<div class="col-md-4 text-center">
 					<h2>Lieu du contrat</h2>
 					<%= @job.location %>
 				</div>
+				<% end %>
 
 			</article>
 

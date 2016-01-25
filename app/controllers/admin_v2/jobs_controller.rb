@@ -8,6 +8,7 @@ class AdminV2::JobsController < AdminV2Controller
 	def create_job
 		@title_admin = "Offre d'emploi"
 		@job = Job.new
+		@job.status = 1
 		@companies = Company.all
 	end
 
@@ -34,8 +35,9 @@ class AdminV2::JobsController < AdminV2Controller
 	def update_job
 		@title_admin = "Offre d'emploi"
 		@job = Job.find(params[:id])
+		@job.company_id = (params[:company_id] === "0") ? nil : params[:company_id]
 
-		if @job.update_attributes(params[:job].permit(:job_name, :job_number, :job_description, :start_at, :duration, :profil, :contact, :location, :skills))
+		if @job.update_attributes(params[:job].permit(:job_name, :job_number, :job_description, :start_at, :duration, :profil, :contact, :location, :skills, :status))
 			flash["sucess"] = "Offre d'emploi mise à jour"
 			redirect_to admin_v2_admin_show_jobs_path
 		else
@@ -52,6 +54,32 @@ class AdminV2::JobsController < AdminV2Controller
 		else
 			flash[:error] = "Erreur de suppression d'offre d'emploi"
 			redirect_to admin_v2_admin_show_jobs_path
+		end
+	end
+
+	def enable_job
+		@job = Job.find(params[:id])
+		@job.status = 1
+			
+		if @job.save
+			flash["sucess"] = "Offre d'emploi activée"
+			redirect_to admin_v2_admin_show_jobs_path
+		else
+			flash["fail"] = "Erreur"
+			redirect_to admin_v2_admin_show_job_path
+		end
+	end
+
+	def disable_job
+		@job = Job.find(params[:id])
+		@job.status = 0
+			
+		if @job.save
+			flash["sucess"] = "Offre d'emploi désactivée"
+			redirect_to admin_v2_admin_show_jobs_path
+		else
+			flash["fail"] = "Erreur"
+			redirect_to admin_v2_admin_show_job_path
 		end
 	end
 
