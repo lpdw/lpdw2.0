@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20151018183108) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "step_position"
+    t.boolean  "graduation",      default: false
   end
 
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true
@@ -220,10 +221,28 @@ ActiveRecord::Schema.define(version: 20151018183108) do
     t.string   "description"
     t.string   "linkin"
     t.integer  "id_applicant"
+    t.string   "facebook"
+    t.string   "github"
+    t.string   "googleplus"
+    t.date     "birth"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "users_infos", force: true do |t|
+    t.integer "user_id"
+    t.string  "current_job_title"
+    t.text    "current_job_desc",       limit: 4294967295
+    t.string  "lp_job_title"
+    t.text    "lp_job_desc",            limit: 4294967295
+    t.integer "graduation_year",        limit: 4
+    t.string  "current_average_salary"
+    t.string  "lp_average_salary"
+    t.binary  "cv"
+  end
+
+  add_index "users_infos", ["id"], name: "index_users_infos_on_id", unique: true
 
   create_table "votes", force: true do |t|
     t.integer  "id_applicant"
