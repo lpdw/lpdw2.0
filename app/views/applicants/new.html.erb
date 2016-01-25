@@ -94,7 +94,7 @@
                     <%= f.nested_fields_for :other_application, wrapper_tag: :div do |ff| %>
                       <li class="col-sm-6 school_item">
                         <%= ff.text_field :content, "required"=> ''%>
-                        <%= ff.remove_nested_fields_link 'Remove' ,class: 'fa fa-close' %>
+                        <%= ff.remove_nested_fields_link 'Supprimer' ,class: 'fa fa-close' %>
                       </li>
                     <%end%>
                 </div>

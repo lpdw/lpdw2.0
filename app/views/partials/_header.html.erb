@@ -54,19 +54,19 @@ Enjoy :)
               <li class="dropdown right-navbar">
                 <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i>  <%= current_user.display_name %> <span class="caret"></span></a>
                 <ul id="g-account-menu" class="dropdown-menu" role="menu">
-                  <li><%= link_to edit_user_path do %><i class="fa fa-user"></i>  Profil <% end %></li>
+                  <li><%= link_to edit_user_path do %><i class="fa fa-user fa-lg fa-fw"></i>  Profil <% end %></li>
                   <% unless current_user.admin? %>
-                    <li><%= link_to edit_applicant_path do %><i class="fa fa-folder"></i>  Candidature <% end %></li>
+                    <li><%= link_to edit_applicant_path do %><i class="fa fa-folder fa-lg fa-fw"></i>  Candidature <% end %></li>
                   <% else %>
-                    <li><%= link_to admin_path do %><i class="fa fa-gears"></i>  Administration <% end %></li>
+                    <li><%= link_to admin_path do %><i class="fa fa-gears fa-lg fa-fw"></i>  Administration <% end %></li>
                   <% end %>
 		  <% if current_user.admin? or current_user.student? %>
-		    <li><%= link_to annuary_path do %><i class="fa fa-list"></i>  Annuaire<% end %></li>
+		    <li><%= link_to annuary_path do %><i class="fa fa-list fa-lg fa-fw"></i>  Annuaire<% end %></li>
 		  <% end %>
 
                   <li>
                     <%= link_to(destroy_user_session_path(),:method => 'delete') do %>
-                    <i class="fa fa-sign-out fa-fw"></i> Se déconnecter
+                    <i class="fa fa-sign-out fa-lg fa-fw"></i> Se déconnecter
                     <% end %>
                   </li>
                 </ul>
