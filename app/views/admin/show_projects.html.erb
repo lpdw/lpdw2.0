@@ -19,7 +19,7 @@
                 <%= link_to(admin_edit_project_path(project)) do %>
                 <i class="fa fa-pencil"></i> Modifier
                 <% end %>
-                <%= link_to(admin_delete_project_path(project)) do %>
+                <%= link_to(admin_delete_project_path(project), data: {confirm: "Êtes-vous sûr de vouloir supprimer le projet '#{project.name}' ?"}) do %>
                 <i class="fa fa-trash-o"></i> Supprimer
                 <% end %>
             </td>
