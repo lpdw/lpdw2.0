@@ -9,8 +9,8 @@
       <%= label_tag(:q, "Année de Promo:") %>
         <select name="filter">
           <% @graduationYears.each do |year| %>
-              <% promo = (year.graduation_year == 0||!year.graduation_year.present? ? 'Année en cours' : year.graduation_year) %>
-              <% if params[:graduation_years].to_i == year.graduation_year %>
+              <% promo = (year == 0||!year.present? ? 'Année en cours' : year) %>
+              <% if params[:graduation_years].to_i == year %>
                   <option selected="selected"><%= promo %></option>
               <% else %>
                   <option><%= promo %></option>
