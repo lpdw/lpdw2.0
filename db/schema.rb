@@ -179,6 +179,12 @@ ActiveRecord::Schema.define(version: 20151016093438) do
     t.datetime "thumbmail_updated_at"
   end
 
+  create_table "tipcategories", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tips", force: true do |t|
     t.string   "title"
     t.text     "description"

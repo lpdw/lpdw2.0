@@ -9,6 +9,13 @@ textarea{
 
 }
 
+.plan iframe{
+
+  width: 100%!important;
+  height: 430px!important;
+
+}
+
 .btn{
   margin-bottom: 10px!important;
 
@@ -36,7 +43,7 @@ textarea{
 }
 
 .plan{
-  height: 350px;
+  height: auto;
 }
 
 .plan, .info{
@@ -95,5 +102,13 @@ textarea{
 
   .report.btn-danger{
     float: right;
+  }
+}
+
+@media screen and (max-width: 991px){
+
+  .plan{
+
+    padding-left: 0!important;
   }
 }

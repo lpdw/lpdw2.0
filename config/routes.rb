@@ -22,6 +22,7 @@ path: '/',
     resources :actualities, except: [:show]
     resources :users, except: [:show]
     resources :tips, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
+    resources :tipcategories, only: [:new ,:create ,:edit, :destroy ,:index]
 
     # Route company
     get 'create_company' => 'companies#create_company', :as => 'admin_create_company'
