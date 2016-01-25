@@ -1,0 +1,60 @@
+<section class="banner banner-blue banner-team">
+  <div class="container">
+    <p>Annuaire des anciens</p>
+  </div>
+</section>
+<div class="title-center">
+  <h1>Filtres</h1>
+  <%= form_tag({:action => 'show'}, {:method => :post})  do |f| %>
+      <%= label_tag(:q, "Année de Promo:") %>
+        <select name="filter">
+          <% @graduationYears.each do |year| %>
+              <% promo = (year == 0||!year.present? ? 'Année en cours' : year) %>
+              <% if params[:graduation_years].to_i == year %>
+                  <option selected="selected"><%= promo %></option>
+              <% else %>
+                  <option><%= promo %></option>
+              <% end %>
+          <% end %>
+        </select>
+      <%= submit_tag("Valider") %>
+  <% end %>
+</div>
+<div class="student-list team-profiles">
+  <div class="container">
+    <div class="row">
+      <% @student.each do |student| %>
+          <% if student.name? %>
+              <article class="col-sm-4 col-md-3">
+                <div class="team-profile">
+                  <figure>
+                        <% if student.photo? %>
+                            <img src="<%= student.photo %>" alt=."" class="img-responsive">
+                        <% else %>
+                        <img src="/assets/default_user.jpg" class="img-responsive">
+                        <% end %>
+                  </figure>
+                  <%= link_to student_profil_path(student) do %>
+                    <h4 class="text-center"><%= student.name%> <%= student.lastname.upcase%></h4>
+                  <% end %>
+                  <p class="text-center job-title"><%= student.description%></p>
+                  <% if student.twitter.present? or student.linkin.present? %>
+                      <ul class="social_section text-center">
+                        <% if student.twitter.present? %>
+                            <li><a target="_blank" href=<%= student.twitter%>><i class="fa fa-twitter"></i></a></li>
+                        <% end %>
+                        <% if student.googleplus.present? %>
+                            <li><a target="_blank" href=<%= student.googleplus%>><i class="fa fa-google-plus"></i></a></li>
+                        <% end %>
+                        <% if student.linkin.present? %>
+                            <li><a target="_blank" href=<%= student.linkin%>><i class="fa fa-linkedin"></i></a></li>
+                        <% end %>
+                      </ul>
+                  <% end %>
+                </div>
+              </article>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

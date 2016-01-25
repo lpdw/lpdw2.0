@@ -276,3 +276,15 @@ body {
         top: 75px;
     }
 }
+
+.nonGraduateStudent{
+  cursor: pointer;
+  .red{
+    color: #a94442 !important;
+  }
+}
+
+.graduateStudent{
+  cursor: pointer;
+  margin-left: 4px;
+}

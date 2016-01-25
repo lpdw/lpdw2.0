@@ -24,3 +24,6 @@
 public/*
 
 .env
+
+schema.rb
+config/database.yml

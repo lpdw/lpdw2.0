@@ -67,6 +67,7 @@ path: '/',
   post 'admin/edit_user/:id' => 'admin#update_user'
   post 'admin/create_user' => 'admin#new'
   get 'admin/delete_user/:id' => 'admin#delete_user', :as => 'admin_delete_user'
+  get 'admin/student_old/:id/graduate_student' => 'admin#graduate_student', :as => 'admin_graduate_student'
 
 
   #get 'admin/create_actuality' => 'admin#create_actuality'
@@ -121,6 +122,14 @@ path: '/',
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
 
+  get '/studentsbook', :to => 'student#show', :as => 'students_list'
+  get '/studentsbook/:graduation_years' , :to => 'student#show', :as => 'students_list_by_year'
+  post 'studentsbook/', :to => 'student#show'
+  post 'studentsbook/:graduation_years', :to => 'student#show'
+  get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
+  post '/studentprofil/sendmail', :to => 'student#sendmail'
+  get '/studentprofil/edit/:user_id', :to => 'student#edit', :as => 'student_profil_edit'
+  post '/studentprofil/update_user/:user_id', :to => 'student#update_user'
   resources :tips, only: [:show,:index] do
     resources :errors_tips
   end
