@@ -47,6 +47,21 @@ class User < ActiveRecord::Base
     end
   end
 
+  def display_role
+    case role
+    when 'student'
+      'Etudiant'
+    when 'admin'
+      'Administrateur'
+    when 'applicant'
+      'Candidat'
+    when 'intervenant'
+      'Intervenant'
+    when 'default', nil
+      'Défaut'
+    end
+  end
+
   def student?
     role == 'student'
   end
