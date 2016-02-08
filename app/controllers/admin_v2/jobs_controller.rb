@@ -14,7 +14,7 @@ class AdminV2::JobsController < AdminV2Controller
 
 	def new_job
 		@title_admin = "Offre d'emploi"
-		@job = Job.new(params[:job].permit(:job_name, :job_number, :job_description, :start_at, :duration, :profil, :contact, :location, :skills))
+		@job = Job.new(params[:job].permit(:job_name, :job_number, :job_description, :start_at, :duration, :profil, :contact, :location, :skills, :status))
 		@job.company_id = params[:company_id]
 	
 		if @job.save
