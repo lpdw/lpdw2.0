@@ -1,0 +1,55 @@
+<section class="banner banner-blue banner-news">
+    <div class="container">
+        <p>Actualités</p>
+    </div>
+</section>
+<div class="bg-white">
+    <div class="container-fluid">
+        <div class="row">
+            <section class="col-md-8 timeline-news">
+                <div class="row">
+                    <% @actualities.each do |actuality| %>
+                    <article class="timeline-new col-md-11">
+                        <span class="timeline-new-icon"></span>
+                        <div class="timeline-new-contents">
+                            <div class="timeline-new-info">
+                                <p><strong><%= actuality.title %></strong></p>
+                                <p><small><%= actuality.created_at.to_time.strftime("%d/%m/%Y") %></small></p>
+                            </div>
+                            <p class="timeline-new-resume"><%= HTML_Truncator.truncate((actuality.content),40).html_safe %></p>
+
+                            <%= link_to(actuality,:class=>'button-timeline') do %>
+                           <span>Lire la suite</span> <i class="fa fa-chevron-right"></i>
+                           <% end %>
+                        </div>
+                    </article>
+                    <% end %>
+                </div>
+                <!-- <a href="#" class="view-more">Voir plus</a> -->
+            </section>
+            <div class="col-md-4 back-grey5 ">
+                <div class="row live-message">
+
+                    <!-- compte officiel -->
+                    <div class="col-md-12">
+                      <article class="col-md-12">
+                        <h2>Le compte officiel</h2>
+
+                        <a class="twitter-timeline" href="https://twitter.com/LPDW_UCP" data-widget-id="555838677675679744">Tweets de @LPDW_UCP</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                      </article>
+                    </div>
+
+                    <!-- hashtags -->
+                    <div class="col-md-12">
+                      <article class="col-md-12">
+                        <h2>Vos réactions</h2>
+                        <a class="twitter-timeline" href="https://twitter.com/hashtag/lpdw_ucp" data-widget-id="555838988867870722">Tweets sur #lpdw_ucp</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                      </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

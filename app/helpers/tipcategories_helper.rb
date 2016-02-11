@@ -1,0 +1,2 @@
+module TipcategoriesHelper
+end

@@ -1,0 +1,21 @@
+<hr class="horizontal-line gray-bg">
+<div class="bg-white new">
+    <div class="container">
+        <div class="row">
+            <article class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <%= link_to(actualities_path,:class=>'more-article') do %>
+                    <i class="fa fa-chevron-left"></i><span>Revenir à la liste des articles</span>
+                    <% end %>
+                    <div class="col-md-12 new-info">
+                        <h1 class="new-title"><%= @actuality.title %></h1>
+                        <p class="new-date"><%= (@actuality.created_at).strftime("%d/%m/%Y") %></p>
+                    </div>
+                    <div class="col-md-9">
+                    <%= @actuality.content.html_safe %>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

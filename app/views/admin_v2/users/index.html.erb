@@ -1,0 +1,52 @@
+<% provide :title_admin, 'Utilisateurs' %>
+<h1>Gérer les comptes utilisateurs</h1>
+<%= link_to(new_admin_v2_user_path, :class => 'button button-blue float-right') do %>
+    <span>Créer un utilisateur</span> <i class="fa fa-user"></i>
+<% end %>
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Prénom</th>
+    <th>Nom</th>
+    <th>Rôle</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td data-th="ID"><%= user.id %></td>
+        <td data-th="Email"><%= user.email %></td>
+        <td data-th="Prénom"><%= user.name %></td>
+        <td data-th="Nom"><%= user.lastname %></td>
+        <td data-th="Rôle"><%= user.role %></td>
+        <td data-th="Action">
+          <%= link_to(edit_admin_v2_user_path(user)) do %>
+              <i class="fa fa-pencil"></i> Modifier
+          <% end %>
+          <%= link_to(admin_v2_user_path(user), method: :delete, data: {confirm: "Êtes-vous sûr de vouloir supprimer cet utilisateur '#{user.email}' ?"}, class: 'button button-red user-delete') do %>
+              <i class="fa fa-trash-o"></i> Supprimer
+          <% end %>
+          <% if user.role == "student" && user.users_info.present? %>
+              <% if user.users_info.graduation_year == 0 || user.users_info.graduation_year == nil %>
+                  <%= link_to(admin_graduate_student_path(user)) do %>
+                            <span class="fa-stack nonGraduateStudent">
+                            <i class="fa fa-graduation-cap fa-stack-1x"></i>
+                            <i class="fa fa-ban fa-stack-2x text-danger red"></i>
+                            </span>
+                      Passer en étudiant diplomé
+                  <% end %>
+              <% else %>
+                  <%= link_to(admin_graduate_student_path(user)) do %>
+                      <i class="fa fa-graduation-cap graduateStudent"></i>
+                      Passer en étudiant non diplomé
+                  <% end %>
+              <% end %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

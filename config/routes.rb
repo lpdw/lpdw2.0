@@ -4,17 +4,47 @@ Rails.application.routes.draw do
   #devise_for :users, :path => '', :path_names => {sign_in: 'admin/login', sign_out:  'logout', sign_up: 'create'}
 
 devise_for :users, :controllers => {:sessions => "sessions"},
-:path => '',
+path: '/',
 :path_names => {
     :sign_in  => 'login',
-    :sign_out => 'logout',
-    :sign_up => 'login'
+    :sign_up  => 'sign_up',
+    :sign_out => 'logout'
   }
 
   # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # See how all your routes lay out with "rake routes".SSS
 
-root 'pages#home'
+  root 'pages#home'
+  resources :actualities, only: [:index, :show]
+  resources :tips, only: [:index, :show]
+
+  namespace :admin_v2 do
+    resources :actualities, except: [:show]
+    resources :users, except: [:show]
+    resources :tips, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
+    resources :tipcategories, only: [:new ,:create ,:edit, :destroy ,:index]
+
+    # Route company
+    get 'create_company' => 'companies#create_company', :as => 'admin_create_company'
+    post 'create_company' => 'companies#new_company', :as => 'admin_new_company'
+    get 'show_companies' => 'companies#show_companies', :as => 'admin_show_companies'
+    get 'edit_company/:id' => 'companies#edit_company', :as => 'admin_edit_company'
+    post 'edit_company/:id' => 'companies#update_company', :as => 'admin_update_company'
+    get 'delete_company/:id' => 'companies#delete_company', :as => 'admin_delete_company'
+
+    # Route job 
+    get 'create_job' => 'jobs#create_job', :as => 'admin_create_job'
+    post 'create_job' => 'jobs#new_job', :as => 'admin_new_job'
+    get 'show_jobs' => 'jobs#show_jobs', :as => 'admin_show_jobs'
+    get 'edit_job/:id' => 'jobs#edit_job', :as => 'admin_edit_job'
+    patch 'edit_job/:id' => 'jobs#update_job', :as => 'admin_update_job'
+    get 'delete_job/:id' => 'jobs#delete_job', :as => 'admin_delete_job'
+    get 'enable/:id' => 'jobs#enable_job', :as => 'admin_enable_job'
+    get 'disable/:id' => 'jobs#disable_job', :as => 'admin_disable_job'
+  end
+
+  resource :applicant, only: [:new, :create, :edit, :update, :show]
+  resource :user, only: [:edit,:update]
 
   get 'admin/show_applicants' => 'admin#show_applicants'
   get 'admin/show_applicant/:id' => 'admin#show_applicant', :as => 'admin_show_applicant'
@@ -39,14 +69,15 @@ root 'pages#home'
   post 'admin/edit_user/:id' => 'admin#update_user'
   post 'admin/create_user' => 'admin#new'
   get 'admin/delete_user/:id' => 'admin#delete_user', :as => 'admin_delete_user'
+  get 'admin/student_old/:id/graduate_student' => 'admin#graduate_student', :as => 'admin_graduate_student'
 
 
-  get 'admin/create_actuality' => 'admin#create_actuality'
-  post 'admin/create_actuality' => 'admin#new_actuality'
-  get 'admin/edit_actuality/:id' => 'admin#edit_actuality', :as => 'admin_edit_actuality'
-  get 'admin/show_actualities' => 'admin#show_actualities'
-  post 'admin/edit_actuality/:id' => 'admin#update_actuality'
-  get 'admin/delete_actuality/:id' => 'admin#delete_actuality', :as => 'admin_delete_actuality'
+  #get 'admin/create_actuality' => 'admin#create_actuality'
+  #post 'admin/create_actuality' => 'admin#new_actuality'
+  #get 'admin/edit_actuality/:id' => 'admin#edit_actuality', :as => 'admin_edit_actuality'
+  #get 'admin/show_actualities' => 'admin#show_actualities'
+  #post 'admin/edit_actuality/:id' => 'admin#update_actuality'
+  #get 'admin/delete_actuality/:id' => 'admin#delete_actuality', :as => 'admin_delete_actuality'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
 
   get 'admin/create_alert' => 'admin#create_alert'
@@ -71,19 +102,21 @@ root 'pages#home'
   get 'admin/show_options' => 'admin#show_options'
   post 'admin/update_options' => 'admin#update_options'
 
-
+  # routes annuaire etudiant
+  get '/annuaire' => 'companies#annuary', :as => 'annuary'
+  get '/entreprises/:page' => 'companies#companies', :as => "companies", defaults: { page: 1 }
+  get '/entreprise/:id' => 'companies#company', :as => "company"
+  get '/offres/:page' => 'jobs#jobs', :as => 'jobs', defaults: {page: 1}
+  get '/offre/:id' => 'jobs#job', :as => 'job'
 
   get '/', :to => 'pages#home'
-  get '/actualites', :to => 'pages#news'
-  get '/actualites/:id' => 'pages#new'
-  get '/actualites/:id' => 'pages#new', :as => 'actuality_show'
   get '/formation', :to => 'pages#formation'
   get '/projets', :to => 'pages#project'
   get '/equipe', :to => 'pages#team'
   get '/ucp', :to => 'pages#ucp'
   get '/informations', :to => 'pages#map'
   post '/informations/sendmail', :to => 'pages#sendmail'
-  get '/postuler', :to => 'applicant#apply'
+  get '/postuler', :to => 'applicants#new'
   post '/postuler/login', :to => 'applicant#applicant_login', :as => 'applicant_login'
   get '/postuler/:assurance', :to => 'applicant#applicant_create_apply', :as => 'applicant_create_apply'
   post '/postuler/new', :to => 'applicant#create_apply', :as => 'create_apply'
@@ -91,4 +124,15 @@ root 'pages#home'
   get '/mentions', :to => 'pages#mentions'
   get '/live', :to => 'pages#live'
 
+  get '/studentsbook', :to => 'student#show', :as => 'students_list'
+  get '/studentsbook/:graduation_years' , :to => 'student#show', :as => 'students_list_by_year'
+  post 'studentsbook/', :to => 'student#show'
+  post 'studentsbook/:graduation_years', :to => 'student#show'
+  get '/studentprofil/:user_id', :to => 'student#profil', :as => 'student_profil'
+  post '/studentprofil/sendmail', :to => 'student#sendmail'
+  get '/studentprofil/edit/:user_id', :to => 'student#edit', :as => 'student_profil_edit'
+  post '/studentprofil/update_user/:user_id', :to => 'student#update_user'
+  resources :tips, only: [:show,:index] do
+    resources :errors_tips
+  end
 end

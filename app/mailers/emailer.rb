@@ -22,4 +22,22 @@ class Emailer < ActionMailer::Base
   def reminder (applicant)
     mail( to: applicant.email, subject: '[LPDW] Candidature en cours')
   end
+
+   def error_tips(params)
+     @admin_mail = "jdmangubu@gmail.com"
+     @params = params
+     if @params[:email].empty? || @params[:description].empty?
+       false
+     else
+       mail( to: @admin_mail, subject: '[LPDW] Erreur bon plans')
+     end
+   end
+
+
+  def contact_old_student (params, email_to)
+    @contact_email = params["contact_email"]
+    @contact_object = params["contact_object"]
+    @contact_message = params["contact_message"]
+    mail( to: email_to, subject: '[LPDW] Demande de contact via l\' annuaire des anciens')
+  end
 end

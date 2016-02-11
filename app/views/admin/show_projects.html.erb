@@ -14,12 +14,12 @@
     <% @projects.each do |project| %>
         <tr>
             <td data-th="ID"><%= project.id %></td>
-            <td data-th="Title"><%= project.name %></td>
+            <td data-th="Nom du projet"><%= project.name %></td>
             <td data-th="Action">
                 <%= link_to(admin_edit_project_path(project)) do %>
                 <i class="fa fa-pencil"></i> Modifier
                 <% end %>
-                <%= link_to(admin_delete_project_path(project)) do %>
+                <%= link_to(admin_delete_project_path(project), data: {confirm: "Êtes-vous sûr de vouloir supprimer le projet '#{project.name}' ?"}) do %>
                 <i class="fa fa-trash-o"></i> Supprimer
                 <% end %>
             </td>

@@ -11,17 +11,19 @@ $color-8: #f39c12;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "admin/components/button";
+@import "admin/components/dropdown";
 @import "admin/modules/alert";
 @import "admin/modules/header";
 @import "admin/modules/sidebar";
 @import "admin/modules/form";
 @import "admin/modules/table";
 @import "admin/show_users";
-@import "admin/create_user";
+@import "admin/users";
 @import "admin/applicants";
 @import "admin/applicant";
 @import "admin/interview";
 @import 'bootstrap-datetimepicker';
+@import 'datatables';
 
 * {
     outline: none;
@@ -273,4 +275,16 @@ body {
         left: 25px;
         top: 75px;
     }
+}
+
+.nonGraduateStudent{
+  cursor: pointer;
+  .red{
+    color: #a94442 !important;
+  }
+}
+
+.graduateStudent{
+  cursor: pointer;
+  margin-left: 4px;
 }

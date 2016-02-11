@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Gestion d'un bon plan</h2>
+  <%= form_for ([:admin_v2, @category]) do |f| %>
+      <form class="row">
+        <div class="col-md-11">
+          <h4>Titre de la catégorie*</h4>
+          <%= f.text_field :title, :class => 'input' ,:placeholder =>'Titre de la catégorie', required: 'required'%>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <p class="text-center">*: champs requis</p>
+            <%= f.submit "Valider", :class => 'input-btn'%>
+          </div>
+        </div>
+        <div id="map"> <!-- GoogleMap here -->
+        </div><!-- /.col-xs-12 main -->
+      </form><!--/.row-->
+      </div><!--/.container-->
+  <% end %>

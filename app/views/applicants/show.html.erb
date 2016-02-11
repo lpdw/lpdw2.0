@@ -1,0 +1,31 @@
+<section class="banner banner-blue banner-postuler">
+  <div class="container">
+      <p>Postuler</p>
+    </div>
+</section>
+<div class="container first_apply">
+  <% if flash[:error] %>
+    <div class="alert alert-orange"><%= flash[:error] %></div>
+  <% elsif flash[:success] %>
+    <div class="alert alert-green"><%= flash[:success] %></div>
+  <% end %>
+  <% if on_show_route_apply %>
+  <div class="button_wrapper row">
+    <a href="./LPDW-Candidature-2015-16.pdf" class="button">Télécharger le dossier de candidature</a>
+    <span class="separator hidden-xs">OU</span>
+    <% if current_user %>
+      <a href="#" id="fill_form" class="button hidden-xs">Remplir le dossier de candidature</a>
+    <% else %>
+      <%= link_to 'Créer un dossier de candidature', new_user_registration_path(role: 'applicant'), class: 'button hidden-xs' %>
+    <% end %>
+
+    <%= link_to('Déjà commencé à remplir? Reprenez-en là où vous en étiez', new_user_session_path, class: "button_2")  %>
+
+  </div>
+
+  <% else %>
+  <div class="button_wrapper row">
+    <p class="text-center lead">Les candidatures sont fermées</p>
+  </div>
+  <% end %>
+</div>

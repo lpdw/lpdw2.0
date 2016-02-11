@@ -15,7 +15,7 @@
         </div>
         <div class="col-sm-10 col-sm-offset-2 header-info">
           <% if user_signed_in? %>
-          <h2><%= @title_admin %></h2>
+          <h2><%= @title_admin || yield(:title_admin) %></h2>
           <% elsif controller_name == "registrations" and action_name == 'new'%>
           <h2>Sign up</h2>
           <% elsif controller_name == "passwords" and action_name == 'new'%>
@@ -32,7 +32,7 @@
                <li><%= link_to admin_show_options_path() do %><i class="fa fa-gears"></i>  Paramètre <% end %></li>
                   <li>
                     <%= link_to(destroy_user_session_path(),:method => 'delete') do %>
-                    <i class="fa fa-sign-out fa-fw"></i> Se déconnecter
+                    <i class="fa fa-sign-out fa-lg fa-fw"></i> Se déconnecter
                     <% end %>
                   </li>
                 </ul>

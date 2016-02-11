@@ -1,0 +1,113 @@
+<section class="banner banner-blue banner-team">
+  <div class="container">
+    <p>Annuaire des anciens</p>
+  </div>
+</section>
+<div class="student-profile">
+  <div class="container">
+
+    <div class="row">
+      <div class="student-infos">
+        <% if @student.photo? %>
+            <img src="<%= @student.photo %>" alt=."" class="col-md-3 block img-responsive">
+        <% else %>
+            <img src="/assets/default_user.jpg" class="col-md-3 block img-responsive">
+        <% end %>
+        <div class="col-md-offset-1 col-md-8">
+          <div class="row block">
+            <h1 class="col-md-8"><%= @student.lastname.upcase %>  <%= @student.name %></h1>
+            <% promo = (!@student.users_info.graduation_year.present?||@student.users_info.graduation_year == 0 ? 'Année en cours' : @student.users_info.graduation_year) %>
+            <p class="col-md-3">Promo: <%= promo %></p>
+            <p class="col-md-1">
+              <% if current_user == @student %>
+                  <%= link_to(student_profil_edit_path,:user_id => @student.id) do %>
+                      <i class="fa fa-pencil fa-2x"></i>
+                  <% end %>
+            <% end %>
+            </p>
+            <p class="birthday col-md-12">Age: <%= @student.calcAge %></p>
+          </div>
+          <div class="row social">
+            <ul>
+              <% if @student.users_info.cv.present? %>
+                  <li class="cv"><a target="_blank" href=<%= @student.users_info.cv%>>CV</a></li>
+              <% end %>
+              <% if @student.twitter.present? %>
+                  <li><a target="_blank" href=<%= @student.twitter%>><i class="fa fa-twitter fa-2x"></i></a></li>
+              <% end %>
+              <% if @student.googleplus.present? %>
+                  <li><a target="_blank" href=<%= @student.googleplus%>><i class="fa fa-google-plus fa-2x"></i></a></li>
+              <% end %>
+              <% if @student.linkin.present? %>
+                  <li><a target="_blank" href=<%= @student.linkin%>><i class="fa fa-linkedin fa-2x"></i></a></li>
+              <% end %>
+              <% if @student.email.present? %>
+                  <li><a data-toggle="modal" data-target="#contact_modal" href="#contact_modal"><i class="fa fa-envelope fa-2x"></i></a></li>
+              <% end %>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="block row">
+      <div class="student-jobs">
+        <div class="current-job">
+          <div class="row">
+            <% current_job = (@student.users_info.current_job_title.present? ? @student.users_info.current_job_title : 'Non renseigné') %>
+            <p class="col-md-2">Poste Actuel :</p> <h2 class="col-md-offset-1 col-md-9"><%= current_job %></h2>
+            <% current_salary = (@student.users_info.current_average_salary.present? ? @student.users_info.current_average_salary : 'Non renseigné') %>
+            <div class="salary row col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= current_salary %></p></div>
+          </div>
+          <% current_id = (!@student.users_info.current_job_desc.present?||current_job=='Non renseigné' ? 'hiddenDesc' : '') %>
+          <div class="row" id="<%= current_id %>">
+            <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.current_job_desc %></p>
+          </div>
+        </div>
+
+        <div class="lp-job">
+          <div class="row">
+            <% lp_job = (@student.users_info.lp_job_title.present? ? @student.users_info.lp_job_title : 'Non renseigné') %>
+            <p class="col-md-2">Poste en Licence Pro:</p> <h2 class="col-md-offset-1 col-md-9"><%= lp_job %></h2>
+            <% lp_salary = (@student.users_info.lp_average_salary.present? ? @student.users_info.lp_average_salary : 'Non renseigné') %>
+            <div class="salary row col-md-12"><p class="col-md-2">Salaire:</p> <p class="col-md-offset-1 col-md-9"><%= lp_salary %></p></div>
+          </div>
+          <% lp_id = (!@student.users_info.lp_job_desc.present?||lp_job=='Non renseigné' ? 'hiddenDesc' : '') %>
+          <div class="row" id="<%= lp_id %>">
+            <p class="col-md-2">Description :</p> <p class="col-md-offset-1 col-md-9"><%= @student.users_info.lp_job_desc %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="contact_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Formulaire de contact</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag({:action => 'sendmail'}, {:method => :post}) do |f| %>
+            <div class="form-group">
+              <label for="name_contact">Email</label>
+              <%= email_field_tag 'contact_email', nil, class: 'form-control', placeholder: 'Votre adresse email', :value => @contact_email %>
+              <%= hidden_field_tag 'contact_user_id', nil, class: 'form-control', :value => @student.id %>
+            </div>
+            <div class="form-group">
+              <label for="email_contact">Objet</label>
+              <%= text_field_tag 'contact_object', nil, class: 'form-control',placeholder:"L'objet de votre message", :value => @contact_object %>
+            </div>
+            <div class="form-group">
+              <label for="message_contact">Message</label>
+              <%= text_area_tag 'contact_message', nil, class: 'form-control',placeholder:"Votre message ici",rows: 3, :value => @contact_message %>
+            </div>
+            <%= button_tag "Envoyer", class: "btn btn-default" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

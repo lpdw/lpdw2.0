@@ -1,24 +1,36 @@
 <h1>Dossiers de candidatures</h1>
-<table class="table applicants">
+<div class="dropdown button button-blue float-right">
+  <button class="btn dropdown-toggle button button-blue text-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <%= "#{@year}/#{@year+1}" %>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <% Applicant.all_years.each do |year| %>
+        <li><a href="?year=<%= year %>"><%= "#{year}/#{year+1}" %></a></li>
+    <% end %>
+    <li><a href="?year=<%= Time.now.year+1 %>"><%= "#{Time.now.year+1}/#{Time.now.year+2}" %></a></li>
+  </ul>
+</div>
+
+<table class="table applicants" id="myTable">
     <thead>
         <tr>
-            <th>Num</th>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Date de dépot</th>
-            <th>Avis</th>
-            <th>Votre avis</th>
+            <th>N° <span class="caret"></span></th>
+            <th>Prénom <span class="caret"></span></th>
+            <th>Nom <span class="caret"></span></th>
+            <th>Mis à jour <span class="caret"></span></th>
+            <th>Avis <span class="caret"></span></th>
+            <th>Votre avis <span class="caret"></span></th>
             <th>Options</th>
-            <th class="important-section-list">Status</th>
+            <th class="important-section-list">Status <span class="caret"></span></th>
         </tr>
     </thead>
     <tbody>
-    <% @count = 1;
-    @applicants.each do |applicant| %>
+    <% @applicants.each.with_index(1) do |applicant, index| %>
         <tr>
-            <td data-th="ID" ><%= @count %></td>
-            <td data-th="Name" ><%= applicant.name %></td>
-            <td data-th="First_name" ><%= applicant.first_name %></td>
+            <td data-th="ID" ><%= index %></td>
+            <td data-th="Nom" ><%= applicant.name %></td>
+            <td data-th="Prénom" ><%= applicant.first_name %></td>
             <td data-th="Date_depot" ><%= applicant.updated_at.to_time.strftime("%d/%m/%Y") %></td>
 
             <td data-th="Vote" >
@@ -56,60 +68,12 @@
                 <span class="badge badge-green">Positif</span>
             <%  end %>
             </td>
-            <td data-th="See">
+            <td data-th="Voir">
                 <%= link_to(admin_show_applicant_path(applicant), :class=>'badge badge-blue') do %>
                 <i class="fa fa-eye"></i> voir
                 <% end %>
                 <% if current_user.role === "admin" %>
-                    <div class="option_admin_applicants">
-                        <button class="option_admin_setting badge badge-blue"><i class="fa fa-cog"></i></button>
-                        <div class="block_opened">
-                            <% if applicant.applicant_status != nil %>
-                            <% @status = applicant.applicant_status %>
-                                <% if @status.is_refused != true %>
 
-                                <% if @status.is_complete != 1 %>
-                                    <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
-                                        <%= f.hidden_field :id_applicant , :value => applicant.id %>
-                                        <%= f.hidden_field :set , :value => "1" %>
-                                        <%= f.submit "Dossier complet, ouvrir le vote", :class => 'btn btn-info' %>
-                                <%  end
-                                else %>
-                                    <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
-                                        <%= f.hidden_field :id_applicant , :value => applicant.id %>
-                                        <%= f.hidden_field :set , :value => "0" %>
-                                        <%= f.submit "Définir le dossier non complet", :class => 'btn btn-default' %>
-                                    <%  end %>
-                                <%  end %>
-                                <% if @status.ok_for_interview != true %>
-                                    <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
-                                        <%= f.hidden_field :id_applicant , :value => applicant.id %>
-                                        <%= f.hidden_field :set , :value => "1" %>
-                                    <%= f.submit "Accepter pour l'entretien", :class => 'btn btn-info' %>
-                                <%  end
-                                else %>
-                                    <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
-                                        <%= f.hidden_field :id_applicant , :value => applicant.id %>
-                                        <%= f.hidden_field :set , :value => "0" %>
-                                        <%= f.submit "Ne plus accepter pour l'entretien", :class => 'btn btn-default' %>
-                                    <%  end %>
-                                <%  end %>
-
-                                <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
-                                <%= f.hidden_field :id_applicant , :value => applicant.id %>
-                                <%= f.hidden_field :set , :value => "1" %>
-                                <%= f.submit "Refuser le dossier", :class => 'btn btn-danger' %>
-                                <%  end
-                                else %>
-                                <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
-                                <%= f.hidden_field :id_applicant , :value => applicant.id %>
-                                <%= f.hidden_field :set , :value => "0" %>
-                                <%= f.submit "Le dossier n'est plus refusé", :class => 'btn btn-success' %>
-                                <%  end %>
-                                <%  end %>
-                                <%  end %>
-                        </div>
-                    </div>
                 <% end %>
 
             </td>
@@ -122,7 +86,6 @@
                 <% end %>
             </td>
         </tr>
-        <%  @count += 1
-    end %>
+        <% end %>
     </tbody>
 </table>

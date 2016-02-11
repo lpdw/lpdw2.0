@@ -1,0 +1,48 @@
+<h1>Liste des offres d'emploi</h1>
+<%= link_to(admin_v2_admin_create_job_path(),:class=>'button button-blue float-right') do %>
+    <span>Créer une offre d'emploi</span> <i class="fa fa-newspaper-o"></i>
+<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Entreprise</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @jobs.each do |job| %>
+        <tr>
+            <td data-th="ID" ><%= job.id %></td>
+            <td data-th="Nom" ><%= job.job_name %></td>
+            <td data-th="Entreprise" >
+              <% if job.company %>
+              <%= job.company.name %>
+              <% else %>
+              N/A
+              <% end %>
+            </td>
+            <td data-th="Action" class="list-actions">
+                <%= link_to(admin_v2_admin_edit_job_path(job)) do %>
+                <i class="fa fa-pencil"></i> Modifier
+                <% end %>
+
+                <% if job.status === 1 %>
+                  <%= link_to(admin_v2_admin_disable_job_path(job)) do %>
+                  <i class="fa fa-toggle-off"></i> Désactivé
+                  <% end %>
+                <% else %>
+                  <%= link_to(admin_v2_admin_enable_job_path(job)) do %>
+                  <i class="fa fa-toggle-on"></i> Activé
+                  <% end %>
+                <% end %>
+
+                <%= link_to(admin_v2_admin_delete_job_path(job), data: {confirm: "Êtes-vous sûr de vouloir supprimer l'offre d'emploi '#{job.job_name}' ?"}) do %>
+                <i class="fa fa-trash-o"></i> Supprimer
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
