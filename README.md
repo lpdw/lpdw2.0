@@ -2,8 +2,7 @@ lpdw2.0
 =======
 
 Refonte du site de la Licence Professionelle 2.0
-
-
+#Branche dev conservée a des fins d'archivage uniquement. Pour le développement du site, merci d'utiliser la branche [development](https://github.com/lpdw/lpdw2.0/tree/dev)
 
 ### Initalisation du projet
 
