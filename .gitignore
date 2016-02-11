@@ -18,10 +18,12 @@
 *.DS_Store
 **/.DS_Store
 /.idea
-config/database.yml
 /.sass-cache
 /public/*
 /config/*
 public/*
 
 .env
+
+schema.rb
+config/database.yml

@@ -1,0 +1,115 @@
+<!-- <section class="banner banner-work">
+	<div class="container">
+    	<p>Profile</p>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 edit-profil form_wrapper">
+            <h1>Editer mon profil</h1>
+
+<%= form_for([:admin_v2, @user], html: {class: "form" }) do |f| %>
+        <fieldset class="row centered">
+          <div class="col-sm-6">
+            <div class="row">
+              <div class="col-sm-6 input_wrapper">
+                <%= f.text_field :name, 'placeholder' => "Nom*", "maxlength" => "60", "required"=> ''%>
+              </div>
+              <div class="col-sm-6 input_wrapper">
+                <%= f.text_field :lastname, 'placeholder' => "Prenom*", "maxlength" => "60", "required"=> ''%>
+              </div>
+              <div class="col-sm-12 input_wrapper">
+                <%= f.text_area :email, 'placeholder' => "address*", "required"=> ''%>
+              </div>
+              <div class="col-sm-6 input_wrapper">
+                <%= f.text_field :password, 'placeholder' => "Code postal*", "data-parsley-type" => "digits", "required"=> ''%>
+              </div>
+              <div class="col-sm-6 input_wrapper">
+                <%= f.text_field :description, 'placeholder' => "Ville*", "required"=> ''%>
+              </div>
+
+            </div>
+          </div>
+        </fieldset>
+<% end %>
+
+        </div>
+    </div>
+</div> -->
+<section class="banner banner-blue banner-postuler">
+  <div class="container">
+      <p>Edition profil</p>
+    </div>
+</section>
+<div class="container first_apply edit-profil">
+  <% if flash[:error] %>
+    <div class="alert alert-orange"><%= flash[:error] %></div>
+  <% elsif flash[:success] %>
+    <div class="alert alert-green"><%= flash[:success] %></div>
+  <% end %>
+
+  <div class="form_wrapper hidden-xs">
+    <ul class="apply_steps row">
+      <li class="apply_step step_1 active" data-step="1">Editer mon profil</li>
+    </ul>
+    <div class="step step1">
+      <%= form_for @user, :html => {:class => 'hidden-xs apply-form', 'data-parsley-validate' => '', :id =>"apply-step1"} do |f| %>
+        <fieldset class="row">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-6 input_wrapper">
+                <%= f.text_field :name, 'placeholder' => "Prenom", "maxlength" => "60", "required"=> ''%>
+              </div>
+              <div class="col-sm-6 input_wrapper">
+                <%= f.text_field :lastname, 'placeholder' => "Nom", "maxlength" => "60", "required"=> ''%>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-6 input_wrapper">
+                <%= f.text_field :twitter, 'placeholder' => "Twitter" %>
+              </div>
+              <div class="col-sm-6 input_wrapper">
+                <%= f.text_field :linkin, 'placeholder' => "Linkedin"%>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-6 input_wrapper">
+                <%= f.text_field :email, 'placeholder' => "Email" %>
+              </div>
+              <div class="col-sm-6 input_wrapper">
+                <%= f.text_field :photo, 'placeholder' => "Photo"%>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <br>
+        <%= f.submit 'Modifier mon profil', :class => 'next button submit gotoend save_entry' %>
+      <% end %>
+    </div>
+
+<div class="step step1">
+      <%= form_for @user, :html => {:class => 'hidden-xs apply-form', 'data-parsley-validate' => '', :id =>"apply-step1"} do |f| %>
+        <fieldset class="row">
+          <span class="col-sm-12 input_wrapper">Mot de passe (8 caractères minimum)</span>
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-6 input_wrapper">
+                <%= f.password_field :password, 'placeholder' => "Mot de passe", "maxlength" => "60", "required"=> 'required'%>
+              </div>
+              <div class="col-sm-6 input_wrapper">
+                <%= f.password_field :password_confirmation, 'placeholder' => "Mot de confirmation", "maxlength" => "60", "required"=> 'required'%>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <br>
+        <%= f.submit 'Modifier mon mot de passe', :class => 'next button submit gotoend save_entry' %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

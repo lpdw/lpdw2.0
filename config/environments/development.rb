@@ -30,11 +30,7 @@ Rails.application.configure do
   # }
   # SMTP settings for mandrill
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.mandrillapp.com",
-    :port                 => 587,
-    :domain               => 'localhost:3000',
-    :user_name            => "lpdw2.0@gmail.com",
-    :password             => "Ai3uyjuFNEuLgA3ckNI4Yw"
+		  :address => "localhost", :port => 1025
   }
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true

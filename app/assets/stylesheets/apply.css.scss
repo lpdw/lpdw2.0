@@ -44,6 +44,7 @@
 
 .first_apply {
 	.form_wrapper {
+		margin-top: 30px;
 		.apply_steps {
 			.apply_step {
 				width: 100%;
@@ -56,7 +57,7 @@
 
 .modify_apply {
 	.form_wrapper {
-		margin-top: 100px;
+		margin-top: 30px;
 	}
 
 	.button.submit {
@@ -100,6 +101,9 @@
 			}
 
 		}
+		.apply_step_main {
+			width: 100%;
+		}
 	}
 
 	.step {
@@ -110,7 +114,8 @@
 		& input[type= "text"],
 		& input[type= "email"],
 		& input[type= "date"],
-		& input[type= "tel"] {
+		& input[type= "tel"],
+		& input[type= "password"]{
 			width: 100%;
 			height: 30px;
 			border: 1px solid transparent;
@@ -131,7 +136,8 @@
 		.schools_list,
 		.cursus_list,
 		.experience_list,
-		.projects_list {
+		.projects_list,
+		.attachements_list {
 			li {
 				list-style: none;
 			}
@@ -164,6 +170,9 @@
 		}
 
 	}
+  .step1 {
+  	display: block;
+  }
   .submit,.submit_separator {
 	border:none;
 	float:right;
@@ -264,4 +273,8 @@ p.parsley-success {
 		color: white;
 		text-decoration: none;
 	}
+}
+
+.remove_nested_fields_link{
+  color: #e74c3c;
 }

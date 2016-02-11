@@ -15,26 +15,26 @@
 //= require jquery_ujs
 //= require parsley.min.js
 //= require nested_form_fields
-//= require_tree .
 //= require bootstrap-sprockets
 //= require jquery.nicescroll
 //= require moment
 //= require bootstrap-datetimepicker
+//= require_tree .
 
 $(document).ready(function() {
+    topScroll();
+
+    $(window).scroll(function(){
         topScroll();
+    });
 
-        $(window).scroll(function(){
-            topScroll();
-        });
-
-        function topScroll(){
-            if($(window).scrollTop() == 0){
-                $(".scroll-top").hide();
-            } else{
-                $(".scroll-top").show();
-            }
+    function topScroll(){
+        if($(window).scrollTop() == 0){
+            $(".scroll-top").hide();
+        } else{
+            $(".scroll-top").show();
         }
+    }
 
     $(".scroll-top").click(function(){
         var body = $("html, body");
@@ -48,10 +48,10 @@ $(document).ready(function() {
         var body = $("html, body");
         $(this).parent().slideUp();
         return false;
-     });
+    });
 
     var tw_url = "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?lang=fr&screen_names=";
-    var fb_url = "https://graph.facebook.com/";
+    var fb_url = "http://api.facebook.com/restserver.php?format=json&method=links.getStats&urls=https://www.facebook.com/";
 
     var fb_site = "https://facebook.com/";
     var tw_site = "https://twitter.com/";
@@ -73,12 +73,12 @@ $(document).ready(function() {
         crossDomain: true,
         dataType: 'jsonp',
         success: function(data) {
-            $(".licence .fb-retour").html('<i class="fa fa-facebook"></i>'+data.likes);
+            $(".licence .fb-retour").html('<i class="fa fa-facebook"></i>'+data[0].like_count);
             $(".licence .fb-retour").attr("href", fb_site+"lpdwm");
         }
     });
 
-        $.ajax({
+    $.ajax({
         url: tw_url+"FacLabUcp",
         type: 'GET',
         crossDomain: true,
@@ -95,20 +95,41 @@ $(document).ready(function() {
         crossDomain: true,
         dataType: 'jsonp',
         success: function(data) {
-            $(".faclab .fb-retour").html('<i class="fa fa-facebook"></i>'+data.likes);
+            $(".faclab .fb-retour").html('<i class="fa fa-facebook"></i>'+data[0].like_count);
             $(".faclab .fb-retour").attr("href", fb_site+"faclab");
+        }
+    });
+    $.ajax({
+        url: tw_url+"UniversiteCergy",
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(data) {
+            $(".universite .tw-retour").html('<i class="fa fa-twitter"></i>'+data[0].followers_count);
+            $(".universite .tw-retour").attr("href",tw_site+"UniversiteCergy");
+
+        }
+    });
+    $.ajax({
+        url: fb_url+"279510485409212/likes",
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(data) {
+            $(".universite .fb-retour").html('<i class="fa fa-facebook"></i>'+data[0].like_count);
+            $(".universite .fb-retour").attr("href", fb_site+"UniversiteCergyPontoise");
         }
     });
 
     $(".navbar-toggle").on('click', function(e){
         e.preventDefault();
 
-         if($(".navbar-collapse").hasClass("in")){
+        if($(".navbar-collapse").hasClass("in")){
             document.documentElement.style.overflow = 'auto';
         }else{
             document.documentElement.style.overflow = 'hidden';
         }
-     });
+    });
 
     $(".home-creations .article-creation_wrapper").each(function() {
         $(this).find("img").on('load',function() {
@@ -121,4 +142,21 @@ $(document).ready(function() {
     });
 
 
+    //Jquery menu color
+    if( $('#categ_currant').attr('value') ) {
+        
+        $('.bp nav.type a').each(function() {
+            if( $(this).attr('data-filter-type') == $('#categ_currant').attr('value') ) {
+                $(this).addClass('active');
+            }
+        });
+
+    } else {
+        $('.bp nav.type a').each(function() {
+            if( $(this).attr('data-filter-type') == 'all') {
+                $(this).addClass('active');
+            }
+        });
+    };
+    
 });

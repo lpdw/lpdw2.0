@@ -43,6 +43,12 @@ body {
     color: #ea483e;
     text-transform: uppercase;
 }
+
+#company_t{
+
+margin-top:20px;
+}
+
 .scroll-top {
     height: 40px;
     padding: 0;
@@ -72,6 +78,7 @@ body {
     background:$color-5;
 }
 
+
 @import "components/work_grid";
 @import "components/button";
 @import "components/konami";
@@ -85,10 +92,16 @@ body {
 @import "map";
 @import "team";
 @import "projects";
-@import "ucp";
 @import "formation";
 @import "project";
 @import "modules/footer";
 @import "apply";
 @import "mentions";
 @import "live";
+@import "student";
+@import "users";
+@import "companies";
+@import "jobs";
+@import "tip";
+@import "list_bp";
+

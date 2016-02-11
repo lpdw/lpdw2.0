@@ -9,133 +9,138 @@
     <div class="row">
         <div class="col-md-12 admin_option">
             <div class="row">
-                <div class="col-md-12">
-                    <% if current_user.role === "admin" %>
-                    <%= form_for(@status, url:  user_destroy_path, html: {class: "float-left destroy" }, method: :post) do |f| %>
-                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                    <%= f.submit "SUPPRIMER LE DOSSIER DEFINITIVEMENT", :class => 'btn btn-danger' %>
-                    <% end %>
-                    <h2>Outils d'administration</h2>
-                    <div class="col-md-3" style="margin:5px;background:#F5F5F5">
-                        <h4>Statut du dossier</h4>
-                    <% if @status != nil %>
+                <div class="col-md-12"><h2>Outils d'administration</h2></div>
+                    <div class="col-sm-5 col-md-4">
+                        <div class="panel" style="background:#F5F5F5;padding:10px;">
+                            <h4>Statut du dossier</h4>
+                        <% if @status != nil %>
+                            <% if @status.applicant_response != 1 %>
+                                <% if @status.is_refused != true %>
+                                    <!-- Bouton finit -->
+                                    <% if @status.is_finish != true %>
+                                        <%= form_for(@status, url:  applicant_finish_path, html: {class: "applicant_finish" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "1" %>
+                                        <%= f.submit "Dossier fini", :class => 'btn btn-info' %>
+                                        <%  end
+                                    else %>
+                                        <%= form_for(@status, url:  applicant_finish_path, html: {class: "applicant_finish" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "0" %>
+                                        <%= f.submit "Définir le dossier non fini", :class => 'btn btn-default' %>
+                                        <%  end %>
+                                    <%  end %>
 
-                        <% if @status.applicant_response != 1 %>
-                            <% if @status.is_refused != true %>
-                                <!-- Bouton finit -->
-                                <% if @status.is_finish != true %>
-                                    <%= form_for(@status, url:  applicant_finish_path, html: {class: "applicant_finish" }, method: :post) do |f| %>
-                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                    <%= f.hidden_field :set , :value => "1" %>
-                                    <%= f.submit "Dossier fini", :class => 'btn btn-info' %>
+                                    <!-- Bouton complet -->
+                                    <% if @status.is_complete != 1 %>
+                                        <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "1" %>
+                                        <%= f.submit "Dossier complet, ouvrir le vote", :class => 'btn btn-info' %>
                                     <%  end
-                                else %>
-                                    <%= form_for(@status, url:  applicant_finish_path, html: {class: "applicant_finish" }, method: :post) do |f| %>
-                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                    <%= f.hidden_field :set , :value => "0" %>
-                                    <%= f.submit "Définir le dossier non fini", :class => 'btn btn-default' %>
+                                    else %>
+                                        <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "0" %>
+                                        <%= f.submit "Définir le dossier non complet", :class => 'btn btn-default' %>
+                                        <%  end %>
                                     <%  end %>
-                                <%  end %>
 
-                                <!-- Bouton complet -->
-                                <% if @status.is_complete != 1 %>
-                                    <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
-                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                    <%= f.hidden_field :set , :value => "1" %>
-                                    <%= f.submit "Dossier complet, ouvrir le vote", :class => 'btn btn-info' %>
-                                <%  end
-                                else %>
-                                    <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
-                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                    <%= f.hidden_field :set , :value => "0" %>
-                                    <%= f.submit "Définir le dossier non complet", :class => 'btn btn-default' %>
+                                    <!-- Bouton interview -->
+                                    <% if @status.ok_for_interview != true %>
+                                        <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "1" %>
+                                        <%= f.submit "Accepter pour l'entretien", :class => 'btn btn-info' %>
+                                    <%     end
+                                    else %>
+                                        <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "0" %>
+                                        <%= f.submit "Ne plus accepter pour l'entretien", :class => 'btn btn-default' %>
+                                        <%  end %>
                                     <%  end %>
-                                <%  end %>
-
-                                <!-- Bouton interview -->
-                                <% if @status.ok_for_interview != true %>
-                                    <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
-                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                    <%= f.hidden_field :set , :value => "1" %>
-                                    <%= f.submit "Accepter pour l'entretien", :class => 'btn btn-info' %>
-                                <%     end
-                                else %>
-                                    <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
-                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                    <%= f.hidden_field :set , :value => "0" %>
-                                    <%= f.submit "Ne plus accepter pour l'entretien", :class => 'btn btn-default' %>
-                                    <%  end %>
-                                <%  end %>
-				<%= form_for(@applicant, url:  send_remind_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
-                                    <%= f.hidden_field :id , :value => @applicant.id %>
-                                    <%= f.submit "Envoyer un rappel", :class => 'btn btn-default' %>
-                                    <%  end %>
+                    <%= form_for(@applicant, url:  send_remind_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id , :value => @applicant.id %>
+                                        <%= f.submit "Envoyer un rappel", :class => 'btn btn-default' %>
+                                        <%  end %>
+                        </div>
                     </div>
-                    <div class="col-md-3" style="margin:5px;background:#F5F5F5">
-                        <h4>Résultat de l'entretien</h4>
+                    <div class="col-sm-7 col-md-8">
+                        <div class="panel" style="background:#F5F5F5;padding:10px;">
+                            <h4>Résultat de l'entretien</h4>
 
-                                <% if @status.interview_result == 1 ||  @status.interview_result == 2 ||  @status.interview_result == 3 %>
-                                <!-- Résultat de l'entretien -->
+                                    <% if @status.interview_result == 1 ||  @status.interview_result == 2 ||  @status.interview_result == 3 %>
+                                    <!-- Résultat de l'entretien -->
 
-                                    <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
-                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                    <%= f.hidden_field :set , :value => "0" %>
-                                    <%= f.submit "Annuler mon impression", :class => 'btn btn-info' %>
+                                        <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "0" %>
+                                        <%= f.submit "Annuler mon impression", :class => 'btn btn-info' %>
+                                        <% end %>
+
+                                    <% else %>
+                                        <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "1" %>
+                                        <%= f.submit "Positif", :class => 'btn btn-success' %>
+                                        <% end %>
+
+                                        <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "2" %>
+                                        <%= f.submit "Négatif", :class => 'btn btn-danger' %>
+                                        <% end %>
+
+                                        <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "3" %>
+                                        <%= f.submit "Etudiant absent", :class => 'btn btn-info' %>
+                                        <% end %>
                                     <% end %>
-
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-md-8">
+                        <div class="panel" style="background:#F5F5F5;padding:10px;">
+                            <h4>Statut définitif</h4>
+                                    <!-- Accepter l'étudiant -->
+                                    <%= form_for(@status, url:  is_accepted_path, html: {class: "is_accepted" }, method: :post) do |f| %>
+                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                    <%= f.hidden_field :set , :value => "1" %>
+                                    <%= f.submit "Accepter le dossier", :class => 'btn btn-success' %>
+                                    <% end %>
+                                    <!-- Bouton refuser -->
+                                    <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
+                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                    <%= f.hidden_field :set , :value => "1" %>
+                                    <%= f.submit "Refuser le dossier", :class => 'btn btn-danger' %>
+                                    <% end %>
                                 <% else %>
-                                    <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
+                                    <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
                                     <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                    <%= f.hidden_field :set , :value => "1" %>
-                                    <%= f.submit "Positif", :class => 'btn btn-success' %>
+                                    <%= f.hidden_field :set , :value => "0" %>
+                                    <%= f.submit "Le dossier n'est plus refusé", :class => 'btn btn-success' %>
                                     <% end %>
-
-                                    <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
-                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                    <%= f.hidden_field :set , :value => "2" %>
-                                    <%= f.submit "Négatif", :class => 'btn btn-danger' %>
-                                    <% end %>
-
-                                    <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
-                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                    <%= f.hidden_field :set , :value => "3" %>
-                                    <%= f.submit "Etudiant absent", :class => 'btn btn-info' %>
-                                    <% end %>
-                                <% end %>
-
-                    </div>
-                    <div class="col-md-3" style="margin:5px;background:#F5F5F5">
-                        <h4>Statut définitif</h4>
-                                <!-- Accepter l'étudiant -->
-                                <%= form_for(@status, url:  is_accepted_path, html: {class: "is_accepted" }, method: :post) do |f| %>
-                                <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                <%= f.hidden_field :set , :value => "1" %>
-                                <%= f.submit "Accepter le dossier", :class => 'btn btn-success' %>
-                                <% end %>
-                                <!-- Bouton refuser -->
-                                <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
-                                <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                                <%= f.hidden_field :set , :value => "1" %>
-                                <%= f.submit "Refuser le dossier", :class => 'btn btn-danger' %>
                                 <% end %>
                             <% else %>
-                                <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
+                                <!-- Ne plus accepter l'étudiant -->
+                                <%= form_for(@status, url:  is_accepted_path, html: {class: "is_accepted" }, method: :post) do |f| %>
                                 <%= f.hidden_field :id_applicant , :value => @applicant.id %>
                                 <%= f.hidden_field :set , :value => "0" %>
-                                <%= f.submit "Le dossier n'est plus refusé", :class => 'btn btn-success' %>
-                                <% end %>
+                                <%= f.submit "Retirer des dossier acceptés", :class => 'btn btn-default' %>
                             <% end %>
-                        <% else %>
-                            <!-- Ne plus accepter l'étudiant -->
-                            <%= form_for(@status, url:  is_accepted_path, html: {class: "is_accepted" }, method: :post) do |f| %>
-                            <%= f.hidden_field :id_applicant , :value => @applicant.id %>
-                            <%= f.hidden_field :set , :value => "0" %>
-                            <%= f.submit "Retirer des dossier acceptés", :class => 'btn btn-default' %>
                         <% end %>
-                    <% end %>
+                        </div>
                     </div>
                 <% end %>
-
+            </div>
+            <div class="row">
+                <div class="pull-right">
+                <% if current_user.role === "admin" %>
+                    <%= form_for(@status, url:  user_destroy_path, html: {class: "destroy" }, method: :post) do |f| %>
+                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                        <%= f.submit "SUPPRIMER LE DOSSIER DEFINITIVEMENT", :class => 'btn btn-danger', data: {confirm: "Êtes-vous sûr de vouloir supprimer le dossier de candidature de #{@applicant.first_name} #{@applicant.name.upcase} ?"} %>
+                    <% end %>
                 </div>
             </div>
         </div>
@@ -258,6 +263,9 @@
     </div>
     <div class="col-md-6">
         <h3>Informations générales</h3>
+        <p><span class="applicant-label">Année</span>
+            <%= @applicant.school_year %>
+        </p>
         <p><span class="applicant-label">Connaissait-il des gens dans la licence ? </span>
             <%= @applicant.has_connection %>
         </p>
@@ -309,7 +317,7 @@
             <tr>
                 <th>Année</th>
                 <th>Entreprise</th>
-                <th>Role</th>
+                <th>Rôle</th>
                 <th>Compétences utilisées</th>
             </tr>
             </thead>
