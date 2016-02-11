@@ -23,7 +23,7 @@ class Applicant < ActiveRecord::Base
   scope :by_year, lambda { |year|
     adapter_type = connection.adapter_name.downcase.to_sym
     case adapter_type
-    when :mysql
+    when /mysql/i
       where('extract(year from created_at) = ?', year)
     when :sqlite
       where("strftime('%Y', created_at) = ?", year.to_s)
