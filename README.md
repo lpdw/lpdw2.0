@@ -5,7 +5,12 @@ Le site de la LP-DW présente la formation “Licence Professionelle Developpeur
 
 > **Changelog** 
 
-> **Current** : projet 0, en dev, changelog à venir 
+> **[2.4](https://github.com/lpdw/lpdw2.0/releases/tag/v2.4)** : Nouvelles fonctionnalitées, refactoring et correctifs :
+> - Annuaire d'entreprises avec offres d'emploi, stage... ([#28](https://github.com/lpdw/lpdw2.0/pull/28))
+> - Annuaire des étudiants ([#31](https://github.com/lpdw/lpdw2.0/pull/31))
+> - Section Bon Plans ([#32](https://github.com/lpdw/lpdw2.0/pull/32))
+> - Refactoring, fonctionnalités backoffice ([#6](https://github.com/lpdw/lpdw2.0/pull/6) [#18](https://github.com/lpdw/lpdw2.0/pull/18) [#19](https://github.com/lpdw/lpdw2.0/pull/19) [#29](https://github.com/lpdw/lpdw2.0/pull/29))
+> - Nombreux correctifs
 
 > **[2.0](https://github.com/lpdw/lpdw2.0/releases/tag/v2.0)** : workflow  
 > **1.0** : website
