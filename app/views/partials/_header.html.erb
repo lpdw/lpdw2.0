@@ -44,7 +44,7 @@ Enjoy :)
             <li><%= link_to "L'équipe", equipe_path(), :"data-hover" => "L'équipe" %></li>
             <li><%= link_to "Bons Plans", tips_path(), :"data-hover" => "Bons plans" %></li>
             <li><%= link_to 'Contact', informations_path(), :"data-hover" => "Contact" %></li>
-            <li><%= link_to 'Les anciens', students_list_path(), :"data-hover" => "d" %></li>
+            <!-- <li><%# link_to 'Les anciens', students_list_path(), :"data-hover" => "d" %></li> -->
             <% unless current_user %>
               <li><%= link_to 'Connexion', new_user_session_path, :"data-hover" => 'Connexion' %></li>
             <% end %>
