@@ -236,7 +236,7 @@ ActiveRecord::Schema.define(version: 20151018183108) do
     t.text    "current_job_desc",       limit: 4294967295
     t.string  "lp_job_title"
     t.text    "lp_job_desc",            limit: 4294967295
-    t.integer "graduation_year",        limit: 4
+    t.integer "graduation_year",        limit: 4,          default: 0
     t.string  "current_average_salary"
     t.string  "lp_average_salary"
     t.binary  "cv"
