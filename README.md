@@ -82,6 +82,10 @@ Tout le monde sans exception doit suivre ce processus du fichier [CONTRIBUTION.m
 
 ----------
 
+Commit test
+
+---------
+
 
 Administrateurs (2015/2016)
 
