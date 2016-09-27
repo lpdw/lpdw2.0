@@ -3,7 +3,7 @@ Site de la LP-DW [![Build Status](https://travis-ci.org/lpdw/lpdw2.0.svg)](https
 
 Le site de la LP-DW présente la formation “Licence Professionelle Developpeur Web”, il permet également de pouvoir candidater, de s’informer et de se tenir au courant des différentes actualités.
 
-> **Changelog** 
+> **Changelog**
 
 > **[2.4](https://github.com/lpdw/lpdw2.0/releases/tag/v2.4)** : Nouvelles fonctionnalitées, refactoring et correctifs :
 > - Annuaire d'entreprises avec offres d'emploi, stage... ([#28](https://github.com/lpdw/lpdw2.0/pull/28))
@@ -26,11 +26,11 @@ efstest
 
 **2) Cloner ton dépôt** préalablement forké :
 
-    git clone https://github.com/TON_PSEUDO/lpdw2.0.git 
+    git clone https://github.com/TON_PSEUDO/lpdw2.0.git
 
 **3) Ajouter un Remote “upstream”** afin de pouvoir synchroniser l’application avec le dépôt central :
 
-    git remote add upstream https://github.com/lpdw/lpdw2.0 
+    git remote add upstream https://github.com/lpdw/lpdw2.0
 
 **4) Installer toutes les dépendances** :
 
@@ -40,10 +40,10 @@ efstest
     gem install mailcatcher
 
 **5) Faire la migration** de la base de données :
-   
+
 	# Créer la base de données et faire les migrations :
     rake db:create db:migrate
-    
+
 	#Peupler la base de données avec des exemples (fichier db/seeds.rb)
     rake db:seed
 
@@ -57,11 +57,11 @@ efstest
 ###Mettre à jour mon application
 
     # Se mettre sur la branche development
-    git checkout development 
-    
+    git checkout development
+
     # Synchronisation du code depuis le dépôt central
-    git fetch upstream 
-    
+    git fetch upstream
+
     # Rebase des commits
     git rebase upstream/development
 
@@ -80,8 +80,11 @@ Tu peux proposer une nouvelle fonctionnalité en ajoutant une Issue sur le dép�
 **Tu veux contribuer ?**
 Tout le monde sans exception doit suivre ce processus du fichier [CONTRIBUTION.md](https://github.com/lpdw/lpdw2.0/blob/development/CONTRIBUTION.md). Les excuses du genre : “Je fais partie de la promo X” ne sont pas valables.
 
-
 ----------
+
+Commit test
+
+---------
 
 
 Administrateurs (2015/2016)
@@ -89,4 +92,3 @@ Administrateurs (2015/2016)
 Yassin AGHANI [@aghaniyassin](https://github.com/aghaniyassin)
 
 Enguerran POULAIN [@theblackhole](https://github.com/theblackhole)
-
