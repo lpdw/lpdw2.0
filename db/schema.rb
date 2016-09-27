@@ -83,6 +83,12 @@ ActiveRecord::Schema.define(version: 20151018183108) do
 
   add_index "applicants", ["assurance"], name: "index_applicants_on_assurance", unique: true
 
+  create_table "average_salaries", force: true do |t|
+    t.string "value"
+  end
+
+  add_index "average_salaries", ["id"], name: "index_average_salaries_on_id", unique: true
+
   create_table "companies", force: true do |t|
     t.string   "name"
     t.text     "description",  limit: 4294967295
@@ -107,13 +113,6 @@ ActiveRecord::Schema.define(version: 20151018183108) do
     t.string   "option"
     t.string   "result"
     t.string   "place"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "images", force: true do |t|
-    t.string   "alt"
-    t.string   "attachment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -232,6 +231,7 @@ ActiveRecord::Schema.define(version: 20151018183108) do
 
   create_table "users_infos", force: true do |t|
     t.integer "user_id"
+    t.integer "average_salary"
     t.string  "current_job_title"
     t.text    "current_job_desc",       limit: 4294967295
     t.string  "lp_job_title"
