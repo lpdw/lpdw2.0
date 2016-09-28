@@ -1,5 +1,7 @@
-<div class="admin-panel">
-<h2>Login panel</h2>
+
+
+<div class="container first_apply edit-profil">
+<p>Connexioooon</p>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
         <i class="fa fa-user"></i>
@@ -13,4 +15,5 @@
         <%= f.submit "Se connecter", :class=>"admin-input-submit" %>
     </div>
     <% end %>
+
 </div>
