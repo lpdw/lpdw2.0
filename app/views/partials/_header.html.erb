@@ -33,23 +33,28 @@ Enjoy :)
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href=<%= root_path()%>>LP DW</a>
+
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="navbar navbar-default col-md-12">
           <ul class="nav navbar-nav">
             <li><%= link_to 'Accueil' , root_path(), :"data-hover" => "Accueil" %></li>
             <li><%= link_to 'Actualités', actualities_path, :"data-hover" => "Actualités" %></li>
             <li><%= link_to 'Formation', formation_path(), :"data-hover" => "Formation" %></li>
+            <a class="navbar-brand" href=<%= root_path()%>>LP DW</a>
             <!--<li><%= link_to 'Projets étudiants', projets_path(), :"data-hover" => "Projets étudiants" %></li>-->
             <li><%= link_to "L'équipe", equipe_path(), :"data-hover" => "L'équipe" %></li>
             <li><%= link_to "Bons Plans", tips_path(), :"data-hover" => "Bons plans" %></li>
             <li><%= link_to 'Contact', informations_path(), :"data-hover" => "Contact" %></li>
             <!-- <li><%# link_to 'Les anciens', students_list_path(), :"data-hover" => "d" %></li> -->
-            <% unless current_user %>
-              <li><%= link_to 'Connexion', new_user_session_path, :"data-hover" => 'Connexion' %></li>
-            <% end %>
             <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Postuler', :applicant, :"data-hover" => "Postuler" %></li>
           </ul>
+
+          <% unless current_user %>
+          <ul class="nav navbar-nav col-md 2">
+            <li><%= link_to 'Connexion', new_user_session_path, :"data-hover" => 'Connexion' %></li>
+          </ul>
+          <% end %>
+
             <ul class="nav navbar-nav navbar-right hidden-xs">
             <% if current_user %>
               <li class="dropdown right-navbar">
