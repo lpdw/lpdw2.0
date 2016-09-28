@@ -40,7 +40,6 @@
                     padding: 15px 15px;
                     color: white;
                     height: 100%;
-                    font-size: 32px;
 
                     &:hover, &:active {
                         background: $color-2 !important;
@@ -56,24 +55,17 @@
                 .dropdown-toggle {
                     background: $color-2 !important;
                     background-color: $color-2 !important;
-
                 }
             }
 
-            .dropdown-menu > li > a {
-                display: block;
-                padding: 3px 20px;
-                clear: both;
-                font-weight: normal;
-                line-height: 1.428571429;
-                color: #333333;
-                white-space: nowrap;
+
 
             .dropdown-menu  {
-                color: red;
+                color: white;
                 background: $color-3;
                 li {
                     a {
+                      font-size: 200px !important;
                         color: white;
                         font-size: 25px;
                         &:hover, &:active {
