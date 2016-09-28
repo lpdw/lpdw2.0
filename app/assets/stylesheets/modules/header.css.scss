@@ -22,21 +22,22 @@
             line-height: 60px;
             text-shadow: 0 0 1px rgba(111,134,134,0.3);
 
+
         }
         & > li > a:hover {
             background-color: transparent;
-            font-size: 25px;
+            color : $color-3;
         }
         & > .right-navbar {
             position: absolute;
             right: 0px;
-            font-size: 25px;
+            font-size: 250px;
         }
         & > .right-navbar > a {
             color: white;
             background: $color-1;
             font-size: 25px;
-            border-radius: 100px;
+
         }
         & > .right-navbar > a:hover {
             background: $color-2;
@@ -47,6 +48,5 @@
 .container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
     margin-right: -15px;
     margin-left: -15px;
-    margin-top: 1%;
 
   }
