@@ -57,13 +57,17 @@
                     background-color: $color-2 !important;
                 }
             }
-            .dropdown-menu {
-                
+
+
+
+            .dropdown-menu  {
                 color: white;
                 background: $color-3;
                 li {
                     a {
+                      font-size: 200px !important;
                         color: white;
+                        font-size: 25px;
                         &:hover, &:active {
                             background: $color-2 !important;
                         }
