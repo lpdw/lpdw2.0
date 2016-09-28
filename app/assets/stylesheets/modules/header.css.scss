@@ -1,10 +1,9 @@
 .navbar-lpdw {
-
     width: 100%;
     background: white;
     text-transform: uppercase;
     font-family: "Roboto Condensed Light", sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     & .navbar-brand {
         font-size: 28px;
         color: black;
@@ -22,7 +21,7 @@
             padding: 10px 20px;
             line-height: 60px;
             text-shadow: 0 0 1px rgba(111,134,134,0.3);
-            font-size: 25px;
+
         }
         & > li > a:hover {
             background-color: transparent;
