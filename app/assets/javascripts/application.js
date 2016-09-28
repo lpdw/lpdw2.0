@@ -144,7 +144,7 @@ $(document).ready(function() {
 
     //Jquery menu color
     if( $('#categ_currant').attr('value') ) {
-        
+
         $('.bp nav.type a').each(function() {
             if( $(this).attr('data-filter-type') == $('#categ_currant').attr('value') ) {
                 $(this).addClass('active');
@@ -158,5 +158,5 @@ $(document).ready(function() {
             }
         });
     };
-    
+
 });
