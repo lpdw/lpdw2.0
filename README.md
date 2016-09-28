@@ -82,7 +82,8 @@ Tout le monde sans exception doit suivre ce processus du fichier [CONTRIBUTION.m
 
 ----------
 
-Commit test
+
+Commit test2
 
 ---------
 
