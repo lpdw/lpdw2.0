@@ -173,7 +173,9 @@ body {
 .nice-scroll{
     height:100%;
 }
-
+.active{
+    background-color: $color-5;
+}
 @keyframes top-left {
     0% {
         left: 25px;

@@ -44,14 +44,26 @@
 
 .first_apply {
 	.form_wrapper {
-		margin-top: 30px;
+        margin-top: 30px;
 		.apply_steps {
 			.apply_step {
 				width: 100%;
 				float: clear;
 				cursor: initial !important;
 			}
-		}
+                                   
+	   }     
+	}
+}
+
+.connexion_form { 
+    width: auto;
+    input { 
+        padding: 10px;
+        margin-top: 0px;
+	} 
+    .button {
+		border: none;
 	}
 }
 
