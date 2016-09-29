@@ -1,21 +1,40 @@
-<div class="admin-panel">
-<h2>Inscription</h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-        <i class="fa fa-user"></i>
-        <%= f.email_field :email, autofocus: true , :class=>"admin-input-email",:placeholder=>"Adresse email"%>
+<section class="banner banner-blue ">
+  <div class="container">
+      <p>S'inscrire</p>
     </div>
-    <div class="form-group">
-        <i class="fa fa-lock"></i>
-        <%= f.password_field :password, autocomplete: "off", :class=>"admin-input-password",:placeholder=>"Mot de passe" %>
-    </div>
-    <div class="form-group">
-        <i class="fa fa-lock"></i>
-        <%= f.password_field :password_confirmation, autocomplete: "off", :class=>"admin-input-password",:placeholder=>"Confirmer le mot de passe" %>
-    </div>
-    <div class="form-group">
-        <%= f.submit "Valider", :class=>"admin-input-submit" %>
-    </div>
-    <% end %>
+</section>
+<div class="connexionIns_form">
+<center>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+     <%= devise_error_messages! %>
+<div class="container first_apply edit-profil">
+    <div class="form_wrapper hidden-xs">
+        <ul class="apply_steps row">
+          <li class="apply_step step_1 active" data-step="1">Inscription</li>
+        </ul>
+                <fieldset class="row"> 
+                  
+                        <div class="col-sm-12">
+                            <div class="col-sm-12 input_wrapper">
+                                <i class="fa fa-user"></i>
+                                <%= f.email_field :email, autofocus: true , :class=>"admin-input-email","maxlength" => "60",:placeholder=>"Email", "required"=> ''%>
+                            </div>
+                            <div class="col-sm-12 input_wrapper">
+                                   <i class="fa fa-lock"></i>
+                                <%= f.password_field :password, autocomplete: "off", :class=>"admin-input-password","maxlength" => "60",:placeholder=>"Mot de passe" ,"required"=> ''%>                
+                            </div>
+                            <div class="col-sm-12 input_wrapper">
+                                  <i class="fa fa-lock"></i>
+                                 <%= f.password_field :password_confirmation, autocomplete: "off", :class=>"admin-input-password","maxlength" => "60",:placeholder=>"Confirmer le mot de passe","required"=> ''%>               
+                            </div>
+                        </div>
+                  
+                    <div class="col-sm-12 input_wrapper">
+                     <%= f.submit "Valider",  :class => 'button' %>
+                    </div>
+                <% end %>
+                </fieldset>
+            </div>
+        </div>
+    </center>
 </div>
