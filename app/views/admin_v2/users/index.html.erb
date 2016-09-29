@@ -4,25 +4,25 @@
     <span>Créer un utilisateur</span> <i class="fa fa-user"></i>
 <% end %>
 <button class="btn btn-default" id="btn-export" ><span class="glyphicon glyphicon-export"></span> Exporter </button>
-<table class="table" id="tableUsers">
+<table class="table" id="myTable">
   <thead>
   <tr>
     <th >ID</th>
     <th>Email</th>
     <th>Prénom</th>
     <th>Nom</th>
-    <th class="select">Rôle</th>
-    <th>Action</th>
+    <th>Rôle</th>
+    <th class="action">Action</th>
   </tr>
   </thead>
 
   <tfoot>
-  <tr>
+  <tr class="action">
     <th class="select-filter">ID</th>
     <th>Email</th>
     <th>Prénom</th>
     <th>Nom</th>
-    <th class="select">Rôle</th>
+    <th class="select" >Rôle</th>
     <th>Action</th>
   </tr>
   </tfoot>
@@ -35,9 +35,9 @@
         <td data-th="Prénom"><%= user.name %></td>
         <td data-th="Nom"><%= user.lastname %></td>
         <td data-th="Rôle"><%= user.role %></td>
-        <td data-th="Action">
+        <td data-th="Action" class="action">
           <%= link_to(edit_admin_v2_user_path(user)) do %>
-              <i class="fa fa-pencil"></i> Modifier
+              <i class="fa fa-pencil" ></i> Modifier
           <% end %>
           <%= link_to(admin_v2_user_path(user), method: :delete, data: {confirm: "Êtes-vous sûr de vouloir supprimer cet utilisateur '#{user.email}' ?"}, class: 'button button-red user-delete') do %>
               <i class="fa fa-trash-o"></i> Supprimer
