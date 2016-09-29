@@ -86,3 +86,6 @@ group :development, :test do
   gem 'mailcatcher'
 end
 
+group :development do
+  gem 'byebug'
+end

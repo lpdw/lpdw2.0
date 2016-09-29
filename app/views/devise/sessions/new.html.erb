@@ -1,16 +1,33 @@
-<div class="admin-panel">
-<h2>Login panel</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-group">
-        <i class="fa fa-user"></i>
-        <%= f.email_field :email, autofocus: true , :class=>"admin-input-email",:placeholder=>"Email"%>
+<section class="banner banner-blue ">
+  <div class="container">
+      <p>Se connecter</p>
     </div>
-    <div class="form-group">
-        <i class="fa fa-lock"></i>
-        <%= f.password_field :password, autocomplete: "off", :class=>"admin-input-password",:placeholder=>"Mot de passe" %>
+</section>
+<div class="connexion_form">
+<center>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="container first_apply edit-profil">
+    <div class="form_wrapper hidden-xs">
+        <ul class="apply_steps row">
+          <li class="apply_step step_1 active" data-step="1">Connexion</li>
+        </ul>
+               <fieldset class="row"> 
+                        <div class="col-sm-12">
+                            <div class="col-sm-12 input_wrapper">
+                                <i class="fa fa-user"></i>
+                                <%= f.email_field :email, autofocus: true , :class=>"admin-input-email","maxlength" => "60",:placeholder=>"Email"%>
+                            </div>
+                            <div class="col-sm-12 input_wrapper">
+                                   <i class="fa fa-lock"></i>
+                                <%= f.password_field :password, autocomplete: "off", :class=>"admin-input-password","maxlength" => "60",:placeholder=>"Mot de passe"  %>                
+                            </div>
+                        </div>
+                <div class="col-sm-12 input_wrapper">
+                 <%= f.submit "Connexion",  :class => 'button' %>
+                </div>
+            <% end %>
+         </fieldset>
+        </div>
     </div>
-    <div class="form-group">
-        <%= f.submit "Se connecter", :class=>"admin-input-submit" %>
-    </div>
-    <% end %>
+    </center>
 </div>
