@@ -14,18 +14,21 @@
                 <h1>Actualités</h1>
                 <div class="row">
                     <% @actualities.each_with_index do |actuality, i| %>
-                    <% if i === 0 %>
+                    <% if i === 3 %>
                         <article class="col-md-12">
                     <% else %>
                         <article class="col-md-6">
                     <% end %>
+
                             <div class="article-new">
                                 <h3><%= actuality.title %></h3>
-                                <div class="article-excerpt"><%= HTML_Truncator.truncate((actuality.content),20).html_safe %></div>
+                                <div><%= HTML_Truncator.truncate((actuality.content),20).html_safe %></div>
+
                                 <%= link_to(actuality,:class=>'button') do %>
                                 <span>Lire la suite</span> <i class="fa fa-chevron-right"></i>
                                 <% end %>
                             </div>
+
                         </article>
                         <% end %>
                     </div>
@@ -36,30 +39,43 @@
     </div>
 
 
+    <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing">
+
+          <!-- Three columns of text below the carousel -->
+          <div class="row">
+            <div class="col-lg-6">
+              <%= link_to formation_path() do%>
+              <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+              <%end%>
+              <h2 class="text-center"><span>Découvrez</span> la formation LP-DW</h2>
+              <p class="text-center">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
 
 
-    <section class="banner banner-blue banner-link text-center hidden-xs">
-        <%= link_to formation_path() do%>
-        <span>Découvrez</span> la formation
-        <% end %>
-    </section>
-    <div class="gray-bg wrapper">
-        <div class="container">
-            <div class="row">
-                <section class="col-md-8 col-md-offset-2 home-faclab">
-                    <h1 class="text-center">Le faclab: Apprendre, créer, partager</h1>
-                    <div class="row">
-                        <article class="col-md-12">
-                            <img src="/assets/img_4974_0.jpg" alt="Faclab gennevilliers" class="img-circle">
-                            <p>Lieu ouvert à tous au sein de l’Université de Cergy-Pontoise, sur le site de Gennevilliers, le FacLab met à votre disposition les machines, l’infrastructure, le soutien nécessaire à la réalisation de votre projet, que ce soit l’accès au « Do It Yourself », s’approprier les nouvelles technologies, ou bien s’inscrire dans une démarche d’apprentissage et de partage.</p>
-                            <a class="button faclab" href="http://www.faclab.org/" target="_blank"><span>Voir le site</span> <i class="fa fa-chevron-right"></i></a>
-                        </article>
-                    </div>
-                </section>
+            <div class="col-lg-6">
+              <img class="img-circle" src="/assets/img_4974_0.jpg" alt="Generic placeholder image" width="140" height="140">
+              <h2 class="text-center">Le faclab: Apprendre, créer, partager</h2>
+              <p class="text-center">Lieu ouvert à tous au sein de l’Université de Cergy-Pontoise, sur le site de Gennevilliers,
+                le FacLab met à votre disposition les machines, l’infrastructure, le soutien nécessaire à la réalisation de votre projet,
+                que ce soit l’accès au « Do It Yourself », s’approprier les nouvelles technologies, ou bien s’inscrire dans une démarche
+                d’apprentissage et de partage.</p>
+              <p><a class="btn btn-default centered" href="http://www.faclab.org/" role="button"><span>Voir le site</span></a></p>
+            </div><!-- /.col-lg-4 -->
+
+
+
+
+              </div>
             </div>
-        </div>
-    </div>
-    <div class="bg-white">
+
+
+
+    <div class="gray-bg wrapper">
         <div class="container">
             <div class="row">
                 <section class="col-md-10 col-md-offset-1 home-creations">
