@@ -6,20 +6,22 @@
     </p>
 </section>
 <div class="gray-bg wrapper">
+
+  <!-- ACTUALITE -->
     <div class="container">
         <div class="row">
             <section class="col-md-10 col-md-offset-1 home-news">
                 <h1>Actualités</h1>
                 <div class="row">
                     <% @actualities.each_with_index do |actuality, i| %>
-                    <% if i === 2 %>
+                    <% if i === 0 %>
                         <article class="col-md-12">
                     <% else %>
                         <article class="col-md-6">
                     <% end %>
                             <div class="article-new">
                                 <h3><%= actuality.title %></h3>
-                                <div class="article-excerpt"><%= HTML_Truncator.truncate((actuality.content),40).html_safe %></div>
+                                <div class="article-excerpt"><%= HTML_Truncator.truncate((actuality.content),20).html_safe %></div>
                                 <%= link_to(actuality,:class=>'button') do %>
                                 <span>Lire la suite</span> <i class="fa fa-chevron-right"></i>
                                 <% end %>
@@ -32,6 +34,10 @@
             </div>
         </div>
     </div>
+
+
+
+
     <section class="banner banner-blue banner-link text-center hidden-xs">
         <%= link_to formation_path() do%>
         <span>Découvrez</span> la formation
