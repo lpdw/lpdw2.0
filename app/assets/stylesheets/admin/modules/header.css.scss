@@ -40,6 +40,7 @@
                     padding: 15px 15px;
                     color: white;
                     height: 100%;
+                    font-size: 20px;
 
                     &:hover, &:active {
                         background: $color-2 !important;
@@ -55,18 +56,19 @@
                 .dropdown-toggle {
                     background: $color-2 !important;
                     background-color: $color-2 !important;
+                    font-size: 20px;
                 }
             }
 
 
 
-            .dropdown-menu  {
+            .dropdown-menu  { // MENU ADMIN
                 color: white;
                 background: $color-3;
                 li {
                     a {
                         color: white;
-                        font-size: 25px;
+                        font-size: 20px;
                         &:hover, &:active {
                             background: $color-2 !important;
                         }
