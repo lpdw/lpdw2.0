@@ -3,7 +3,7 @@
       <p>Se connecter</p>
     </div>
 </section>
-<div class="connexion_form">
+<div class="connexionIns_form">
 <center>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="container first_apply edit-profil">
@@ -11,7 +11,8 @@
         <ul class="apply_steps row">
           <li class="apply_step step_1 active" data-step="1">Connexion</li>
         </ul>
-               <fieldset class="row"> 
+                <fieldset class="row"> 
+                  
                         <div class="col-sm-12">
                             <div class="col-sm-12 input_wrapper">
                                 <i class="fa fa-user"></i>
@@ -22,12 +23,13 @@
                                 <%= f.password_field :password, autocomplete: "off", :class=>"admin-input-password","maxlength" => "60",:placeholder=>"Mot de passe"  %>                
                             </div>
                         </div>
-                <div class="col-sm-12 input_wrapper">
-                 <%= f.submit "Connexion",  :class => 'button' %>
-                </div>
-            <% end %>
-         </fieldset>
+                  
+                    <div class="col-sm-12 input_wrapper">
+                     <%= f.submit "Connexion",  :class => 'button' %>
+                    </div>
+                <% end %>
+                </fieldset>
+            </div>
         </div>
-    </div>
     </center>
 </div>
