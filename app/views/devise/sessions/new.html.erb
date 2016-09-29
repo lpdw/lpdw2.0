@@ -6,6 +6,7 @@
 <div class="connexionIns_form">
 <center>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+     <%= devise_error_messages! %>
 <div class="container first_apply edit-profil">
     <div class="form_wrapper hidden-xs">
         <ul class="apply_steps row">
