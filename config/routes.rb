@@ -21,8 +21,10 @@ path: '/',
   namespace :admin_v2 do
     resources :actualities, except: [:show]
     resources :users, except: [:show]
+    resources :projects, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
     resources :tips, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
     resources :tipcategories, only: [:new ,:create ,:edit, :destroy ,:index]
+    resources :alerts, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
 
     # Route company
     get 'create_company' => 'companies#create_company', :as => 'admin_create_company'
@@ -80,12 +82,12 @@ path: '/',
   #get 'admin/delete_actuality/:id' => 'admin#delete_actuality', :as => 'admin_delete_actuality'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
 
-  get 'admin/create_alert' => 'admin#create_alert'
-  post 'admin/create_alert' => 'admin#new_alert'
-  get 'admin/show_alerts' => 'admin#show_alerts'
-  get 'admin/edit_alerts/:id' => 'admin#edit_alert', :as => 'admin_edit_alert'
-  post 'admin/edit_alerts/:id' => 'admin#update_alert'
-  get 'admin/delete_alerts/:id' => 'admin#delete_alert', :as => 'admin_delete_alert'
+  # get 'admin/create_alert' => 'admin#create_alert'
+  # post 'admin/create_alert' => 'admin#new_alert'
+  # get 'admin/show_alerts' => 'admin#show_alerts'
+  # get 'admin/edit_alerts/:id' => 'admin#edit_alert', :as => 'admin_edit_alert'
+  # post 'admin/edit_alerts/:id' => 'admin#update_alert'
+  # get 'admin/delete_alerts/:id' => 'admin#delete_alert', :as => 'admin_delete_alert'
 
   get 'admin/create_project' => 'admin#create_project'
   post 'admin/create_project' => 'admin#new_project'

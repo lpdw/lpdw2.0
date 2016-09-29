@@ -3,10 +3,10 @@ $(document).ready(function(){
 
     $('#btn-export').on('click', function(){
         console.log("click");
-        $('<table>').append(table.$('tr').clone()).table2excel({
-            exclude: ".excludeThisClass",
+        $('#myTable').table2excel({
+            exclude: ".action",
             name: "Worksheet Name",
-            filename: "SomeFile" //do not include extension
+            filename: "List" //do not include extension
         });
     });
 });
