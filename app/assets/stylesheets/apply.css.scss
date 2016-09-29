@@ -56,11 +56,15 @@
 	}
 }
 
-.connexion_form {    
+.connexion_form { 
+    width: auto;
     input { 
         padding: 10px;
         margin-top: 0px;
-	}    
+	} 
+    .button {
+		border: none;
+	}
 }
 
 .modify_apply {
