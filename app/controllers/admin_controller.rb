@@ -14,8 +14,8 @@ class AdminController < ApplicationController
   #user Controller
 
   def create_user
-# == Admin restriction == #
-admin_restriction_area
+    # == Admin restriction == #
+    admin_restriction_area
 
     @title_admin = "Utilisateur"
     @user = User.new
@@ -280,145 +280,6 @@ admin_restriction_area
     end
   end
 
-  #alert controller
-  before_action :get_this_alert,only: [:edit_alert,:update_alert,:delete_alert]
-  def get_this_alert
-  # == Admin restriction == #
-  admin_restriction_area
-    @thisAlert = Alert.find(params[:id])
-  end
-
-  def create_alert
-    @alert = Alert.new
-  end
-
-  def new_alert
-  # == Admin restriction == #
-  admin_restriction_area
-    @alert = Alert.new(params[:alert].permit(:name,:content,:level,:active))
-    if @alert.save
-      flash["sucess"] ="Alerte créée"
-      redirect_to admin_show_alerts_path()
-    else
-      flash["fail"] = "Erreur de création d'alerte"
-      redirect_to admin_create_alert_path()
-    end
-  end
-  def show_alerts
-  # == Admin restriction == #
-  admin_restriction_area
-    @title_admin = "Alertes"
-    @alerts = Alert.all
-  end
-
-  def edit_alert
-  # == Admin restriction == #
-  admin_restriction_area
-    @title_admin = "Alerte"
-    @actuality=@thisAlert
-  end
-def update_alert
-# == Admin restriction == #
-admin_restriction_area
-    @title_admin = "Alerte"
-    if @thisAlert.update_attributes(params[:thisAlert].permit(:name,:content,:level,:active))
-      # Handle a successful update.
-      flash["sucess"] ="Mis a jour avec succès"
-      redirect_to admin_show_alerts_path()
-    else
-      redirect_to admin_edit_alert_path(@thisAlert)
-    end
-  end
-  def delete_alert
-  # == Admin restriction == #
-  admin_restriction_area
-    if @thisAlert.destroy
-      flash["sucess"] ="Alerte supprimée"
-      redirect_to admin_show_alerts_path()
-    else
-      flash["fail"] = "Erreur de suppression d'alerte"
-      redirect_to admin_show_alerts_path()
-    end
-  end
-
-  # Projects Controller
-  before_action :get_this,only: [:edit_project,:update_project,:delete_project]
-  def get_this
-    @this = Project.find(params[:id])
-  end
-
-  def show_projects
-  # == Admin restriction == #
-  admin_restriction_area
-    @title_admin = "projets"
-    @projects = Project.all
-  end
-
-  def create_project
-  # == Admin restriction == #
-  admin_restriction_area
-    @title_admin = "projets"
-    @project = Project.new
-  end
-
-  def create_tinymce_assets
-
-    geometry = Paperclip::Geometry.from_file params[:file]
-    image    = Image.create params.permit(:file, :alt)
-
-    renderJson = {
-      image: {
-        url:    image.file.url
-      }
-    }
-
-    render json: renderJson, content_type: "text/html"
-  end
-
-  def new_project
-  # == Admin restriction == #
-  admin_restriction_area
-    @title_admin = "Projet"
-    @project = Project.new(params[:project].permit(:photo, :name, :description, :link, :thumbmail))
-    if @project.save
-      flash[:info] = "Projet créé"
-      redirect_to admin_show_projects_path() # halts request cycle
-    else
-      flash[:error] = "Erreur de création du projet"
-      redirect_to admin_create_project_path() # halts request cycle
-    end
-  end
-
-  def edit_project
-  # == Admin restriction == #
-  admin_restriction_area
-    @title_admin = "Projet"
-    @project=@this
-  end
-  def update_project
-  # == Admin restriction == #
-  admin_restriction_area
-    @title_admin = "projet"
-    if @this.update_attributes(params[:this].permit(:photo, :name, :description, :link, :thumbmail))
-      # Handle a successful update.
-      flash[:info] ="Mis a jour avec succès"
-      redirect_to admin_show_projects_path
-    else
-      flash[:error] = @this.messages.errors
-      redirect_to admin_edit_project_path(this)
-    end
-  end
-  def delete_project
-  # == Admin restriction == #
-  admin_restriction_area
-    if @this.destroy
-      flash["sucess"] ="Projet supprimé"
-      redirect_to admin_show_projects_path()
-    else
-      flash[:error] = @this.messages.errors
-      redirect_to admin_show_projects_path()
-    end
-  end
 
   def show_interview
     @title_admin = "Entretien"
