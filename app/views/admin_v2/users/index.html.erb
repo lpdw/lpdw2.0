@@ -4,21 +4,33 @@
     <span>Créer un utilisateur</span> <i class="fa fa-user"></i>
 <% end %>
 <button class="btn btn-default" id="btn-export" ><span class="glyphicon glyphicon-export"></span> Exporter </button>
-<table class="table" id="myTable">
+<table class="table" id="tableUsers">
   <thead>
   <tr>
-    <th>ID</th>
+    <th >ID</th>
     <th>Email</th>
     <th>Prénom</th>
     <th>Nom</th>
-    <th>Rôle</th>
+    <th class="select">Rôle</th>
     <th>Action</th>
   </tr>
   </thead>
+
+  <tfoot>
+  <tr>
+    <th class="select-filter">ID</th>
+    <th>Email</th>
+    <th>Prénom</th>
+    <th>Nom</th>
+    <th class="select">Rôle</th>
+    <th>Action</th>
+  </tr>
+  </tfoot>
+
   <tbody>
   <% @users.each do |user| %>
       <tr>
-        <td data-th="ID"><%= user.id %></td>
+        <td data-th="ID" ><%= user.id %></td>
         <td data-th="Email"><%= user.email %></td>
         <td data-th="Prénom"><%= user.name %></td>
         <td data-th="Nom"><%= user.lastname %></td>
@@ -51,3 +63,4 @@
   <% end %>
   </tbody>
 </table>
+<input  type="checkbox" class="customRadioButton" name="role" value="1">
