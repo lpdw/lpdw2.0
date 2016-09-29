@@ -267,10 +267,18 @@
             <%= @applicant.school_year %>
         </p>
         <p><span class="applicant-label">Connaissait-il des gens dans la licence ? </span>
-            <%= @applicant.has_connection %>
+          <% if @applicant.has_connection === false %>
+              non
+          <% else %>
+              oui
+          <% end %>
         </p>
         <p><span class="applicant-label">Connaissait-il des personnes dans son entourage travaillant dans domaine multimédia ? </span>
-            <%= @applicant.connection_desc %>
+          <% if @applicant.connection_desc === false %>
+              non
+          <% else %>
+              oui
+          <% end %>
         </p>
         <p><span class="applicant-label">Comment a-t-il connu la formation :</span>
             <%= @applicant.know_formation %>
