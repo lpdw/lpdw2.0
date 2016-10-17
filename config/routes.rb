@@ -25,6 +25,8 @@ path: '/',
     resources :tips, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
     resources :tipcategories, only: [:new ,:create ,:edit, :destroy ,:index]
     resources :alerts, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
+    resources :interview, only: [:new ,:create ,:index]
+    resources :applicants, only: [:index,:show]
 
     # Route company
     get 'create_company' => 'companies#create_company', :as => 'admin_create_company'
@@ -48,11 +50,11 @@ path: '/',
   resource :applicant, only: [:new, :create, :edit, :update, :show]
   resource :user, only: [:edit,:update]
 
-  get 'admin/show_applicants' => 'admin#show_applicants'
-  get 'admin/show_applicant/:id' => 'admin#show_applicant', :as => 'admin_show_applicant'
+  # get 'admin/show_applicants' => 'admin#show_applicants'
+  # get 'admin/show_applicant/:id' => 'admin#show_applicant', :as => 'admin_show_applicant'
 
-  post 'admin/show_applicants/user_vote' => 'admin#user_vote', :as => 'user_vote'
-  post 'admin/show_applicants/user_vote_cancel' => 'admin#user_vote_cancel', :as => 'user_vote_cancel'
+  post 'admin_v2/applicants/index/user_vote' => 'admin#user_vote', :as => 'user_vote'
+  post 'admin_v2/applicants/index/user_vote_cancel' => 'admin#user_vote_cancel', :as => 'user_vote_cancel'
 
   post 'admin/show_applicants/applicant_complete', :to => 'admin#applicant_complete', :as => 'applicant_complete'
   post 'admin/show_applicants/ok_for_interview', :to => 'admin#ok_for_interview', :as => 'ok_for_interview'
@@ -65,12 +67,12 @@ path: '/',
   get 'admin' => 'admin#index'
   #Avoid sign_up by devise
   get 'admin/sign_up' => 'admin#index'
-  get 'admin/create_user' => 'admin#create_user'
-  get 'admin/show_users' => 'admin#show_users'
-  get 'admin/edit_user/:id' => 'admin#edit_user' , :as => 'admin_edit_user'
-  post 'admin/edit_user/:id' => 'admin#update_user'
-  post 'admin/create_user' => 'admin#new'
-  get 'admin/delete_user/:id' => 'admin#delete_user', :as => 'admin_delete_user'
+  # get 'admin/create_user' => 'admin#create_user'
+  # get 'admin/show_users' => 'admin#show_users'
+  # get 'admin/edit_user/:id' => 'admin#edit_user' , :as => 'admin_edit_user'
+  # post 'admin/edit_user/:id' => 'admin#update_user'
+  # post 'admin/create_user' => 'admin#new'
+  # get 'admin/delete_user/:id' => 'admin#delete_user', :as => 'admin_delete_user'
   get 'admin/student_old/:id/graduate_student' => 'admin#graduate_student', :as => 'admin_graduate_student'
 
 
@@ -98,8 +100,8 @@ path: '/',
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
   post 'admin/show_applicants/send_remind', :to => 'admin#send_remind', :as => 'send_remind'
 
-  get 'admin/show_interview' => 'admin#show_interview'
-  post 'admin/create_interview' => 'admin#create_interview'
+
+
   get 'admin/show_options' => 'admin#show_options'
   get 'admin/show_options' => 'admin#show_options'
   post 'admin/update_options' => 'admin#update_options'

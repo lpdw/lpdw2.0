@@ -4,7 +4,7 @@
   <span id="title-popup" class="hidden"><%= l(date, format:"%A %d %Y") %></span>
     <% status_interview.each do |interview| %>
       <p class="info-interview">
-        <%= link_to(admin_show_applicant_path(ApplicantStatus.getapplicant(interview.id_applicant)), :class=>'') do %>
+        <%= link_to(admin_v2_applicants_path(ApplicantStatus.getapplicant(interview.id_applicant)), :class=>'') do %>
             <i class="fa fa-eye"></i> <span class="text-capitalize"><%= ApplicantStatus.getapplicant(interview.id_applicant).first_name %></span> <span class="text-uppercase"><%=  ApplicantStatus.getapplicant(interview.id_applicant).name %></span> à <%= interview.interview_date.to_time.strftime("%Hh%M") %>
         <% end %>
       </p>
@@ -34,7 +34,7 @@
             </td>
             <td class="table-interview-td-date" data-th="Action">
 
-                <%= form_tag({:action => 'create_interview'}, {:method => :post,:class =>'form-inline form-create-interview'}) do |f| %>
+                <%= form_tag({:action => 'create'}, {:method => :post,:class =>'form-inline form-create-interview'}) do |f| %>
                     <div class="form-group">
                         <%= text_field_tag 'interview_date', nil, class: 'form-control date-interview', id: 'date-interview' %>
                     </div>
