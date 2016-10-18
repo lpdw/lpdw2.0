@@ -1,0 +1,21 @@
+<section class="banner banner-blue ">
+  <div class="container">
+      <p>Mot de passe oublier</p>
+    </div>
+</section>
+<div class="connexionIns_form">
+<center>
+    
+<%= form_tag password_resets_path, :method => :post do %>
+         <div class="col-sm-12">
+            <div class="col-sm-12 input_wrapper">
+            <i class="fa fa-user"></i>
+            <%= text_field_tag :email, params[:email], autofocus: true , :class=>"admin-input-email","size" => "50",:placeholder=>"Email"%>
+             </div>
+        </div>
+    <div class="col-sm-12 input_wrapper">
+        <%= submit_tag "Rénitialiser le mot de passe",  :class => 'button' %>
+    </div>
+ 
+<% end %>
+</center>
