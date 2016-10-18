@@ -1,0 +1,30 @@
+<section class="banner banner-blue ">
+  <div class="container">
+      <p>Rénitialiser son mot de passe</p>
+    </div>
+</section>
+<div class="connexionIns_form">
+<center>
+
+<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Le formulaire est invalide</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="col-sm-12">
+       <div class="col-sm-12 input_wrapper">
+        <%= f.password_field :password, autocomplete: "off", :class=>"admin-input-password","maxlength" => "60",:placeholder=>"Mot de passe"  %>   
+      </div>
+      <div class="col-sm-12 input_wrapper">
+        <%= f.password_field :password_confirmation, autocomplete: "off", :class=>"admin-input-password","maxlength" => "60",:placeholder=>"Mot de passe"  %>   
+      </div>
+    </div>
+  <div class="button"><%= f.submit "Sauvegarder" %></div>
+<% end %>
+</center>
