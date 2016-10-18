@@ -17,7 +17,8 @@ path: '/',
   root 'pages#home'
   resources :actualities, only: [:index, :show]
   resources :tips, only: [:index, :show]
-
+  resources :password_resets
+    
   namespace :admin_v2 do
     resources :actualities, except: [:show]
     resources :users, except: [:show]

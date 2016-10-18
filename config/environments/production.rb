@@ -100,4 +100,11 @@ Rails.application.configure do
   }
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
+Auth::Application.configure do
+  # Other config items omitted.
+  
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
 end
+end
+
+
