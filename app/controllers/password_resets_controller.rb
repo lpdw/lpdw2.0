@@ -11,7 +11,9 @@ class PasswordResetsController < ApplicationController
   user = User.find_by_email(params[:email])
   user.send_password_reset if user
     flash[:success] = "Un email conmportant les instructions pour la rénitialisation à été envoyé."
-    redirect_to root_url, :notice => "Email sent with password reset instructions."
+    redirect_to root_url
+     else
+    flash[:error] = "Aucun compte ne correspond à ce mail."
 end 
     
   def edit
