@@ -1,7 +1,12 @@
 <br />
-<%= link_to(admin_v2_applicants_path(),:class=>'button button-blue float-left') do %>
+<%= link_to("javascript:close_window()",:class=>'button button-blue float-left') do %>
 <i class="fa fa-reply"></i><span> Retour aux dossiers</span>
 <% end %>
+<script type="text/javascript">
+  function close_window() {    
+    close();  
+}
+</script>
 <br />
 <br />
 <div class="col-md-12 applicant">
