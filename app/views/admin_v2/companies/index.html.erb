@@ -1,5 +1,5 @@
 <h1>Liste des entreprises</h1>
-<%= link_to(admin_v2_admin_create_company_path(),:class=>'button button-blue float-right') do %>
+<%= link_to(new_admin_v2_company_path(),:class=>'button button-blue float-right') do %>
     <span>Créer une entreprise</span> <i class="fa fa-newspaper-o"></i>
 <% end %>
 
@@ -19,10 +19,10 @@
             <td data-th="Titre"><%= company.name %></td>
 	    <td data-th="E-mail"><%= company.website %></td>
             <td data-th="Action">
-                <%= link_to(admin_v2_admin_edit_company_path(company)) do %>
+                <%= link_to(edit_admin_v2_company_path(company)) do %>
                 <i class="fa fa-pencil"></i> Modifier
                 <% end %>
-                <%= link_to(admin_v2_admin_delete_company_path(company), data: {confirm: "Êtes-vous sûr de vouloir supprimer l'entreprise '#{company.name}' ?"}) do %>
+                <%= link_to(admin_v2_company_path(company), method: :delete, data: {confirm: "Êtes-vous sûr de vouloir supprimer l'entreprise '#{company.name}' ?"}) do %>
                 <i class="fa fa-trash-o"></i> Supprimer
                 <% end %>
             </td>
