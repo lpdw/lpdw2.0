@@ -14,4 +14,6 @@ class AdminV2Controller < ApplicationController
   def authorize
     redirect_to(root_path) unless current_user.try(:admin?)
   end
+
+  
 end

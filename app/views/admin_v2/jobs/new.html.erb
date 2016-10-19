@@ -1,5 +1,5 @@
 <h2>Ajouter une offre</h2>
-<%= form_for(@job, url:  admin_v2_admin_create_job_path, html: {class: "form" }) do |f| %>
+<%= form_for([:admin_v2, @job] ) do |f| %>
 <div class="form-group">
  <div class="col-sm-10">
    <%= f.text_field :job_name, autofocus: true , :class => 'input' ,:placeholder=>"Nom" %>
