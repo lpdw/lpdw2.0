@@ -1,6 +1,6 @@
 <section class="banner banner-blue ">
   <div class="container">
-      <p>Rénitialiser son mot de passe</p>
+      <p>Nouveau mot de passe</p>
     </div>
 </section>
 <div class="connexionIns_form">
@@ -17,14 +17,20 @@
       </ul>
     </div>
   <% end %>
+<fieldset class="row">
     <div class="col-sm-12">
        <div class="col-sm-12 input_wrapper">
-        <%= f.password_field :password, autocomplete: "off", :class=>"admin-input-password","maxlength" => "60",:placeholder=>"Mot de passe"  %>   
+        <%= f.password_field :password, autocomplete: "off", :class=>"admin-input-password","maxlength" => "60",:placeholder=>"Nouveau mot de passe"  %>   
       </div>
       <div class="col-sm-12 input_wrapper">
-        <%= f.password_field :password_confirmation, autocomplete: "off", :class=>"admin-input-password","maxlength" => "60",:placeholder=>"Mot de passe"  %>   
+        <%= f.password_field :password_confirmation, autocomplete: "off", :class=>"admin-input-password","maxlength" => "60",:placeholder=>"Confirmation mot de passe"  %>   
       </div>
     </div>
-  <div class="button"><%= f.submit "Sauvegarder" %></div>
+<div class="col-sm-12 input_wrapper">
+     <%= f.submit "Sauvergarder",  :class => 'button' %>
+    </div>
 <% end %>
+
+    </fieldset>
 </center>
+</div>
