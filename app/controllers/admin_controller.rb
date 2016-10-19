@@ -11,15 +11,7 @@ class AdminController < ApplicationController
     end
   end
 
-  #user Controller
 
-  def create_user
-    # == Admin restriction == #
-    admin_restriction_area
-
-    @title_admin = "Utilisateur"
-    @user = User.new
-  end
   def index
     @title_admin = "Dashboard"
     @users = User.all
@@ -27,58 +19,6 @@ class AdminController < ApplicationController
     @alerts = Alert.all
     @applicants = Applicant.all
     @lasts = Applicant.last(5).reverse
-  end
-
-  def show_users
-# == Admin restriction == #
-admin_restriction_area
-
-    @title_admin = "Utilisateurs"
-    @users = User.where("role = 'admin' OR role = 'intervenant'")
-  end
-
-  def edit_user
-  # == Admin restriction == #
-  @user = current_user
-  if @user.id.to_i != params[:id].to_i
-     admin_restriction_area
-     @title_admin = "Utilisateur numéro " + params[:id].to_str
-  else
-       @title_admin = "Profil"
-  end
-
-    @user=User.find(params[:id])
-  end
-
-  def update_user
-  if @user.id.to_i != params[:id].to_i
-    # == Admin restriction == #
-    admin_restriction_area
-  end
-    @title_admin = "Utilisateur"
-    @user=User.find(params[:id])
-    if @user.update_attributes(params[:user].permit(:email, :password, :password_confirmation, :role, :name, :lastname, :twitter, :description, :photo, :linkin))
-      # Handle a successful update.
-      flash["sucess"] ="Mis a jour avec succès"
-      redirect_to admin_show_users_path
-    else
-      flash[:error] = @user.errors.messages[:email].to_s + @user.errors.messages[:password].to_s +  @user.errors.messages[:password_confirmation].to_s + @user.errors.messages[:photo].to_s
-      redirect_to admin_edit_user_path(@user)
-    end
-  end
-
-  def delete_user
-# == Admin restriction == #
-admin_restriction_area
-
-    @user=User.find(params[:id])
-    if @user.destroy
-      flash["sucess"] ="Utilisateur supprimé"
-      redirect_to admin_show_users_path()
-    else
-      flash[:error] =  @user.errors.messages[:email] + @user.errors.messages[:password] +  @user.errors.messages[:password_confirmation] + @user.errors.messages[:photo]
-      redirect_to admin_show_users_path()
-    end
   end
 
   def new
@@ -104,10 +44,6 @@ admin_restriction_area
       end
     end
   end
-
-
-  # applicants controller
-
 
   # Options administratives
   def applicant_complete
