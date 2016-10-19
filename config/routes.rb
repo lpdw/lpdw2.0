@@ -28,25 +28,11 @@ path: '/',
     resources :alerts, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
     resources :interview, only: [:new ,:create ,:index]
     resources :applicants, only: [:index,:show]
+    resources :admin, only: [:index,:new]
+    resources :companies, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
+    resources :jobs, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
 
-    # Route company
-    get 'create_company' => 'companies#create_company', :as => 'admin_create_company'
-    post 'create_company' => 'companies#new_company', :as => 'admin_new_company'
-    get 'show_companies' => 'companies#show_companies', :as => 'admin_show_companies'
-    get 'edit_company/:id' => 'companies#edit_company', :as => 'admin_edit_company'
-    post 'edit_company/:id' => 'companies#update_company', :as => 'admin_update_company'
-    get 'delete_company/:id' => 'companies#delete_company', :as => 'admin_delete_company'
-
-    # Route job 
-    get 'create_job' => 'jobs#create_job', :as => 'admin_create_job'
-    post 'create_job' => 'jobs#new_job', :as => 'admin_new_job'
-    get 'show_jobs' => 'jobs#show_jobs', :as => 'admin_show_jobs'
-    get 'edit_job/:id' => 'jobs#edit_job', :as => 'admin_edit_job'
-    patch 'edit_job/:id' => 'jobs#update_job', :as => 'admin_update_job'
-    get 'delete_job/:id' => 'jobs#delete_job', :as => 'admin_delete_job'
-    get 'enable/:id' => 'jobs#enable_job', :as => 'admin_enable_job'
-    get 'disable/:id' => 'jobs#disable_job', :as => 'admin_disable_job'
-  end
+ end
 
   resource :applicant, only: [:new, :create, :edit, :update, :show]
   resource :user, only: [:edit,:update]
@@ -68,36 +54,15 @@ path: '/',
   get 'admin' => 'admin#index'
   #Avoid sign_up by devise
   get 'admin/sign_up' => 'admin#index'
-  # get 'admin/create_user' => 'admin#create_user'
-  # get 'admin/show_users' => 'admin#show_users'
-  # get 'admin/edit_user/:id' => 'admin#edit_user' , :as => 'admin_edit_user'
-  # post 'admin/edit_user/:id' => 'admin#update_user'
-  # post 'admin/create_user' => 'admin#new'
-  # get 'admin/delete_user/:id' => 'admin#delete_user', :as => 'admin_delete_user'
   get 'admin/student_old/:id/graduate_student' => 'admin#graduate_student', :as => 'admin_graduate_student'
-
-
-  #get 'admin/create_actuality' => 'admin#create_actuality'
-  #post 'admin/create_actuality' => 'admin#new_actuality'
-  #get 'admin/edit_actuality/:id' => 'admin#edit_actuality', :as => 'admin_edit_actuality'
-  #get 'admin/show_actualities' => 'admin#show_actualities'
-  #post 'admin/edit_actuality/:id' => 'admin#update_actuality'
-  #get 'admin/delete_actuality/:id' => 'admin#delete_actuality', :as => 'admin_delete_actuality'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
 
-  # get 'admin/create_alert' => 'admin#create_alert'
-  # post 'admin/create_alert' => 'admin#new_alert'
-  # get 'admin/show_alerts' => 'admin#show_alerts'
-  # get 'admin/edit_alerts/:id' => 'admin#edit_alert', :as => 'admin_edit_alert'
-  # post 'admin/edit_alerts/:id' => 'admin#update_alert'
-  # get 'admin/delete_alerts/:id' => 'admin#delete_alert', :as => 'admin_delete_alert'
-
-  get 'admin/create_project' => 'admin#create_project'
-  post 'admin/create_project' => 'admin#new_project'
-  get 'admin/edit_project/:id' => 'admin#edit_project', :as => 'admin_edit_project'
-  get 'admin/show_projects' => 'admin#show_projects'
-  post 'admin/edit_project/:id' => 'admin#update_project'
-  get 'admin/delete_project/:id' => 'admin#delete_project', :as => 'admin_delete_project'
+  # get 'admin/create_project' => 'admin#create_project'
+  # post 'admin/create_project' => 'admin#new_project'
+  # get 'admin/edit_project/:id' => 'admin#edit_project', :as => 'admin_edit_project'
+  # get 'admin/show_projects' => 'admin#show_projects'
+  # post 'admin/edit_project/:id' => 'admin#update_project'
+  # get 'admin/delete_project/:id' => 'admin#delete_project', :as => 'admin_delete_project'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
   post 'admin/show_applicants/send_remind', :to => 'admin#send_remind', :as => 'send_remind'
 

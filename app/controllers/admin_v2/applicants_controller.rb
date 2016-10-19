@@ -5,6 +5,7 @@ before_action :authenticate_user!, :is_admin
     @title_admin = "Candidatures"
     @year = year_params || Time.now.year
     @applicants = Applicant.by_year(@year)
+
   end
 
   def show
@@ -29,7 +30,8 @@ def is_admin
       end
     end
   end
-  
+
+
   private
 
   def year_params
