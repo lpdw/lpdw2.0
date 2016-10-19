@@ -57,14 +57,17 @@
       font-size: 18px;
       padding: 10px 15px 10px 15px;
       text-align: center;
-      background: white;
+      background: transparent;
       color: $color-1;
       border: 1px solid $color-4;
       -webkit-user-select: none;
       cursor: pointer;
       text-transform: uppercase;
       text-decoration: none;
-
+      &:hover {
+                background-color: $color-1;
+                color: white;    
+      }
       span {
         position: relative;
         left: 0;
