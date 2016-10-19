@@ -41,18 +41,18 @@
                     @negatif = 0
                     @your_vote = -1
 
-                    # applicant.votes.each do |vote|
-                    #     if vote.id_voter == @user.id
-                    #         @your_vote = vote.value
-                    #     end
-                    #     if vote.value == 2
-                    #         @positif += 1
-                    #     elsif vote.value == 1
-                    #         @negatif += 1
-                    #     else
-                    #         @neutre += 1
-                    #     end
-                    # end
+                    applicant.votes.each do |vote|
+                        if vote.id_voter == @user.id
+                            @your_vote = vote.value
+                        end
+                        if vote.value == 2
+                            @positif += 1
+                        elsif vote.value == 1
+                            @negatif += 1
+                        else
+                            @neutre += 1
+                        end
+                    end
                  %>
                 <span class="badge badge-green">+<%= @positif %></span>
                 <span class="badge badge-yellow">=<%= @neutre %></span>

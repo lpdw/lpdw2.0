@@ -1,5 +1,5 @@
 class AdminV2::ApplicantsController < AdminV2Controller
-
+before_action :authenticate_user!, :is_admin
 
   def index
     @title_admin = "Candidatures"
@@ -20,6 +20,16 @@ class AdminV2::ApplicantsController < AdminV2Controller
     @is_voter = Vote.where("id_applicant = #{params[:id]} AND id_voter = #{current_user.id}")
   end
 
+def is_admin
+    @user = current_user
+    if @user.role != "intervenant"
+      if @user.role != "admin"
+        flash[:error] = "Vous devez être admin pour accéder à cette section"
+        redirect_to root_path # halts request cycle
+      end
+    end
+  end
+  
   private
 
   def year_params
