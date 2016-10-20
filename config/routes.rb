@@ -31,7 +31,7 @@ path: '/',
     resources :admin, only: [:index,:new]
     resources :companies, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
     resources :jobs, only: [:new ,:create ,:edit ,:update, :destroy ,:index]
-
+    resources :admin, only: [:index]
  end
 
   resource :applicant, only: [:new, :create, :edit, :update, :show]
@@ -50,19 +50,13 @@ path: '/',
   post 'admin/show_applicants/applicant_finish', :to => 'admin#applicant_finish', :as => 'applicant_finish'
   post 'admin/show_applicants/interview_result', :to => 'admin#interview_result', :as => 'interview_result'
   post 'admin/show_applicants/user_destroy', :to => 'admin#user_destroy', :as => 'user_destroy'
+  get 'admin_v2/enable/:id' => 'admin_v2/jobs#enable', :as => 'admin_v2_enable_job'
+  get 'admin_v2/disable/:id' => 'admin_v2/jobs#disable', :as => 'admin_v2_disable_job'
 
   get 'admin' => 'admin#index'
-  #Avoid sign_up by devise
   get 'admin/sign_up' => 'admin#index'
   get 'admin/student_old/:id/graduate_student' => 'admin#graduate_student', :as => 'admin_graduate_student'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
-
-  # get 'admin/create_project' => 'admin#create_project'
-  # post 'admin/create_project' => 'admin#new_project'
-  # get 'admin/edit_project/:id' => 'admin#edit_project', :as => 'admin_edit_project'
-  # get 'admin/show_projects' => 'admin#show_projects'
-  # post 'admin/edit_project/:id' => 'admin#update_project'
-  # get 'admin/delete_project/:id' => 'admin#delete_project', :as => 'admin_delete_project'
   post 'admin/tinymce_assets' => 'admin#create_tinymce_assets'
   post 'admin/show_applicants/send_remind', :to => 'admin#send_remind', :as => 'send_remind'
 

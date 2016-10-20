@@ -20,10 +20,12 @@ class AdminV2::AlertsController < AdminV2Controller
     @alert = Alert.new(params[:alert].permit(:name,:content,:level,:active))
     if @alert.save
       flash["sucess"] ="Alerte créée"
+      redirect_to admin_v2_alerts_path
     else
       flash["fail"] = "Erreur de création d'alerte"
+      redirect_to new_admin_v2_alerts_path
     end
-    redirect_to admin_v2_alerts_path
+
   end
 
 
