@@ -27,7 +27,7 @@
                     <div id="nice-scroll" class="nice-scroll">
                     <ul id="nav-admin" class="nav nav-sidebar">
                         <li><%= link_to root_path(), :class=>'first' do %><i class="fa fa-reply"></i> Retour au site <% end %> </li>
-                        <li class="<%= is_active?(admin_path()) %>"><%= link_to admin_path() do %><i class="fa fa-home"></i> Accueil <% end %> </li>
+                        <li class="<%= is_active?(admin_v2_admin_index_path()) %>"><%= link_to admin_v2_admin_index_path() do %><i class="fa fa-home"></i> Accueil <% end %> </li>
                         <% if current_user.role === "intervenant" %>
                             <li class="<%= is_active?(admin_edit_user_path(current_user.id)) %>"><%= link_to(admin_edit_user_path(current_user.id)) do %><i class="fa fa-pencil"></i> Mon profil<% end %></li>
                         <% end %>

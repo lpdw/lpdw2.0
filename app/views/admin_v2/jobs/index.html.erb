@@ -24,21 +24,21 @@
               <% end %>
             </td>
             <td data-th="Action" class="list-actions">
-                <%= link_to(admin_v2_admin_edit_job_path(job)) do %>
+                <%= link_to(edit_admin_v2_job_path(job)) do %>
                 <i class="fa fa-pencil"></i> Modifier
                 <% end %>
 
                 <% if job.status === 1 %>
-                  <%= link_to(admin_v2_admin_disable_job_path(job)) do %>
+                  <%= link_to(admin_v2_disable_job_path(job)) do %>
                   <i class="fa fa-toggle-off"></i> Désactivé
                   <% end %>
                 <% else %>
-                  <%= link_to(admin_v2_admin_enable_job_path(job)) do %>
+                  <%= link_to(admin_v2_enable_job_path(job)) do %>
                   <i class="fa fa-toggle-on"></i> Activé
                   <% end %>
                 <% end %>
 
-                <%= link_to(admin_v2_admin_delete_job_path(job), data: {confirm: "Êtes-vous sûr de vouloir supprimer l'offre d'emploi '#{job.job_name}' ?"}) do %>
+                <%= link_to(admin_v2_job_path(job), method: :delete, data: {confirm: "Êtes-vous sûr de vouloir supprimer l'offre d'emploi '#{job.job_name}' ?"}) do %>
                 <i class="fa fa-trash-o"></i> Supprimer
                 <% end %>
             </td>
