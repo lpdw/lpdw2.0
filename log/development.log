@@ -1,0 +1,1848 @@
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-20 15:34:36 +0200
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.6) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.6) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (61.7ms)
+  [1m[36m (137.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (92.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20140924130659)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (2.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140924130659"]]
+  [1m[36m (99.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddRoleToUser (20140924131210)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.6ms)[0m  [1mALTER TABLE "users" ADD "role" varchar(255)[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140924131210"]]
+  [1m[36m (105.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateActuality (20141014070911)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "actualities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "content" text, "author" varchar(255)) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141014070911"]]
+  [1m[36m (105.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlerts (20141015143030)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "alerts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "content" text, "level" varchar(255), "active" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141015143030"]]
+  [1m[36m (188.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddNameLastnameToUsers (20141106085618)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (19.3ms)[0m  [1mALTER TABLE "users" ADD "lastname" varchar(255)[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "name" varchar(255)
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141106085618"]]
+  [1m[35m (95.7ms)[0m  commit transaction
+Migrating to AddTwitterDescLinkinPhoto (20150107140250)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  ALTER TABLE "users" ADD "photo" varchar(255)
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "twitter" varchar(255)[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "description" varchar(255)
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "linkin" varchar(255)[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150107140250"]]
+  [1m[36m (89.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateImages (20150107184254)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150107184254"]]
+  [1m[35m (119.2ms)[0m  commit transaction
+Migrating to CreateProjects (20150108131917)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "link" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150108131917"]]
+  [1m[35m (78.4ms)[0m  commit transaction
+Migrating to AddCreateAtActuality (20150124222241)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  ALTER TABLE "actualities" ADD "created_at" datetime
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150124222241"]]
+  [1m[35m (98.8ms)[0m  commit transaction
+Migrating to AddThumbToProject2 (20150130092011)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  ALTER TABLE "projects" ADD "thumbmail_file_name" varchar(255)
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "projects" ADD "thumbmail_content_type" varchar(255)[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "projects" ADD "thumbmail_file_size" integer
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "projects" ADD "thumbmail_updated_at" datetime[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150130092011"]]
+  [1m[36m (86.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateApplicants (20150221143648)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "applicants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "deposit_date" datetime, "name" varchar(255), "first_name" varchar(255), "address" varchar(255), "zip_code" integer, "city" varchar(255), "home_phone" varchar(255), "private_phone" varchar(255), "email" varchar(255), "birth" datetime, "birth_place" varchar(255), "nationality" varchar(255), "assurance" varchar(255), "status" boolean, "has_connection" boolean, "connection_desc" text, "know_formation" text, "english_skill" integer, "other_language" varchar(255), "after_school" text, "ip_address" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150221143648"]]
+  [1m[36m (79.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateOtherApplications (20150221145251)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "other_applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_applicant" integer, "content" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150221145251"]]
+  [1m[36m (88.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCursus (20150221145535)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "cursus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_applicant" integer, "graduation" varchar(255), "year" integer, "option" varchar(255), "result" varchar(255), "place" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150221145535"]]
+  [1m[36m (89.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateProfessionalExperiences (20150221145857)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "professional_experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_applicant" integer, "year" integer, "company" varchar(255), "role" varchar(255), "skill" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150221145857"]]
+  [1m[36m (97.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateProjectApplicants (20150221150116)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "project_applicants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_applicant" integer, "project_type" varchar(255), "year" integer, "content" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150221150116"]]
+  [1m[36m (88.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateVotes (20150221150235)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_applicant" integer, "id_voter" integer, "value" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150221150235"]]
+  [1m[36m (97.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateApplicantStatuses (20150221150412)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "applicant_statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_applicant" integer, "is_finish" boolean, "is_complete" integer, "ok_for_interview" boolean, "interview_result" integer, "interview_date" datetime, "applicant_response" integer, "is_refused" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150221150412"]]
+  [1m[36m (79.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddForeignkeyOtherApplitoApplicant (20150221155416)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150221155416"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+Migrating to AddForeignkeyAlltablesToApplocants (20150221161709)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150221161709"]]
+  [1m[36m (86.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddUniqueAssuranceToApplicant (20150302211237)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (14.4ms)[0m  [1mCREATE UNIQUE INDEX "index_applicants_on_assurance" ON "applicants" ("assurance")[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150302211237"]]
+  [1m[36m (118.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateApplicantAttachments (20150317092833)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "applicant_attachments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime, "id_applicant" integer) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150317092833"]]
+  [1m[36m (87.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddNewFieldstepPositionToapplicant (20150317104038)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "applicants" ADD "step_position" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150317104038"]]
+  [1m[36m (92.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddRemoveAttachment (20150317135800)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150317135800"]]
+  [1m[35m (91.8ms)[0m  commit transaction
+Migrating to AddNewTableOption (20150318141325)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar(255), "value" varchar(255)) 
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150318141325"]]
+  [1m[35m (89.3ms)[0m  commit transaction
+Migrating to ReplaceAllFk (20150318155725)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150318155725"]]
+  [1m[36m (84.8ms)[0m  [1mcommit transaction[0m
+Migrating to AddIdApplicantToUser (20150408080604)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.6ms)[0m  [1mALTER TABLE "users" ADD "id_applicant" integer[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150408080604"]]
+  [1m[36m (80.7ms)[0m  [1mcommit transaction[0m
+Migrating to SiteV2 (20151001151850)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (52.8ms)[0m  [1mCREATE TABLE "users_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "github" varchar(255), "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "cv" varchar(255), "googleplus" varchar(255), "facebook" varchar(255), "viadeo" varchar(255)) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "average_salary" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "value" varchar(255)) 
+  [1m[36m (33.8ms)[0m  [1mCREATE UNIQUE INDEX "index_average_salary_on_id" ON "average_salary" ("id")[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_infos_on_id" ON "users_infos" ("id")
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151001151850"]]
+  [1m[35m (167.1ms)[0m  commit transaction
+Migrating to Studentsbook2 (20151002141853)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "users_infos" ADD "graduation_year" integer(4) DEFAULT 0
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151002141853"]]
+  [1m[35m (141.7ms)[0m  commit transaction
+Migrating to AddUserRefToActualities (20151005214606)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (14.2ms)[0m  ALTER TABLE "actualities" ADD "user_id" integer
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX "index_actualities_on_user_id" ON "actualities" ("user_id")[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151005214606"]]
+  [1m[36m (109.5ms)[0m  [1mcommit transaction[0m
+Migrating to RemoveAuthorFromActualities (20151005214752)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mActuality Load (0.6ms)[0m  [1mSELECT "actualities".* FROM "actualities"[0m
+  [1m[35m (3.1ms)[0m  CREATE TEMPORARY TABLE "aactualities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "content" text, "author" varchar(255), "created_at" datetime, "user_id" integer) 
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_actualities_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_actualities_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "tindex_aactualities_on_user_id" ON "aactualities" ("user_id")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "actualities"[0m
+  [1m[35m (15.6ms)[0m  DROP TABLE "actualities"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "actualities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "content" text, "created_at" datetime, "user_id" integer) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aactualities_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aactualities_on_user_id' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_actualities_on_user_id" ON "actualities" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "aactualities"
+  [1m[36m (2.2ms)[0m  [1mDROP TABLE "aactualities"[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151005214752"]]
+  [1m[36m (129.2ms)[0m  [1mcommit transaction[0m
+Migrating to AddEntreprise (20151009195443)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text(4294967295), "address" varchar(255), "zip_code" varchar(255), "city" varchar(255), "phone_number" varchar(255), "website" varchar(255), "twitter" varchar(255), "linkedin" varchar(255), "logo_url" varchar(255), "founded_at" date, "posted_by" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151009195443"]]
+  [1m[36m (86.2ms)[0m  [1mcommit transaction[0m
+Migrating to AddOffre (20151009195608)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "job_name" varchar(255), "job_number" varchar(255), "job_description" text(4294967295), "start_at" varchar(255), "duration" varchar(255), "profil" text(4294967295), "contact" varchar(255), "location" varchar(255), "skills" text(4294967295), "status" integer, "founded_at" date, "posted_by" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151009195608"]]
+  [1m[36m (79.2ms)[0m  [1mcommit transaction[0m
+Migrating to AddFkJob (20151014084617)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (3.0ms)[0m  [1mALTER TABLE "jobs" ADD "company_id" integer[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151014084617"]]
+  [1m[36m (88.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTips (20151014093053)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "tips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "address" text, "url" varchar(255), "phone" varchar(255), "created_at" datetime, "updated_at" datetime, "end_at" date, "status" varchar(255), "category" varchar(255)) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151014093053"]]
+  [1m[36m (85.8ms)[0m  [1mcommit transaction[0m
+Migrating to EditUserAndUserinfos (20151014095501)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.4ms)[0m  [1mCREATE TEMPORARY TABLE "ausers_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "github" varchar(255), "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "cv" varchar(255), "googleplus" varchar(255), "facebook" varchar(255), "viadeo" varchar(255), "graduation_year" integer(4) DEFAULT 0) [0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_infos_on_id" ON "ausers_infos" ("id")[0m
+  [1m[35m (1.2ms)[0m  SELECT * FROM "users_infos"
+  [1m[36m (2.5ms)[0m  [1mDROP TABLE "users_infos"[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "github" varchar(255), "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "cv" varchar(255), "googleplus" varchar(255), "viadeo" varchar(255), "graduation_year" integer(4) DEFAULT 0) 
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_infos_on_id' AND type='index'
+[0m
+  [1m[35m (3.5ms)[0m  CREATE UNIQUE INDEX "index_users_infos_on_id" ON "users_infos" ("id")
+  [1m[36m (0.3ms)[0m  [1mSELECT * FROM "ausers_infos"[0m
+  [1m[35m (0.6ms)[0m  DROP TABLE "ausers_infos"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "ausers_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "github" varchar(255), "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "cv" varchar(255), "googleplus" varchar(255), "viadeo" varchar(255), "graduation_year" integer(4) DEFAULT 0) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_infos_on_id" ON "ausers_infos" ("id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "users_infos"
+  [1m[36m (0.5ms)[0m  [1mDROP TABLE "users_infos"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "users_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "cv" varchar(255), "googleplus" varchar(255), "viadeo" varchar(255), "graduation_year" integer(4) DEFAULT 0) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_infos_on_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_infos_on_id" ON "users_infos" ("id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "ausers_infos"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "ausers_infos"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "ausers_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "cv" varchar(255), "googleplus" varchar(255), "viadeo" varchar(255), "graduation_year" integer(4) DEFAULT 0) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_infos_on_id" ON "ausers_infos" ("id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "users_infos"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "users_infos"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "users_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "cv" varchar(255), "viadeo" varchar(255), "graduation_year" integer(4) DEFAULT 0) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_infos_on_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_infos_on_id" ON "users_infos" ("id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "ausers_infos"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "ausers_infos"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "ausers_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "cv" varchar(255), "viadeo" varchar(255), "graduation_year" integer(4) DEFAULT 0) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_infos_on_id" ON "ausers_infos" ("id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "users_infos"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "users_infos"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "users_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "cv" varchar(255), "graduation_year" integer(4) DEFAULT 0) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_infos_on_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_infos_on_id" ON "users_infos" ("id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "ausers_infos"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "ausers_infos"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "facebook" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "github" varchar(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "googleplus" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "viadeo" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "applicants" ADD "graduation" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151014095501"]]
+  [1m[36m (178.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddBirthToUsers (20151014100128)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.8ms)[0m  [1mALTER TABLE "users" ADD "birth" datetime[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151014100128"]]
+  [1m[36m (130.8ms)[0m  [1mcommit transaction[0m
+Migrating to FixAverageSalary (20151014135917)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (25.7ms)[0m  [1mALTER TABLE "average_salary" RENAME TO "average_salaries"[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_average_salary_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_average_salary_on_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_average_salary_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_average_salary_on_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_average_salary_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_average_salary_on_id' AND type='index'
+
+  [1m[36m (3.6ms)[0m  [1mCREATE UNIQUE INDEX "index_average_salaries_on_id" ON "average_salaries" ("id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_average_salaries_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_average_salaries_on_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_average_salary_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_average_salary_on_id' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  DROP INDEX "index_average_salary_on_id"
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151014135917"]]
+  [1m[35m (127.6ms)[0m  commit transaction
+Migrating to UpdateAverageSalary (20151014155821)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  ALTER TABLE "users_infos" ADD "current_average_salary" varchar(255)
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users_infos" ADD "lp_average_salary" varchar(255)[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151014155821"]]
+  [1m[36m (84.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddEmailToTips (20151014204514)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (3.5ms)[0m  [1mALTER TABLE "tips" ADD "email" varchar(255)[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151014204514"]]
+  [1m[36m (89.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddMapToTips (20151014204618)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.9ms)[0m  [1mALTER TABLE "tips" ADD "map" varchar(255)[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151014204618"]]
+  [1m[36m (88.6ms)[0m  [1mcommit transaction[0m
+Migrating to ChangeMapFormatFromStringToText (20151015122402)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TEMPORARY TABLE "atips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "address" text, "url" varchar(255), "phone" varchar(255), "created_at" datetime, "updated_at" datetime, "end_at" date, "status" varchar(255), "category" varchar(255), "email" varchar(255), "map" varchar(255)) [0m
+  [1m[35m (0.3ms)[0m  SELECT * FROM "tips"
+  [1m[36m (3.5ms)[0m  [1mDROP TABLE "tips"[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "tips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "address" text, "url" varchar(255), "phone" varchar(255), "created_at" datetime, "updated_at" datetime, "end_at" date, "status" varchar(255), "category" varchar(255), "email" varchar(255), "map" text(255)) 
+  [1m[36m (0.3ms)[0m  [1mSELECT * FROM "atips"[0m
+  [1m[35m (0.6ms)[0m  DROP TABLE "atips"
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151015122402"]]
+  [1m[35m (86.9ms)[0m  commit transaction
+Migrating to EditCollumnUsersInfos (20151015130316)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "role" varchar(255), "lastname" varchar(255), "name" varchar(255), "photo" varchar(255), "twitter" varchar(255), "description" varchar(255), "linkin" varchar(255), "id_applicant" integer, "facebook" varchar(255), "github" varchar(255), "googleplus" varchar(255), "viadeo" varchar(255), "birth" datetime) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "users"
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "role" varchar(255), "lastname" varchar(255), "name" varchar(255), "photo" varchar(255), "twitter" varchar(255), "description" varchar(255), "linkin" varchar(255), "id_applicant" integer, "facebook" varchar(255), "github" varchar(255), "googleplus" varchar(255), "birth" datetime) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "ausers"[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "ausers_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "cv" varchar(255), "graduation_year" integer(4) DEFAULT 0, "current_average_salary" varchar(255), "lp_average_salary" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_infos_on_id" ON "ausers_infos" ("id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "users_infos"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "users_infos"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "users_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "average_salary" integer, "current_job_title" varchar(255), "current_job_desc" text(4294967295), "lp_job_title" varchar(255), "lp_job_desc" text(4294967295), "graduation_year" integer(4) DEFAULT 0, "current_average_salary" varchar(255), "lp_average_salary" varchar(255)) [0m
+  [1m[35m (0.5ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_infos_on_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_infos_on_id" ON "users_infos" ("id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "ausers_infos"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "ausers_infos"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users_infos" ADD "cv" blob
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151015130316"]]
+  [1m[35m (116.4ms)[0m  commit transaction
+Migrating to ChangeBirthType (20151016093438)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "role" varchar(255), "lastname" varchar(255), "name" varchar(255), "photo" varchar(255), "twitter" varchar(255), "description" varchar(255), "linkin" varchar(255), "id_applicant" integer, "facebook" varchar(255), "github" varchar(255), "googleplus" varchar(255), "birth" datetime) 
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "users"
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "role" varchar(255), "lastname" varchar(255), "name" varchar(255), "photo" varchar(255), "twitter" varchar(255), "description" varchar(255), "linkin" varchar(255), "id_applicant" integer, "facebook" varchar(255), "github" varchar(255), "googleplus" varchar(255), "birth" date) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "ausers"[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151016093438"]]
+  [1m[36m (91.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTipcategories (20151018183108)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "tipcategories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151018183108"]]
+  [1m[36m (80.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddPasswordResetToUsers (20161018092919)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" ADD "password_reset_token" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "password_reset_sent_at" datetime
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161018092919"]]
+  [1m[35m (97.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_actualities_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_actualities_on_user_id' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_applicants_on_assurance' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_applicants_on_assurance' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_average_salaries_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_average_salaries_on_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-20 15:35:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  [1m[35mActuality Load (0.1ms)[0m  SELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:Project> at /home/leamrtte/DEV/lpdw2.0/app/models/project.rb:2)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4[0m
+  Rendered pages/home.html.erb within layouts/application (10.3ms)
+  [1m[35mOption Load (0.1ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.2ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (24.6ms)
+  Rendered partials/_footer.html.erb (0.8ms)
+Completed 200 OK in 2426ms (Views: 2399.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-20 15:35:42 +0200
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-10-20 15:35:42 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:42 +0200
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:42 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/application.jpg" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+ActionController::RoutingError (No route matches [GET] "/application.jpg"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.6) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (20.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (84.6ms)
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:43 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:44 +0200
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:45 +0200
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:45 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:45 +0200
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-10-20 15:35:45 +0200
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2016-10-20 15:35:46 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-20 15:35:53 +0200
+Processing by PagesController#home as HTML
+  [1m[35mActuality Load (0.4ms)[0m  SELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4[0m
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  [1m[35mOption Load (0.3ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.3ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (4.7ms)
+  Rendered partials/_footer.html.erb (0.4ms)
+Completed 200 OK in 270ms (Views: 265.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/application.jpg" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+ActionController::RoutingError (No route matches [GET] "/application.jpg"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.6) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (65.2ms)
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:54 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:55 +0200
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-10-20 15:35:56 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-20 15:35:57 +0200
+Processing by PagesController#home as HTML
+  [1m[35mActuality Load (0.4ms)[0m  SELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4[0m
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  [1m[35mOption Load (0.2ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.2ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (2.6ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 247ms (Views: 244.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-20 15:35:57 +0200
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-10-20 15:35:57 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:57 +0200
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:57 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:57 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-10-20 15:35:57 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-10-20 15:35:57 +0200
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-10-20 15:35:57 +0200
+
+
+Started GET "/assets/application.jpg" for 127.0.0.1 at 2016-10-20 15:35:57 +0200
+
+ActionController::RoutingError (No route matches [GET] "/application.jpg"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.6) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (64.7ms)
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:58 +0200
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-10-20 15:35:59 +0200
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2016-10-20 15:36:00 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-20 15:36:07 +0200
+Processing by PagesController#home as HTML
+  [1m[35mActuality Load (0.4ms)[0m  SELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4[0m
+  Rendered pages/home.html.erb within layouts/application (0.7ms)
+  [1m[35mOption Load (0.2ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.2ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (2.8ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 268ms (Views: 264.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/application.jpg" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+ActionController::RoutingError (No route matches [GET] "/application.jpg"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.6) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (64.5ms)
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:08 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:09 +0200
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-10-20 15:36:10 +0200
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2016-10-20 15:36:11 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-20 15:36:37 +0200
+Processing by PagesController#home as HTML
+  [1m[35mActuality Load (0.5ms)[0m  SELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4[0m
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  [1m[35mOption Load (0.2ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.2ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (2.6ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 249ms (Views: 246.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-20 15:36:37 +0200
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-10-20 15:36:37 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:37 +0200
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:37 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:37 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/application.jpg" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+ActionController::RoutingError (No route matches [GET] "/application.jpg"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.6) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (63.0ms)
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:38 +0200
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-10-20 15:36:39 +0200
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2016-10-20 15:36:40 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-20 15:36:54 +0200
+Processing by PagesController#home as HTML
+  [1m[35mActuality Load (0.3ms)[0m  SELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4[0m
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  [1m[35mOption Load (0.3ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.2ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (3.1ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 271ms (Views: 268.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-20 15:36:54 +0200
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-10-20 15:36:54 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:54 +0200
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:54 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:54 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/application.jpg" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+ActionController::RoutingError (No route matches [GET] "/application.jpg"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.6) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (65.3ms)
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-20 15:36:55 +0200
+Processing by PagesController#home as HTML
+  [1m[35mActuality Load (0.6ms)[0m  SELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4[0m
+  Rendered pages/home.html.erb within layouts/application (0.8ms)
+  [1m[35mOption Load (0.2ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.1ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (2.3ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 267ms (Views: 261.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/application.jpg" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+ActionController::RoutingError (No route matches [GET] "/application.jpg"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.6) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (67.0ms)
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-10-20 15:36:56 +0200
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2016-10-20 15:36:57 +0200
