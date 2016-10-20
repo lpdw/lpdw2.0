@@ -1,0 +1,5 @@
+<%    	if @user.save %>
+    <%=		flash["sucess"] ="Succès" %>
+    <%	else %>
+    <%=		flash["deny"] ="Erreur" %>
+    <%	end %>
