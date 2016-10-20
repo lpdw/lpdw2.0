@@ -23,9 +23,11 @@
                             <div class="article-new">
                                 <h3><%= actuality.title %></h3>
                                 <div><%= HTML_Truncator.truncate((actuality.content),20).html_safe %></div>
-
-                                <%= link_to(actuality,:class=>'button') do %>
-                                <span>Lire la suite</span> <i class="fa fa-chevron-right"></i>
+                                <% if actuality.content.split.size <= 20 %>
+                                <% else %>
+                                    <%= link_to(actuality,:class=>'button') do %>
+                                    <span>Lire la suite</span> <i class="fa fa-chevron-right"></i>
+                                <% end %>
                                 <% end %>
                             </div>
 
