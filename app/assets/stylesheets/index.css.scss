@@ -1,4 +1,7 @@
 
+
+
+
 .home-news {
   position: relative;
   h1 {
@@ -16,6 +19,19 @@
       border-bottom: 2px solid #D5D5D5;
       overflow: hidden;
     }
+    & .article-new{
+      background: white;
+      height:100%;
+      padding:15px;
+      border-bottom: 2px solid #D5D5D5;
+      overflow: hidden;
+      border: 0 solid;
+
+      outline-offset: 0px;
+      text-shadow: none;
+      transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    
     & .article-new-voit{
       background: white;
       height:130%;
