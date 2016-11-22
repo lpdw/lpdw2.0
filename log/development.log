@@ -2293,3 +2293,2588 @@ Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-10-20 15:43:20 +0200
 
 
 Started GET "/assets/favicon.ico" for 127.0.0.1 at 2016-10-20 15:43:21 +0200
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_actualities_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_actualities_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_applicants_on_assurance' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_applicants_on_assurance' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_average_salaries_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_average_salaries_on_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (58.5ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_actualities_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_actualities_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_applicants_on_assurance' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_applicants_on_assurance' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_average_salaries_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_average_salaries_on_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_infos_on_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'admin@mail.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users_infos" DEFAULT VALUES
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "role", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-11-21 15:32:15.734784"], ["email", "admin@mail.com"], ["encrypted_password", "$2a$10$VCHTDk5..xYp6R6zYpPcheQabjcp4hDgv3itRRZA4k6NCM9exEpJa"], ["role", "admin"], ["updated_at", "2016-11-21 15:32:15.734784"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "users_infos" SET "user_id" = ? WHERE "users_infos"."id" = 1  [["user_id", 1]]
+  [1m[36m (50.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mApplicant Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "applicants"  WHERE "applicants"."assurance" = '447709874898718' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "applicants" ("address", "after_school", "assurance", "birth", "birth_place", "city", "connection_desc", "created_at", "email", "english_skill", "first_name", "has_connection", "home_phone", "know_formation", "name", "nationality", "other_language", "private_phone", "status", "updated_at", "zip_code") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "22 Random address Etud"], ["after_school", "Random activities"], ["assurance", "447709874898718"], ["birth", "1992-09-03 22:00:00.000000"], ["birth_place", "Paris"], ["city", "Chatou"], ["connection_desc", ""], ["created_at", "2016-11-21 15:32:15.882006"], ["email", "random_etudmail@mail.com"], ["english_skill", 4], ["first_name", "Random_etud_name"], ["has_connection", "f"], ["home_phone", "01234567890"], ["know_formation", "internet"], ["name", "Random_etud"], ["nationality", "France"], ["other_language", "Espagnol, random"], ["private_phone", "061234567890"], ["status", "f"], ["updated_at", "2016-11-21 15:32:15.882006"], ["zip_code", 78400]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applicant_statuses" ("created_at", "id_applicant", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-11-21 15:32:15.892979"], ["id_applicant", 1], ["updated_at", "2016-11-21 15:32:15.892979"]]
+  [1m[35mApplicantStatus Load (0.1ms)[0m  SELECT  "applicant_statuses".* FROM "applicant_statuses"  WHERE "applicant_statuses"."id_applicant" = ? LIMIT 1  [["id_applicant", 1]]
+  [1m[36m (25.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mApplicant Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "applicants"  WHERE "applicants"."assurance" = '972309874898718' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applicants" ("address", "after_school", "assurance", "birth", "birth_place", "city", "connection_desc", "created_at", "email", "english_skill", "first_name", "has_connection", "home_phone", "know_formation", "name", "nationality", "other_language", "private_phone", "status", "updated_at", "zip_code") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "11 Random address Etud"], ["after_school", "Random activities lolilol"], ["assurance", "972309874898718"], ["birth", "1990-11-05 23:00:00.000000"], ["birth_place", "Marseille"], ["city", "Paris"], ["connection_desc", ""], ["created_at", "2016-11-21 15:32:15.922519"], ["email", "random_etudmail2@mail.com"], ["english_skill", 4], ["first_name", "Random_etud_name2"], ["has_connection", "f"], ["home_phone", "01234567890"], ["know_formation", "internet"], ["name", "Random_etud2"], ["nationality", "Hongroise"], ["other_language", "Hongrois, random"], ["private_phone", "061234567890"], ["status", "f"], ["updated_at", "2016-11-21 15:32:15.922519"], ["zip_code", 75000]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "applicant_statuses" ("created_at", "id_applicant", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-11-21 15:32:15.924383"], ["id_applicant", 2], ["updated_at", "2016-11-21 15:32:15.924383"]]
+  [1m[35mApplicantStatus Load (0.0ms)[0m  SELECT  "applicant_statuses".* FROM "applicant_statuses"  WHERE "applicant_statuses"."id_applicant" = ? LIMIT 1  [["id_applicant", 2]]
+  [1m[36m (19.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "applicant_statuses" ("applicant_response", "created_at", "id_applicant", "interview_result", "is_complete", "is_finish", "is_refused", "ok_for_interview", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["applicant_response", 0], ["created_at", "2016-11-21 15:32:15.946210"], ["id_applicant", 1], ["interview_result", 0], ["is_complete", 0], ["is_finish", "f"], ["is_refused", "f"], ["ok_for_interview", "f"], ["updated_at", "2016-11-21 15:32:15.946210"]]
+  [1m[35m (15.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "applicant_statuses" SET "id_applicant" = ?, "updated_at" = ? WHERE "applicant_statuses"."id" = 1  [["id_applicant", nil], ["updated_at", "2016-11-21 15:32:15.962964"]]
+  [1m[36m (6.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "applicant_statuses" ("applicant_response", "created_at", "id_applicant", "interview_result", "is_complete", "is_finish", "is_refused", "ok_for_interview", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["applicant_response", 0], ["created_at", "2016-11-21 15:32:15.970937"], ["id_applicant", 2], ["interview_result", 0], ["is_complete", 1], ["is_finish", "t"], ["is_refused", "f"], ["ok_for_interview", "f"], ["updated_at", "2016-11-21 15:32:15.970937"]]
+  [1m[35m (20.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "applicant_statuses" SET "id_applicant" = ?, "updated_at" = ? WHERE "applicant_statuses"."id" = 2  [["id_applicant", nil], ["updated_at", "2016-11-21 15:32:15.993315"]]
+  [1m[36m (21.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "options" ("key", "value") VALUES (?, ?)[0m  [["key", "setting_route_apply"], ["value", "false"]]
+  [1m[35m (30.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (1.1ms)[0m  [1mUPDATE "users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["encrypted_password", "$2a$10$J79SgIdYaaDJF1ib4BsriuS7gHOcbQxTC3qlZTb.CKjbanRuG9NfW"], ["updated_at", "2016-11-21 15:33:09.488598"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-22 09:57:35 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  [1m[35mActuality Load (0.1ms)[0m  SELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:Project> at /Users/sonny-cole/Documents/lpdw2.0/app/models/project.rb:2)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4[0m
+  Rendered pages/home.html.erb within layouts/application (2.0ms)
+  [1m[35mOption Load (0.1ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.1ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (10.6ms)
+  Rendered partials/_footer.html.erb (1.0ms)
+Completed 200 OK in 560ms (Views: 543.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/img_4974_0.jpg" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:36 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 09:57:37 +0100
+
+
+Started GET "/login" for 127.0.0.1 at 2016-11-22 09:57:42 +0100
+Processing by SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (35.0ms)
+  [1m[35mOption Load (0.1ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.1ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (1.3ms)
+  Rendered partials/_footer.html.erb (0.2ms)
+Completed 200 OK in 220ms (Views: 209.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:43 +0100
+
+
+Started POST "/login" for 127.0.0.1 at 2016-11-22 09:57:46 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qt+r8LmWGz+Z7F8cBl6kHdCrjIHkzI5PTC7sipN1pzM=", "user"=>{"email"=>"admin@mail.com", "password"=>"[FILTERED]"}, "commit"=>"Connexion"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'admin@mail.com'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'admin@mail.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2016-11-22 08:57:46.257071"], ["sign_in_count", 2], ["updated_at", "2016-11-22 08:57:46.257940"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 225ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-11-22 09:57:46 +0100
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mApplicant Load (0.1ms)[0m  SELECT  "applicants".* FROM "applicants"   ORDER BY "applicants"."id" DESC LIMIT 5
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects"
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "alerts"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "applicants"
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes"  WHERE "votes"."id_applicant" = ?[0m  [["id_applicant", 2]]
+  [1m[35mApplicantStatus Load (0.1ms)[0m  SELECT  "applicant_statuses".* FROM "applicant_statuses"  WHERE "applicant_statuses"."id_applicant" = ? LIMIT 1  [["id_applicant", 2]]
+  [1m[36mVote Load (0.0ms)[0m  [1mSELECT "votes".* FROM "votes"  WHERE "votes"."id_applicant" = ?[0m  [["id_applicant", 1]]
+  [1m[35mApplicantStatus Load (0.0ms)[0m  SELECT  "applicant_statuses".* FROM "applicant_statuses"  WHERE "applicant_statuses"."id_applicant" = ? LIMIT 1  [["id_applicant", 1]]
+  [1m[36mApplicant Load (0.1ms)[0m  [1mSELECT "applicants".* FROM "applicants"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "applicant_statuses".* FROM "applicant_statuses"  WHERE "applicant_statuses"."id_applicant" = ? LIMIT 1  [["id_applicant", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "applicant_statuses".* FROM "applicant_statuses"  WHERE "applicant_statuses"."id_applicant" = ? LIMIT 1[0m  [["id_applicant", 2]]
+  Rendered admin/index.html.erb within layouts/_admin (71.1ms)
+  Rendered partials/_admin_header.html.erb (0.9ms)
+Completed 200 OK in 465ms (Views: 446.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/admin/application.css?body=1" for 127.0.0.1 at 2016-11-22 09:57:46 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 09:57:46 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/tinymce/preinit.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/tinymce.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started GET "/assets/datatables.js" for 127.0.0.1 at 2016-11-22 09:57:47 +0100
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2016-11-22 09:57:50 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ABDFSsqIuZ4pdkHEZ+KuxWlBwFRmh6N64QQ08M/RndY="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 144ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-22 09:57:50 +0100
+Processing by PagesController#home as HTML
+  [1m[36mActuality Load (0.1ms)[0m  [1mSELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4
+  Rendered pages/home.html.erb within layouts/application (0.7ms)
+  [1m[36mOption Load (0.1ms)[0m  [1mSELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1[0m
+  [1m[35mAlert Load (0.1ms)[0m  SELECT "alerts".* FROM "alerts"
+  Rendered partials/_header.html.erb (1.8ms)
+  Rendered partials/_footer.html.erb (0.4ms)
+Completed 200 OK in 198ms (Views: 196.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/img_4974_0.jpg" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 09:57:51 +0100
+
+
+Started GET "/login" for 127.0.0.1 at 2016-11-22 09:57:52 +0100
+Processing by SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (1.0ms)
+  [1m[36mOption Load (0.1ms)[0m  [1mSELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1[0m
+  [1m[35mAlert Load (0.1ms)[0m  SELECT "alerts".* FROM "alerts"
+  Rendered partials/_header.html.erb (1.3ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 164ms (Views: 162.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 09:57:53 +0100
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.7ms)
+  [1m[36mOption Load (0.1ms)[0m  [1mSELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1[0m
+  [1m[35mAlert Load (0.1ms)[0m  SELECT "alerts".* FROM "alerts"
+  Rendered partials/_header.html.erb (1.5ms)
+  Rendered partials/_footer.html.erb (0.2ms)
+Completed 200 OK in 173ms (Views: 172.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:01 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+
+Started GET "/password_resets/assets/favicon.ico" for 127.0.0.1 at 2016-11-22 09:58:02 +0100
+
+ActionController::RoutingError (No route matches [GET] "/password_resets/assets/favicon.ico"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.6) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/sonny-cole/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/sonny-cole/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.8ms)
+  Rendered /Users/sonny-cole/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (12.5ms)
+  Rendered /Users/sonny-cole/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (76.4ms)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AtjR4pD6MSiqz574zXbtIatagYoiJAe928iNz9A5ehE=", "email"=>"", "commit"=>"Rénitialiser le mot de passe"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = '' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+Processing by PagesController#home as HTML
+  [1m[35mActuality Load (0.1ms)[0m  SELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4[0m
+  Rendered pages/home.html.erb within layouts/application (0.2ms)
+  [1m[35mOption Load (0.1ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.1ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (1.3ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 154ms (Views: 152.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/img_4974_0.jpg" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 09:58:08 +0100
+
+
+Started GET "/login" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+Processing by SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (0.7ms)
+  [1m[35mOption Load (0.1ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.1ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (1.3ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 162ms (Views: 160.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:10 +0100
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.3ms)
+  [1m[35mOption Load (0.1ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.1ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (1.4ms)
+  Rendered partials/_footer.html.erb (0.4ms)
+Completed 200 OK in 159ms (Views: 158.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 09:58:12 +0100
+
+
+Started GET "/login" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+Processing by SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (0.7ms)
+  [1m[35mOption Load (0.1ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.1ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (1.3ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 163ms (Views: 161.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 10:12:48 +0100
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.6ms)
+  [1m[35mOption Load (0.1ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.1ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (1.3ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 157ms (Views: 156.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 10:12:49 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 10:12:50 +0100
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AtjR4pD6MSiqz574zXbtIatagYoiJAe928iNz9A5ehE=", "email"=>"", "commit"=>"Rénitialiser le mot de passe"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = '' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+Processing by PagesController#home as HTML
+  [1m[36mActuality Load (0.1ms)[0m  [1mSELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4
+  Rendered pages/home.html.erb within layouts/application (0.3ms)
+  [1m[36mOption Load (0.1ms)[0m  [1mSELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1[0m
+  [1m[35mAlert Load (0.1ms)[0m  SELECT "alerts".* FROM "alerts"
+  Rendered partials/_header.html.erb (1.3ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 154ms (Views: 153.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/img_4974_0.jpg" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 10:13:14 +0100
+
+
+Started GET "/login" for 127.0.0.1 at 2016-11-22 10:13:16 +0100
+Processing by SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (0.6ms)
+  [1m[36mOption Load (0.1ms)[0m  [1mSELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1[0m
+  [1m[35mAlert Load (0.1ms)[0m  SELECT "alerts".* FROM "alerts"
+  Rendered partials/_header.html.erb (1.5ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 163ms (Views: 161.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:17 +0100
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.7ms)
+  [1m[36mOption Load (0.1ms)[0m  [1mSELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1[0m
+  [1m[35mAlert Load (0.1ms)[0m  SELECT "alerts".* FROM "alerts"
+  Rendered partials/_header.html.erb (1.4ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 162ms (Views: 161.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 10:13:18 +0100
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.7ms)
+  [1m[36mOption Load (0.1ms)[0m  [1mSELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1[0m
+  [1m[35mAlert Load (0.1ms)[0m  SELECT "alerts".* FROM "alerts"
+  Rendered partials/_header.html.erb (1.3ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 158ms (Views: 157.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 10:14:52 +0100
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.7ms)
+  [1m[36mOption Load (0.3ms)[0m  [1mSELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1[0m
+  [1m[35mAlert Load (0.1ms)[0m  SELECT "alerts".* FROM "alerts"
+  Rendered partials/_header.html.erb (2.0ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 158ms (Views: 157.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 10:15:02 +0100
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2016-11-22 10:15:12 +0100
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.9ms)
+  [1m[36mOption Load (0.1ms)[0m  [1mSELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1[0m
+  [1m[35mAlert Load (0.1ms)[0m  SELECT "alerts".* FROM "alerts"
+  Rendered partials/_header.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 157ms (Views: 156.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 10:15:13 +0100
+
+
+Started GET "/tips" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+Processing by TipsController#index as HTML
+  [1m[36m (0.1ms)[0m  [1mSELECT DISTINCT "tips"."category" FROM "tips"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tips"
+  Rendered tips/index.html.erb within layouts/application (0.9ms)
+  [1m[36mOption Load (0.1ms)[0m  [1mSELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1[0m
+  [1m[35mAlert Load (0.1ms)[0m  SELECT "alerts".* FROM "alerts"
+  Rendered partials/_header.html.erb (1.4ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 160ms (Views: 156.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/background-7.jpg" for 127.0.0.1 at 2016-11-22 10:45:35 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-22 10:45:41 +0100
