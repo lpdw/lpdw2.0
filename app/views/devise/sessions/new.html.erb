@@ -5,6 +5,12 @@
 </section>
 <div class="connexionIns_form">
 <center>
+      
+<% if flash[:error] %>
+    <div class="alert alert-orange">L'email ou le mot de passe est incorrect</div>
+  <% elsif flash[:success] %>
+    <div class="alert alert-green">Vous êtes maintenant connecté</div>
+  <% end %>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
      <%= devise_error_messages! %>
 <div class="container first_apply edit-profil">
