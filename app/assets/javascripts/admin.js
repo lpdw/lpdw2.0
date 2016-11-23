@@ -75,8 +75,25 @@ $(document).ready(function() {
         $('#myTable').dataTable( {
             'bAutoWidth': false,
             "columnDefs": [
-                { "orderable": false, "targets": 6 }
+                { "orderable": false, "targets": 4 }
             ]
         });
     });
+
+    $(document).ready(function() {
+        var table = $('#myTable').DataTable();
+        if(table.context.length != 0){
+            var select = $('<select class="form-control"><option  value="">All</option></select>')
+                .appendTo( $('#myTable tfoot th.select').empty() )
+                .on( 'change', function () {
+                    table.column( 4 )
+                        .search( $(this).val() )
+                        .draw();
+                } );
+            table.column( 4 ).data().unique().sort().each( function ( d, j ) {
+                select.append( '<option value="'+d+'">'+d+'</option>' )
+            } );
+        }
+    } );
+
 });

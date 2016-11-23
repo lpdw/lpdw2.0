@@ -1,0 +1,49 @@
+<div class="col-sm-7">
+<%= month_calendar day_names: "date.day_names", events: @status_interview, table: {class: "table interview-table"} do |date, status_interview| %>
+  <div id="interview" class="interview">
+  <span id="title-popup" class="hidden"><%= l(date, format:"%A %d %Y") %></span>
+    <% status_interview.each do |interview| %>
+      <p class="info-interview">
+        <%= link_to(admin_v2_applicants_path(ApplicantStatus.getapplicant(interview.id_applicant)), :class=>'') do %>
+            <i class="fa fa-eye"></i> <span class="text-capitalize"><%= ApplicantStatus.getapplicant(interview.id_applicant).first_name %></span> <span class="text-uppercase"><%=  ApplicantStatus.getapplicant(interview.id_applicant).name %></span> à <%= interview.interview_date.to_time.strftime("%Hh%M") %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+  <%= date.day %>
+<% end %>
+</div>
+<div class="col-sm-5">
+<table class="table-interview">
+    <thead class="table-interview-thead">
+        <tr class="table-interview-tr">
+            <th class="table-interview-th">Prénom</th>
+            <th class="table-interview-th">Nom</th>
+            <th class="table-interview-th">Action</th>
+        </tr>
+    </thead>
+    <tbody class="table-interview-tbody">
+    <% @status_interview_nil.each do |interview_nil| %>
+    <% @applicant_not_interview = ApplicantStatus.getapplicant(interview_nil.id_applicant) %>
+        <tr class="table-interview-tr">
+            <td  class="table-interview-td" data-th="Prénom">
+            <%= @applicant_not_interview.first_name %>
+            </td>
+            <td  class="table-interview-td" data-th="Nom">
+            <%= @applicant_not_interview.name %>
+            </td>
+            <td class="table-interview-td-date" data-th="Action">
+
+                <%= form_tag({:action => 'create'}, {:method => :post,:class =>'form-inline form-create-interview'}) do |f| %>
+                    <div class="form-group">
+                        <%= text_field_tag 'interview_date', nil, class: 'form-control date-interview', id: 'date-interview' %>
+                    </div>
+                    <%= hidden_field_tag :id_applicant , interview_nil.id_applicant %>
+                    <button class="valide-date-interview" type="submit"><i class="fa fa-check"></i></button>
+                <% end %>
+            </td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+</div>

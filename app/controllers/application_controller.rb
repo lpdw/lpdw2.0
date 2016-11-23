@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    if devise_controller? || controller_name == 'admin'
+    if controller_name == 'admin'
       "_admin"
     else
       "application"
@@ -40,4 +40,6 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
- end
+    
+ 
+end

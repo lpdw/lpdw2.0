@@ -17,7 +17,7 @@
     font-family: "Roboto Condensed Light", sans-serif;
     text-transform: uppercase;
     color: white;
-    background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
+    //background: url("/assets/photo_gennevilliers_006.jpg") no-repeat center center;
     background-position-y: 30%;
     background-size: cover;
     &:before {
@@ -52,7 +52,12 @@
 }
 
 .banner-news {
-    background: url("/assets/background-3.jpg") no-repeat center center;
+    background: url("/assets/background-3.jpeg") no-repeat center center;
+    background-size: cover;
+}
+
+.banner-formation {
+    background: url("/assets/background-6.jpeg") no-repeat center center;
     background-size: cover;
 }
 
@@ -61,6 +66,15 @@
     background-size: cover;
 }
 
+.banner-projects {
+    background: url("/assets/background-5.jpeg") no-repeat center center;
+    background-size: cover;
+}
+
+.banner-tips {
+    background: url("/assets/background-7.jpg") no-repeat center center;
+    background-size: cover;   
+}
 .banner-directions {
     background: url("/assets/ESSEC_campus_cergy.jpg") no-repeat center center;
     background-size: cover;
