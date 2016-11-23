@@ -1,0 +1,401 @@
+<br />
+<%= link_to(admin_v2_applicants_path(),:class=>'button button-blue float-left') do %>
+<i class="fa fa-reply"></i><span> Retour aux dossiers</span>
+<% end %>
+
+</script>
+<br />
+<br />
+<div class="col-md-12 applicant">
+    <!-- Options administratives -->
+    <div class="row">
+        <div class="col-md-12 admin_option">
+            <div class="row">
+                <div class="col-md-12"><h2>Outils d'administration</h2></div>
+                    <div class="col-sm-5 col-md-4">
+                        <div class="panel" style="background:#F5F5F5;padding:10px;">
+                            <h4>Statut du dossier</h4>
+                        <% if @status != nil %>
+                            <% if @status.applicant_response != 1 %>
+                                <% if @status.is_refused != true %>
+                                    <!-- Bouton finit -->
+                                    <% if @status.is_finish != true %>
+                                        <%= form_for(@status, url:  applicant_finish_path, html: {class: "applicant_finish" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "1" %>
+                                        <%= f.submit "Dossier fini", :class => 'btn btn-info' %>
+                                        <%  end
+                                    else %>
+                                        <%= form_for(@status, url:  applicant_finish_path, html: {class: "applicant_finish" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "0" %>
+                                        <%= f.submit "Définir le dossier non fini", :class => 'btn btn-default' %>
+                                        <%  end %>
+                                    <%  end %>
+
+                                    <!-- Bouton complet -->
+                                    <% if @status.is_complete != 1 %>
+                                        <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "1" %>
+                                        <%= f.submit "Dossier complet, ouvrir le vote", :class => 'btn btn-info' %>
+                                    <%  end
+                                    else %>
+                                        <%= form_for(@status, url:  applicant_complete_path, html: {class: "applicant_complete" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "0" %>
+                                        <%= f.submit "Définir le dossier non complet", :class => 'btn btn-default' %>
+                                        <%  end %>
+                                    <%  end %>
+
+                                    <!-- Bouton interview -->
+                                    <% if @status.ok_for_interview != true %>
+                                        <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "1" %>
+                                        <%= f.submit "Accepter pour l'entretien", :class => 'btn btn-info' %>
+                                    <%     end
+                                    else %>
+                                        <%= form_for(@status, url:  ok_for_interview_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "0" %>
+                                        <%= f.submit "Ne plus accepter pour l'entretien", :class => 'btn btn-default' %>
+                                        <%  end %>
+                                    <%  end %>
+                    <%= form_for(@applicant, url:  send_remind_path, html: {class: "ok_for_interview" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id , :value => @applicant.id %>
+                                        <%= f.submit "Envoyer un rappel", :class => 'btn btn-default' %>
+                                        <%  end %>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-md-8">
+                        <div class="panel" style="background:#F5F5F5;padding:10px;">
+                            <h4>Résultat de l'entretien</h4>
+
+                                    <% if @status.interview_result == 1 ||  @status.interview_result == 2 ||  @status.interview_result == 3 %>
+                                    <!-- Résultat de l'entretien -->
+
+                                        <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "0" %>
+                                        <%= f.submit "Annuler mon impression", :class => 'btn btn-info' %>
+                                        <% end %>
+
+                                    <% else %>
+                                        <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "1" %>
+                                        <%= f.submit "Positif", :class => 'btn btn-success' %>
+                                        <% end %>
+
+                                        <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "2" %>
+                                        <%= f.submit "Négatif", :class => 'btn btn-danger' %>
+                                        <% end %>
+
+                                        <%= form_for(@status, url:  interview_result_path, html: {class: "interview_result" }, method: :post) do |f| %>
+                                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                        <%= f.hidden_field :set , :value => "3" %>
+                                        <%= f.submit "Etudiant absent", :class => 'btn btn-info' %>
+                                        <% end %>
+                                    <% end %>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-md-8">
+                        <div class="panel" style="background:#F5F5F5;padding:10px;">
+                            <h4>Statut définitif</h4>
+                                    <!-- Accepter l'étudiant -->
+                                    <%= form_for(@status, url:  is_accepted_path, html: {class: "is_accepted" }, method: :post) do |f| %>
+                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                    <%= f.hidden_field :set , :value => "1" %>
+                                    <%= f.submit "Accepter le dossier", :class => 'btn btn-success' %>
+                                    <% end %>
+                                    <!-- Bouton refuser -->
+                                    <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
+                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                    <%= f.hidden_field :set , :value => "1" %>
+                                    <%= f.submit "Refuser le dossier", :class => 'btn btn-danger' %>
+                                    <% end %>
+                                <% else %>
+                                    <%= form_for(@status, url:  is_refused_path, html: {class: "is_refused" }, method: :post) do |f| %>
+                                    <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                    <%= f.hidden_field :set , :value => "0" %>
+                                    <%= f.submit "Le dossier n'est plus refusé", :class => 'btn btn-success' %>
+                                    <% end %>
+                                <% end %>
+                            <% else %>
+                                <!-- Ne plus accepter l'étudiant -->
+                                <%= form_for(@status, url:  is_accepted_path, html: {class: "is_accepted" }, method: :post) do |f| %>
+                                <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                                <%= f.hidden_field :set , :value => "0" %>
+                                <%= f.submit "Retirer des dossier acceptés", :class => 'btn btn-default' %>
+                            <% end %>
+                        <% end %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            <div class="row">
+                <div class="pull-right">
+                <% if current_user.role === "admin" %>
+                    <%= form_for(@status, url:  user_destroy_path, html: {class: "destroy" }, method: :post) do |f| %>
+                        <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                        <%= f.submit "SUPPRIMER LE DOSSIER DEFINITIVEMENT", :class => 'btn btn-danger', data: {confirm: "Êtes-vous sûr de vouloir supprimer le dossier de candidature de #{@applicant.first_name} #{@applicant.name.upcase} ?"} %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>
+    <br />
+    <!-- Status pour les votants & admin -->
+    <div class="row">
+        <div class="col-md-12 admin_option">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Status du dossier</h2>
+                    <% if @status != nil %>
+                        <h3><%= status_applicant(@status) %></h3>
+                    <% else %>
+                    <span class="badge badge-red">Erreur dans la base de donnée : le dossier n'a pas de status lié</span>
+                    <% end %>
+                </div>
+                <div class="col-md-4">
+                    <h3>Avis</h3>
+                    <%
+                    @positif = 0
+                    @neutre = 0
+                    @negatif = 0
+
+                    @votes.each do |vote|
+                        if vote.value == 2
+                            @positif += 1
+                        elsif vote.value == 1
+                            @negatif += 1
+                        else
+                            @neutre += 1
+                        end
+                    end
+                    %>
+                    <span class="alert alert alert-success"><%= @positif %> avis positif(s)</span>
+                    <span class="alert alert-info"><%= @neutre %> avis neutre(s)</span>
+                    <span class="alert alert-danger"><%= @negatif %> avis négatif(s)</span>
+                    </div>
+                    <div class="col-md-4">
+                    <h3>Voter</h3>
+                    <% if @status != nil %>
+                        <% if @status.is_complete == 1
+                            if @is_voter[0] != nil %>
+                            Vous avez déjà voté
+                            <%= form_for(Vote.new(), url:  user_vote_cancel_path, html: {class: "form_vote_cancel" }) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                            <%= f.hidden_field :id_voter , :value => current_user.id %>
+                            <%= f.submit "Annuler", :class => 'button button-red' %>
+                            <%  end %>
+
+                            <%  else %>
+
+                            <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                            <%= f.hidden_field :id_voter , :value => current_user.id %>
+                            <%= f.hidden_field :value , :value => "2" %>
+                            <%= f.submit "Positif", :class => 'button button-green' %>
+                            <%  end %>
+
+                            <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                            <%= f.hidden_field :id_voter , :value => current_user.id %>
+                            <%= f.hidden_field :value , :value => "0" %>
+                            <%= f.submit "Neutre", :class => 'button button-yellow' %>
+                            <%  end %>
+
+                            <%= form_for(Vote.new(), url:  user_vote_path, html: {class: "form_vote" }) do |f| %>
+                            <%= f.hidden_field :id_applicant , :value => @applicant.id %>
+                            <%= f.hidden_field :id_voter , :value => current_user.id %>
+                            <%= f.hidden_field :value , :value => "1" %>
+                            <%= f.submit "Négatif", :class => 'button button-red' %>
+                            <%  end %>
+
+                            <%  end
+                        else %>
+                        Le dossier n'est pas encore complet ou n'a pas encore été validé par l'administrateur.
+                        <% end %>
+                        <%end %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="col-md-12">
+        <h1><%= @applicant.name %> <%= @applicant.first_name %></h1>
+        <p>Dossier mis à jour le <%=  @applicant.updated_at.to_time.strftime("%d/%m/%Y") %> </p>
+    </div>
+    <div class="col-md-6">
+        <h3>Informations personnelles</h3>
+        <p><span class="applicant-label">Adresse : </span>
+            <%= @applicant.address %>, <%= @applicant.zip_code %> <%= @applicant.city %>
+        </p>
+        <p><span class="applicant-label">Téléphone fixe: </span>
+            <%= @applicant.home_phone %>
+        </p>
+        <p><span class="applicant-label">Téléphone portable: </span>
+            <%= @applicant.private_phone %>
+        </p>
+         <p><span class="applicant-label">email: </span>
+            <%= @applicant.email %>
+        </p>
+        <p><span class="applicant-label">Né le: </span>
+            <%= @applicant.birth.to_time.strftime("%m/%d/%Y") %> à <%= @applicant.birth_place %>
+        </p>
+        <p><span class="applicant-label">Nationalité: </span>
+            <%= @applicant.nationality %>
+        </p>
+        <p><span class="applicant-label">Sécurité sociale: </span>
+            <%= @applicant.assurance %>
+        </p>
+        <p><span class="applicant-label">Candidat est célibataire : </span>
+            <% if @applicant.status === false%>
+            non
+            <% else %>
+            oui
+            <% end %>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <h3>Informations générales</h3>
+        <p><span class="applicant-label">Année</span>
+            <%= @applicant.school_year %>
+        </p>
+        <p><span class="applicant-label">Connaissait-il des gens dans la licence ? </span>
+          <% if @applicant.has_connection === false %>
+              non
+          <% else %>
+              oui
+          <% end %>
+        </p>
+        <p><span class="applicant-label">Connaissait-il des personnes dans son entourage travaillant dans domaine multimédia ? </span>
+          <% if @applicant.connection_desc === false %>
+              non
+          <% else %>
+              oui
+          <% end %>
+        </p>
+        <p><span class="applicant-label">Comment a-t-il connu la formation :</span>
+            <%= @applicant.know_formation %>
+        </p>
+        <p><span class="applicant-label">Niveau d'anglais (sur une échelle de 1 à 5): </span>
+            <%= @applicant.english_skill %>
+        </p>
+        <p><span class="applicant-label">Autres langues connues :</span>
+            <%= @applicant.other_language %>
+        </p>
+        <p><span class="applicant-label">Activités extra-scolaires :</span>
+            <%= @applicant.after_school %>
+        </p>
+    </div>
+    <br />
+    <div class="col-md-12">
+        <h3>Cursus</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Formation</th>
+                    <th>Année</th>
+                    <th>Option</th>
+                    <th>Résultat</th>
+                    <th>Ville</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @cursus.each do |cursus| %>
+            <tr>
+                <td><%= cursus.graduation %></td>
+                <td><%= cursus.year %></td>
+                <td><%= cursus.option %></td>
+                <td ><%= cursus.result %></td>
+                <td><%= cursus.place %></td>
+            </tr>
+            <% end %>
+            </tbody>
+        </table>
+
+        <h3>Expériences professionnelles</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Année</th>
+                <th>Entreprise</th>
+                <th>Rôle</th>
+                <th>Compétences utilisées</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @experience.each do |experience| %>
+            <tr>
+                <td><%= experience.year %></td>
+                <td><%= experience.company %></td>
+                <td><%= experience.role %></td>
+                <td><%= experience.skill %></td>
+            </tr>
+            <% end %>
+            </tbody>
+        </table>
+
+        <h3>Projets réalisés</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Année</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @projects.each do |project| %>
+            <tr>
+                <td><%= project.year %></td>
+                <td><%= project.project_type %></td>
+                <td><%= project.content %></td>
+            </tr>
+            <% end %>
+            </tbody>
+        </table>
+
+        <h3>Candidatures pour les autres écoles</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Ecole</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @application.each do |application| %>
+            <tr>
+                <td ><%= application.content %></td>
+            </tr>
+            <% end %>
+            </tbody>
+        </table>
+        <br />
+        <div class="attachments">
+            <h3>Pièces jointes au dossier</h3>
+            <% @attachements.each do |attachement|
+
+                @file = attachement.file.url;
+
+                if attachement.file_content_type.to_s == "image/jpeg" || attachement.file_content_type.to_s == "image/png"
+                    @file_content_printed = "<p>" + attachement.name + "</p><img src='" + @file  + "' /></a>"
+                elsif attachement.file_content_type.to_s == "application/pdf"
+
+                    @file_content_printed = "<p>" + attachement.name + "<br />(format PDF)</p>"
+                else
+                    @file_content_printed = "<p>" + attachement.name + "</p>"
+                end
+            %>
+                <a href="<%= @file %>" target="_blank"><%= @file_content_printed.html_safe %></a>
+            <% end %>
+        </div>
+    </div>
+</div>

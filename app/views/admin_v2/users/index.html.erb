@@ -3,28 +3,41 @@
 <%= link_to(new_admin_v2_user_path, :class => 'button button-blue float-right') do %>
     <span>Créer un utilisateur</span> <i class="fa fa-user"></i>
 <% end %>
-<table class="table">
+<button class="btn btn-default" id="btn-export" ><span class="glyphicon glyphicon-export"></span> Exporter </button>
+<table class="table" id="myTable">
   <thead>
   <tr>
-    <th>ID</th>
+    <th >ID</th>
     <th>Email</th>
     <th>Prénom</th>
     <th>Nom</th>
     <th>Rôle</th>
-    <th>Action</th>
+    <th class="action">Action</th>
   </tr>
   </thead>
+
+  <tfoot>
+  <tr class="action">
+    <th class="select-filter">ID</th>
+    <th>Email</th>
+    <th>Prénom</th>
+    <th>Nom</th>
+    <th class="select" >Rôle</th>
+    <th>Action</th>
+  </tr>
+  </tfoot>
+
   <tbody>
   <% @users.each do |user| %>
       <tr>
-        <td data-th="ID"><%= user.id %></td>
+        <td data-th="ID" ><%= user.id %></td>
         <td data-th="Email"><%= user.email %></td>
         <td data-th="Prénom"><%= user.name %></td>
         <td data-th="Nom"><%= user.lastname %></td>
         <td data-th="Rôle"><%= user.role %></td>
-        <td data-th="Action">
+        <td data-th="Action" class="action">
           <%= link_to(edit_admin_v2_user_path(user)) do %>
-              <i class="fa fa-pencil"></i> Modifier
+              <i class="fa fa-pencil" ></i> Modifier
           <% end %>
           <%= link_to(admin_v2_user_path(user), method: :delete, data: {confirm: "Êtes-vous sûr de vouloir supprimer cet utilisateur '#{user.email}' ?"}, class: 'button button-red user-delete') do %>
               <i class="fa fa-trash-o"></i> Supprimer
@@ -50,3 +63,4 @@
   <% end %>
   </tbody>
 </table>
+<input  type="checkbox" class="customRadioButton" name="role" value="1">
