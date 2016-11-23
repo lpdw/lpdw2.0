@@ -24036,3 +24036,188 @@ Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 12
 
 
 Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-22 15:20:55 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-23 18:21:39 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  [1m[35mActuality Load (0.1ms)[0m  SELECT  "actualities".* FROM "actualities"   ORDER BY "actualities"."id" DESC LIMIT 3
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:Project> at /Users/leamariette/Documents/LEA/lpdw2.0/app/models/project.rb:2)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" DESC LIMIT 4[0m
+  Rendered pages/home.html.erb within layouts/application (3.0ms)
+  [1m[35mOption Load (0.1ms)[0m  SELECT  "options".* FROM "options"  WHERE "options"."key" = 'setting_route_apply' LIMIT 1
+  [1m[36mAlert Load (0.1ms)[0m  [1mSELECT "alerts".* FROM "alerts"[0m
+  Rendered partials/_header.html.erb (22.4ms)
+  Rendered partials/_footer.html.erb (0.7ms)
+Completed 200 OK in 2274ms (Views: 2244.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/modernizr.custom.js" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Light-webfont.woff" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/parsley.min.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/nested_form_fields.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/Roboto/Condensed/RobotoCondensed-Bold-webfont.woff" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/img_4974_0.jpg" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:41 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/jquery.nicescroll.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/apply.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/compagnies.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/datatables.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/grid.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/jquery.table2excel.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/export.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/konami.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/tipcategories.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/modernizr.custom.js?body=1" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+
+Started GET "/assets/upload/projects/thumbmails/refonte-site-web-internet.png?1479809154" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
+
+ActionController::RoutingError (No route matches [GET] "/upload/projects/thumbmails/refonte-site-web-internet.png"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.6) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.6) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/leamariette/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/leamariette/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (9.3ms)
+  Rendered /Users/leamariette/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.1ms)
+  Rendered /Users/leamariette/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (98.3ms)
+
+
+Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2016-11-23 18:21:42 +0100
