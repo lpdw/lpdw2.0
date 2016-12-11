@@ -76,9 +76,31 @@ $(document).ready(function() {
             'bAutoWidth': false,
             "columnDefs": [
                 { "orderable": false, "targets": 4 }
-            ]
+            ],
+         dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf'        ]
+            });
+    });
+
+    $(document).ready( function () {
+        $('.myTable').dataTable( {
+            'bAutoWidth': false,
+            "columnDefs": [
+                { "orderable": false, "targets": 4 }
+          ],
+	    dom: 'Bfrtip',
+            buttons: [
+        	'excel', 'pdf'  
+   	    ]
         });
     });
+
+    $(document).ready( function () {
+        $('.buttons-pdf').children().replaceWith('<img src="https://acrobat.adobe.com/etc/clientlibs/beagle/ace/reimagine/source/img/doccloud/product-icon-acrobat.svg" alt="pdf" width="40px" />');
+ 	$('.buttons-excel').children().replaceWith('<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/cf/Logo_Microsoft_Excel_2013.png/96px-Logo_Microsoft_Excel_2013.png" alt="pdf" width="40px" />');
+    });
+
 
     $(document).ready(function() {
         var table = $('#myTable').DataTable();
