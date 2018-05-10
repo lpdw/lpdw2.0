@@ -18,8 +18,8 @@ Le site de la LP-DW présente la formation “Licence Professionelle Developpeur
 
 ----------
 
+### Installation
 
-###Installation
 L’installation de MySQL et HomeBrew sur Mac est indispensable.
 efstest
 **1)** Il faut préalablement **[forker](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository) le dépôt sur ton compte**.
