@@ -3,9 +3,8 @@ before_action :authenticate_user!, :is_admin
 
   def index
     @title_admin = "Candidatures"
-    @year = year_params || Time.now.year
-    @applicants = Applicant.by_year(@year)
-
+    @year        = year_params || Time.now.year
+    @applicants  = Applicant.by_year(@year)
   end
 
   def show
