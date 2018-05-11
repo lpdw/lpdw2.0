@@ -18,7 +18,7 @@
         <tr>
             <td data-th="ID" ><%= index %></td>
             <td data-th="Titre" ><%= actuality.title %></td>
-            <td data-th="Auteur" ><%= actuality.user.name %></td>
+            <td data-th="Auteur" ><%= actuality.user.name unless actuality.user.nil? %></td>
             <td data-th="Date de création" ><%= actuality.created_at.to_time.strftime("%m/%d/%Y") %></td>
             <td data-th="Action" >
                 <%= link_to(edit_admin_v2_actuality_path(actuality)) do %>
