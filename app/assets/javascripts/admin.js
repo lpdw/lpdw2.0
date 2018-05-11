@@ -73,6 +73,7 @@ $(document).ready(function() {
 
     $(document).ready( function () {
         $('#myTable').dataTable( {
+            "pageLength": 100,
             'bAutoWidth': false,
             "columnDefs": [
                 { "orderable": false, "targets": 4 }
@@ -85,6 +86,7 @@ $(document).ready(function() {
 
     $(document).ready( function () {
         $('.myTable').dataTable( {
+            "pageLength": 100,
             'bAutoWidth': false,
             "columnDefs": [
                 { "orderable": false, "targets": 4 }
@@ -103,7 +105,7 @@ $(document).ready(function() {
 
 
     $(document).ready(function() {
-        var table = $('#myTable').DataTable();
+        var table = $('#myTable').DataTable({ "pageLength": 100 });
         if(table.context.length != 0){
             var select = $('<select class="form-control"><option  value="">All</option></select>')
                 .appendTo( $('#myTable tfoot th.select').empty() )
