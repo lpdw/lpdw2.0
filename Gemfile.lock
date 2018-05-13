@@ -106,7 +106,7 @@ GEM
     momentjs-rails (2.20.1)
       railties (>= 3.1)
     multi_json (1.13.1)
-    mysql2 (0.5.1)
+    mysql2 (0.3.21)
     nested_form_fields (0.8.2)
       coffee-rails (>= 3.2.1)
       jquery-rails
@@ -244,7 +244,7 @@ DEPENDENCIES
   jquery-turbolinks
   mailcatcher
   momentjs-rails (>= 2.8.1)
-  mysql2
+  mysql2 (~> 0.3.18)
   nested_form_fields
   nicescroll-rails
   paperclip
