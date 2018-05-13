@@ -32375,3 +32375,4 @@ Started GET "/assets/u-cergy.jpg" for 127.0.0.1 at 2018-05-13 14:36:40 +0200
 Started GET "/assets/background-2.jpeg" for 127.0.0.1 at 2018-05-13 14:36:40 +0200
 No valid API key has been set, notifications will not be sent
 DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Applications/MAMP/htdocs/lpdw2.0/app/models/user.rb:48)
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Applications/MAMP/htdocs/lpdw2.0/app/models/user.rb:48)
