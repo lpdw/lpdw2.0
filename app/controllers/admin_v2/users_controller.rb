@@ -52,6 +52,6 @@ class AdminV2::UsersController < AdminV2Controller
     end
 
     params.require(:user).permit(:email, :password, :password_confirmation, :role, :name,
-                                 :lastname, :twitter, :description, :photo, :linkin)
+                                 :lastname, :twitter, :description, :photo, :linkin, :profile_picture)
   end
 end

@@ -29,7 +29,7 @@
                         <li><%= link_to root_path(), :class=>'first' do %><i class="fa fa-reply"></i> Retour au site <% end %> </li>
                         <li class="<%= is_active?(admin_v2_admin_index_path()) %>"><%= link_to admin_v2_admin_index_path() do %><i class="fa fa-home"></i> Accueil <% end %> </li>
                         <% if current_user.role === "intervenant" %>
-                            <li class="<%= is_active?(admin_edit_user_path(current_user.id)) %>"><%= link_to(admin_edit_user_path(current_user.id)) do %><i class="fa fa-pencil"></i> Mon profil<% end %></li>
+                            <li class="<%= is_active?(edit_admin_v2_user_path(current_user.id)) %>"><%= link_to(edit_admin_v2_user_path(current_user.id)) do %><i class="fa fa-pencil"></i> Mon profil<% end %></li>
                         <% end %>
                         <li class="<%= is_active?(admin_v2_applicants_path()) %>"><%= link_to admin_v2_applicants_path() do %> <i class="fa fa-mortar-board"> </i>Candidatures<% end %></li>
                         <li class="<%= is_active?(admin_v2_actualities_path()) %>"><%= link_to admin_v2_actualities_path() do %><i class="fa fa-newspaper-o"></i> Actualités <% end %></li>

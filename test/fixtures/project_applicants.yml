@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: project_applicants
+#
+#  id           :integer          not null, primary key
+#  id_applicant :integer
+#  project_type :string(255)
+#  year         :integer
+#  content      :text
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined.  If you add columns to the
