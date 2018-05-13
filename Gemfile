@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
+gem "slim-rails"                                            # Slim                                  https://github.com/slim-template/slim-rails
 # Use postgresql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -87,4 +88,5 @@ end
 
 group :development do
   gem 'byebug'
+  gem 'annotate'                                           # Annotate                              https://github.com/ctran/annotate_models
 end

@@ -1,0 +1,34 @@
+= form_for([:admin_v2, @user], html: { class: "form", multipart: true }) do |f|
+  .form-group
+    .col-sm-10
+      = f.email_field :email, autofocus: true , :class => 'input' ,:placeholder=>"Adresse email"
+  .form-group
+    .col-sm-10
+      = f.text_field :name, :class => 'input' ,:placeholder=>"Prénom"
+  .form-group
+    .col-sm-10
+      = f.text_field :lastname, :class => 'input' ,:placeholder=>"Nom"
+  .form-group
+    .col-sm-10
+      = f.password_field :password, autocomplete: "off", :class => 'input' ,:placeholder=>"Mot de passe"
+  .form-group
+    .col-sm-10
+      = f.password_field :password_confirmation, autocomplete: "off" , :class => 'input' ,:placeholder=>"Confirmation mot de passe"
+  .form-group
+    .col-sm-10
+      = f.text_field :description, :class => 'input' ,:placeholder=>"Description"
+  .form-group
+    .col-sm-10
+      = f.text_field :twitter, :class => 'input' ,:placeholder=>"Compte twitter"
+  .form-group
+    .col-sm-10
+      = f.text_field :linkin, :class => 'input' ,:placeholder=>"Compte LinkedIn"
+
+  .form-group
+    .col-sm-10 = f.file_field :profile_picture, class: 'input'
+
+  .form-group
+    .col-sm-10 = f.collection_select :role, User::ROLES, :to_s, :humanize
+  .form-group
+    .col-sm-10
+      = f.submit "Valider", :class => 'input-btn'

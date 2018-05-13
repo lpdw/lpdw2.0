@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: applicant_attachments
+#
+#  id                :integer          not null, primary key
+#  name              :string(255)
+#  file_file_name    :string(255)
+#  file_content_type :string(255)
+#  file_file_size    :integer
+#  file_updated_at   :datetime
+#  id_applicant      :integer
+#
+
 class ApplicantAttachment < ActiveRecord::Base
 
   belongs_to :applicant
