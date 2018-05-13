@@ -36,6 +36,8 @@ GEM
       sass (~> 3.2)
     bootstrap3-datetimepicker-rails (4.7.14)
       momentjs-rails (>= 2.8.1)
+    bugsnag (6.7.2)
+      concurrent-ruby (~> 1.0)
     builder (3.2.3)
     byebug (10.0.2)
     cancan (1.6.10)
@@ -227,6 +229,7 @@ DEPENDENCIES
   annotate
   bootstrap-sass (~> 3.2.0.2)
   bootstrap3-datetimepicker-rails (~> 4.7.14)
+  bugsnag
   byebug
   cancan
   coffee-rails (~> 4.0.0)
