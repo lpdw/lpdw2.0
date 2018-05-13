@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 gem "slim-rails"                                            # Slim                                  https://github.com/slim-template/slim-rails
 # Use postgresql as the database for Active Record
-gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -80,6 +79,7 @@ gem "simple_calendar", "~> 1.1.0"
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 gem 'dotenv-rails'
+gem 'bugsnag'
 
 group :development, :test do
   gem 'sqlite3'
@@ -89,4 +89,8 @@ end
 group :development do
   gem 'byebug'
   gem 'annotate'                                           # Annotate                              https://github.com/ctran/annotate_models
+end
+
+group :production do
+  gem 'mysql2', '~> 0.3.18'
 end
